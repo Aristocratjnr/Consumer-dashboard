@@ -171,7 +171,7 @@
           const isCompleted = index < 2; // Mark steps 1 and 2 as completed
           const outerCircleClass = isCompleted
             ? "border-teal-1000"
-            : "border-gray-300";
+            : "border-teal-1000";
           const innerCircleClass = isCompleted
             ? "bg-teal-1000 text-white"
             : "bg-gray-200 text-gray-400";

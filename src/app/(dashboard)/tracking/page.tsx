@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Bell, Home, Calendar, Search, Settings, LogOut, Package, MapPin, Phone, Briefcase, User, ChevronRight } from 'lucide-react';
+import { Bell, Home, Calendar, Search, Settings, LogOut, Package, MapPin, Phone, Briefcase, User, ChevronRight, Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -178,23 +178,22 @@ export default function TrackingPage() {
                 </Badge>
               </div>
 
-              {/* Progress Steps */}
-              <div className="mb-8">
-                <div className="flex justify-between mb-2">
-                  {['Pick Up', 'In Process', 'On Transit', 'On Delivery', 'Delivered'].map((step, index) => (
-                    <div key={index} className="flex flex-col items-center">
-                      <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mb-2">
-                        <div className="w-3 h-3 rounded-full bg-green-500" />
-                      </div>
-                      <div className="text-sm font-medium">{step}</div>
-                      <div className="text-xs text-gray-500">06/07/2024</div>
-                    </div>
-                  ))}
-                </div>
-                <div className="relative h-2 bg-gray-100 rounded">
-                  <div className="absolute left-0 top-0 h-full w-full bg-green-500 rounded" />
-                </div>
-              </div>
+                   {/* Progress Steps */}
+<div className="mb-8">
+  <div className="relative flex justify-between mb-6">
+    {['Pick Up', 'In Process', 'On Transit', 'On Delivery', 'Delivered'].map((step, index) => (
+      <div key={index} className="flex flex-col items-center relative z-10">
+        <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center mb-2">
+          <Check className="w-6 h-6 text-white" />
+        </div>
+        <div className="text-sm font-medium text-gray-900">{step}</div>
+        <div className="text-xs text-gray-500 mt-1">06/07/2024</div>
+      </div>
+    ))}
+    {/* Progress line */}
+    <div className="absolute top-5 left-0 right-0 h-[2px] bg-green-500 -z-0" style={{ width: '100%', transform: 'translateY(-50%)' }} />
+  </div>
+</div>
 
               {/* Order Information */}
               <div className="grid grid-cols-3 gap-6 mb-8">
