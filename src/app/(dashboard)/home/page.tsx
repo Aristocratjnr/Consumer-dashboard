@@ -44,13 +44,13 @@
           <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-6 py-4 shadow-md" >
             <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
               <div className="flex items-center space-x-8">
-                <div className="flex items-center mb-8">
+                <div className="flex items-center space-x-1">
                   <img src="/images/logo.png" alt="Tulaundry Logo" className="h-8 -mr-0.5" />
                   <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
                 </div>
                 <nav className="flex items-center space-x-6">
                 <button className="flex items-center space-x-2">
-                <span className="bg-teal-100 hover:bg-teal-200 rounded-full p-2 transition-colors">
+                <span className="bg-blue-300 hover:bg-teal-200 rounded-full p-2 transition-colors">
                   <Home className="h-5 w-5 text-teal-1000" />
                 </span>
                 <span className="font-bold">Home</span>
@@ -210,7 +210,7 @@
 
       <div className="flex flex-col items-center text-center">
         <p className="text-gray-800 font-semi-bold text-base mb-2">
-          You're almost there!
+          You're almost there🎯!
         </p>
         <p className="text-gray-600 text-sm leading-relaxed">
           You've booked 2 times  so far—just{" "}
