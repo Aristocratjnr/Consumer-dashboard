@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Jeju+Hallasan&display=swap');
+
+/* Add global styles */
+body {
+  font-family: 'Jeju Hallasan', sans-serif; /* Default font for the entire app */
+}
+
+button {
+  font-family: 'Jeju Hallasan', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

@@ -103,6 +103,7 @@
                           <User className="inline-block w-4 h-4 mr-2 text-gray-500" />
                           Profile
                         </Link>
+                        <Link href="/(auth)/sign-in" passHref>
                         <button
                           className="block w-full text-left px-4 py-2 text-sm text-red-700 hover:bg-red-50"
                           onClick={() => console.log("Logging out...")}
@@ -110,6 +111,7 @@
                           <LogOut className="inline-block w-4 h-4 mr-2 text-red-500" />
                           Log Out
                         </button>
+                        </Link>
                       </div>
                     )}
                   </div>
