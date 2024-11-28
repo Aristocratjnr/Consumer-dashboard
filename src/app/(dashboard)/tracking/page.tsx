@@ -170,8 +170,8 @@
                 <div className="bg-white rounded-lg shadow-sm p-6">
                 <div className="flex justify-between items-center mb-6">
                     <div>
-                    <div className="text-sm text-gray-500">Order ID:</div>
-                    <div className="text-lg font-semibold">#26683TL</div>
+                    <div className="text-sm font-bold">Order ID:</div>
+                    <div className="text-sm font-semi-bold  text-gray-500">#26683TL</div>
                     </div>
                     <Badge className="bg-white text-customGreen hover:bg-green-100 border border-customGreen rounded-2xl inline-block">
                     Completed
