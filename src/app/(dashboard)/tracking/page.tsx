@@ -183,7 +183,7 @@ export default function TrackingPage() {
   <div className="relative flex justify-between mb-6">
     {['Pick Up', 'In Process', 'On Transit', 'On Delivery', 'Delivered'].map((step, index) => (
       <div key={index} className="flex flex-col items-center relative z-10">
-        <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center mb-2">
+        <div className="w-8 h-8 rounded-full bg-customGreen flex items-center justify-center mb-2">
           <Check className="w-6 h-6 text-white" />
         </div>
         <div className="text-sm font-medium text-gray-900">{step}</div>
@@ -191,7 +191,7 @@ export default function TrackingPage() {
       </div>
     ))}
     {/* Progress line */}
-    <div className="absolute top-5 left-0 right-0 h-[2px] bg-green-500 -z-0" style={{ width: '100%', transform: 'translateY(-50%)' }} />
+    <div className="absolute top-5 left-0 right-0 h-[1px] bg-customGreen -z-0" style={{ width: '100%', transform: 'translateY(-30%)' }} />
   </div>
 </div>
 
