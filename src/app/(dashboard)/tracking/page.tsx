@@ -150,8 +150,8 @@ export default function TrackingPage() {
                             variant={item.status === 'Completed' ? 'default' : 'secondary'}
                             className={
                               item.status === 'Completed' 
-                                ? 'bg-white text-customGreen hover:bg-green-100 border border-customGreen rounded-2xl  inline-block' 
-                                : 'bg-blue-100 text-blue-800 hover:bg-blue-100'
+                                ? 'bg-white text-customGreen hover:bg-green-100 border border-customGreen rounded-2xl inline-block' 
+                                : 'bg-white text-teal-1000 hover:bg-blue-100 border-teal-1000 rounded-2xl inline-block'
                             }
                           >
                             {item.status}
