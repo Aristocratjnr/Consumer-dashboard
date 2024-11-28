@@ -1,7 +1,7 @@
     "use client"
     import React, { useState } from 'react';
     import Link from 'next/link';
-    import { Bell, Home, Settings, Search, Calendar, Package, LogOut, Mail, Phone, HelpCircle, ChevronRight,User } from 'lucide-react';
+    import { Bell, Home, Settings, Search, Calendar, Package, LogOut, Mail, Phone, HelpCircle, ChevronRight, User, MapPin } from 'lucide-react';
 
     export default function Dashboard() {
       const [isNotificationOpen, setIsNotificationOpen] = useState(false);
@@ -87,7 +87,7 @@
                   <img
                     src="/images/woman.png"
                     alt="Profile"
-                    className="h-8 w-8 rounded-full ring-2 ring-teal-300"
+                    className="h-8 w-8 rounded-full ring-2 ring-teal-800"
                   />
                   <div className="flex flex-col">
                     <span className="text-sm font-bold">Sandra</span>
@@ -125,7 +125,8 @@
                   { icon: Home, label: 'Home', active: true },
                   { icon: Package, label: 'Services' , href: '/src/app/(dashboard)/settings/page.tsx' },
                   { icon: Calendar, label: 'Calendar', href: '' },
-                  { icon: Mail, label: 'Booking', href:'' }
+                  { icon: Mail, label: 'Booking', href:'' },
+                  { icon: MapPin, label: 'Traking', href:'' }
                 ].map((item, index) => (
                   <button
                     key={index}
@@ -213,8 +214,8 @@
         <p className="text-gray-600 text-sm leading-relaxed">
           You've booked 2 times  so far—just{" "}
           <span>3 more bookings</span> to unlock{" "}
-          <span className="font-bold text-teal-1000">25 loyalty points</span> and enjoy a{" "}
-          <span className="font-bold text-teal-1000">25% discount</span> on your next order.
+          <span className="font-semi-bold text-teal-1000">25 loyalty points</span> and enjoy a{" "}
+          <span className="font-semi-bold text-teal-1000">25% discount</span> on your next order.
         </p>
         <p className="text-gray-600 text-sm mt-2">
           Keep going, your reward is within reach.
@@ -261,7 +262,7 @@
     <div className="mb-8">
       <div className="flex items-center mb-6">
         <h3 className="text-base font-semibold text-teal-1000 mb-4">Contact Options</h3>
-        <span className="text-sm text-gray-600 font-semi-bold ml-auto">CM 309678</span>
+        <span className="text-sm text-teal-1000 font-semi-bold ml-auto">CM 309678</span>
       </div>
       <div className="border-b-2 border-dotted border-teal mb-4"></div>
       <div className="space-y-4">
@@ -281,7 +282,7 @@
             <div className="bg-white p-3 rounded-full shadow-md">
               <Mail className="h-6 w-6 text-teal-1000" />
             </div>
-            <span className="text-sm font-semi-bold text-teal-1000">Email Support</span>
+            <span className="text-sm font-semi-bold text-teal-1000 w-1">Email Support</span>
           </div>
           <span className="text-sm text-gray-700 font-semi-bold">tulaundry@gmail.com</span>
         </div>
