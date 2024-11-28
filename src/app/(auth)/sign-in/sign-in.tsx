@@ -42,7 +42,7 @@ export default function SignIn() {
             <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
             <Button
                 variant="outline"
-                className="flex-1 h-10 text-gray-700 font-medium border-gray-300"
+                className="flex-1 h-10 text-gray-500 font-medium border-customGray"
             >
                 {/* Google Image */}
                 <div className="mr-2 h-5 w-5 md:h-6 md:w-6">
@@ -58,7 +58,7 @@ export default function SignIn() {
             </Button>
             <Button
                 variant="outline"
-                className="flex-1 h-10 text-gray-700 font-medium border-gray-300"
+                className="flex-1 h-10 text-gray-500 font-medium border-customGray"
             >
                 {/* Apple Image */}
                 <div className="mr-2 h-5 w-5 md:h-6 md:w-6">

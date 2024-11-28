@@ -11,6 +11,7 @@ export default {
   theme: {
   	extend: {
   		colors: {
+			customGray:	'#D9D9D9',
 			customGreen: '#40AC0E',
   			teal: {
 				'20': '#A1DEF742',

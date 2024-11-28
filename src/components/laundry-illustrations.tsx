@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function LaundryIllustrations() {
   return (
-    <div className="relative h-full w-full bg-gray-100 rounded-l-3xl overflow-hidden">
+    <div className="relative h-full w-full bg-customGray rounded-l-3xl overflow-hidden">
       {/* Main Container with Padding */}
       <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-8">
         {/* Top Image */}
