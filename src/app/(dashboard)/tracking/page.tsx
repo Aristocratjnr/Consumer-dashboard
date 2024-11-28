@@ -8,6 +8,7 @@
         import { Card, CardContent } from "@/components/ui/card";
         import { ScrollArea } from "@/components/ui/scroll-area";
         import { Badge } from "@/components/ui/badge"; 
+        import { useState } from "react";
 
         interface TrackingItem {
         id: string;
@@ -41,6 +42,12 @@
         ];
 
         export default function TrackingPage() {
+            const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+
+          const toggleProfileDropdown = () => {
+            setIsProfileDropdownOpen(!isProfileDropdownOpen);
+          };
+
         return (
             <div className="flex min-h-screen bg-teal-20">
             {/* Sidebar */}
@@ -107,19 +114,42 @@
                     <Button variant="ghost" size="icon">
                         <Settings className="h-5 w-5" />
                     </Button>
-                    <div className="flex items-center space-x-2">
-                        <img
-                        alt="Avatar"
-                        className="rounded-full"
-                        height="32"
+                   {/* Profile Section */}
+              <div className="relative">
+                    <button
+                      onClick={toggleProfileDropdown}
+                      className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-teal-800 px-2 py-1 rounded-full"
+                    >
+                      <img
                         src="/images/woman.png"
-                        style={{ aspectRatio: "32/32", objectFit: "cover" }}
-                        width="32"
-                        />
-                        <div>
-                        <div className="text-sm font-medium">Mawupemor</div>
-                        <div className="text-xs text-gray-500">Premium</div>
-                        </div>
+                        alt="Profile"
+                        className="h-8 w-8 rounded-full ring-2 ring-teal-800"
+                      />
+                      <div className="flex flex-col">
+                        <span className="text-sm font-semi-bold">Sandra</span>
+                        <span className="text-xs text-gray-700">77884466</span>
+                      </div>
+                    </button>
+                    {isProfileDropdownOpen && (
+                      <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 z-50">
+                        <Link
+                          href="/profile"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          <User className="inline-block w-4 h-4 mr-2 text-gray-500" />
+                          Profile
+                        </Link>
+                        <Link href="/(auth)/sign-in" passHref>
+                        <button
+                          className="block w-full text-left px-4 py-2 text-sm text-red-700 hover:bg-red-50"
+                          onClick={() => console.log("Logging out...")}
+                        >
+                          <LogOut className="inline-block w-4 h-4 mr-2 text-red-500" />
+                          Log Out
+                        </button>
+                        </Link>
+                      </div>
+                    )}
                     </div>
                     </div>
                 </div>
