@@ -150,7 +150,7 @@ export default function TrackingPage() {
                             variant={item.status === 'Completed' ? 'default' : 'secondary'}
                             className={
                               item.status === 'Completed' 
-                                ? 'bg-green-100 text-green-800 hover:bg-green-100' 
+                                ? 'bg-white text-customGreen hover:bg-green-100 border border-customGreen rounded-2xl  inline-block' 
                                 : 'bg-blue-100 text-blue-800 hover:bg-blue-100'
                             }
                           >
@@ -288,7 +288,7 @@ export default function TrackingPage() {
               </div>
 
               {/* Courier Information */}
-              <div className="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+              <div className="flex items-center justify-between bg-white p-4 rounded-lg">
                 <div className="flex items-center space-x-4">
                   <img
                     alt="Courier"
@@ -299,14 +299,15 @@ export default function TrackingPage() {
                     width="40"
                   />
                   <div>
-                    <div className="font-medium">Andrew Erata</div>
-                    <div className="text-sm text-gray-500">Courier</div>
+                    <div className="font-medium  text-gray-500">Andrew Erata</div>
+                    <div className="text-sm">Courier</div>
                   </div>
                 </div>
-                <Button className="bg-green-500 hover:bg-green-600 text-white">
-                  <Phone className="h-4 w-4 mr-2" />
-                  Contact
-                </Button>
+                <img 
+            src="/images/call.png" 
+            alt="Phone icon" 
+            className=" text-white h-6 w-6 mr-2"
+            />
               </div>
             </div>
           </div>
