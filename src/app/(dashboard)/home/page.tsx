@@ -137,7 +137,7 @@
                   }`}
                 >
                   <item.icon className="h-5 w-5" />
-                  <span className="font-medium">{item.label}</span>
+                  <span className="font-semi-bold">{item.label}</span>
                 </button>
               </Link>
             ))}
@@ -245,11 +245,16 @@
                           ))}
                         </ul>
                         <button
-                          className={`w-full mt-6 py-2.5 rounded-lg font-medium transition-colors ${pkg.status === 'used' ? 'bg-gray-100 text-gray-600 cursor-not-allowed' : 'bg-teal text-white hover:bg-teal-500'}`}
-                          disabled={pkg.status === 'used'}
-                        >
-                          {pkg.status === 'used' ? 'Used' : 'Use Again'}
-                        </button>
+                    className={`w-45 mt-6 py-1.5 px-4 rounded-full font-medium text-sm transition-colors ${
+                      pkg.status === 'used'
+                        ? 'bg-gray-100 text-gray-600 cursor-not-allowed'
+                        : 'bg-teal text-white hover:bg-teal-500'
+                    }`}
+                    disabled={pkg.status === 'used'}
+                  >
+                    {pkg.status === 'used' ? 'Used' : 'Use Again'}
+                  </button>
+
                       </div>
                     ))}
                   </div>
