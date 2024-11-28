@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from "react";
+import Link from "next/link";
 import { Bell, Home, Calendar, Search, Settings, LogOut, Package, MapPin, Phone, Briefcase, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -50,26 +51,36 @@ export default function TrackingPage() {
             <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
           </div>
           <nav className="space-y-0.5 flex-grow">
+          <Link href="/" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
             <Home className="mr-3 h-5 w-5" />
             Home
           </button>
+          </Link>
+          <Link href="/" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
             <Briefcase className="mr-3 h-5 w-5" />
             Services
           </button>
+          </Link>
+          <Link href="/" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
             <Calendar className="mr-3 h-5 w-5" />
             Calendar
           </button>
+          </Link>
+          <Link href="/" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
             <Calendar className="mr-3 h-5 w-5" />
             Bookings
           </button>
+          </Link>
+          <Link href="/" passHref>
           <button className="flex w-full items-center rounded-md bg-accent px-4 py-3 font-medium text-accent-foreground dark:bg-gray-700 dark:text-white">
             <Package className="mr-3 h-5 w-5" />
             Tracking
           </button>
+          </Link>
         </nav>
         </div>
         <div className="mt-auto space-y-2">
