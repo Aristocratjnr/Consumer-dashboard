@@ -50,7 +50,7 @@
                 </div>
                 <nav className="flex items-center space-x-6">
                 <button className="flex items-center space-x-2">
-                <span className="bg-blue-300 hover:bg-teal-200 rounded-full p-2 transition-colors">
+                <span className="bg-blue-200 hover:bg-blue-300 rounded-full p-2 transition-colors">
                   <Home className="h-5 w-5 text-teal-1000" />
                 </span>
                 <span className="font-bold">Home</span>
