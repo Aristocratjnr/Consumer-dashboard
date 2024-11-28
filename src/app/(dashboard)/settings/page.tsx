@@ -1,11 +1,16 @@
     "use client"
     import React, { useState } from 'react';
     import Link from 'next/link';
-    import { Bell, Home, Settings, Search, Calendar, Package, LogOut, Mail, Phone, HelpCircle, ChevronRight } from 'lucide-react';
+    import { Bell, Home, Settings, Search, Calendar, Package, LogOut, Mail, Phone, HelpCircle, ChevronRight,User } from 'lucide-react';
 
     export default function Dashboard() {
       const [isNotificationOpen, setIsNotificationOpen] = useState(false);
       const [faqOpen, setFaqOpen] = useState(Array(4).fill(false));
+      const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+
+      const toggleProfileDropdown = () => {
+        setIsProfileDropdownOpen(!isProfileDropdownOpen);
+      };
 
       const loyaltyPoints = [
         { points: 100, status: 'completed' },
@@ -73,13 +78,41 @@
                   <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
                     <Settings className="h-5 w-5 text-gray-600" />
                   </button>
-                  <div className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-teal-800 px-2 py-1 rounded-full">
-                    <img src="/images/woman.png" alt="Profile" className="h-8 w-8 rounded-full ring-2 ring-teal-300" />
-                    <div className="flex flex-col">
-                      <span className="text-sm font-bold">Sandra</span>
-                      <span className="text-xs text-gray-700">77884466</span>
-                    </div>
+                   {/* Profile Section */}
+              <div className="relative">
+                <button
+                  onClick={toggleProfileDropdown}
+                  className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-teal-800 px-2 py-1 rounded-full"
+                >
+                  <img
+                    src="/images/woman.png"
+                    alt="Profile"
+                    className="h-8 w-8 rounded-full ring-2 ring-teal-300"
+                  />
+                  <div className="flex flex-col">
+                    <span className="text-sm font-bold">Sandra</span>
+                    <span className="text-xs text-gray-700">77884466</span>
                   </div>
+                </button>
+                {isProfileDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 z-50">
+                    <Link
+                      href="/profile"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      <User className="inline-block w-4 h-4 mr-2 text-gray-500" />
+                      Profile
+                    </Link>
+                    <button
+                      className="block w-full text-left px-4 py-2 text-sm text-red-700 hover:bg-red-50"
+                      onClick={() => console.log("Logging out...")}
+                    >
+                      <LogOut className="inline-block w-4 h-4 mr-2 text-red-500" />
+                      Log Out
+                    </button>
+                  </div>
+                )}
+              </div>
                 </div>
               </div>
             </div>
