@@ -90,7 +90,7 @@
                         className="h-8 w-8 rounded-full ring-2 ring-teal-800"
                       />
                       <div className="flex flex-col">
-                        <span className="text-sm font-bold">Sandra</span>
+                        <span className="text-sm font-semi-bold">Sandra</span>
                         <span className="text-xs text-gray-700">77884466</span>
                       </div>
                     </button>
