@@ -108,10 +108,10 @@ export default function BookingPage() {
     <div className={`flex min-h-screen ${darkMode ? 'dark' : ''}`}>
       {/* Sidebar */}
       <div className="w-64 border-r bg-background px-4 py-6 dark:bg-gray-800 dark:border-gray-700 flex flex-col">
-        <div className="mb-8 flex items-center space-x-1">
+        <div className="mb-8 flex items-center">
           <img
             alt="TulaLaundry"
-            className="h-8"
+            className="h-8 -mr-0.5"
             src="/images/logo.png"
           />
           <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
