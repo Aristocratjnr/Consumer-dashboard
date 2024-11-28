@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Bell, Home, Calendar, Search, Settings, LogOut, Package, MapPin, Phone, Briefcase, User } from 'lucide-react';
+import { Bell, Home, Calendar, Search, Settings, LogOut, Package, MapPin, Phone, Briefcase, User, ChevronRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -69,7 +69,7 @@ export default function TrackingPage() {
             Calendar
           </button>
           </Link>
-          <Link href="/" passHref>
+          <Link href="/bookings" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
             <Calendar className="mr-3 h-5 w-5" />
             Bookings
@@ -83,12 +83,13 @@ export default function TrackingPage() {
           </Link>
         </nav>
         </div>
-        <div className="mt-auto space-y-2">
-          <Button variant="ghost" className="w-full justify-start text-muted-foreground hover:text-foreground dark:text-gray-400 dark:hover:text-white">
-            <LogOut className="mr-2 h-4 w-4" />
-            Log out
-          </Button>
+        <button className="absolute bottom-8 left-4 right-4 flex items-center justify-between w-40 px-4 py-3 text-red-800 hover:bg-red-50 rounded-lg transition-colors">
+        <div className="flex items-center space-x-3">
+            <LogOut className="h-5 w-5" /> {/* Adjusted size for consistency */}
+            <span className="font-medium">Log out</span>
         </div>
+        <ChevronRight className="h-5 w-5" />
+        </button>
       </div>
 
       {/* Main Content */}
