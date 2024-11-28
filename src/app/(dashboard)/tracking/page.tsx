@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Bell, Home, Calendar, Search, Settings, LogOut, Package, MapPin, Phone, Briefcase, User, ChevronRight, Check } from 'lucide-react';
+import { Bell, Home, Calendar, Search, Settings, LogOut, Package, MapPin, Phone, Briefcase, User, ChevronRight, Check, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -71,13 +71,13 @@ export default function TrackingPage() {
           </Link>
           <Link href="/bookings" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-            <Calendar className="mr-3 h-5 w-5" />
+            <Mail className="mr-3 h-5 w-5" />
             Bookings
           </button>
           </Link>
           <Link href="/" passHref>
           <button className="flex w-full items-center rounded-md bg-accent px-4 py-3 font-medium text-accent-foreground dark:bg-gray-700 dark:text-white">
-            <Package className="mr-3 h-5 w-5" />
+            <MapPin className="mr-3 h-5 w-5" />
             Tracking
           </button>
           </Link>
