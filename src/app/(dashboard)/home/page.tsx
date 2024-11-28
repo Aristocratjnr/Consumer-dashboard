@@ -40,7 +40,7 @@
       };
 
       return (
-        <div className="min-h-screen bg-white text-gray-900">
+        <div className="min-h-screen bg-teal-20 text-gray-900">
           <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-6 py-4 shadow-md" >
             <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
               <div className="flex items-center space-x-8">
