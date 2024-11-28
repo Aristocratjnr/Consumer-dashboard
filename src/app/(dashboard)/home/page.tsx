@@ -120,27 +120,28 @@
 
           <div className="pt-20 flex">
             <aside className="fixed left-0 top-20 bottom-0 w-64 bg-white border-r border-gray-300 px-6 py-8 shadow-lg">
-              <nav className="space-y-3">
-                {[
-                  { icon: Home, label: 'Home', active: true },
-                  { icon: Package, label: 'Services' , href: '/src/app/(dashboard)/settings/page.tsx' },
-                  { icon: Calendar, label: 'Calendar', href: '' },
-                  { icon: Mail, label: 'Booking', href:'' },
-                  { icon: MapPin, label: 'Traking', href:'' }
-                ].map((item, index) => (
-                  <button
-                    key={index}
-                    className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                      item.active 
-                        ? 'bg-blue-50 text-teal-600 shadow' 
-                        : 'text-gray-600 hover:bg-gray-50'
-                    }`}
-                  >
-                    <item.icon className="h-5 w-5" />
-                    <span className="font-medium">{item.label}</span>
-                  </button>
-                ))}
-              </nav>
+            <nav className="space-y-5">
+            {[
+              { icon: Home, label: 'Home', active: true, href: '/' },
+              { icon: Package, label: 'Services', active: false, href: '/' }, 
+              { icon: Calendar, label: 'Calendar', active: false, href: '/calendar' }, 
+              { icon: Mail, label: 'Booking', active: false, href: '/bookings' }, 
+              { icon: MapPin, label: 'Tracking', active: false, href: '/tracking' } 
+            ].map((item, index) => (
+              <Link key={index} href={item.href} passHref>
+                <button
+                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
+                    item.active 
+                      ? 'bg-blue-50 text-teal-600 shadow' 
+                      : 'text-gray-600 hover:bg-gray-50'
+                  }`}
+                >
+                  <item.icon className="h-5 w-5" />
+                  <span className="font-medium">{item.label}</span>
+                </button>
+              </Link>
+            ))}
+          </nav>
               <button className="absolute bottom-8 left-4 right-4 flex items-center justify-between px-4 py-3 text-red-800 hover:bg-red-50 rounded-lg transition-colors">
                 <div className="flex items-center space-x-3">
                   <LogOut className="h-5 w-5" />
