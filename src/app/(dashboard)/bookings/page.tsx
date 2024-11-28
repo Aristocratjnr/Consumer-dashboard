@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from "react"
-import { Calendar, Clock, Filter, History, Plus, Search, Settings, LogOut, Package, X, Bell } from 'lucide-react'
+import { Calendar, Clock, Filter, History, Plus, Search, Settings, LogOut, Package, X, Bell, User } from 'lucide-react'
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { useState } from 'react'
 
 interface Booking {
   id: number
@@ -94,6 +95,11 @@ const bookings: Booking[] = [
 export default function BookingPage() {
   const [darkMode, setDarkMode] = React.useState(false)
   const [selectedBooking, setSelectedBooking] = React.useState<Booking | null>(null)
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+
+  const toggleProfileDropdown = () => {
+    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
 
   React.useEffect(() => {
     const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -173,11 +179,44 @@ export default function BookingPage() {
             <Button size="icon" variant="ghost" onClick={toggleDarkMode} className="dark:text-gray-300 dark:hover:text-white">
               {darkMode ? '☀️' : '🌙'}
             </Button>
-            <img
-              alt="Avatar"
-              className="h-8 w-8 rounded-full"
-              src="/images/woman.png"
-            />
+              {/* Profile Section */}
+              <div className="relative">
+                    <button
+                      onClick={toggleProfileDropdown}
+                      className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-teal-800 px-2 py-1 rounded-full"
+                    >
+                      <img
+                        src="/images/woman.png"
+                        alt="Profile"
+                        className="h-8 w-8 rounded-full ring-2 ring-teal-800"
+                      />
+                      <div className="flex flex-col">
+                        <span className="text-sm font-semi-bold">Sandra</span>
+                        <span className="text-xs text-gray-700">77884466</span>
+                      </div>
+                    </button>
+                    {isProfileDropdownOpen && (
+                      <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 z-50">
+                        <Link
+                          href="/profile"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          <User className="inline-block w-4 h-4 mr-2 text-gray-500" />
+                          Profile
+                        </Link>
+                        <Link href="/(auth)/sign-in" passHref>
+                        <button
+                          className="block w-full text-left px-4 py-2 text-sm text-red-700 hover:bg-red-50"
+                          onClick={() => console.log("Logging out...")}
+                        >
+                          <LogOut className="inline-block w-4 h-4 mr-2 text-red-500" />
+                          Log Out
+                        </button>
+                        </Link>
+                      </div>
+                    )}
+                </div>
+              
           </div>
         </header>
 
