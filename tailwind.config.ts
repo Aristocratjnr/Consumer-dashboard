@@ -10,7 +10,10 @@ export default {
   ],
   theme: {
   	extend: {
-  		colors: {
+		fontFamily: {
+			itim: ['Itim'],
+		  },
+  			colors: {
 			customGray:	'#D9D9D9',
 			customGreen: '#40AC0E',
   			teal: {

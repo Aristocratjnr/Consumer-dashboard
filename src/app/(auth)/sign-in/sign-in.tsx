@@ -108,7 +108,7 @@ export default function SignIn() {
                 />
               </div>
               {/* Submit Button */}
-              <Button className="w-45 h-10 bg-teal-1000 hover:bg-teal-1000 text-white text-sm font-normal leading-normal rounded-xl flex items-center justify-center space-x-2">
+              <Button className="w-45 h-10  bg-teal-1000 hover:bg-teal-1000 text-white font-itim text-[15px] rounded-xl flex items-center justify-center space-x-2">
                 Start Laundering!
               </Button>
             </form>
