@@ -46,8 +46,8 @@ export default function TrackingPage() {
       {/* Sidebar */}
       <div className="w-64 bg-white border-r">
         <div className="p-6">
-          <div className="flex items-center space-x-2 mb-8">
-            <img alt="TulaLaundry" className="h-8" src="/images/logo.png" />
+          <div className="flex items-center mb-8">
+            <img alt="TulaLaundry" className="h-8 -mr-0.5" src="/images/logo.png" />
             <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
           </div>
           <nav className="space-y-0.5 flex-grow">
