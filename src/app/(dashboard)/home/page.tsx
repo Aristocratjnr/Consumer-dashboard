@@ -157,7 +157,7 @@
                   <h1 className="text-4xl font-semi-bold">Welcome <span className="text-teal">Back!</span></h1>
                   <p className="text-gray-600 mt-2">Let's make laundry day effortless.</p>
                 </div>
-                <div className="rounded-3xl p-10 mb-10 shadow-lg">
+                <div className="rounded-3xl p-10 mb-10 shadow-lg bg-white">
       {/* Text Section at the Top */}
       <div className="text-center mb-6">
         <p className="text-gray-700 text-sm leading-relaxed">
