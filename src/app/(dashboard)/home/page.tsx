@@ -226,13 +226,13 @@
 
                 {/* Packages */}
                 <div>
-                  <h2 className="text-teal text-2xl font-semibold mb-6">Packages</h2>
+                  <h2 className="text-teal text-2xl font-semi-bold mb-6">Packages</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {packages.map((pkg) => (
                       <div key={pkg.id} className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
                         <div className="flex items-start justify-between mb-4">
                           <div>
-                            <h3 className="font-semibold text-teal text-xl">{pkg.name}</h3>
+                            <h3 className="font-semi-bold text-teal text-xl">{pkg.name}</h3>
                             <span className="text-2xl font-bold text-teal mt-1 block">{pkg.price}</span>
                           </div>
                         </div>
