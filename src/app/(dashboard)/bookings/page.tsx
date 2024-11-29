@@ -394,7 +394,7 @@ function BookingCard({ booking, onSelect, isSelected }: { booking: Booking; onSe
               className="dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
               onClick={onSelect}
             >
-              {isSelected ? "Selected" : "Details"}
+              {isSelected ? "Selected ✅" : "Details >"}
             </Button>
           </div>
         </div>
