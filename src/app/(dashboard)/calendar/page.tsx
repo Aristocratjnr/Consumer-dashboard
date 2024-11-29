@@ -148,7 +148,7 @@ export default function CalendarDashboard() {
                 <Input
                   type="search"
                   placeholder="Search here"
-                  className="w-[300px] pl-8"
+                  className="w-64 pl-10 pr-4 py-2 rounded-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 />
               </div>
               <Button variant="ghost" size="icon">
@@ -287,10 +287,10 @@ export default function CalendarDashboard() {
 
         {/* Plus Button */}
         <Button
-          className="absolute bottom-4 right-4 rounded-full bg-primary text-white h-12 w-12 flex items-center justify-center shadow-lg"
+          className="absolute bottom-4 right-4 rounded-full bg-teal-1000 text-white h-12 w-12 flex items-center justify-center shadow-lg"
           onClick={() => console.log('Add new event')}
         >
-          <Plus className="h-5 w-5" />
+          <Plus className="h-5 w-5 " />
         </Button>
       </div>
     </div>
