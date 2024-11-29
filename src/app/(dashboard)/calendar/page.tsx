@@ -124,8 +124,8 @@
             </Link>
             </nav>
             <div className="absolute bottom-4 left-4">
-            <Button variant="ghost" className="text-muted-foreground">
-                <LogOut className="mr-2 h-4 w-4 text-red-500" />
+            <Button variant="ghost" className="text-red-500">
+                <LogOut className="mr-2 h-4 w-4" />
                 Log out
             </Button>
             </div>
