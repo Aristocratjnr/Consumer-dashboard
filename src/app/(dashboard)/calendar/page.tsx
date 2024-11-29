@@ -1,6 +1,6 @@
 'use client'
 
-import { Bell, Home, LogOut, Menu, Search, Settings, ChevronDown, Plus } from 'lucide-react'
+import { Bell, Home, LogOut, Menu, Search, Settings, ChevronDown, Plus, Calendar } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
@@ -137,8 +137,8 @@ export default function CalendarDashboard() {
         <header className="sticky top-0 z-50 border-b bg-background">
           <div className="flex h-16 items-center justify-between px-4">
             <div className="flex items-center gap-4">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
+              <Button variant="ghost" size="icon" className='bg-teal-20'>
+                <Calendar className="h-5 w-5 " />
               </Button>
               <h1 className="text-xl font-semibold">Calendar</h1>
             </div>
