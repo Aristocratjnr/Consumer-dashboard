@@ -63,25 +63,25 @@
                     <Home className="mr-3 h-5 w-5" />
                     Home
                 </button>
-                </Link>
+                </Link><br/>
                 <Link href="/" passHref>
                 <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                     <Briefcase className="mr-3 h-5 w-5" />
                     Services
                 </button>
-                </Link>
+                </Link><br/>
                 <Link href="/calendar" passHref>
                 <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                     <Calendar className="mr-3 h-5 w-5" />
                     Calendar
                 </button>
-                </Link>
+                </Link><br/>
                 <Link href="/bookings" passHref>
                 <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                     <Mail className="mr-3 h-5 w-5" />
                     Bookings
                 </button>
-                </Link>
+                </Link><br/>
                 <Link href="/" passHref>
                 <button className="flex w-full items-center rounded-md bg-accent px-4 py-3 font-medium text-accent-foreground dark:bg-gray-700 dark:text-white">
                     <MapPin className="mr-3 h-5 w-5" />

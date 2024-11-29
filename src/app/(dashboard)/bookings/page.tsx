@@ -127,25 +127,25 @@ export default function BookingPage() {
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
             <HomeIcon className="mr-3 h-5 w-5" />
             Home
-          </button>
+          </button><br/>
           </Link>
           <Link href="/" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
             <ServicesIcon className="mr-3 h-5 w-5" />
             Services
-          </button>
+          </button><br/>
           </Link>
           <Link href="/calendar" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
             <Calendar className="mr-3 h-5 w-5" />
             Calendar
-          </button>
+          </button><br/>
           </Link>
           <Link href="/" passHref>
           <button className="flex w-full items-center rounded-md bg-accent px-4 py-3 font-medium text-accent-foreground dark:bg-gray-700 dark:text-white">
             <BookingsIcon className="mr-3 h-5 w-5" />
             Bookings
-          </button>
+          </button><br/>
           </Link>
           <Link href="/tracking" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
@@ -247,7 +247,7 @@ export default function BookingPage() {
                   </div>
                 </div>
 
-                <TabsContent value="upcoming" className="mt-4">
+                <TabsContent value="upcoming" className="mt-4 ">
                   <ScrollArea className="h-[calc(100vh-12rem)]">
                     <div className="space-y-4">
                       {bookings.slice(0, 2).map((booking) => (

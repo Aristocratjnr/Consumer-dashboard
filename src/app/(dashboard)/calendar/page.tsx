@@ -45,7 +45,7 @@
                 >
                     <Home className="h-5 w-5" />
                     Home
-                </Link>
+                </Link><br/>
                 <Link
                     href="#"
                     className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground hover:bg-accent"
@@ -64,7 +64,7 @@
                     />
                     </svg>
                     Services
-                </Link>
+                </Link><br/>
                 <Link
                     href="#"
                     className="flex items-center gap-3 rounded-lg bg-accent px-3 py-2 text-accent-foreground"
@@ -83,7 +83,7 @@
                     />
                     </svg>
                     Calendar
-                </Link>
+                </Link><br/>
                 <Link
                     href="/bookings"
                     className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground hover:bg-accent"
@@ -102,7 +102,7 @@
                     />
                     </svg>
                     Booking
-                </Link>
+                </Link><br/>
                 <Link
                     href="/tracking"
                     className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground hover:bg-accent"

@@ -1,7 +1,7 @@
         "use client"
         import React, { useState } from 'react';
         import Link from 'next/link';
-        import { Bell, Home, Settings, Search, Calendar, Package, LogOut, Mail, Phone, HelpCircle, ChevronRight, User, MapPin } from 'lucide-react';
+        import { Bell, Home, Settings, Search, Calendar, Package, Briefcase, LogOut, Mail, Phone, HelpCircle, ChevronRight, User, MapPin } from 'lucide-react';
 
         export default function Dashboard() {
           const [isNotificationOpen, setIsNotificationOpen] = useState(false);
@@ -122,27 +122,37 @@
 
               <div className="pt-20 flex">
                 <aside className="fixed left-0 top-20 bottom-0 w-64 bg-white border-r border-gray-300 px-6 py-8 shadow-lg">
-                <nav className="space-y-5">
-                {[
-                  { icon: Home, label: 'Home', active: true, href: '/' },
-                  { icon: Package, label: 'Services', active: false, href: '/' }, 
-                  { icon: Calendar, label: 'Calendar', active: false, href: '/calendar' }, 
-                  { icon: Mail, label: 'Booking', active: false, href: '/bookings' }, 
-                  { icon: MapPin, label: 'Tracking', active: false, href: '/tracking' } 
-                ].map((item, index) => (
-                  <Link key={index} href={item.href} passHref>
-                    <button
-                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                        item.active 
-                          ? 'bg-blue-50 text-teal-600 shadow' 
-                          : 'text-gray-600 hover:bg-gray-50'
-                      }`}
-                    >
-                      <item.icon className="h-5 w-5" />
-                      <span className="font-semi-bold">{item.label}</span>
-                    </button>
+                <nav className="space-y-0.5 flex-grow">
+                <Link href="/" passHref>
+                <button className="flex w-full rounded-md bg-teal-20 items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                    <Home className="mr-3 h-5 w-5" />
+                    Home
+                </button>
+                </Link><br/>
+                <Link href="/" passHref>
+                <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                    <Briefcase className="mr-3 h-5 w-5" />
+                    Services
+                </button>
+                </Link><br/>
+                <Link href="/calendar" passHref>
+                <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                    <Calendar className="mr-3 h-5 w-5" />
+                    Calendar
+                </button>
+                </Link><br/>
+                <Link href="/bookings" passHref>
+                <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                    <Mail className="mr-3 h-5 w-5" />
+                    Bookings
+                </button>
+                </Link><br/>
+                <Link href="/tracking" passHref>
+                <button className="flex w-full items-center px-4 py-3 text-muted-foreground ">
+                    <MapPin className="mr-3 h-5 w-5" />
+                    Tracking
+                </button>
                   </Link>
-                ))}
               </nav>
                   <button className="absolute bottom-8 left-4 right-4 flex items-center justify-between px-4 py-3 text-red-800 hover:bg-red-50 rounded-lg transition-colors">
                     <div className="flex items-center space-x-3">
