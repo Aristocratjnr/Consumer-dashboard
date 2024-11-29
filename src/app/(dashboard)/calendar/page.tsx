@@ -249,7 +249,7 @@
                 <div className="mb-4">
                     <h3 className="text-lg font-semibold">Activity</h3>
                     <div className="flex gap-4">
-                    <span className="rounded-full bg-teal-10 px-3 py-1 text-sm text-white">
+                    <span className="rounded-full bg-teal-10 px-3 py-1 text-sm text-white ">
                         Services Booked
                     </span>
                     <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600">
