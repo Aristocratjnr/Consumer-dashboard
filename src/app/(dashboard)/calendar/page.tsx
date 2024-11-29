@@ -185,7 +185,7 @@ export default function CalendarDashboard() {
             {/* Calendar Header */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <h2 className="text-lg font-semibold">2024</h2>
+                <h2 className="text-lg font-semi-bold text-teal-1000">2024</h2>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="sm" className="flex items-center gap-2">
@@ -207,8 +207,9 @@ export default function CalendarDashboard() {
                 </DropdownMenu>
               </div>
               <Button 
+                className ='text-teal-1000 font-semi-bold text-lg'
                 variant="ghost" 
-                size="sm"
+                size="lg"
                 onClick={handleTodayClick}>
                 Today
               </Button>
@@ -217,7 +218,7 @@ export default function CalendarDashboard() {
                     {/* Calendar Header and Grid */}
             <div className="rounded-lg border bg-white shadow p-4">
             <div className="text-center mb-2">
-                <h2 className="text-lg font-semibold">{selectedMonth} 2024</h2>
+                <h2 className="text-lg text-teal-1000 font-semi-bold">{selectedMonth} 2024</h2>
             </div>
             <div className="grid grid-cols-7 gap-2 text-center">
                 {days.map((day) => (
