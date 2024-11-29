@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from "react"
-import { Calendar, Clock, Filter, History, Plus, Search, Settings, LogOut, Package, X, Bell, User } from 'lucide-react'
+import { Calendar, Clock, Filter, History, Plus, Search, Settings, LogOut, Package, X, Bell, User, Banknote} from 'lucide-react'
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
@@ -293,6 +293,7 @@ export default function BookingPage() {
                   <div className="space-y-4">
                     <div>
                       <h3 className="text-lg font-semibold dark:text-white">{selectedBooking.title}</h3>
+                      <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
                       <p className="text-sm text-muted-foreground dark:text-gray-400">{selectedBooking.reference}</p>
                     </div>
                     <div>
@@ -303,13 +304,18 @@ export default function BookingPage() {
                     </div>
                     {selectedBooking.additionalNote && (
                       <div>
+                        <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
                         <h4 className="text-sm font-medium dark:text-gray-300">Additional Note</h4>
                         <p className="text-sm text-muted-foreground dark:text-gray-400">{selectedBooking.additionalNote}</p>
+                        <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
                       </div>
                     )}
                     <div className="space-y-2">
                       <div className="flex justify-between">
-                        <span className="text-sm dark:text-gray-300">Payment Method</span>
+                          <span className="flex items-center gap-2">
+                          <Banknote className="h-4 w-4 text-muted-foreground" />
+                           Payment Method
+                         </span>
                         <span className="text-sm font-medium dark:text-gray-300">{selectedBooking.paymentMethod}</span>
                       </div>
                       <div className="flex justify-between">
