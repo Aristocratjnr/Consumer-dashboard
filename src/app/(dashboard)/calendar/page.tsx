@@ -256,11 +256,11 @@ export default function CalendarDashboard() {
                   </span>
                 </div>
               </div>
-              <div className="flex h-[200px] items-end gap-4">
+              <div className="flex h-[200px] items-end gap-4 ">
                 {activityData.map((height, index) => (
                   <div
                     key={index}
-                    className="relative flex-1 rounded-t-lg bg-primary"
+                    className="relative flex-1 rounded-t-lg bg-teal-1000"
                     style={{ height: `${height}%` }}
                   >
                     <div className="absolute -top-6 w-full text-center text-sm">
