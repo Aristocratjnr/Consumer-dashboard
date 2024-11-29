@@ -125,7 +125,7 @@
             </nav>
             <div className="absolute bottom-4 left-4">
             <Button variant="ghost" className="text-muted-foreground">
-                <LogOut className="mr-2 h-4 w-4" />
+                <LogOut className="mr-2 h-4 w-4 text-red-500" />
                 Log out
             </Button>
             </div>
