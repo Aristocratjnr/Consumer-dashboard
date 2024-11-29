@@ -274,9 +274,9 @@ export default function CalendarDashboard() {
 
           {/* Timeline */}
           <div className="rounded-lg border bg-card p-4">
-            <div className="space-y-4">
+            <div className="space-y-6">
               {hours.map((hour) => (
-                <div key={hour} className="flex items-center gap-2">
+                <div key={hour} className="flex items-center gap-10">
                   <div className="w-16 text-sm text-muted-foreground">{hour}</div>
                   <div className="h-px flex-1 bg-border"></div>
                 </div>
