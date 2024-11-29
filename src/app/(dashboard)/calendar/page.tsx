@@ -22,6 +22,12 @@ export default function CalendarDashboard() {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   const activityData = [20, 35, 25, 85, 45]
 
+const handleTodayClick = () => {
+    const today = new Date()
+    setSelectedDate(today.getDate())
+    setSelectedMonth(months[today.getMonth()])
+  }
+
   return (
     <div className="min-h-screen bg-background">
       {/* Sidebar */}
@@ -200,7 +206,10 @@ export default function CalendarDashboard() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <Button variant="ghost" size="sm">
+              <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={handleTodayClick}>
                 Today
               </Button>
             </div>
