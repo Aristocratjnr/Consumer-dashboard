@@ -232,7 +232,7 @@ export default function CalendarDashboard() {
                     key={date}
                     variant={selectedDate === date ? "default" : "ghost"}
                     className={`h-10 w-10 rounded-full p-0 ${
-                    selectedDate === date ? 'bg-blue-500 text-white' : 'text-muted-foreground'
+                    selectedDate === date ? 'bg-teal-1000 text-white' : 'text-muted-foreground'
                     }`}
                     onClick={() => setSelectedDate(date)}
                 >
