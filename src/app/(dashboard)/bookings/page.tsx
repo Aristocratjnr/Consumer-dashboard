@@ -319,24 +319,25 @@ export default function BookingPage() {
                         <span className="text-sm font-medium dark:text-gray-300">{selectedBooking.paymentMethod}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm dark:text-gray-300">Total Amount</span>
-                        <span className="text-sm font-medium dark:text-gray-300">${selectedBooking.totalAmount}</span>
+                        <span className="text-sm  text-gray-500 dark:text-gray-300">Total Amount</span>
+                        <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.totalAmount}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm dark:text-gray-300">Amount Paid</span>
-                        <span className="text-sm font-medium dark:text-gray-300">${selectedBooking.amountPaid}</span>
+                        <span className="text-sm  text-gray-500 dark:text-gray-300">Amount Paid</span>
+                        <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.amountPaid}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm dark:text-gray-300">Change Given</span>
-                        <span className="text-sm font-medium dark:text-gray-300">${selectedBooking.changeGiven}</span>
+                        <span className="text-sm text-gray-500 dark:text-gray-300">Change Given</span>
+                        <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.changeGiven}</span>
+                      </div>
+                      <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
+                      <div className="flex justify-between">
+                        <span className="text-sm font-semi-bold text-gray-500 dark:text-gray-200">Mode of Transport</span>
+                        <span className="text-sm font-semi-bold dark:text-gray-100">{selectedBooking.modeOfTransport}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm dark:text-gray-300">Mode of Transport</span>
-                        <span className="text-sm font-medium dark:text-gray-300">{selectedBooking.modeOfTransport}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-sm dark:text-gray-300">Time</span>
-                        <span className="text-sm font-medium dark:text-gray-300">{selectedBooking.pickupTime}</span>
+                        <span className="text-sm  text-gray-500 dark:text-gray-300">Time</span>
+                        <span className="text-sm font-semi-bold dark:text-gray-100">{selectedBooking.pickupTime}</span>
                       </div>
                     </div>
                   </div>
