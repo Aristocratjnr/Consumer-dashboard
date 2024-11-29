@@ -29,13 +29,13 @@ export default function CalendarDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen  bg-teal-20 relative">
       {/* Sidebar */}
       <div className="fixed left-0 top-0 bottom-0 w-64 border-r bg-background p-4">
         <div className="mb-8">
           <Link href="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-primary"></div>
-            <span className="font-semibold">StellaLaundry</span>
+          <img src="/images/logo.png" alt="Tulaundry Logo" className="h-8 -mr-0.5" />
+            <span className="font-semibold text-gradient">LuLaundry</span>
           </Link>
         </div>
         <nav className="space-y-2">
@@ -164,7 +164,7 @@ export default function CalendarDashboard() {
                     className="relative h-8 w-8 rounded-full"
                   >
                     <Avatar className="h-8 w-8">
-                      <AvatarImage src="/placeholder.svg" alt="@user" />
+                      <AvatarImage src="/images/woman.png" alt="@user" />
                       <AvatarFallback>U</AvatarFallback>
                     </Avatar>
                   </Button>
