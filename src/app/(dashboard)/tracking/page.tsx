@@ -70,7 +70,7 @@
                     Services
                 </button>
                 </Link>
-                <Link href="/" passHref>
+                <Link href="/calendar" passHref>
                 <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                     <Calendar className="mr-3 h-5 w-5" />
                     Calendar
