@@ -17,6 +17,7 @@ export default {
 			customGray:	'#D9D9D9',
 			customGreen: '#40AC0E',
   			teal: {
+				'10': '#50A5E6',
 				'20': '#A1DEF742',
   				'50': '#E0F7FA',
   				'100': '#B2EBF2',
