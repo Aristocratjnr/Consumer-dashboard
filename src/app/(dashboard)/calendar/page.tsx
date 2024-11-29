@@ -1,6 +1,6 @@
 'use client'
 
-import { Bell, Home, LogOut, Menu, Search, Settings, ChevronDown } from 'lucide-react'
+import { Bell, Home, LogOut, Menu, Search, Settings, ChevronDown, Plus } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
@@ -22,14 +22,14 @@ export default function CalendarDashboard() {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   const activityData = [20, 35, 25, 85, 45]
 
-const handleTodayClick = () => {
+  const handleTodayClick = () => {
     const today = new Date()
     setSelectedDate(today.getDate())
     setSelectedMonth(months[today.getMonth()])
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
       {/* Sidebar */}
       <div className="fixed left-0 top-0 bottom-0 w-64 border-r bg-background p-4">
         <div className="mb-8">
@@ -40,7 +40,7 @@ const handleTodayClick = () => {
         </div>
         <nav className="space-y-2">
           <Link
-            href="#"
+            href="/home"
             className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground hover:bg-accent"
           >
             <Home className="h-5 w-5" />
@@ -207,32 +207,40 @@ const handleTodayClick = () => {
                 </DropdownMenu>
               </div>
               <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={handleTodayClick}>
+                variant="ghost" 
+                size="sm"
+                onClick={handleTodayClick}>
                 Today
               </Button>
             </div>
 
-            {/* Calendar Grid */}
-            <div className="rounded-lg border bg-card p-4">
-              <div className="grid grid-cols-7 gap-4 text-center">
+                    {/* Calendar Header and Grid */}
+            <div className="rounded-lg border bg-white shadow p-4">
+            <div className="text-center mb-2">
+                <h2 className="text-lg font-semibold">{selectedMonth} 2024</h2>
+            </div>
+            <div className="grid grid-cols-7 gap-2 text-center">
                 {days.map((day) => (
-                  <div key={day} className="text-sm font-medium text-muted-foreground">
+                <div key={day} className="text-sm font-medium text-muted-foreground">
                     {day}
-                  </div>
+                </div>
                 ))}
+            </div>
+            <div className="grid grid-cols-7 gap-2 text-center mt-2">
                 {dates.map((date) => (
-                  <Button
+                <Button
                     key={date}
                     variant={selectedDate === date ? "default" : "ghost"}
-                    className="h-10 w-10 rounded-full p-0"
+                    className={`h-10 w-10 rounded-full p-0 ${
+                    selectedDate === date ? 'bg-blue-500 text-white' : 'text-muted-foreground'
+                    }`}
                     onClick={() => setSelectedDate(date)}
-                  >
+                >
                     {date}
-                  </Button>
+                </Button>
                 ))}
-              </div>
+            </div>
+
             </div>
 
             {/* Activity Section */}
@@ -276,6 +284,14 @@ const handleTodayClick = () => {
             </div>
           </div>
         </main>
+
+        {/* Plus Button */}
+        <Button
+          className="absolute bottom-4 right-4 rounded-full bg-primary text-white h-12 w-12 flex items-center justify-center shadow-lg"
+          onClick={() => console.log('Add new event')}
+        >
+          <Plus className="h-5 w-5" />
+        </Button>
       </div>
     </div>
   )
