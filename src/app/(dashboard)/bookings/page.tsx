@@ -166,8 +166,8 @@
           <div className="flex flex-1 flex-col dark:bg-teal-900 relative">
             <header className="flex h-16 items-center justify-between border-b px-6 dark:border-gray-700">
               <div className="flex items-center">
-            <BookingsIcon className="mr-1 h-5 w-5" />
-              <h1 className="text-lg font-semibold dark:text-white ">Bookings</h1>
+            <BookingsIcon className="mr-1 h-5 w-5  text-teal-1000 dark:text-teal-10" />
+              <h1 className="text-lg font-semibold dark:text-white">Bookings</h1>
               </div>
               <div className="flex items-center gap-4">
                 <Button size="icon" variant="ghost" className="dark:text-gray-300 dark:hover:text-white">
