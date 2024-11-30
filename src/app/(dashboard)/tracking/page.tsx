@@ -24,15 +24,15 @@
             }
 
             const trackingItems: TrackingItem[] = [
-            { id: '#26683TL', date: '01/07/2024', status: 'Completed' },
-            { id: '#26683TL', date: '01/07/2024', status: 'On Delivery' },
-            { id: '#26683TL', date: '01/07/2024', status: 'Completed' },
-            { id: '#26683TL', date: '01/07/2024', status: 'On Delivery' },
-            { id: '#26683TL', date: '01/07/2024', status: 'On Transit' },
-            { id: '#26683TL', date: '01/07/2024', status: 'Completed' },
-            { id: '#26683TL', date: '01/07/2024', status: 'On Transit' },
-            { id: '#26683TL', date: '01/07/2024', status: 'Completed' },
-            { id: '#26683TL', date: '01/07/2024', status: 'On Delivery' }
+            { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
+            { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
+            { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
+            { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
+            { id: 'ID #26683TL', date: '01/07/2024', status: 'On Transit' },
+            { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
+            { id: 'ID #26683TL', date: '01/07/2024', status: 'On Transit' },
+            { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
+            { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' }
             ];
 
             const orderItems: OrderItem[] = [
@@ -177,7 +177,7 @@
                                     <div className="flex justify-between items-center">
                                     <div>
                                         <div className="font-medium">{item.id}</div>
-                                        <div className="text-sm text-gray-500">{item.date}</div>
+                                        <div className="text-xs text-gray-500">{item.date}</div>
                                     </div>
                                     <Badge 
                                         variant={item.status === 'Completed' ? 'default' : 'secondary'}
