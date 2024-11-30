@@ -37,10 +37,10 @@
             {/* Sidebar */}
             <div className="fixed left-0 top-0 bottom-0 w-64 border-r bg-background p-4">
                 <div className="mb-8">
-                <Link href="/" className="flex items-center gap-2">
-                <img src="/images/logo.png" alt="Tulaundry Logo" className="h-8 -mr-0.5" />
-                    <span className="font-semibold text-gradient">LuLaundry</span>
-                </Link>
+                <div className="flex items-center mb-8">
+                    <img alt="TulaLaundry" className="h-8 -mr-0.5" src="/images/logo.png" />
+                    <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
+                </div>
                 </div>
                 <nav className="space-y-2">
                 <Link
