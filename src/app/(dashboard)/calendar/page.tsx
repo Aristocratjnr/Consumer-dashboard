@@ -19,7 +19,7 @@
         const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
         const dates = Array.from({ length: 21 }, (_, i) => i + 15)
         const hours = Array.from({ length: 12 }, (_, i) => `${i + 1}:00AM`)
-        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+        const months = ['Jan', 'Feb', 'March', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         const activityData = [20, 35, 25, 85, 45]
 
         const handleTodayClick = () => {
@@ -216,13 +216,13 @@
                     </div>
 
                     {/* Calendar Header and Grid */}
-                    <div className="rounded-lg border bg-white shadow p-4">
+                    <div className="rounded-lg border bg-card shadow p-4 max-w-md mx-auto">
                     <div className="text-center mb-2">
                         <h2 className="text-lg text-teal-1000 font-semi-bold">{selectedMonth} 2024</h2>
                     </div>
                     <div className="grid grid-cols-7 gap-2 text-center">
                         {days.map((day) => (
-                        <div key={day} className="text-sm font-medium text-muted-foreground">
+                        <div key={day} className="text-xs font-medium text-muted-foreground">
                             {day}
                         </div>
                         ))}
@@ -257,14 +257,14 @@
                         </span>
                         </div>
                     </div>
-                    <div className="flex h-[200px] items-end gap-4 ">
+                    <div className="flex h-[150px] items-end gap-4 ">
                         {activityData.map((height, index) => (
                         <div
                             key={index}
-                            className="relative flex-1 rounded-t-lg bg-teal-1000"
+                            className="relative flex-1 rounded-t-lg rounded-[20px] bg-teal-1000"
                             style={{ height: `${height}%` }}
                         >
-                            <div className="absolute -top-6 w-full text-center text-sm">
+                            <div className="absolute bottom-0 w-full text-center text-lg text-white font-semi-bold">
                             {months[index]}
                             </div>
                         </div>
