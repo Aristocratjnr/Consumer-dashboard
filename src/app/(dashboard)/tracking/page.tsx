@@ -218,7 +218,7 @@
                 <Check className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-sm font-medium text-gray-900">{step}</div>
-                <div className="text-xs text-gray-500 mt-1">06/07/2024</div>
+                <div className="text-xs text-gray-600 mt-1">06/07/2024</div>
             </div>
             ))}
             {/* Progress line */}
@@ -231,12 +231,12 @@
                         <div>
                         <h3 className="text-sm font-medium mb-4">
                         <Calendar className="h-5 w-5 text-gray-400" />
-                            ORDER INFORMATION
+                            <h3 className="text-gray-400">ORDER INFORMATION</h3>
                             </h3>
                         <div className="space-y-2">
                             <div>
-                            <div className="text-sm text-gray-400">PICK UP DATE</div>
-                            <div className="font-medium">12:30 06/07/2024</div>
+                            <div className="text-sm">PICK UP DATE</div>
+                            <div className="font-medium ">12:30 06/07/2024</div>
                             </div>
                             <div>
                             <div className="text-sm text-gray-400">ORDER DESTINATION</div>
@@ -247,30 +247,32 @@
                         <div>
                         <h3 className="text-sm font-medium mb-4">
                         <MapPin className="h-5 w-5 text-gray-400" />
-                        LOCATION</h3>
+                        <h3 className="text-gray-400">LOCATION</h3>
+                        </h3>
                         <div className="space-y-2">
                             <div>
-                            <div className="text-sm text-gray-400">PICK UP</div>
-                            <div className="font-medium">Point Block C 2301</div>
+                            <div className="text-sm">PICK UP</div>
+                            <div className="font-medium text-sm">Point Block C 2301</div>
                             </div>
                             <div>
-                            <div className="text-sm text-gray-400">DROP OFF</div>
-                            <div className="font-medium">Point Block C 2301</div>
+                            <div className="text-sm ">DROP OFF</div>
+                            <div className="font-medium text-sm">Point Block C 2301</div>
                             </div>
                         </div>
                         </div>
                         <div>
                         <h3 className="text-sm font-medium mb-4">
                         <User className="h-5 w-5 text-gray-400" />
-                        CUSTOMER INFORMATION</h3>
+                        <h3 className="text-gray-400">CUSTOMER INFORMATION</h3>
+                        </h3>
                         <div className="space-y-2">
                             <div>
-                            <div className="text-sm text-gray-500">FULL NAME</div>
-                            <div className="font-medium">Mawupemor Ruth</div>
+                            <div className="text-sm ">FULL NAME</div>
+                            <div className="font-medium text-sm">Mawupemor Ruth</div>
                             </div>
                             <div>
                             <div className="text-sm text-gray-500">PHONE NUMBER</div>
-                            <div className="font-medium">+233 55 813 2345</div>
+                            <div className="font-medium text-sm">+233 55 813 2345</div>
                             </div>
                         </div>
                         </div>
