@@ -50,54 +50,56 @@
 
             return (
                 <div className="flex min-h-screen bg-teal-20">
-            {/* Sidebar */}
-                <div className="w-64 bg-white border-r">
-                    <div className="p-6">
-                    <div className="flex items-center mb-8">
-                        <img alt="TulaLaundry" className="h-8 -mr-0.5" src="/images/logo.png" />
-                        <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
-                    </div>
-                    <nav className="space-y-0.5 flex-grow">
-                    <Link href="/" passHref>
+    {/* Sidebar */}
+    <div className="w-64 bg-white border-r flex flex-col">
+        <div className="p-6 flex-grow">
+            <div className="flex items-center mb-8">
+                <img alt="TulaLaundry" className="h-8 -mr-0.5" src="/images/logo.png" />
+                <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
+            </div>
+            <nav className="space-y-0.5">
+                <Link href="/" passHref>
                     <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                         <Home className="mr-3 h-5 w-5" />
                         Home
                     </button>
-                    </Link><br/>
-                    <Link href="/" passHref>
+                </Link><br/>
+                <Link href="/" passHref>
                     <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                         <Briefcase className="mr-3 h-5 w-5" />
                         Services
                     </button>
-                    </Link><br/>
-                    <Link href="/calendar" passHref>
+                </Link><br/>
+                <Link href="/calendar" passHref>
                     <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                         <Calendar className="mr-3 h-5 w-5" />
                         Calendar
                     </button>
-                    </Link><br/>
-                    <Link href="/bookings" passHref>
+                </Link><br/>
+                <Link href="/bookings" passHref>
                     <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                         <Mail className="mr-3 h-5 w-5" />
                         Bookings
                     </button>
-                    </Link><br/>
-                    <Link href="/" passHref>
+                </Link><br/>
+                <Link href="/" passHref>
                     <button className="flex w-full items-center rounded-md bg-accent px-4 py-3 font-medium text-accent-foreground dark:bg-gray-700 dark:text-white">
                         <MapPin className="mr-3 h-5 w-5" />
                         Tracking
                     </button>
-                    </Link>
-                    </nav>
-                    </div>
-                    <button className="absolute bottom-12 left-4 right-4 flex items-center justify-between w-40 px-4 py-3 text-red-800 hover:bg-red-50 rounded-lg transition-colors">
-                    <div className="flex items-center space-x-5">
-                        <LogOut className="h-5 w-5" /> 
-                        <span className="font-medium">Log out</span>
-                    </div>
-                    <ChevronRight className="h-5 w-5" />
-                    </button>
+                </Link>
+            </nav>
+        </div>
+        <div className="p-4">
+            <button className="flex items-center justify-between w-full px-4 py-3 text-red-800 hover:bg-red-50 rounded-lg transition-colors">
+                <div className="flex items-center space-x-5">
+                    <LogOut className="h-5 w-5" />
+                    <span className="font-medium">Log out</span>
                 </div>
+                <ChevronRight className="h-5 w-5" />
+            </button>
+        </div>
+    </div>
 
                 {/* Main Content */}
                 <div className="flex-1">
