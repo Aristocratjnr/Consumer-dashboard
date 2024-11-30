@@ -2,6 +2,7 @@
         import React, { useState } from 'react';
         import Link from 'next/link';
         import { Bell, Home, Settings, Search, Calendar, Package, Briefcase, LogOut, Mail, Phone, HelpCircle, ChevronRight, User, MapPin } from 'lucide-react';
+        import { Button } from '@/components/ui/button';
 
         export default function Dashboard() {
           const [isNotificationOpen, setIsNotificationOpen] = useState(false);
@@ -41,31 +42,30 @@
 
           return (
             <div className="min-h-screen bg-teal-20 text-gray-900">
-              <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-6 py-4 shadow-md" >
+              <header className="fixed top-0 left-0 right-0 w-45 z-50 bg-white border-b border-gray-200 px-2 py-4 shadow-md" >
                 <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
                   <div className="flex items-center space-x-8">
                     <div className="flex items-center space-x-1">
                       <img src="/images/logo.png" alt="Tulaundry Logo" className="h-8 -mr-0.5" />
                       <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
                     </div>
-                    <nav className="flex items-center space-x-6">
+                    <nav className="flex items-center space-x-4">
+                  <nav className="flex items-center space-x-6">
                     <button className="flex items-center space-x-2">
-                    <span className="bg-blue-200 hover:bg-blue-300 rounded-full p-2 transition-colors">
-                      <Home className="h-5 w-5 text-teal-1000" />
-                    </span>
-                    <span className="font-bold">Home</span>
-                  </button>
+                      <span className="bg-blue-200 hover:bg-blue-300 rounded-full p-2 transition-colors">
+                        <Home className="h-5 w-5 text-teal-1000" />
+                      </span>
+                      <span className="font-bold">Home</span>
+                    </button>
+                  </nav>
                       {/* Additional nav items */}
                     </nav>
                   </div>
                   <div className="flex items-center space-x-6">
                     <div className="relative">
-                      <input
-                        type="text"
-                        placeholder="Search..."
-                        className="w-64 pl-10 pr-4 py-2 rounded-full bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                      />
-                      <Search className="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+                    <Button size="icon" variant="ghost" className="dark:text-gray-300 dark:hover:text-white">
+                  <Search className="h-5 w-5" />
+                </Button>
                     </div>
                     <div className="flex items-center space-x-4">
                       <button 
