@@ -283,6 +283,16 @@ export default function BookingPage() {
           {/* Payment Details Section */}
           <div className="w-96 flex-shrink-0">
             <Card className="sticky top-6 dark:bg-gray-800 dark:border-gray-700">
+                <div className="bg-sky-50 dark:bg-sky-950 p-4 rounded-lg flex justify-between items-center shadow-sm">
+          <div className="px-3 py-1 rounded-full bg-white dark:bg-sky-900 text-sm flex items-center space-x-1 shadow-inner">
+            <Clock className="w-4 h-4 text-sky-500 dark:text-sky-400" />
+            <span className="font-medium text-gray-800 dark:text-gray-200">9:30</span>
+            <span className="text-gray-500 dark:text-gray-400">AM</span>
+          </div>
+          <div className="text-sky-600 dark:text-sky-400 font-medium">
+            Ready in 45 Minutes
+          </div>
+        </div>
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardTitle className="text-lg font-semibold dark:text-white">Booking Details</CardTitle>
                 {selectedBooking && (
@@ -357,7 +367,7 @@ export default function BookingPage() {
         {/* New Booking Button */}
         <Button
           size="icon"
-          className="fixed bottom-6 right-6 rounded-full w-12 h-12 bg-teal-1000 hover:bg-teal-900 text-white shadow-lg"
+          className="fixed bottom-1 right-7 rounded-full w-12 h-12 bg-teal-1000 hover:bg-teal-900 text-white shadow-lg"
         >
           <Plus className="h-6 w-6" />
         </Button>
