@@ -227,82 +227,80 @@
         </div>
 
                     {/* Order Information */}
-                    <div className="grid grid-cols-3 gap-6 mb-8">
-                        <div>
-                        <h3 className="flex items-center text-sm font-medium mb-4">
-                        <Calendar className="h-5 w-5 text-gray-400 mr-2" />
-                        <span className="text-gray-400">ORDER INFORMATION</span>
-                    </h3>
-                        <div className="space-y-2">
-                            <div>
-                            <div className="text-sm">PICK UP DATE</div>
-                            <div className="font-medium text-sm">12:30 06/07/2024</div>
-                            </div>
-                            <div>
-                            <div className="text-sm text-gray-400">ORDER DESTINATION</div>
-                            <div className="font-medium text-sm">24 hours</div>
-                            </div>
-                        </div>
-                        </div>
-                        <div>
-                        <h3 className="text-sm  flex items-center font-medium mb-4">
-                        <MapPin className="h-5 w-5 text-gray-400" />
-                        <h3 className="text-gray-400">LOCATION</h3>
-                        </h3>
-                        <div className="space-y-2">
-                            <div>
-                            <div className="text-sm">PICK UP</div>
-                            <div className="font-medium text-sm">Point Block C 2301</div>
-                            </div>
-                            <div>
-                            <div className="text-sm ">DROP OFF</div>
-                            <div className="font-medium text-sm">Point Block C 2301</div>
-                            </div>
-                        </div>
-                        </div>
-                        <div>
-                        <h3 className="text-sm flex items-center font-medium mb-4">
-                        <User className="h-5 w-5 text-gray-400" />
-                        <h3 className="text-gray-400">CUSTOMER INFORMATION</h3>
-                        </h3>
-                        <div className="space-y-2">
-                            <div>
-                            <div className="text-sm ">FULL NAME</div>
-                            <div className="font-medium text-sm">Mawupemor Ruth</div>
-                            </div>
-                            <div>
-                            <div className="text-sm text-gray-500">PHONE NUMBER</div>
-                            <div className="font-medium text-sm">+233 55 813 2345</div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-
+<div className="grid grid-cols-3 gap-6 mb-8">
+    <div>
+        <h3 className="flex items-center text-sm font-medium mb-4">
+            <Calendar className="h-5 w-5 text-gray-400 mr-2" />
+            <span className="text-gray-400">ORDER INFORMATION</span>
+        </h3>
+        <div className="space-y-2">
+            <div>
+                <div className="text-sm">PICK UP DATE</div>
+                <div className="font-medium text-sm">12:30 06/07/2024</div>
+            </div>
+            <div>
+                <div className="text-sm text-gray-400">ORDER DESTINATION</div>
+                <div className="font-medium text-sm">24 hours</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3 className="flex items-center text-sm font-medium mb-4">
+            <MapPin className="h-5 w-5 text-gray-400" />
+            <span className="text-gray-400">LOCATION</span>
+        </h3>
+        <div className="space-y-2">
+            <div>
+                <div className="text-sm">PICK UP</div>
+                <div className="font-medium text-sm">Point Block C 2301</div>
+            </div>
+            <div>
+                <div className="text-sm">DROP OFF</div>
+                <div className="font-medium text-sm">Point Block C 2301</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3 className="flex items-center text-sm font-medium mb-4">
+            <User className="h-5 w-5 text-gray-400" />
+            <span className="text-gray-400">CUSTOMER INFORMATION</span>
+        </h3>
+        <div className="space-y-2">
+            <div>
+                <div className="text-sm">FULL NAME</div>
+                <div className="font-medium text-sm">Mawupemor Ruth</div>
+            </div>
+            <div>
+                <div className="text-sm text-gray-500">PHONE NUMBER</div>
+                <div className="font-medium text-sm">+233 55 813 2345</div>
+            </div>
+        </div>
+    </div>
+</div>
                     {/* Item List */}
-                    <div className="mb-4">
-                        <h3 className="text-lg  font-semibold mb-4">Item List</h3>
-                        <table className="w-full">
-                        <thead>
-                            <tr className="text-left text-sm text-gray-500 bg-gray-100 divide-y divide-gray-200">
-                            <th className="pb-2 border-b border-gray-300">No.</th>
-                            <th className="pb-2 border-b border-gray-300">Description</th>
-                            <th className="pb-2 border-b border-gray-300">Quantity</th>
-                            <th className="pb-2 border-b border-gray-300">Weight</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
-                            {orderItems.map((item) => (
-                            <tr key={item.no} className="border-b border-gray-300">
-                                <td className="py-3 px-4 border border-gray-300">{item.no}</td>
-                                <td className="py-3 px-4 border border-gray-300">{item.description}</td>
-                                <td className="py-3 px-4 border border-gray-300">{item.quantity}</td>
-                                <td className="py-3 px-4 border border-gray-300">{item.weight}</td>
-                            </tr>
-                            ))}
-                        </tbody>
-                        </table>
-                    </div>
-
+<div className="mb-4">
+    <h3 className="text-lg font-semibold mb-4">Item List</h3>
+    <table className="w-full border border-gray-300">
+        <thead>
+            <tr className="text-left text-sm text-gray-500 bg-gray-100 divide-y divide-gray-200">
+                <th className="py-2 px-4 border-b border-gray-300">No.</th>
+                <th className="py-2 px-4 border-b border-gray-300">Description</th>
+                <th className="py-2 px-4 border-b border-gray-300">Quantity</th>
+                <th className="py-2 px-4 border-b border-gray-300">Weight</th>
+            </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-200">
+            {orderItems.map((item) => (
+                <tr key={item.no} className="border-b border-gray-300">
+                    <td className="py-3 px-4 border border-gray-300">{item.no}</td>
+                    <td className="py-3 px-4 border border-gray-300">{item.description}</td>
+                    <td className="py-3 px-4 border border-gray-300">{item.quantity}</td>
+                    <td className="py-3 px-4 border border-gray-300">{item.weight}</td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+</div>
                     {/* Map */}
                     <div className="mb-8">
                         <h3 className="text-lg font-medium mb-4">Map</h3>
