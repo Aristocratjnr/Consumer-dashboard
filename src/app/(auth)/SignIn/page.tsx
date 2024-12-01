@@ -12,7 +12,10 @@ export default function SignIn() {
         <LaundryIllustrations />
 
         {/* Sign-In Form */}
-        <div className="p-6 md:p-12 flex flex-col">
+        <div
+          className="relative p-6 md:p-12 flex flex-col bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/sign.png')" }}
+        >
           {/* Header */}
           <div className="text-center md:text-right mb-6 md:mb-12">
             <span className="text-sm text-gray-500">
@@ -38,42 +41,35 @@ export default function SignIn() {
               </p>
             </div>
 
-                        {/* Buttons for Google and Apple Sign-In */}
+            {/* Buttons for Google and Apple Sign-In */}
             <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
-            <Button
+              <Button
                 variant="outline"
-                className="flex-1 h-10 text-gray-500 font-medium border-customGray"
-            >
-                {/* Google Image */}
-                <div className="mr-2 h-5 w-5 md:h-6 md:w-6">
+                className="flex-1 h-10 bg-transparent border text-gray-600  font-medium"
+              >
                 <Image
-                    src="/images/google.png" 
-                    alt="Google Logo"
-                    width={20} 
-                    height={20}
-                    className="object-contain"
+                  src="/images/google.png"
+                  alt="Google Logo"
+                  width={20}
+                  height={20}
+                  className="mr-2 h-5 w-5 object-contain"
                 />
-                </div>
                 Continue with Google
-            </Button>
-            <Button
+              </Button>
+              <Button
                 variant="outline"
-                className="flex-1 h-10 text-gray-500 font-medium border-customGray"
-            >
-                {/* Apple Image */}
-                <div className="mr-2 h-5 w-5 md:h-6 md:w-6">
+                className="flex-1 h-10 bg-transparent border text-gray-600 font-medium"
+              >
                 <Image
-                    src="/images/apple.png" 
-                    alt="Apple Logo"
-                    width={20} 
-                    height={20}
-                    className="object-contain"
+                  src="/images/apple.png"
+                  alt="Apple Logo"
+                  width={20}
+                  height={20}
+                  className="mr-2 h-5 w-5 object-contain"
                 />
-                </div>
                 Continue with Apple
-            </Button>
+              </Button>
             </div>
-
 
             {/* Divider */}
             <div className="relative">
@@ -82,29 +78,29 @@ export default function SignIn() {
               </div>
               <div className="relative flex justify-center text-xs md:text-sm">
                 <span className="px-2 bg-white text-gray-600">
-                  Or continue with email address
                 </span>
               </div>
             </div>
 
             {/* Form */}
             <form className="space-y-3 md:space-y-4">
+              <h3> Or continue with email address</h3>
               {/* Email Input */}
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-black" />
                 <input
                   type="email"
                   placeholder="johndoe@yahoo.com"
-                  className="w-45 h-10 pl-10 pr-3 bg-gray-100 border-0 rounded-md text-sm text-gray-800 placeholder-gray-400 "
+                  className="w-45 h-10 pl-10 pr-3 bg-gray-100 border-0 rounded-md text-sm text-gray-800 placeholder-gray-500"
                 />
               </div>
               {/* Password Input */}
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-black" />
                 <input
                   type="password"
                   placeholder="••••••••••••"
-                  className="w-45 h-10 pl-10 pr-3 bg-gray-100 border-0 rounded-md text-sm text-gray-800 placeholder-gray-400"
+                  className="w-45 h-10 pl-10 pr-3 bg-gray-100 border-0 rounded-md text-sm text-gray-800 placeholder-gray-500"
                 />
               </div>
               {/* Submit Button */}
@@ -118,3 +114,5 @@ export default function SignIn() {
     </div>
   );
 }
+
+
