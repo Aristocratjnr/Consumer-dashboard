@@ -9,7 +9,7 @@ import SignIn from "./(auth)/SignIn/page";
 const page = () => {
   return (
     <div className="min-h-screen bg-white">
-      <SignIn/>
+      <Dashboard/>
     </div>
   );
 };
