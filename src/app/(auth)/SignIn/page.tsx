@@ -91,7 +91,7 @@ export default function SignIn() {
                 <input
                   type="email"
                   placeholder="johndoe@yahoo.com"
-                  className="w-45 h-10 pl-10 pr-3 bg-gray-100 border-0 rounded-md text-sm text-gray-800 placeholder-gray-500"
+                  className="w-45 h-10 pl-10 pr-3 bg-gray-200 border-0 rounded-md text-sm text-gray-900 font-semi-bold placeholder-gray-600"
                 />
               </div>
               {/* Password Input */}
@@ -99,13 +99,13 @@ export default function SignIn() {
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-black" />
                 <input
                   type="password"
-                  placeholder="••••••••••••"
-                  className="w-45 h-10 pl-10 pr-3 bg-gray-100 border-0 rounded-md text-sm text-gray-800 placeholder-gray-500"
+                  placeholder="************"
+                  className="w-45 h-10 pl-10 pr-3 bg-gray-200 border-0 rounded-md text-sm font-semi-bold  text-gray-900 placeholder-gray-600"
                 />
               </div>
               {/* Submit Button */}
               <Button className="w-45 h-10  bg-teal-1000 hover:bg-teal-1000 text-white font-itim text-[15px] rounded-xl flex items-center justify-center space-x-2">
-                Start Laundering!
+                <span>Start Laundering!</span>
               </Button>
             </form>
           </div>
