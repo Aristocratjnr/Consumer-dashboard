@@ -216,8 +216,8 @@
             </header>
 
             {/* Calendar Content */}
-            <main className="grid grid-cols-[1fr_250px] gap-4 p-4">
-            <div className="space-y-4">
+            <main className="grid grid-cols-[1fr_400px] gap-4 p-4">
+            <div className="space-y-4 ml-[-1rem]">
                 {/* Calendar Header */}
                 <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
