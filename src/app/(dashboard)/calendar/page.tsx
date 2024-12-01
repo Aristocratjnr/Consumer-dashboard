@@ -18,18 +18,31 @@
          const toggleProfileDropdown = () => {
               setIsProfileDropdownOpen(!isProfileDropdownOpen);
             };
-        const [selectedDate, setSelectedDate] = useState(18)
-        const [selectedMonth, setSelectedMonth] = useState('September')
-        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-        const dates = Array.from({ length: 21 }, (_, i) => i + 15)
-        const hours = Array.from({ length: 12 }, (_, i) => `${i + 1}:00AM`)
-        const months = ['Jan', 'Feb', 'March', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        const activityData = [20, 35, 25, 85, 45]
-
-        const handleTodayClick = () => {
-            const today = new Date()
-            setSelectedDate(today.getDate())
-            setSelectedMonth(months[today.getMonth()])
+            const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+            const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+            const [selectedDate, setSelectedDate] = useState(new Date().getDate());
+          
+            const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            const hours = Array.from({ length: 12 }, (_, i) => `${i + 1}:00AM`)
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+            const activityData = [20, 35, 25, 85, 45]
+          
+            const getDaysInMonth = (year: number, month: number) => {
+              return new Date(year, month + 1, 0).getDate();
+            };
+          
+            const getFirstDayOfMonth = (year: number, month: number) => {
+              return new Date(year, month, 1).getDay();
+            };
+          
+            const daysInMonth = getDaysInMonth(currentYear, currentMonth);
+            const firstDayOfMonth = getFirstDayOfMonth(currentYear, currentMonth);
+          
+            const handleTodayClick = () => {
+              const today = new Date()
+              setSelectedDate(today.getDate())
+              setCurrentMonth(today.getMonth())
+              setCurrentYear(today.getFullYear())
         }
 
         return (
@@ -196,36 +209,39 @@
                 </div>
                 </header>
 
-                    
-                
+                      
 
-                {/* Calendar Content */}
-                <main className="grid grid-cols-[1fr_250px] gap-4 p-4">
-                <div className="space-y-4">
-                    {/* Calendar Header */}
-                    <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                        <h2 className="text-lg font-semi-bold text-teal-1000">2024</h2>
-                        <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="sm" className="flex items-center gap-2">
-                            {selectedMonth}
-                            <ChevronDown className="h-4 w-4" />
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="start">
-                            {months.map((month) => (
-                            <DropdownMenuItem 
-                                key={month} 
-                                onSelect={() => setSelectedMonth(month)}
-                                className="cursor-pointer"
-                            >
-                                {month}
-                            </DropdownMenuItem>
-                            ))}
-                        </DropdownMenuContent>
-                        </DropdownMenu>
-                    </div>
+        {/* Calendar Content */}
+        <main className="grid grid-cols-[1fr_250px] gap-4 p-4">
+          <div className="space-y-4">
+            {/* Calendar Header */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <h2 className="text-lg font-semi-bold text-teal-1000">{currentYear}</h2>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                      {months[currentMonth]}
+                      <ChevronDown className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start">
+                    {months.map((month, index) => (
+                      <DropdownMenuItem 
+                        key={month} 
+                        onSelect={() => {
+                          setCurrentMonth(index);
+                          setSelectedDate(1);
+                        }}
+                        className="cursor-pointer"
+                      >
+                        {month}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+
                     <Button 
                         className ='text-teal-1000 font-semi-bold text-lg'
                         variant="ghost" 
@@ -238,7 +254,7 @@
                     {/* Calendar Header and Grid */}
                     <div className="rounded-lg border bg-card shadow p-4 max-w-md mx-auto">
                     <div className="text-center mb-2">
-                        <h2 className="text-lg text-teal-1000 font-semi-bold">{selectedMonth} 2024</h2>
+                        <h2 className="text-lg text-teal-1000 font-semi-bold">{months[currentMonth]} 2024</h2>
                     </div>
                     <div className="grid grid-cols-7 gap-2 text-center">
                         {days.map((day) => (
@@ -248,7 +264,7 @@
                         ))}
                     </div>
                     <div className="grid grid-cols-7 gap-2 text-center mt-2">
-                        {dates.map((date) => (
+                        {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((date) => (
                         <Button
                             key={date}
                             variant={selectedDate === date ? "default" : "ghost"}
