@@ -43,6 +43,7 @@ export default function SignIn() {
 
             {/* Buttons for Google and Apple Sign-In */}
             <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
+              <Link href="/dashboard">
               <Button
                 variant="outline"
                 className="flex-1 h-10 bg-transparent border text-gray-600  font-medium"
@@ -56,9 +57,12 @@ export default function SignIn() {
                 />
                 Continue with Google
               </Button>
+              </Link>
+              <Link href="/dashboard">
               <Button
-                variant="outline"
+                variant="ghost"
                 className="flex-1 h-10 bg-transparent border text-gray-600 font-medium"
+                
               >
                 <Image
                   src="/images/apple.png"
@@ -69,6 +73,7 @@ export default function SignIn() {
                 />
                 Continue with Apple
               </Button>
+              </Link>
             </div>
 
             {/* Divider */}
