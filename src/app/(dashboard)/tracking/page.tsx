@@ -43,7 +43,7 @@ const orderItems: OrderItem[] = [
 
 export default function TrackingPage() {
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-    const [isDarkTheme, setIsDarkTheme] = useState(false); // Theme state
+    const [isDarkTheme, setIsDarkTheme] = useState(false); 
 
     const toggleProfileDropdown = () => {
         setIsProfileDropdownOpen(!isProfileDropdownOpen);
@@ -54,7 +54,7 @@ export default function TrackingPage() {
     };
 
     return (
-        <div className={`flex min-h-screen ${isDarkTheme ? 'bg-teal-20 text-white' : 'bg-teal-20 text-black'}`}>
+        <div className={`flex min-h-screen ${isDarkTheme ? 'bg-teal-900 text-white' : 'bg-teal-20 text-black'}`}>
             {/* Sidebar */}
             <div className={`w-64 ${isDarkTheme ? 'bg-gray-900' : 'bg-white'} border-r flex flex-col`}>
                 <div className="p-6 flex-grow">
@@ -350,10 +350,11 @@ export default function TrackingPage() {
                                         <span className="text-sm text-gray-500">Courier</span>
                                     </div>
                                 </div>
-                                <div className="flex items-center space-x-2">
-                                    <Phone className="h-5 w-5 text-gray-400" />
-                                    <span className="text-sm text-gray-500">+233 55 123 4567</span>
-                                </div>
+                                <img 
+                            src="/images/call.png" 
+                            alt="Phone icon" 
+                            className=" text-white h-6 w-6 mr-2"
+                            />
                             </div>
                         </div>
                     </div>
