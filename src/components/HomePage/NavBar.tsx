@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-
 export default function NavBar() {
   return (
     <nav className="flex items-center justify-between bg-white px-14 py-2 shadow-sm">
@@ -30,7 +29,7 @@ export default function NavBar() {
       {/* Sign In / Sign Up */}
       <div className="space-x-4">
         <Link
-          href=""
+          href="/auth/sign-in"
           className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900"
         >
           Sign In
