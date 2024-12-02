@@ -141,7 +141,7 @@
                 Calendar
               </button><br/>
               </Link>
-              <Link href="/" passHref>
+              <Link href="/bookings" passHref>
               <button className="flex w-full items-center rounded-md bg-accent px-4 py-3 font-medium text-accent-foreground dark:bg-gray-700 dark:text-white">
                 <BookingsIcon className="mr-3 h-5 w-5" />
                 Bookings

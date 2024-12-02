@@ -42,83 +42,87 @@
 
           return (
             <div className="min-h-screen bg-teal-20 text-gray-900">
-              <header className="fixed top-0 left-0 right-0 w-45 z-50 bg-white border-b border-gray-200 px-2 py-4 shadow-md" >
-                <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
-                  <div className="flex items-center space-x-8">
-                    <div className="flex items-center space-x-1">
-                      <img src="/images/logo.png" alt="Tulaundry Logo" className="h-8 -mr-0.5" />
-                      <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
-                    </div>
-                    <nav className="flex items-center space-x-4">
-                  <nav className="flex items-center space-x-6">
-                    <button className="flex items-center space-x-2">
-                      <span className="bg-blue-200 hover:bg-blue-300 rounded-full p-2 transition-colors">
-                        <Home className="h-5 w-5 text-teal-1000" />
-                      </span>
-                      <span className="font-bold">Home</span>
-                    </button>
-                  </nav>
-                      {/* Additional nav items */}
-                    </nav>
+      {/* Enhanced Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 py-3 backdrop-blur-sm bg-white/90">
+        <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-1">
+              <img src="/images/logo.png" alt="Tulaundry Logo" className="h-8 -mr-0.5" />
+              <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
+            </div>
+            <nav className="hidden md:flex items-center gap-6">
+              <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 text-teal-900 hover:bg-teal-100 transition-all">
+                <Home className="h-5 w-5" />
+                <span className="font-medium">Home</span>
+              </button>
+            </nav>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <div className="relative">
+              <Button 
+                size="icon" 
+                variant="ghost" 
+                className="rounded-full hover:bg-gray-100"
+              >
+                <Search className="h-5 w-5 text-gray-600" />
+              </Button>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              <button 
+                className="relative p-2 rounded-full hover:bg-gray-100 transition-all"
+                onClick={() => setIsNotificationOpen(!isNotificationOpen)}
+              >
+                <Bell className="h-5 w-5 text-gray-600" />
+                <span className="absolute top-1 right-1 h-2.5 w-2.5 bg-red-500 rounded-full ring-2 ring-white"></span>
+              </button>
+              
+              <button className="p-2 rounded-full hover:bg-gray-100 transition-all">
+                <Settings className="h-5 w-5 text-gray-600" />
+              </button>
+
+              <div className="relative">
+                <button
+                  onClick={toggleProfileDropdown}
+                  className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-teal-800 px-2 py-1 rounded-full"
+                >
+                  <img
+                    src="/images/woman.png"
+                    alt="Profile"
+                    className="h-8 w-8 rounded-full ring-2 ring-teal-800"
+                  />
+                  <div className="flex flex-col items-start">
+                    <span className="text-sm font-semi-bold">Sandra</span>
+                    <span className="text-xs text-gray-700">77884466</span>
                   </div>
-                  <div className="flex items-center space-x-6">
-                    <div className="relative">
-                    <Button size="icon" variant="ghost" className="dark:text-gray-300 dark:hover:text-white">
-                  <Search className="h-5 w-5" />
-                </Button>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                      <button 
-                        className="relative p-2 rounded-full hover:bg-gray-100 transition-colors"
-                        onClick={() => setIsNotificationOpen(!isNotificationOpen)}
-                      >
-                        <Bell className="h-5 w-5 text-gray-600" />
-                        <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
-                      </button>
-                      <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                        <Settings className="h-5 w-5 text-gray-600" />
-                      </button>
-                      {/* Profile Section */}
-                  <div className="relative">
-                    <button
-                      onClick={toggleProfileDropdown}
-                      className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-teal-800 px-2 py-1 rounded-full"
+                </button>
+                {isProfileDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 z-50">
+                    <Link
+                      href="/profile"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
-                      <img
-                        src="/images/woman.png"
-                        alt="Profile"
-                        className="h-8 w-8 rounded-full ring-2 ring-teal-800"
-                      />
-                      <div className="flex flex-col">
-                        <span className="text-sm font-semi-bold">Sandra</span>
-                        <span className="text-xs text-gray-700">77884466</span>
-                      </div>
+                      <User className="inline-block w-4 h-4 mr-2 text-gray-500" />
+                      Profile
+                    </Link>
+                    <Link href="/" passHref>
+                    <button
+                      className="block w-full text-left px-4 py-2 text-sm text-red-700 hover:bg-red-50"
+                      onClick={() => console.log("Logging out...")}
+                    >
+                      <LogOut className="inline-block w-4 h-4 mr-2 text-red-500" />
+                      Log Out
                     </button>
-                    {isProfileDropdownOpen && (
-                      <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-200 z-50">
-                        <Link
-                          href="/profile"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        >
-                          <User className="inline-block w-4 h-4 mr-2 text-gray-500" />
-                          Profile
-                        </Link>
-                        <Link href="/" passHref>
-                        <button
-                          className="block w-full text-left px-4 py-2 text-sm text-red-700 hover:bg-red-50"
-                          onClick={() => console.log("Logging out...")}
-                        >
-                          <LogOut className="inline-block w-4 h-4 mr-2 text-red-500" />
-                          Log Out
-                        </button>
-                        </Link>
-                      </div>
-                    )}
+                    </Link>
                   </div>
-                    </div>
-                  </div>
-                </div>
-              </header>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
 
               <div className="pt-20 flex">
                 <aside className="fixed left-0 top-20 bottom-0 w-64 bg-white border-r border-gray-300 px-6 py-8 shadow-lg">
