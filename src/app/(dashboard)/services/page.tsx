@@ -61,12 +61,12 @@ export default function LaundryDashboard() {
 </aside>
     {/* Main Content */}
     <div className="ml-64 flex-1">
-                <header className="border-b  bg-white">
+                <header className="border-b bg-white">
                     <div className="flex items-center justify-between px-6 h-16">
-                        <div className="flex items-center space-x-2">
-                            <MapPin className="h-5 w-5 text-teal-1000" />
-                            <h1 className="text-lg font-semibold">Services</h1>
-                        </div>
+                    <div className="flex items-center space-x-2">
+                        <img src="/images/service.png" alt="Services" className="h-7 w-7 " />
+                        <h1 className="text-lg font-semibold">Services</h1>
+                    </div>
 
                         <div className="flex items-center space-x-4">
                             <Button variant="ghost" size="icon">
@@ -167,45 +167,45 @@ export default function LaundryDashboard() {
                   title: "Fresh Start Bundle",
                   price: "₵30",
                   features: [
-                    { text: "5 kg Wash & Fold", icon: <Shirt className="h-4 w-4 text-blue-500" /> },
-                    { text: "10% discount coupon", icon: <Sparkles className="h-4 w-4 text-blue-500" /> },
-                    { text: "Free delivery", icon: <Home className="h-4 w-4 text-blue-500" /> },
+                    { text: "5 kg Wash & Fold", icon: <Shirt className="h-4 w-4 text-teal" /> },
+                    { text: "10% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
+                    { text: "Free delivery", icon: <Home className="h-4 w-4 text-teal" /> },
                   ],
                 },
                 {
                   title: "Basic Clean",
                   price: "₵60",
                   features: [
-                    { text: "10 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-blue-500" /> },
-                    { text: "15% discount coupon", icon: <Sparkles className="h-4 w-4 text-blue-500" /> },
-                    { text: "Free delivery for a week", icon: <Home className="h-4 w-4 text-blue-500" /> },
+                    { text: "10 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
+                    { text: "15% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
+                    { text: "Free delivery for a week", icon: <Home className="h-4 w-4 text-teal" /> },
                   ],
                 },
                 {
                   title: "Weekly Essentials",
                   price: "₵120",
                   features: [
-                    { text: "20 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-blue-500" /> },
-                    { text: "20% discount coupon", icon: <Sparkles className="h-4 w-4 text-blue-500" /> },
-                    { text: "Free delivery twice a month", icon: <Home className="h-4 w-4 text-blue-500" /> },
+                    { text: "20 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
+                    { text: "20% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
+                    { text: "Free delivery twice a month", icon: <Home className="h-4 w-4 text-teal" /> },
                   ],
                 },
                 {
                   title: "Semester Saver",
                   price: "₵150",
                   features: [
-                    { text: "30 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-blue-500" /> },
-                    { text: "25% discount coupon", icon: <Sparkles className="h-4 w-4 text-blue-500" /> },
-                    { text: "Free delivery every week", icon: <Home className="h-4 w-4 text-blue-500" /> },
+                    { text: "30 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
+                    { text: "25% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
+                    { text: "Free delivery every week", icon: <Home className="h-4 w-4 text-teal" /> },
                   ],
                 },
                 {
                   title: "Event Ready",
                   price: "₵200",
                   features: [
-                    { text: "50 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-blue-500" /> },
-                    { text: "30% discount coupon", icon: <Sparkles className="h-4 w-4 text-blue-500" /> },
-                    { text: "Priority delivery", icon: <Home className="h-4 w-4 text-blue-500" /> },
+                    { text: "50 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
+                    { text: "30% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
+                    { text: "Priority delivery", icon: <Home className="h-4 w-4 text-teal" /> },
                   ],
                 },
               ].map((pkg, index) => (
@@ -221,7 +221,7 @@ export default function LaundryDashboard() {
                         </li>
                       ))}
                     </ul>
-                    <Button className="`w-45 mt-6 py-1.5 px-4 rounded-full font-medium text-sm transition-colors" variant="outline">
+                    <Button className="w-45 mt-6 py-1.5 px-4 rounded-full font-medium text-sm transition-colors border border-teal-600 hover:bg-teal-500 hover:text-white" variant="outline">
                       Use
                     </Button>
                   </CardContent>
