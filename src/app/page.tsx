@@ -4,8 +4,7 @@ import React from "react";
 import BookingPage from "./(dashboard)/bookings/page";
 import TrackingPage from "./(dashboard)/tracking/page";
 import Dashboard from "./(dashboard)/home/page";
-import SignIn from "./(auth)/sign-in/page";
-import Page from "@/components/HomePage/page";
+import Page from "./LandingPage/page";
 
 const page = () => {
   return (
