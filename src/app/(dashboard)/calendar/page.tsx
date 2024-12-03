@@ -224,10 +224,10 @@ export default function CalendarDashboard() {
                         </div>
 
                         {/* Activity Section */}
-                        <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-4`}>
+                        <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-3`}>
                             <div className="mb-4">
-                                <h3 className="text-lg font-semibold">Activity</h3>
-                                <div className="flex gap-4">
+                                <h3 className="text-lg font-semibold text-teal">Activity</h3><br/>
+                                <div className="flex gap-3">
                                     <span className="rounded-full bg-teal-10 px-3 py-1 text-sm text-white">
                                         Services Booked
                                     </span>
