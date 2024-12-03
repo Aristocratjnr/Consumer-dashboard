@@ -26,7 +26,7 @@ export default function NavBar() {
         </Link>
       </div>
 
-      {/* Sign In / Sign Up */}
+      {/* AuthButtons */}
       <div className="space-x-4">
         <Link
           href="/auth/SignIn"
