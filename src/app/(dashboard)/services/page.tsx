@@ -1,4 +1,5 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+'use client';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Home, HomeIcon, LogOut, Plus, RotateCcw, Search, Settings, Shirt, Sparkles, Package, BookOpen, ChevronRight, MapPin, Bell, User } from 'lucide-react';
@@ -32,7 +33,7 @@ export default function LaundryDashboard() {
                 Home
               </button><br/>
               </Link>
-              <Link href="/" passHref>
+              <Link href="/services" passHref>
               <button className="flex w-full items-center rounded-md font-medium  bg-accent px-4 py-3 text-accent-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300  dark:bg-gray-700">
                 <Package className="mr-3 h-5 w-5" />
                 Services
@@ -77,10 +78,6 @@ export default function LaundryDashboard() {
                             </Button>
                             <Button variant="ghost" size="icon">
                                 <Settings className="h-5 w-5" />
-                            </Button>
-                            {/* Theme Toggle Button */}
-                            <Button variant="ghost" size="icon">
-                              
                             </Button>
                             {/* Profile Section */}
                             <div className="relative">
@@ -221,7 +218,7 @@ export default function LaundryDashboard() {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-45 mt-6 py-1.5 px-4 rounded-full font-medium text-sm transition-colors border border-teal-600 hover:bg-teal-500 hover:text-white" variant="outline">
+                    <Button className="w-45 mt-6 py-1.5 px-4 rounded-full font-medium text-sm transition-colors border border-teal-600 hover:bg-teal hover:text-white" variant="outline">
                       Use
                     </Button>
                   </CardContent>
