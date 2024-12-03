@@ -10,7 +10,7 @@ import Page from "@/components/HomePage/page";
 const page = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Page/>
+      <Dashboard/>
     </div>
   );
 };
