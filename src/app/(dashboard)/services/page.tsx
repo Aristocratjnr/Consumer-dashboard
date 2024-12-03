@@ -207,10 +207,10 @@ export default function LaundryDashboard() {
                 },
               ].map((pkg, index) => (
                 <Card key={index} className="overflow-hidden rounded-xl bg-blue-50 shadow-md transition-transform transform hover:scale-105">
-                  <CardContent className="p-6 text-center">
+                  <CardContent className="p-6 text-left">
                     <h3 className="font-semi-bold text-teal text-xl">{pkg.title}</h3>
                     <div className="text-2xl font-bold text-teal mt-1 block">{pkg.price}</div><br/>
-                    <ul className="mb-6 space-y-2 text-sm text-slate-500">
+                    <ul className="mb-6 space-y-2 text-xs text-slate-500">
                       {pkg.features.map((feature, index) => (
                         <li key={index} className="flex items-center gap-2">
                           {feature.icon}
