@@ -142,7 +142,7 @@ export default function LaundryDashboard() {
                             ].map((item, index) => (
                                 <div key={index} className="flex flex-col items-center">
                                     <div className="relative">
-                                        <div className="flex items-center justify-center w-16 h-16 border rounded-full border-teal-10 bg-white">
+                                        <div className="flex items-center justify-center w-32 h-32 border rounded-full border-teal-10 bg-white">
                                             <img src={item.icon} alt={item.label} className="h-12 w-12" />
                                         </div>
                                         <Button
@@ -158,74 +158,75 @@ export default function LaundryDashboard() {
                         </div>
                     </div>
 
-                    {/* Packages Section */}
-                    <div>
-                        <h2 className="text-teal text-2xl font-semi-bold mb-6">Packages</h2>
-                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-                            {[
-                                {
-                                    title: "Fresh Start Bundle",
-                                    price: "₵30",
-                                    features: [
-                                        { text: "5 kg Wash & Fold", icon: <Shirt className="h-4 w-4 text-teal" /> },
-                                        { text: "10% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
-                                        { text: "Free delivery", icon: <Home className="h-4 w-4 text-teal" /> },
-                                    ],
-                                },
-                                {
-                                    title: "Basic Clean",
-                                    price: "₵60",
-                                    features: [
-                                        { text: "10 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
-                                        { text: "15% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
-                                        { text: "Free delivery for a week", icon: <Home className="h-4 w-4 text-teal" /> },
-                                    ],
-                                },
-                                {
-                                    title: "Weekly Essentials",
-                                    price: "₵120",
-                                    features: [
-                                        { text: "20 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
-                                        { text: "20% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
-                                        { text: "Free delivery twice a month", icon: <Home className="h-4 w-4 text-teal" /> },
-                                    ],
-                                },
-                                {
-                                    title: "Semester Saver",
-                                    price: "₵150",
-                                    features: [
-                                        { text: "30 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
-                                        { text: "25% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
-                                        { text: "Free delivery every week", icon: <Home className="h-4 w-4 text-teal" /> },
-                                    ],
-                                },
-                                {
-                                    title: "Event Ready",
-                                    price: "₵200",
-                                    features: [
-                                        { text: "50 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
-                                        { text: "30% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
-                                        { text: "Priority delivery", icon: <Home className="h-4 w-4 text-teal" /> },
-                                    ],
-                                },
-                            ].map((pkg, index) => (
-                                <Card key={index} className={`overflow-hidden rounded-xl ${isDarkTheme ? 'bg-gray-800' : 'bg-blue-50'} shadow-md transition-transform transform hover:scale-105`}>
-                                    <CardContent className={`p-6 text-left ${isDarkTheme ? 'text-gray-200' : 'text-gray-900'}`}>
-                                        <h3 className="font-semi-bold text-teal text-sm">{pkg.title}</h3>
-                                        <div className="text-2xl  text-teal mt-1 block">{pkg.price}</div><br />
-                                        <ul className="mb-6 space-y-2 text-xs text-slate-500">
-                                            {pkg.features.map((feature, index) => (
-                                                <li key={index} className="flex items-center gap-2">
-                                                    {feature.icon}
-                                                    {feature.text}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                        <Button className="w-45 mt-6 py-1.5 px-4 rounded-full font-medium text-sm transition-colors border border-teal-600 hover:bg-teal hover:text-white" variant="outline">
-                                            Use
-                                        </Button>
-                                    </CardContent>
-                                </Card>
+                        {/* Packages Section */}
+                        <div>
+                            <h2 className="text-teal text-2xl font-semi-bold mb-6">Packages</h2>
+                            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                                {[
+                                    {
+                                        title: "Fresh Start Bundle",
+                                        price: "₵30",
+                                        features: [
+                                            { text: "5 kg Wash & Fold", icon: <Shirt className="h-4 w-4 text-teal" /> },
+                                            { text: "10% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
+                                            { text: "Free delivery", icon: <Home className="h-4 w-4 text-teal" /> },
+                                        ],
+                                    },
+                                    {
+                                        title: "Basic Clean",
+                                        price: "₵60",
+                                        features: [
+                                            { text: "10 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
+                                            { text: "15% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
+                                            { text: "Free delivery for a week", icon: <Home className="h-4 w-4 text-teal" /> },
+                                        ],
+                                    },
+                                    {
+                                        title: "Weekly Essentials",
+                                        price: "₵120",
+                                        features: [
+                                            { text: "20 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
+                                            { text: "20% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
+                                            { text: "Free delivery twice a month", icon: <Home className="h-4 w-4 text-teal" /> },
+                                        ],
+                                    },
+                                    {
+                                        title: "Semester Saver",
+                                        price: "₵150",
+                                        features: [
+                                            { text: "30 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
+                                            { text: "25% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
+                                            { text: "Free delivery every week", icon: <Home className="h-4 w-4 text-teal" /> },
+                                        ],
+                                    },
+                                    {
+                                        title: "Event Ready",
+                                        price: "₵200",
+                                        features: [
+                                            { text: "50 kg Wash & Iron Service", icon: <Shirt className="h-4 w-4 text-teal" /> },
+                                            { text: "30% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
+                                            { text: "Priority delivery", icon: <Home className="h-4 w-4 text-teal" /> },
+                                        ],
+                                    },
+                                ].map((pkg, index) => (
+                                    <Card key={index} className={`overflow-hidden rounded-3xl ${isDarkTheme ? 'bg-gray-800' : 'bg-white'} shadow-md transition-transform transform hover:scale-105`}>
+                        <CardContent className={`p-6 text-left ${isDarkTheme ? 'text-gray-200' : 'text-gray-900'}`}>
+                            <h3 className="font-semi-bold text-teal text-sm">{pkg.title}</h3>
+                            <div className="text-2xl text-teal mt-1 block">{pkg.price}</div><br />
+                            <ul className="mb-6 space-y-2 text-xs text-slate-500">
+                            {pkg.features.map((feature, index) => (
+                                <li key={index} className="flex items-center gap-2">
+                                {feature.icon}
+                                {feature.text}
+                                </li>
+                            ))}
+                            </ul>
+                            <Button className="w-45 mt-6 py-1.5 px-4 rounded-full font-medium text-sm transition-colors border border-teal-600 hover:bg-teal hover:text-white" variant="outline">
+                            Use
+                            </Button>
+                        </CardContent>
+                        </Card>
+
                             ))}
                         </div>
                     </div>
