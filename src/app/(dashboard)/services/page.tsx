@@ -18,7 +18,7 @@ export default function LaundryDashboard() {
     };
 
     return (
-        <div className={`flex min-h-screen ${isDarkTheme ? 'bg-gray-900 text-white' : 'bg-slate-50 text-gray-900'}`}>
+        <div className={`flex min-h-screen ${isDarkTheme ? 'bg-gray-900 text-white' : 'bg-teal-20 text-gray-900'}`}>
             {/* Sidebar */}
             <aside className={`fixed left-0 top-0 z-40 h-screen w-64 border-r ${isDarkTheme ? 'bg-gray-800 border-gray-700' : 'bg-white'}`}>
                 <div className={`w-64 border-r ${isDarkTheme ? 'bg-gray-800' : 'bg-background'} px-4 py-6 flex flex-col`}>
