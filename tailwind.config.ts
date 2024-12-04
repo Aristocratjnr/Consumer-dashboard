@@ -10,15 +10,15 @@ export default {
   ],
   theme: {
   	extend: {
-		fontFamily: {
-			itim: ['Itim'],
-		  },
-  			colors: {
-			customGray:	'#D9D9D9',
-			customGreen: '#40AC0E',
+  		fontFamily: {
+  			itim: ['Itim']
+  		},
+  		colors: {
+  			customGray: '#D9D9D9',
+  			customGreen: '#40AC0E',
   			teal: {
-				'10': '#50A5E6',
-				'20': '#A1DEF742',
+  				'10': '#50A5E6',
+  				'20': '#A1DEF742',
   				'50': '#E0F7FA',
   				'100': '#B2EBF2',
   				'200': '#80DEEA',
@@ -77,6 +77,28 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },

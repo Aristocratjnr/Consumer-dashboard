@@ -10,7 +10,7 @@ import ServicesPage from "./(dashboard)/services/page";
 const page = () => {
   return (
     <div className="min-h-screen bg-white">
-      <ServicesPage/>
+      <ServicesPage />
     </div>
   );
 };
