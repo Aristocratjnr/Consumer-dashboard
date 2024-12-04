@@ -11,7 +11,7 @@ import LaundryService from "./(dashboard)/LaundryService/page";
 const page = () => {
   return (
     <div className="min-h-screen bg-white">
-      <ServicesPage/>
+      <LaundryService/>
     </div>
   );
 };
