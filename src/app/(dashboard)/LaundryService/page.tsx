@@ -18,7 +18,7 @@
             <h1 className="text-2xl font-bold text-center text-gray-800">
             Welcome to our Laundry Services
             </h1>
-        </header>
+        </header><br/>
 
         {/* Intro Section */}
         <section className="flex flex-col md:flex-row items-center md:items-start mb-8 bg-teal-20">
