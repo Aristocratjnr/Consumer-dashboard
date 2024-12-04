@@ -67,7 +67,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="transform overflow-hidden rounded-2xl bg-cyan-100 p-2">
                   <Image
-                    src=""
+                    src="/images/about-img1.png"
                     alt="Laundry Service Provider"
                     width={500}
                     height={500}
@@ -76,7 +76,7 @@ export default function Home() {
                 </div>
                 <div className="transform overflow-hidden rounded-2xl bg-cyan-100 p-2">
                   <Image
-                    src=""
+                    src="/images/about-img2.png"
                     alt="Professional Laundry Service"
                     width={500}
                     height={500}
@@ -87,10 +87,10 @@ export default function Home() {
               <div className="mt-12">
                 <div className="transform overflow-hidden rounded-2xl bg-cyan-100 p-2">
                   <Image
-                    src=""
+                    src="/images/about-img3.png"
                     alt="Laundry Process"
                     width={500}
-                    height={850}
+                    height={500}
                     className="rounded-xl"
                   />
                 </div>

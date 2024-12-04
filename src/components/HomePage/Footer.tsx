@@ -11,10 +11,10 @@ export default function Footer() {
           {/* Logo */}
           <div className="h-24 w-24">
             <Image
-              src="/placeholder.svg"
+              src="/images/logo.png"
               alt="Laundry Service Logo"
-              width={96}
-              height={96}
+              width={100}
+              height={100}
               className="h-full w-full object-contain"
             />
           </div>
