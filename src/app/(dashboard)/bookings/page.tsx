@@ -47,25 +47,26 @@
       },
       {
         id: 2,
-        title: "Dry Cleaning",
-        reference: "REF: 887746290",
-        date: "Tomorrow",
-        time: "14:00",
-        services: ["Dry Cleaning"],
+        title: "Weekly Essentials",
+        reference: "REF: 8877463429",
+        date: "Today",
+        time: "11:30",
+        services: ["Laundry", "Ironing"],
         staffImage: "/images/frame.png",
-        paymentMethod: "Credit Card",
-        totalAmount: 45,
-        amountPaid: 45,
-        changeGiven: 0,
-        modeOfTransport: "Delivery",
-        pickupTime: "16:00PM"
+        additionalNote: "Please separate the white clothes from the coloured ones",
+        paymentMethod: "Cash",
+        totalAmount: 60,
+        amountPaid: 100,
+        changeGiven: 40,
+        modeOfTransport: "Picked Up",
+        pickupTime: "1:30PM"
       },
       {
         id: 3,
         title: "Weekly Essentials",
         reference: "REF: 815749290",
         date: "Last Week",
-        time: "11:30",
+        time: "13:30",
         services: ["Laundry", "Stain Treatments", "Ironing"],
         staffImage: "/images/frame.png",
         paymentMethod: "Cash",
@@ -77,6 +78,21 @@
       },
       {
         id: 4,
+        title: "Dry Cleaning",
+        reference: "REF: 815749289",
+        date: "Two Weeks Ago",
+        time: "15:00",
+        services: ["Dry Cleaning", "Pressing"],
+        staffImage: "/images/frame.png",
+        paymentMethod: "Credit Card",
+        totalAmount: 70,
+        amountPaid: 70,
+        changeGiven: 0,
+        modeOfTransport: "Delivery",
+        pickupTime: "17:30PM"
+      },
+      {
+        id: 5,
         title: "Dry Cleaning",
         reference: "REF: 815749289",
         date: "Two Weeks Ago",
@@ -122,7 +138,7 @@
               />
               <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
             </div>
-            <nav className="space-y-0.5 flex-grow">
+            <nav className="space-y-0.5 flex-grow"><br/><br/>
             <Link href="/" passHref>
               <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                 <HomeIcon className="mr-3 h-5 w-5" />
@@ -247,20 +263,27 @@
                       </div>
                     </div>
 
-                    <TabsContent value="upcoming" className="mt-4 ">
-                      <ScrollArea className="h-[calc(100vh-12rem)]">
-                        <div className="space-y-4">
-                          {bookings.slice(0, 2).map((booking) => (
-                            <BookingCard
-                              key={booking.id}
-                              booking={booking}
-                              onSelect={() => setSelectedBooking(booking)}
-                              isSelected={selectedBooking?.id === booking.id}
-                            />
-                          ))}
-                        </div>
-                      </ScrollArea>
-                    </TabsContent>
+                    <TabsContent value="upcoming" className="mt-2">
+                    <div className="space-y-2">
+                      {bookings.slice(0, 3).map((booking, index) => (
+                        <React.Fragment key={booking.id}>
+                          {index === 0 && (
+                            <div className="flex items-center gap-4 px-2 py-3">
+                              <div className="text-lg font-medium text-teal dark:text-white">Today</div>
+                              <div className="flex-1 border-b-2 border-dotted border-gray-400"></div>
+                              <div className="text-lg font-medium text-teal dark:text-white">Sun 24</div>
+                            </div>
+                          )}
+                          <BookingCard
+                            booking={booking}
+                            onSelect={() => setSelectedBooking(booking)}
+                            isSelected={selectedBooking?.id === booking.id}
+                          />
+                        </React.Fragment>
+                      ))}
+                    </div>
+                </TabsContent>
+
 
                     <TabsContent value="history" className="mt-4">
                       <ScrollArea className="h-[calc(100vh-12rem)]">
@@ -375,84 +398,72 @@
         </div>
       )
     }
-
     function BookingCard({ booking, onSelect, isSelected }: { booking: Booking; onSelect: () => void; isSelected: boolean }) {
       return (
         <div
-          className={`relative rounded-3xl shadow-lg p-6 transition hover:shadow-xl ${
-            isSelected ? "ring-2 ring-blue-100" : "ring-1 ring-gray-200 dark:ring-gray-700"
-          } bg-gray-50 dark:bg-gray-800`}
+          className={`relative rounded-3xl shadow-sm p-4 transition hover:shadow-md ${
+            isSelected ? "ring-2 ring-gray-100" : "ring-1 ring-gray-100 dark:ring-gray-700"
+          } bg-teal-20 dark:bg-gray-800`}
         >
           {/* Top Section */}
-          <div className="flex justify-between items-center mb-4">
-            <div className="flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400">
-              <Clock className="h-5 w-5 text-blue-600 dark:text-blue-400" /> {/* Clock Icon */}
+          <div className="flex justify-between items-center mb-2">
+            <div className="flex items-center gap-2 text-xs font-medium text-blue-600 dark:text-blue-400">
+              <Clock className="h-4 w-4 text-blue-600 dark:text-blue-400" />
               {booking.time.toUpperCase()}
             </div>
             <div className="text-xs font-semibold text-gray-500 dark:text-gray-400">
               {booking.reference}
             </div>
           </div>
-
+    
           {/* Middle Content */}
-          <div className="space-y-3 mb-6">
+          <div className="space-y-2 mb-3">
             {/* Package Name */}
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">
-                Package:
-              </span>
-              <span className="text-base font-medium text-gray-800 dark:text-gray-100">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-medium text-gray-800 dark:text-gray-100">
                 {booking.title}
               </span>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-gray-500 dark:text-gray-400">Assigned to</span>
+                <img
+                  alt="Staff"
+                  className="h-6 w-6 rounded-full border border-gray-300 dark:border-gray-600 object-cover"
+                  src={booking.staffImage}
+                />
+              </div>
             </div>
-
+    
             {/* Services */}
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">
-                Services:
-              </span>
-              <span className="text-base font-medium text-gray-800 dark:text-gray-100">
-                x{booking.services.length.toString().padStart(2, "0")}
-              </span>
+            <div>
               <span className="text-xs text-gray-500 dark:text-gray-400">
                 {booking.services.join(" • ")}
               </span>
             </div>
           </div>
-
+    
           {/* Footer Section */}
           <div className="flex justify-between items-center">
-            {/* Assigned Staff */}
-            <div className="flex items-center gap-3">
-              <img
-                alt="Staff"
-                className="h-10 w-10 rounded-full border border-gray-300 dark:border-gray-600 object-cover"
-                src={booking.staffImage}
-              />
-              <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                Assigned to
-              </span>
-            </div>
-
-            {/* Action Button */}
+            <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
+              x{booking.services.length.toString().padStart(2, "0")}
+            </span>
             <button
               onClick={onSelect}
-              className={`text-sm px-4 py-2 rounded-full font-semibold transition ${
+              className={`text-xs px-3 py-1 rounded-full font-semibold transition ${
                 isSelected
-                  ? "bg-blue-600 text-white shadow-md hover:bg-blue-700"
+                  ? "bg-blue-600 text-white shadow-sm hover:bg-blue-700"
                   : "bg-gray-100 text-blue-600 dark:bg-gray-700 dark:text-gray-300 border border-blue-600 dark:border-gray-600 hover:bg-blue-100 dark:hover:bg-gray-600"
               }`}
             >
               {isSelected ? "Selected ✅" : "Details >"}
             </button>
           </div>
-
-          {/* Decorative Accent Line */}
-          <div className="absolute top-0 left-0 w-full h-2 rounded-t-3xl "></div>
+  
         </div>
       );
     }
-
+    
+    
+        
     function HomeIcon(props: React.SVGProps<SVGSVGElement>) {
       return (
         <svg

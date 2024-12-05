@@ -65,7 +65,7 @@ export default function CalendarDashboard() {
                         <img alt="TulaLaundry" className="h-8 -mr-0.5" src="/images/logo.png" />
                         <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
                 </div>
-                <nav className="space-y-0.5 flex-grow">
+                <nav className="space-y-0.2 flex-grow"><br/><br/>
             <Link href="/home" passHref>
               <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                 <HomeIcon className="mr-3 h-5 w-5" />

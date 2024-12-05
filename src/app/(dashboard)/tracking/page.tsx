@@ -32,7 +32,10 @@ const trackingItems: TrackingItem[] = [
     { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
     { id: 'ID #26683TL', date: '01/07/2024', status: 'On Transit' },
     { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' }
+    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
 ];
 
 const orderItems: OrderItem[] = [
@@ -62,7 +65,7 @@ export default function TrackingPage() {
                         <img alt="TulaLaundry" className="h-8 -mr-0.5" src="/images/logo.png" />
                         <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
                     </div>
-                    <nav className="space-y-0.5">
+                    <nav className="space-y-0.5"><br/><br/>
                         <Link href="/" passHref>
                             <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent'}`}>
                                 <Home className="mr-3 h-5 w-5" />
@@ -170,10 +173,10 @@ export default function TrackingPage() {
                     </div>
                 </header>
 
-                <div className="grid grid-cols-12 gap-6 p-6">
+                <div className="grid grid-cols-12 gap-5 p-4">
                     {/* Tracking List */}
                     <div className="col-span-4">
-                        <div className={`rounded-lg shadow-sm p-4 ${isDarkTheme ? 'bg-gray-100 text-white' : 'bg-white'}`}>
+                        <div className={`rounded-lg shadow-sm p-1 ${isDarkTheme ? 'bg-gray-100 text-white' : 'bg-white'}`}>
                             <div className="relative mb-4">
                                 <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
                                 <Input placeholder="Search ID" className="pl-9" />
@@ -212,7 +215,7 @@ export default function TrackingPage() {
 
                     {/* Order Details */}
                     <div className="col-span-8">
-                        <div className={`rounded-lg shadow-sm p-6 ${isDarkTheme ? 'bg-gray-700 text-white' : 'bg-white'}`}>
+                        <div className={`rounded-lg shadow-sm p-8 ${isDarkTheme ? 'bg-gray-700 text-white' : 'bg-white'}`}>
                             <div className="flex justify-between items-center mb-6">
                                 <div className="flex items-center space-x-2">
                                     <div className="text-sm font-bold">Order ID:</div>
