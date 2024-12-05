@@ -173,12 +173,12 @@ export default function TrackingPage() {
                 <div className="grid grid-cols-12 gap-6 p-6">
                     {/* Tracking List */}
                     <div className="col-span-4">
-                        <div className={`rounded-lg shadow-sm p-4 ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-white'}`}>
+                        <div className={`rounded-lg shadow-sm p-4 ${isDarkTheme ? 'bg-gray-100 text-white' : 'bg-white'}`}>
                             <div className="relative mb-4">
                                 <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
                                 <Input placeholder="Search ID" className="pl-9" />
                                 <Button size="icon" variant="ghost" className="absolute right-1 top-1">
-                                    <Package className="h-4 w-4" />
+                                    <Package className={`h-4 w-4 ${isDarkTheme ? 'bg-gray-100 text-black' : 'bg-white'}`}/>
                                 </Button>
                             </div>
                             <ScrollArea className="h-full overflow-y-auto">
@@ -212,7 +212,7 @@ export default function TrackingPage() {
 
                     {/* Order Details */}
                     <div className="col-span-8">
-                        <div className={`rounded-lg shadow-sm p-6 ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-white'}`}>
+                        <div className={`rounded-lg shadow-sm p-6 ${isDarkTheme ? 'bg-gray-700 text-white' : 'bg-white'}`}>
                             <div className="flex justify-between items-center mb-6">
                                 <div className="flex items-center space-x-2">
                                     <div className="text-sm font-bold">Order ID:</div>
@@ -346,7 +346,7 @@ export default function TrackingPage() {
                                         width="40"
                                     />
                             <div className="flex flex-col">
-                                        <span className="font-medium">Andrew</span>
+                                        <span className={`${isDarkTheme ? ' text-black' : 'bg-white'}`}>Andrew</span>
                                         <span className="text-sm text-gray-500">Courier</span>
                                     </div>
                                 </div>
