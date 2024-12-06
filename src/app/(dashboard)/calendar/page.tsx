@@ -154,78 +154,96 @@ export default function CalendarDashboard() {
                     </div>
                 </header>
 
-                {/* Calendar Content */}
-                <main className="grid grid-cols-[1fr_400px] gap-4 p-4">
-                    <div className="space-y-4 ml-[-1rem]">
-                        {/* Calendar Header */}
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                                <Button variant="ghost" size="sm" onClick={toggleYear} className="text-lg font-semi-bold text-teal-1000">
-                                    {currentYear}
-                                </Button>
-                                <DropdownMenu>
-                                    <DropdownMenuTrigger asChild>
-                                        <Button variant="ghost" size="sm" className="flex items-center gap-2">
-                                            {months[currentMonth]}
-                                            <ChevronDown className="h-4 w-4" />
-                                        </Button>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent align="start">
-                                        {months.map((month, index) => (
-                                            <DropdownMenuItem
-                                                key={month}
-                                                onSelect={() => {
-                                                    setCurrentMonth(index);
-                                                    setSelectedDate(1);
-                                                }}
-                                                className="cursor-pointer"
-                                            >
-                                                {month}
-                                            </DropdownMenuItem>
-                                        ))}
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
-                            </div>
+                <main className="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-4 p-4">
+    <div className="space-y-4">
+        {/* Calendar Header */}
+        <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+                <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={toggleYear}
+                    className="text-lg font-semi-bold text-teal-1000 focus-visible:ring-2 focus-visible:ring-teal-500"
+                    aria-label="Toggle Year"
+                >
+                    {currentYear}
+                </Button>
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            className="flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-teal-500"
+                            aria-label="Toggle Month"
+                        >
+                            {months[currentMonth]}
+                            <ChevronDown className="h-4 w-4" />
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start">
+                        {months.map((month, index) => (
+                            <DropdownMenuItem
+                                key={month}
+                                onSelect={() => {
+                                    setCurrentMonth(index);
+                                    setSelectedDate(1);
+                                }}
+                                className="cursor-pointer hover:bg-teal-100 hover:text-teal-1000"
+                            >
+                                {month}
+                            </DropdownMenuItem>
+                        ))}
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
+            <Button
+                variant="ghost"
+                size="lg"
+                className="text-teal-1000 font-semi-bold text-lg focus-visible:ring-2 focus-visible:ring-teal-500"
+                onClick={handleTodayClick}
+            >
+                Today
+            </Button>
+        </div>
 
-                            <Button className='text-teal-1000 font-semi-bold text-lg' variant="ghost" size="lg" onClick={handleTodayClick}>
-                                Today
-                            </Button>
-                        </div>
-
-                        {/* Calendar Header and Grid */}
-                        <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} shadow p-4 max-w-md mx-auto`}>
-                            <div className="text-center mb-2">
-                                <h2 className="text-lg text-teal-1000 font-semi-bold">{months[currentMonth]} {currentYear}</h2>
-                            </div>
-                            <div className="grid grid-cols-7 gap-2 text-center">
-                                {days.map((day) => (
-                                    <div key={day} className="text-xs font-medium text-muted-foreground">
-                                        {day}
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="grid grid-cols-7 gap-2 text-center mt-2">
-                                {Array.from({ length: firstDayOfMonth }, () => (
-                                    <div key={`empty-${Math.random()}`} />
-                                ))}
-                                {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((date) => (
-                                    <Button
-                                        key={date}
-                                        variant={selectedDate === date ? "default" : "ghost"}
-                                        className={`h-10 w-10 rounded-full p-0 ${
-                                            selectedDate === date ? 'bg-teal-1000 text-white' : 'text-muted-foreground'
-                                        }`}
-                                        onClick={() => setSelectedDate(date)}
-                                    >
-                                        {date}
-                                    </Button>
-                                ))}
-                            </div>
-                        </div>
-
+        {/* Calendar Grid */}
+        <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700 border-gray-600' : 'bg-card border-gray-300'} shadow p-4 max-w-md mx-auto`}>
+            <div className="text-center mb-2">
+                <h2 className="text-lg text-teal-1000 font-semi-bold">
+                    {months[currentMonth]} {currentYear}
+                </h2>
+            </div>
+            <div className="grid grid-cols-7 gap-2 text-center">
+                {days.map((day) => (
+                    <div key={day} className="text-xs font-medium text-muted-foreground">
+                        {day}
+                    </div>
+                ))}
+            </div>
+            <div className="grid grid-cols-7 gap-2 text-center mt-2">
+                {Array.from({ length: firstDayOfMonth }, () => (
+                    <div key={`empty-${Math.random()}`} />
+                ))}
+                {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((date) => (
+                    <Button
+                        key={date}
+                        variant={selectedDate === date ? "default" : "ghost"}
+                        className={`h-10 w-10 rounded-full p-0 ${
+                            selectedDate === date
+                                ? 'bg-teal-1000 text-white ring-2 ring-teal-500'
+                                : 'text-muted-foreground hover:bg-gray-200 hover:text-black'
+                        }`}
+                        onClick={() => setSelectedDate(date)}
+                        aria-label={`Select ${date}`}
+                    >
+                        {date}
+                    </Button>
+                ))}
+            </div>
+        </div>
                         {/* Activity Section */}
-                        <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-3`}>
-                            <div className="mb-4">
+                        <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-2`}>
+                            <div className="mb-2">
                                 <h3 className="text-lg font-semibold text-teal">Activity</h3><br/>
                                 <div className="flex gap-3">
                                     <span className="rounded-full bg-teal-10 px-3 py-1 text-sm text-white">
@@ -236,7 +254,7 @@ export default function CalendarDashboard() {
                                     </span>
                                 </div>
                             </div>
-                            <div className="flex h-[150px] items-end gap-4">
+                            <div className="flex h-[160px] items-end gap-4">
                                 {activityData.map((height, index) => (
                                     <div key={index} className="relative flex-1 rounded-t-lg rounded-[20px] bg-teal-1000" style={{ height: `${height}%` }}>
                                         <div className="absolute bottom-0 w-full text-center text-lg text-white font-semi-bold">
@@ -249,7 +267,7 @@ export default function CalendarDashboard() {
                     </div>
 
                     {/* Timeline */}
-                    <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-6 space-y-4`}>
+                    <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-10 space-y-4`}>
                         <h3 className="text-lg font-semibold text-teal-1000 mb-4">Daily Schedule</h3>
                         <div className="space-y-4">
                             {hours.map((hour) => (

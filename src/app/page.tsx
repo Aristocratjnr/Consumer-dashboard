@@ -8,11 +8,12 @@ import Page from "./LandingPage/page";
 import SignIn from "./auth/SignIn/page";
 import ServicesPage from "./(dashboard)/services/page";
 import LaundryService from "./(dashboard)/LaundryService/page";
+import SearchUI from "./(dashboard)/search/page";
 
 const page = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Dashboard/>
+      <Page/>
     </div>
   );
 };

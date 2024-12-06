@@ -128,7 +128,7 @@
                         <div className="mb-8">
                             <div className="mb-4">
                                 <h2 className="text-lg font-semibold text-teal">Explore Our Services</h2>
-                                <p className="text-sm font-medium text-black">
+                                <p className="text-sm font-medium text-black dark:bg-white">
                                     Your Laundry, Done Your Way. Select The Services That Fit Your Needs And Leave The Rest To Us.
                                 </p>
                             </div>

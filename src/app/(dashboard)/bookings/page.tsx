@@ -403,7 +403,7 @@
         <div
           className={`relative rounded-3xl shadow-sm p-4 transition hover:shadow-md ${
             isSelected ? "ring-2 ring-gray-100" : "ring-1 ring-gray-100 dark:ring-gray-700"
-          } bg-teal-20 dark:bg-gray-800`}
+          } bg-teal-20 dark:bg-gray-800 w-62`}
         >
           {/* Top Section */}
           <div className="flex justify-between items-center mb-2">
