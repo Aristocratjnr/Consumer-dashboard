@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function SignIn() {
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-white">
-      <div className="w-full max-w-6xl h-auto grid grid-cols-1 md:grid-cols-[1fr,1.5fr] shadow-lg rounded-3xl overflow-hidden">
+      <div className="w-full max-w-4xl h-auto grid grid-cols-1 md:grid-cols-[1fr,1.5fr] shadow-lg rounded-3xl overflow-hidden">
         {/* Illustrations */}
         <LaundryIllustrations />
 
