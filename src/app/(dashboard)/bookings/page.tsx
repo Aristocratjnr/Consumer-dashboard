@@ -10,6 +10,7 @@
     import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
     import { ScrollArea } from "@/components/ui/scroll-area"
     import { useState } from 'react'
+    import SearchBar from "../../../components/page"
 
     interface Booking {
       id: number
@@ -238,29 +239,17 @@
                   
               </div>
             </header>
-
-            <div className="flex flex-1 p-6 space-x-6">
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-6">
+<SearchBar/>
+            <div className="flex flex-1 p-6 space-x-6 ">
+              <div className="flex-1 items-start">
+                <div className="flex items-center justify-between mb-6 ">
                   <Tabs defaultValue="upcoming" className="w-full">
                     <div className="flex items-center justify-between">
                       <TabsList>
                         <TabsTrigger value="upcoming" className="dark:text-gray-300 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-white">Upcoming</TabsTrigger>
                         <TabsTrigger value="history" className="dark:text-gray-300 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-white">History</TabsTrigger>
                       </TabsList>
-                      <div className="flex items-center gap-2">
-                        <Button size="icon" variant="outline" className="dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
-                          <Calendar className="h-4 w-4" />
-                        </Button>
-                        <Button size="icon" variant="outline" className="dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700">
-                          <Filter className="h-4 w-4" />
-                        </Button>
-                        <Input
-                          className="w-[200px] dark:bg-gray-800 dark:text-white dark:border-gray-600"
-                          placeholder="Search bookings..."
-                          type="search"
-                        />
-                      </div>
+                     
                     </div>
 
                     <TabsContent value="upcoming" className="mt-2">

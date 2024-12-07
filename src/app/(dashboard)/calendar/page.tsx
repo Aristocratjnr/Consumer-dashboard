@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { useState } from "react";
+import SearchBar from '@/components/page';
 
 export default function CalendarDashboard() {
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
@@ -153,6 +154,7 @@ export default function CalendarDashboard() {
                         </div>
                     </div>
                 </header>
+                <SearchBar/>
 
                 <main className="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-4 p-4">
     <div className="space-y-4">

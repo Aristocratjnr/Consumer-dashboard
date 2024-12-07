@@ -138,8 +138,8 @@
                 { icon: "/images/local.png", label: "LAUNDRY" },
                 { icon: "/images/bash.png", label: "CLOTH TREATMENTS" },
                 { icon: "/images/event.png", label: "EVENT CLEANING" },
-                { icon: "/images/custom-cleaning.png", label: "CUSTOM CLEANING" },
-                { icon: "/images/express-cleaning.png", label: "EXPRESS CLEANING" },
+                { icon: "/images/cloth.png", label: "CUSTOM CLEANING" },
+                { icon: "/images/curtain.png", label: "EXPRESS CLEANING" },
             ].map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
                     <div className="relative">
