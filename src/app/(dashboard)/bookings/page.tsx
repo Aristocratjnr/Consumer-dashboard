@@ -418,7 +418,7 @@
               <Clock className="h-4 w-4 text-blue-600 dark:text-blue-400" />
               {booking.time.toUpperCase()}
             </div>
-            <div className="text-xs font-semibold text-gray-500 dark:text-gray-400">
+            <div className="text-xs font-semibold text-black dark:text-gray-400">
               {booking.reference}
             </div>
           </div>
