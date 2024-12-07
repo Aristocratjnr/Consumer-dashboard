@@ -128,11 +128,11 @@
                         <div className="mb-8">
                             <div className="mb-4">
                                 <h2 className="text-lg font-semibold text-teal">Explore Our Services</h2>
-                                <p className="text-sm font-medium text-black dark:bg-white">
+                                <p className="text-sm font-medium  text-black dark:bg-white">
                                     Your Laundry, Done Your Way. Select The Services That Fit Your Needs And Leave The Rest To Us.
                                 </p>
                             </div>
-                            <div className="border-3 border-r border-gray-300 bg-white shadow-md mb-6">
+                            <div className="border-3 border-r border-gray-300 bg-white shadow-md mb-6 rounded-b-lg shadow-gray-500/50">
         <div className="flex justify-center gap-16 p-8">
             {[
                 { icon: "/images/local.png", label: "LAUNDRY" },
@@ -158,10 +158,10 @@
             ))}
         </div>
         </div>
-    </div>
+    </div><br/>
                             {/* Packages Section */}
                             <div>
-                                <h2 className="text-teal text-2xl font-semi-bold mb-6">Packages</h2>
+                                <h2 className="text-teal text-2xl font-medium mb-6">Packages</h2>
                                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                                     {[
                                         {
