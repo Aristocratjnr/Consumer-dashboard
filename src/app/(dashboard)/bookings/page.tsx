@@ -292,89 +292,107 @@
                 </div>
               </div>
               
-              {/* Payment Details Section */}
-              <div className="w-96 flex-shrink-0">
-                <Card className="sticky top-6 dark:bg-gray-800 dark:border-gray-700">
-                    <div className="bg-sky-50 dark:bg-sky-950 p-4 rounded-lg flex justify-between items-center shadow-sm">
-              <div className="px-3 py-1 rounded-full bg-white dark:bg-sky-900 text-sm flex items-center space-x-1 shadow-inner">
-                <Clock className="w-4 h-4 text-sky-500 dark:text-sky-400" />
-                <span className="font-medium text-gray-800 dark:text-gray-200">9:30</span>
-                <span className="text-gray-500 dark:text-gray-400">AM</span>
-              </div>
-              <div className="text-sky-600 dark:text-sky-400 font-medium">
-                Ready in 45 Minutes
-              </div>
-            </div>
-                  <CardHeader className="flex flex-row items-center justify-between">
-                    <CardTitle className="text-lg font-semibold dark:text-white">Booking Details</CardTitle>
-                    {selectedBooking && (
-                      <Button variant="ghost" size="icon" onClick={() => setSelectedBooking(null)}>
-                        <X className="h-4 w-4" />
-                      </Button>
-                    )}
-                  </CardHeader>
-                  <CardContent>
-                    {selectedBooking ? (
+            {/* Payment Details Section */}
+            <div className="w-96 flex-shrink-0">
+            <Card className="sticky top-6 dark:bg-gray-800 dark:border-gray-700">
+              {selectedBooking && (
+                <div className="bg-sky-50 dark:bg-sky-950 p-4 rounded-t-lg">
+                  <div className="flex justify-between items-center">
+                    <div className="px-3 py-1 rounded-full bg-white dark:bg-sky-900 text-sm flex items-center space-x-1">
+                      <Clock className="w-4 h-4 text-sky-500 dark:text-sky-400" />
+                      <span className="font-medium text-gray-800 dark:text-gray-200">{selectedBooking.time}</span>
+                      <span className="text-gray-500 dark:text-gray-400">AM</span>
+                    </div>
+                    <div className="text-sky-600 dark:text-sky-400 font-medium">
+                      Ready in 45 Minutes
+                    </div>
+                  </div>
+                </div>
+              )}
+              <CardHeader className="flex flex-row items-center justify-between">
+                <CardTitle className="text-lg font-semibold dark:text-white">Booking Details</CardTitle>
+                {selectedBooking && (
+                  <Button variant="ghost" size="icon" onClick={() => setSelectedBooking(null)}>
+                    <X className="h-4 w-4" />
+                  </Button>
+                )}
+              </CardHeader>
+              <CardContent>
+                {selectedBooking ? (
+                  <>
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="text-lg font-semibold dark:text-white">{selectedBooking.title}</h3>
+                        <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
+                        <p className="text-sm text-muted-foreground dark:text-gray-400">{selectedBooking.reference}</p>
+                      </div>
                       <div className="space-y-4">
                         <div>
-                          <h3 className="text-lg font-semibold dark:text-white">{selectedBooking.title}</h3>
-                          <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
-                          <p className="text-sm text-muted-foreground dark:text-gray-400">{selectedBooking.reference}</p>
+                          <div className="flex items-center justify-between text-sm text-black dark:text-gray-300">
+                            <span>Services: <b>x{selectedBooking.services.length.toString().padStart(2, '0')}</b></span>
+                          </div><br/>
+                          {selectedBooking.services.map((service, index) => (
+                            <div key={service} className="flex items-center justify-between">
+                              <div className="flex items-center gap-3">
+                                <span className="text-xs text-gray-500">{(index + 1).toString().padStart(2, '0')}</span>
+                                <span className="text-sm font-medium">{service}</span>
+                              </div>
+                              <span className="text-sm text-gray-500">
+                                {index === 0 ? '25' : index === 1 ? '7' : '13'} min
+                              </span>
+                            </div>
+                          ))}
                         </div>
+                      </div>
+                      {selectedBooking.additionalNote && (
                         <div>
-                          <h4 className="text-sm font-medium dark:text-gray-300">Services</h4>
-                          <p className="text-sm text-muted-foreground dark:text-gray-400">
-                            {selectedBooking.services.join(' • ')}
-                          </p>
-                        </div>
-                        {selectedBooking.additionalNote && (
-                          <div>
-                            <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
-                            <h4 className="text-sm font-medium dark:text-gray-300">Additional Note</h4>
-                            <p className="text-sm text-muted-foreground dark:text-gray-400">{selectedBooking.additionalNote}</p>
-                            <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
-                          </div>
-                        )}
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
-                              <span className="flex items-center gap-2">
-                              <Banknote className="h-4 w-4 text-muted-foreground" />
-                              Payment Method
-                            </span>
-                            <span className="text-sm font-medium dark:text-gray-300">{selectedBooking.paymentMethod}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-sm  text-gray-500 dark:text-gray-300">Total Amount</span>
-                            <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.totalAmount}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-sm  text-gray-500 dark:text-gray-300">Amount Paid</span>
-                            <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.amountPaid}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-sm text-gray-500 dark:text-gray-300">Change Given</span>
-                            <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.changeGiven}</span>
-                          </div>
                           <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
-                          <div className="flex justify-between">
-                            <span className="text-sm font-semi-bold text-gray-500 dark:text-gray-200">Mode of Transport</span>
-                            <span className="text-sm font-semi-bold dark:text-gray-100">{selectedBooking.modeOfTransport}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-sm  text-gray-500 dark:text-gray-300">Time</span>
-                            <span className="text-sm font-semi-bold dark:text-gray-100">{selectedBooking.pickupTime}</span>
-                          </div>
+                          <h4 className="text-sm font-medium text-gray-500 dark:text-gray-300">Additional Note</h4>
+                          <p className="text-sm font-medium text-black dark:text-gray-400">{selectedBooking.additionalNote}</p>
+                          <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
+                        </div>
+                      )}
+                      <div className="space-y-2">
+                        <div className="flex justify-between">
+                          <span className="flex items-center gap-2">
+                            <Banknote className="h-4 w-4 text-muted-foreground" />
+                            Payment Method
+                          </span>
+                          <span className="text-sm font-medium dark:text-gray-300">{selectedBooking.paymentMethod}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm  text-gray-500 dark:text-gray-300">Total Amount</span>
+                          <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.totalAmount}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm  text-gray-500 dark:text-gray-300">Amount Paid</span>
+                          <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.amountPaid}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm text-gray-500 dark:text-gray-300">Change Given</span>
+                          <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.changeGiven}</span>
+                        </div>
+                        <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
+                        <div className="flex justify-between">
+                          <span className="text-sm font-semi-bold text-gray-500 dark:text-gray-200">Mode of Transport</span>
+                          <span className="text-sm font-semi-bold dark:text-gray-100">{selectedBooking.modeOfTransport}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm  text-gray-500 dark:text-gray-300">Time</span>
+                          <span className="text-sm font-semi-bold dark:text-gray-100">{selectedBooking.pickupTime}</span>
                         </div>
                       </div>
-                    ) : (
-                      <div className="text-center text-muted-foreground dark:text-gray-400">
-                        Select a booking to view details
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="text-center text-muted-foreground dark:text-gray-400">
+                    Select a booking to view details
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+        </div>
 
             {/* New Booking Button */}
             <Button

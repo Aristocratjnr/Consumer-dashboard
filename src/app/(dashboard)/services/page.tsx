@@ -81,6 +81,7 @@
                                 {/* Theme Toggle Button */}
                                 <Button onClick={toggleTheme} className={`border rounded-full px-2 py-1 ${isDarkTheme ? 'text-gray-300 bg-gray-700 hover:bg-gray-600' : 'text-gray-800 bg-white hover:bg-gray-300'}`}>
                                     {isDarkTheme ? '☀️' : '🌙'}
+                                    
                                 </Button>
                                 {/* Profile Section */}
                                 <div className="relative">
