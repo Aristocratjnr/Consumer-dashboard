@@ -10,7 +10,7 @@ import Testimonial from "@/components/HomePage/Testimonial";
 
 export default function LandingPage() {
   return (
-    <div className="overflow-x-hidden">
+    <div>
       <NavBar />
       <HeroSection />
       <ServicesSection />
