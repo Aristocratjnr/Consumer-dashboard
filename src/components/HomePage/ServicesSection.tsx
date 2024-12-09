@@ -6,7 +6,7 @@ export default function ServicesSection() {
     <div>
       <div className="m-8">
         <p className="text-4xl font-bold">
-          Our <span className="text-blue-400">Services</span>
+          Our <span className="text-[#36C3E2]">Services</span>
         </p>
         <p className="mt-3">
           Expert care for your everyday clothing, ensuring freshness and <br />

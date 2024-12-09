@@ -35,10 +35,10 @@ export default function Testimonials() {
               {/* text */}
               <div className="flex w-full items-center justify-between">
                 <div className="flex flex-col">
-                  <p>Mawupemor</p>
+                  <p className="text-lg font-bold">Mawupemor</p>
                   <p>Lawyer</p>
                 </div>
-                <div className="flex items-center gap-1">
+                <div className="mr-5 box-border flex items-center gap-1 rounded-2xl border border-[#67c6e3] px-5 py-2">
                   <Star className="h-5 w-5 fill-[#67c6e3] text-[#67c6e3]" />
                   <span className="text-lg font-medium">5.0</span>
                 </div>
