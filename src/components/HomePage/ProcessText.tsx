@@ -46,7 +46,7 @@ export default function ProcessText() {
                     <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-sky-200 text-lg font-semibold text-sky-400">
                       {feature.number}
                     </div>
-                    <h3 className="text-2xl font-semibold text-sky-400">
+                    <h3 className="m-6 border-b-2 border-[#36C3E2] text-2xl font-semibold text-sky-400">
                       {feature.title}
                     </h3>
                   </div>

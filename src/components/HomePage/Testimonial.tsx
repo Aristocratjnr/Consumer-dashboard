@@ -9,7 +9,7 @@ export default function Testimonials() {
         <h1 className="mb-12 text-5xl font-bold text-[#67c6e3]">
           Testimonials
         </h1>
-        <Card className="mx-auto max-w-4xl rounded-3xl p-8">
+        <Card className="mx-auto max-w-4xl rounded-3xl border-[#36C3E2] p-8">
           <div className="flex flex-col items-start gap-8 md:flex-row">
             <div className="w-full md:w-1/3">
               <Image
@@ -21,7 +21,9 @@ export default function Testimonials() {
               />
             </div>
             <div className="w-full space-y-4 md:w-2/3">
-              <div className="font-serif text-6xl text-[#67c6e3]">&quot;</div>
+              <div className="font-serif text-6xl leading-none text-[#67c6e3]">
+                ”
+              </div>
 
               <p className="leading-relaxed text-gray-700">
                 Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -30,13 +32,16 @@ export default function Testimonials() {
                 nostra, per inceptos himenaeos. Curabitur tempus urna at turpis
                 condimentum lobortis.
               </p>
-              <div className="pt-4">
-                <h3 className="text-xl font-bold">Mawupemor</h3>
-                <p className="text-gray-600">Lawyer</p>
-              </div>
-              <div className="flex items-center gap-1">
-                <Star className="h-5 w-5 fill-[#67c6e3] text-[#67c6e3]" />
-                <span className="text-lg font-medium">5.0</span>
+              {/* text */}
+              <div className="flex w-full items-center justify-between">
+                <div className="flex flex-col">
+                  <p>Mawupemor</p>
+                  <p>Lawyer</p>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Star className="h-5 w-5 fill-[#67c6e3] text-[#67c6e3]" />
+                  <span className="text-lg font-medium">5.0</span>
+                </div>
               </div>
             </div>
           </div>
@@ -44,4 +49,15 @@ export default function Testimonials() {
       </div>
     </div>
   );
+}
+
+{
+  /* <div className="pt-4">
+<h3 className="text-xl font-bold">Mawupemor</h3>
+<p className="text-gray-600">Lawyer</p>
+</div>
+<div className="flex items-center gap-1">
+<Star className="h-5 w-5 fill-[#67c6e3] text-[#67c6e3]" />
+<span className="text-lg font-medium">5.0</span>
+</div> */
 }

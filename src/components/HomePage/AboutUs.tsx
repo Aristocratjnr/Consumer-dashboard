@@ -1,104 +1,85 @@
-import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          {/* Left Column - Text Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-4xl font-bold sm:text-5xl">
-                About <span className="text-cyan-400">Us</span>
-              </h1>
-              <h2 className="text-2xl font-semibold text-gray-700 sm:text-3xl">
-                Connecting You to Quality Laundry Services, Anytime, Anywhere.
-              </h2>
-            </div>
-
-            <p className="leading-relaxed text-gray-600">
-              We connect busy consumers with trusted local laundry providers
-              through an easy-to-use app, making laundry hassle-free and
-              convenient. Whether you need on-demand pickup and delivery,
-              customised laundry care, or reliable service from expert
-              providers, we&apos;ve got you covered. Our mission is to save you
-              time, provide top-quality laundry services, and support local
-              businesses, all with the click of a button.
-            </p>
-
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <CheckCircle2 className="mt-1 h-6 w-6 flex-shrink-0 text-cyan-500" />
-                <div>
-                  <h3 className="mb-2 text-xl font-semibold">
-                    2 Years of Experience
-                  </h3>
-                  <p className="text-gray-600">
-                    We&apos;ve become a trusted platform connecting consumers
-                    with reliable laundry providers. We&apos;ve streamlined
-                    laundry services, offering convenience for customers and
-                    growth opportunities for providers.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <CheckCircle2 className="mt-1 h-6 w-6 flex-shrink-0 text-cyan-500" />
-                <div>
-                  <h3 className="mb-2 text-xl font-semibold">
-                    10+ Service Providers
-                  </h3>
-                  <p className="text-gray-600">
-                    We&apos;ve partnered with over 10 trusted laundry service
-                    providers, delivering convenience and quality to our
-                    customers. Our platform has helped consumers access
-                    reliable, on-demand laundry services while supporting
-                    providers in growing their businesses.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Images */}
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div className="transform overflow-hidden rounded-2xl bg-cyan-100 p-2">
-                  <Image
-                    src="/images/about-img1.png"
-                    alt="Laundry Service Provider"
-                    width={500}
-                    height={500}
-                    className="rounded-xl"
-                  />
-                </div>
-                <div className="transform overflow-hidden rounded-2xl bg-cyan-100 p-2">
-                  <Image
-                    src="/images/about-img2.png"
-                    alt="Professional Laundry Service"
-                    width={500}
-                    height={500}
-                    className="rounded-xl"
-                  />
-                </div>
-              </div>
-              <div className="mt-12">
-                <div className="transform overflow-hidden rounded-2xl bg-cyan-100 p-2">
-                  <Image
-                    src="/images/about-img3.png"
-                    alt="Laundry Process"
-                    width={500}
-                    height={500}
-                    className="rounded-xl"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+    <main className="flex min-h-screen justify-between bg-gradient-to-b from-blue-50 to-white p-10">
+      <div className="w-2/3">
+        <h1 className="text-4xl font-extrabold">
+          About <span className="text-[#36C3E2]">Us</span>
+        </h1>
+        <h2 className="mt-10 text-2xl font-bold">
+          Connecting You to Quality Laundry Services, Anytime, Anywhere.
+        </h2>
+        <p className="mt-16">
+          We connect busy consumers with trusted local laundry providers through
+          an easy-to-use app, making laundry hassle-free and convenient. Whether
+          you need on-demand pickup and delivery, customised laundry care, or
+          reliable service from expert providers.
+        </p>
+        <div className="mt-20">
+          <Image
+            src="/images/check-icon.png"
+            alt="Check icon"
+            width={30}
+            height={30}
+            className="mr-5 inline-block"
+          />
+          <h3 className="inline-block text-2xl">2 Years of Experience</h3>
+          <p className="ml-10 mt-2">
+            We&aptos;ve become a trusted platform connecting consumers with
+            reliable laundry providers. We&aptos;ve streamlined laundry
+            services, offering convenience for customers and growth
+            opportunities for providers.
+          </p>
         </div>
-      </section>
+        <div className="mt-20">
+          <Image
+            src="/images/check-icon.png"
+            alt="Check icon"
+            width={30}
+            height={30}
+            className="mr-5 inline-block"
+          />
+          <h3 className="inline-block text-2xl">10+ Service Providers</h3>
+          <p className="ml-10 mt-2">
+            We&aptos;ve partnered with over 10 trusted laundry service
+            providers, delivering convenience and quality to our customers. Our
+            platform has helped consumers access reliable, on-demand laundry
+            services while supporting providers in growing their businesses.
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-20 flex w-1/3 flex-col space-y-5 pl-10">
+        <div>
+          <Image
+            src="/images/about-img1.png"
+            alt="About image 1"
+            width={250}
+            height={300}
+          />
+        </div>
+
+        <div>
+          <Image
+            src="/images/about-img2.png"
+            alt="About image 2"
+            width={250}
+            height={300}
+            className="mt-16"
+          />
+        </div>
+      </div>
+
+      <div className="mt-20 w-1/3 pl-10">
+        <Image
+          src="/images/about-img3.png"
+          alt="About image 3"
+          width={300}
+          height={400}
+          className="h-full w-full"
+        />
+      </div>
     </main>
   );
 }
