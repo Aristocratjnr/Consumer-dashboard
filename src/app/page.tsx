@@ -7,8 +7,7 @@ import Dashboard from "./(dashboard)/home/page";
 import Page from "./LandingPage/page";
 import SignIn from "./auth/SignIn/page";
 import ServicesPage from "./(dashboard)/services/page";
-import LaundryService from "./(dashboard)/LaundryService/page";
-import SearchUI from "./(dashboard)/search/page";
+import SearchUI from "../components/page";
 
 const page = () => {
   return (

@@ -58,6 +58,13 @@
                                 </button>
                             </Link>
                         </nav>
+                        <button className="absolute bottom-8 left-4 right-4 flex items-center justify-between px-4 py-3 text-red-800 hover:bg-red-50 rounded-lg transition-colors">
+                    <div className="flex items-center space-x-3">
+                      <LogOut className="h-5 w-5" />
+                      <span className="font-medium">Log out</span>
+                    </div>
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
                     </div>
                 </aside>
                 {/* Main Content */}
@@ -81,6 +88,7 @@
                                 {/* Theme Toggle Button */}
                                 <Button onClick={toggleTheme} className={`border rounded-full px-2 py-1 ${isDarkTheme ? 'text-gray-300 bg-gray-700 hover:bg-gray-600' : 'text-gray-800 bg-white hover:bg-gray-300'}`}>
                                     {isDarkTheme ? '☀️' : '🌙'}
+                                    
                                 </Button>
                                 {/* Profile Section */}
                                 <div className="relative">
@@ -128,18 +136,18 @@
                         <div className="mb-8">
                             <div className="mb-4">
                                 <h2 className="text-lg font-semibold text-teal">Explore Our Services</h2>
-                                <p className="text-sm font-medium text-black dark:bg-white">
+                                <p className="text-sm font-medium  text-black dark:bg-white">
                                     Your Laundry, Done Your Way. Select The Services That Fit Your Needs And Leave The Rest To Us.
                                 </p>
                             </div>
-                            <div className="border-3 border-r border-gray-300 bg-white shadow-md mb-6">
+                            <div className="border-3 border-r border-gray-300 bg-white shadow-md mb-6 rounded-b-lg shadow-gray-600/60">
         <div className="flex justify-center gap-16 p-8">
             {[
                 { icon: "/images/local.png", label: "LAUNDRY" },
                 { icon: "/images/bash.png", label: "CLOTH TREATMENTS" },
                 { icon: "/images/event.png", label: "EVENT CLEANING" },
-                { icon: "/images/custom-cleaning.png", label: "CUSTOM CLEANING" },
-                { icon: "/images/express-cleaning.png", label: "EXPRESS CLEANING" },
+                { icon: "/images/cloth.png", label: "DRY CLEANING" },
+                { icon: "/images/curtain.png", label: "HOME TEXTILE CLEANING" },
             ].map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
                     <div className="relative">
@@ -158,10 +166,10 @@
             ))}
         </div>
         </div>
-    </div>
+    </div><br/>
                             {/* Packages Section */}
                             <div>
-                                <h2 className="text-teal text-2xl font-semi-bold mb-6">Packages</h2>
+                                <h2 className="text-teal text-2xl font-medium mb-6 trac">Packages</h2>
                                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                                     {[
                                         {
