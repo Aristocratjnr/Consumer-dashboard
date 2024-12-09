@@ -15,7 +15,7 @@ export default function Testimonials() {
               <Image
                 src="/images/testimonial.png"
                 alt="Testimonial"
-                className="aspect-square w-full rounded-2xl object-cover"
+                className="aspect-square w-full max-w-full rounded-2xl object-cover" // Added max-w-full here
                 width={300}
                 height={300}
               />
@@ -49,15 +49,4 @@ export default function Testimonials() {
       </div>
     </div>
   );
-}
-
-{
-  /* <div className="pt-4">
-<h3 className="text-xl font-bold">Mawupemor</h3>
-<p className="text-gray-600">Lawyer</p>
-</div>
-<div className="flex items-center gap-1">
-<Star className="h-5 w-5 fill-[#67c6e3] text-[#67c6e3]" />
-<span className="text-lg font-medium">5.0</span>
-</div> */
 }

@@ -8,9 +8,9 @@ import ProcessText from "@/components/HomePage/ProcessText";
 import ServicesSection from "@/components/HomePage/ServicesSection";
 import Testimonial from "@/components/HomePage/Testimonial";
 
-export default function page() {
+export default function Page() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <NavBar />
       <HeroSection />
       <ServicesSection />
