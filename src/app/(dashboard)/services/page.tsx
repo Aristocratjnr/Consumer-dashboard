@@ -140,14 +140,14 @@
                                     Your Laundry, Done Your Way. Select The Services That Fit Your Needs And Leave The Rest To Us.
                                 </p>
                             </div>
-                            <div className="border-3 border-r border-gray-300 bg-white shadow-md mb-6 rounded-b-lg shadow-gray-500/50">
+                            <div className="border-3 border-r border-gray-300 bg-white shadow-md mb-6 rounded-b-lg shadow-gray-600/60">
         <div className="flex justify-center gap-16 p-8">
             {[
                 { icon: "/images/local.png", label: "LAUNDRY" },
                 { icon: "/images/bash.png", label: "CLOTH TREATMENTS" },
                 { icon: "/images/event.png", label: "EVENT CLEANING" },
-                { icon: "/images/cloth.png", label: "CUSTOM CLEANING" },
-                { icon: "/images/curtain.png", label: "EXPRESS CLEANING" },
+                { icon: "/images/cloth.png", label: "DRY CLEANING" },
+                { icon: "/images/curtain.png", label: "HOME TEXTILE CLEANING" },
             ].map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
                     <div className="relative">
@@ -169,7 +169,7 @@
     </div><br/>
                             {/* Packages Section */}
                             <div>
-                                <h2 className="text-teal text-2xl font-medium mb-6">Packages</h2>
+                                <h2 className="text-teal text-2xl font-medium mb-6 trac">Packages</h2>
                                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                                     {[
                                         {

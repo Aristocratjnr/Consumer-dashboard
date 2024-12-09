@@ -1,18 +1,20 @@
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
-
+import Link  from "next/link";
 const SearchBar = () => {
   return (
     <div className="flex justify-end p-4">
       <div className="bg-teal-20 rounded-lg flex items-center gap-4 px-2 py-1.5">
         <div className="flex items-center gap-2 px-2">
           {/* Calendar button */}
+          <Link href="/calendar">
           <button
             onClick={() => console.log("Calendar clicked")}
             className="hover:bg-slate-200 p-1 rounded"
           >
             <Image src="/images/calendar.png" alt="Calendar" width={20} height={20} />
           </button>
+          </Link>
           <div className="w-px h-3 bg-slate-200" />
           {/* Settings button */}
           <button
