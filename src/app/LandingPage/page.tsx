@@ -8,7 +8,7 @@ import ProcessText from "@/components/HomePage/ProcessText";
 import ServicesSection from "@/components/HomePage/ServicesSection";
 import Testimonial from "@/components/HomePage/Testimonial";
 
-export default function Page() {
+export default function LandingPage() {
   return (
     <div className="overflow-x-hidden">
       <NavBar />
