@@ -12,7 +12,7 @@ import SearchUI from "../components/page";
 const page = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Dashboard/>
+      <Page/>
     </div>
   );
 };
