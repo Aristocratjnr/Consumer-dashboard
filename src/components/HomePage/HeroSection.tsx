@@ -8,17 +8,17 @@ export default function HeroSection() {
        
       {/* Hero Section */}
       <div className="mt-10 flex flex-col lg:flex-row items-center">
-        <div className="bg-[#EBF8FA] flex-1 min-h-[80vh] lg:min-h-[80vh] rounded-r-[50px] overflow-hidden lg:w-[95%]">
+        <div className="bg-[#EBF8FA] flex-1 min-h-[90vh] lg:min-h-[90vh] rounded-r-[50px] overflow-hidden">
           <div className="container mx-auto px-6 lg:px-20 pt-16">
-            <div className="max-w-xl">
-              <h1 className="text-[4rem] leading-tight font-bold text-gray-800 mb-6">
+            <div className="max-w-2xl">
+              <h1 className="text-[5rem] leading-tight font-bold text-gray-900 mb-9">
                 From Pile to{' '}
                 <span className="text-[#41CEE5] block">Perfect</span>
               </h1>
               <p className="text-gray-600 text-lg mb-2">
                 you can use our services in any convenient way
               </p>
-              <p className="text-gray-500">
+              <p className="text-gray-600">
                 time to relax, lets handle the dirty work!
               </p>
             </div>
