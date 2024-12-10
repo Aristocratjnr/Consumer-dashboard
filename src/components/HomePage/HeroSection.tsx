@@ -7,7 +7,7 @@ export default function HeroSection() {
     <div className="min-h-screen">
        
       {/* Hero Section */}
-      <div className="mt-10 flex flex-col lg:flex-row items-center">
+      <div className="items-start mt-10 flex flex-col lg:flex-row ">
         <div className="bg-[#EBF8FA] flex-1 min-h-[90vh] lg:min-h-[90vh] rounded-r-[50px] overflow-hidden lg:w-2/3">
           <div className="container mx-auto px-6 lg:px-20 pt-16">
             <div className="max-w-2xl">
