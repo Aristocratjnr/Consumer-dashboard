@@ -250,10 +250,10 @@ export default function BookingPage() {
                 <SearchBar />
               </div>
 
-              <div className="flex flex-1 space-x-4 py-4">
+              <div className="flex flex-1 space-x-6 py-6">
                 <div className="flex-1 items-start">
                   <TabsContent value="upcoming" className="mt-2">
-                    <div className="space-y-2">
+                    <div className="space-y-10">
                       {bookings.slice(0, 3).map((booking, index) => (
                         <React.Fragment key={booking.id}>
                           <div className={`${index === 0 ? '-mt-10' : ''}`}>
