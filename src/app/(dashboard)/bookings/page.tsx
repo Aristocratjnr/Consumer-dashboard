@@ -289,21 +289,20 @@ export default function BookingPage() {
                       ))}
                     </div>
                   </TabsContent>
-
-                  <TabsContent value="history" className="mt-4 w-full bg-teal-20 dark:bg-gray-800">
-                    <ScrollArea className="h-[calc(100vh-12rem)]">
-                      <div className="space-y-0">
-                        {[...Array(8)].map((_, i) => (
-                          <div key={i} className="flex items-start space-x-3 p-4 border-b border-blue-100">
-                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2"></div>
-                            <p className="text-sm text-gray-600">
-                              On Nov 24, REF 887746289, your &apos;Weekly Essentials&apos; package was accepted at 9:00 AM, processed at 11:30 AM, by Pent BlkC Laundry and picked up at 2:00 PM
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </ScrollArea>
-                  </TabsContent>
+                  <TabsContent value="history" className="mt-4 w-full bg-teal-20 dark:bg-gray-800 rounded-lg">
+                  <ScrollArea className="h-[calc(100vh-12rem)]">
+                    <div className="space-y-0">
+                      {[...Array(9)].map((_, i) => (
+                        <div key={i} className="flex items-start space-x-3 p-4 border-b border-dotted border-teal">
+                          <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2"></div>
+                          <p className="text-sm text-gray-600">
+                            On Nov 24, REF 887746289, your &apos;Weekly Essentials&apos; package was accepted at 9:00 AM, processed at 11:30 AM, by Pent BlkC Laundry and picked up at 2:00 PM
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </ScrollArea>
+                </TabsContent>
                 </div>
 
                 {selectedTab !== 'history' && (
