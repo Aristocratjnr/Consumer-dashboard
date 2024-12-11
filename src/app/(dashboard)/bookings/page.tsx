@@ -290,7 +290,7 @@ export default function BookingPage() {
                     </div>
                   </TabsContent>
 
-                  <TabsContent value="history" className="mt-4 w-full bg-teal-20">
+                  <TabsContent value="history" className="mt-4 w-full bg-teal-20 dark:bg-gray-800">
                     <ScrollArea className="h-[calc(100vh-12rem)]">
                       <div className="space-y-0">
                         {[...Array(8)].map((_, i) => (
