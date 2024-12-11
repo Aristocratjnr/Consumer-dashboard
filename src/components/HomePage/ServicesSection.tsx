@@ -1,4 +1,3 @@
-import { UserPlus } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
