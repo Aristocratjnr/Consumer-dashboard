@@ -3,6 +3,7 @@
           import Link from 'next/link';
           import { Bell, Home, Settings, Search, Calendar, Package, Briefcase, LogOut, Mail, Phone, HelpCircle, ChevronRight, User, MapPin } from 'lucide-react';
           import { Button } from '@/components/ui/button';
+          import Image from 'next/image';
 
           export default function Dashboard() {
             const [isNotificationOpen, setIsNotificationOpen] = useState(false);
@@ -46,10 +47,13 @@
         <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 py-3 backdrop-blur-sm bg-white/90">
           <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
             <div className="flex items-center space-x-8">
-              <div className="flex items-center space-x-1">
-                <img src="/images/logo.png" alt="Tulaundry Logo" className="h-8 -mr-0.5" />
-                <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
-              </div>
+             {/* Logo */}
+      <div>
+        <Link href="/" className="flex items-center space-x-2">
+          <Image src="/images/logo.svg" alt="Logo" width={100} height={60} />
+        </Link>
+      </div>
+
               <nav className="hidden md:flex items-center gap-6">
                 <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 text-teal-900 hover:bg-teal-100 transition-all">
                   <Home className="h-5 w-5" />

@@ -11,6 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useState } from 'react'
 import SearchBar from "../../../components/page"
+import Image from "next/image"
 
 interface Booking {
   id: number
@@ -131,14 +132,13 @@ export default function BookingPage() {
     <div className={`flex min-h-screen bg-white ${darkMode ? 'dark' : ''}`}>
       {/* Sidebar */}
       <div className="w-64 border-r bg-background px-4 py-6 dark:bg-gray-800 dark:border-gray-700 flex flex-col">
-        <div className="mb-8 flex items-center">
-          <img
-            alt="TulaLaundry"
-            className="h-8 -mr-0.5"
-            src="/images/logo.png"
-          />
-          <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
-        </div>
+        {/* Logo */}
+      <div>
+        <Link href="/" className="flex items-center space-x-2">
+          <Image src="/images/logo.svg" alt="Logo" width={100} height={60} />
+        </Link>
+      </div>
+
         <nav className="space-y-0.5 flex-grow"><br/><br/>
         <Link href="/" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">

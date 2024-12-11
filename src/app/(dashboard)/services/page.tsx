@@ -4,6 +4,7 @@
     import { Calendar, Home, HomeIcon, LogOut, Plus, RotateCcw, Search, Settings, Shirt, Sparkles, Package, BookOpen, ChevronRight, MapPin, Bell, User, Mail } from 'lucide-react';
     import Link from "next/link";
     import { useState } from "react";
+    import Image from "next/image";
 
     export default function LaundryDashboard() {
         const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
@@ -22,10 +23,13 @@
                 {/* Sidebar */}
                 <aside className={`fixed left-0 top-0 z-40 h-screen w-64 border-r ${isDarkTheme ? 'bg-gray-800 border-gray-700' : 'bg-white'}`}>
                     <div className={`w-64 border-r ${isDarkTheme ? 'bg-gray-800' : 'bg-background'} px-4 py-6 flex flex-col`}>
-                        <div className="mb-8 flex items-center">
-                            <img alt="TulaLaundry" className="h-8 -mr-0.5" src="/images/logo.png" />
-                            <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
-                        </div>
+                       {/* Logo */}
+                    <div>
+                        <Link href="/" className="flex items-center space-x-2">
+                        <Image src="/images/logo.svg" alt="Logo" width={100} height={60} />
+                        </Link>
+                    </div>
+
                         <nav className="space-y-0.5 flex-grow"><br/><br/>
                             <Link href="/" passHref>
                                 <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
