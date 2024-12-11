@@ -305,7 +305,7 @@ export default function BookingPage() {
 
                 {/* Payment Details Section */}
                 <div className="w-96 flex-shrink-0">
-                  <Card className="sticky top-6 dark:bg-gray-800 dark:border-gray-700">
+                  <Card className="sticky top-6 dark:bg-gray-800 dark:border-gray-700 bg-teal-20">
                     {selectedBooking && (
                       <div className="bg-sky-50 dark:bg-sky-950 p-4 rounded-t-lg">
                         <div className="flex justify-between items-center">
