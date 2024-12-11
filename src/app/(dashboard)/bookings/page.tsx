@@ -250,42 +250,31 @@ export default function BookingPage() {
                 <SearchBar />
               </div>
 
-              <div className="flex flex-1 space-x-6 py-6">
+              <div className="flex flex-1 space-x-4 py-4">
                 <div className="flex-1 items-start">
                   <TabsContent value="upcoming" className="mt-2">
                     <div className="space-y-2">
                       {bookings.slice(0, 3).map((booking, index) => (
                         <React.Fragment key={booking.id}>
-                          {index === 0 && (
-                            <div className="flex items-center gap-4 px-2 py-3">
-                              <div className="text-lg font-medium text-teal dark:text-white">Today</div>
-                              <div className="flex-1 border-b-2 border-dotted border-gray-400"></div>
-                              <div className="text-lg font-medium text-teal dark:text-white">Sun 24</div>
+                          <div className="flex items-center gap-4 px-2 py-3">
+                            <div className={`text-lg font-medium ${index === 0 ? 'text-teal dark:text-white' : 'text-gray-500 dark:text-gray-300'}`}>
+                              {index === 0 ? 'This Week' : index === 1 ? 'Last Week' : 'Two Weeks Ago'}
                             </div>
-                          )}
+                            <div className="flex-1 border-b-2 border-dotted border-gray-400"></div>
+                            <div className={`text-lg font-medium ${index === 0 ? 'text-teal dark:text-white' : 'text-gray-500 dark:text-gray-300'}`}>
+                              {index === 0 ? 'Sun 24' : index === 1 ? 'Wed 17' : 'Mon 8'}
+                            </div>
+                          </div>
                           <BookingCard
                             booking={booking}
                             onSelect={() => setSelectedBooking(booking)}
                             isSelected={selectedBooking?.id === booking.id}
                           />
-                          {index === 1 && (
-                            <div className="flex items-center gap-4 px-2 py-3">
-                              <div className="text-lg font-medium text-gray-500 dark:text-white">Last Week</div>
-                              <div className="flex-1 border-b-2 border-dotted border-gray-400"></div>
-                              <div className="text-lg font-medium text-gray-500 dark:text-white">Wed 24</div>
-                            </div>
-                          )}
-                           {index === 2 && ( // New section for Last Week
-              <div className="flex items-center gap-4 px-2 py-3">
-                <div className="text-lg font-medium text-gray-500 dark:text-white">Last Two Weeks</div>
-                <div className="flex-1 border-b-2 border-dotted border-gray-400"></div>
-                <div className="text-lg font-medium text-gray-500 dark:text-white">Sat 28</div>
-              </div>
-            )}
                         </React.Fragment>
                       ))}
                     </div>
                   </TabsContent>
+
 
                   <TabsContent value="history" className="mt-4">
                     <ScrollArea className="h-[calc(100vh-12rem)]">
