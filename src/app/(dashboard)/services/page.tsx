@@ -38,7 +38,7 @@
                                 </button><br />
                             </Link>
                             <Link href="/services" passHref>
-                                <button className={`flex w-full items-center rounded-md font-medium ${isDarkTheme ? 'bg-gray-700 text-accent-foreground' : 'bg-accent text-accent-foreground'} px-4 py-3 hover:bg-accent`}>
+                                <button className={`flex w-full items-center rounded-md font-medium ${isDarkTheme ? 'bg-gray-700 text-accent-foreground' : 'bg-teal-20'} px-4 py-3 `}>
                                     <Package className="mr-3 h-5 w-5" />
                                     Services
                                 </button><br />
