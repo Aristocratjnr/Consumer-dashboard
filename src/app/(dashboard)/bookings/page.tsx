@@ -114,6 +114,7 @@ export default function BookingPage() {
   const [darkMode, setDarkMode] = React.useState(false)
   const [selectedBooking, setSelectedBooking] = React.useState<Booking | null>(null)
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  const [selectedTab, setSelectedTab] = React.useState<'upcoming' | 'history'>('upcoming');
 
   const toggleProfileDropdown = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
@@ -241,17 +242,29 @@ export default function BookingPage() {
         </header>
         <div className="border-b dark:border-gray-700">
           <div className="container mx-auto px-6">
-            <Tabs defaultValue="upcoming" className="w-full">
+            <Tabs defaultValue="upcoming" className="w-full" value={selectedTab} onValueChange={(value: string) => setSelectedTab(value as 'upcoming' | 'history')}>
               <div className="flex items-center justify-between py-4">
                 <TabsList>
-                  <TabsTrigger value="upcoming" className="dark:text-gray-300 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-white">Upcoming</TabsTrigger>
-                  <TabsTrigger value="history" className="dark:text-gray-300 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-white">History</TabsTrigger>
+                  <TabsTrigger 
+                    value="upcoming" 
+                    onClick={() => setSelectedTab('upcoming')}
+                    className="dark:text-gray-300 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-white"
+                  >
+                    Upcoming
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="history" 
+                    onClick={() => setSelectedTab('history')}
+                    className="dark:text-gray-300 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-white"
+                  >
+                    History
+                  </TabsTrigger>
                 </TabsList>
                 <SearchBar />
               </div>
 
               <div className="flex flex-1 space-x-6 py-6">
-                <div className="flex-1 items-start">
+                <div className={`flex-1 items-start ${selectedTab === 'history' ? 'w-full' : ''}`}>
                   <TabsContent value="upcoming" className="mt-2">
                     <div className="space-y-10">
                       {bookings.slice(0, 3).map((booking, index) => (
@@ -277,122 +290,123 @@ export default function BookingPage() {
                     </div>
                   </TabsContent>
 
-                  <TabsContent value="history" className="mt-4">
+                  <TabsContent value="history" className="mt-4 w-full bg-teal-20">
                     <ScrollArea className="h-[calc(100vh-12rem)]">
-                      <div className="space-y-4">
-                        {bookings.slice(2).map((booking) => (
-                          <BookingCard
-                            key={booking.id}
-                            booking={booking}
-                            onSelect={() => setSelectedBooking(booking)}
-                            isSelected={selectedBooking?.id === booking.id}
-                          />
+                      <div className="space-y-0">
+                        {[...Array(8)].map((_, i) => (
+                          <div key={i} className="flex items-start space-x-3 p-4 border-b border-blue-100">
+                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2"></div>
+                            <p className="text-sm text-gray-600">
+                              On Nov 24, REF 887746289, your &apos;Weekly Essentials&apos; package was accepted at 9:00 AM, processed at 11:30 AM, by Pent BlkC Laundry and picked up at 2:00 PM
+                            </p>
+                          </div>
                         ))}
                       </div>
                     </ScrollArea>
                   </TabsContent>
                 </div>
 
-                {/* Payment Details Section */}
-                <div className="w-96 flex-shrink-0">
-                  <Card className="sticky top-6 dark:bg-gray-800 dark:border-gray-700 bg-teal-20">
-                    {selectedBooking && (
-                      <div className="bg-sky-50 dark:bg-sky-950 p-4 rounded-t-lg">
-                        <div className="flex justify-between items-center">
-                          <div className="px-3 py-1 rounded-full bg-white dark:bg-sky-900 text-sm flex items-center space-x-1">
-                            <Clock className="w-4 h-4 text-sky-500 dark:text-sky-400" />
-                            <span className="font-medium text-gray-800 dark:text-gray-200">{selectedBooking.time}</span>
-                            <span className="text-gray-500 dark:text-gray-400">AM</span>
-                          </div>
-                          <div className="text-sky-600 dark:text-sky-400 font-medium">
-                            Ready in 45 Minutes
+                {selectedTab !== 'history' && (
+                  <div className="w-96 flex-shrink-0">
+                    <Card className="sticky top-6 dark:bg-gray-800 dark:border-gray-700 bg-teal-20">
+                      {selectedBooking && (
+                        <div className="bg-sky-50 dark:bg-sky-950 p-4 rounded-t-lg">
+                          <div className="flex justify-between items-center">
+                            <div className="px-3 py-1 rounded-full bg-white dark:bg-sky-900 text-sm flex items-center space-x-1">
+                              <Clock className="w-4 h-4 text-sky-500 dark:text-sky-400" />
+                              <span className="font-medium text-gray-800 dark:text-gray-200">{selectedBooking.time}</span>
+                              <span className="text-gray-500 dark:text-gray-400">AM</span>
+                            </div>
+                            <div className="text-sky-600 dark:text-sky-400 font-medium">
+                              Ready in 45 Minutes
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
-                    <CardHeader className="flex flex-row items-center justify-between">
-                      <CardTitle className="text-lg font-semibold dark:text-white">Booking Details</CardTitle>
-                      {selectedBooking && (
-                        <Button variant="ghost" size="icon" onClick={() => setSelectedBooking(null)}>
-                          <X className="h-4 w-4" />
-                        </Button>
                       )}
-                    </CardHeader>
-                    <CardContent>
-                      {selectedBooking ? (
-                        <>
-                          <div className="space-y-4">
-                            <div>
-                              <h3 className="text-lg font-semibold dark:text-white">{selectedBooking.title}</h3>
-                              <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
-                              <p className="text-sm text-muted-foreground dark:text-gray-400">{selectedBooking.reference}</p>
-                            </div>
+                      <CardHeader className="flex flex-row items-center justify-between">
+                        <CardTitle className="text-lg font-semibold dark:text-white">Booking Details</CardTitle>
+                        {selectedBooking && (
+                          <Button variant="ghost" size="icon" onClick={() => setSelectedBooking(null)}>
+                            <X className="h-4 w-4" />
+                          </Button>
+                        )}
+                      </CardHeader>
+                      <CardContent>
+                        {selectedBooking ? (
+                          <>
                             <div className="space-y-4">
                               <div>
-                                <div className="flex items-center justify-between text-sm text-black dark:text-gray-300">
-                                  <span>Services: <b>x{selectedBooking.services.length.toString().padStart(2, '0')}</b></span>
-                                </div><br/>
-                                {selectedBooking.services.map((service, index) => (
-                                  <div key={service} className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                      <span className="text-xs text-gray-500">{(index + 1).toString().padStart(2, '0')}</span>
-                                      <span className="text-sm font-medium">{service}</span>
+                                <h3 className="text-lg font-semibold dark:text-white">{selectedBooking.title}</h3>
+                                <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
+                                <p className="text-sm text-muted-foreground dark:text-gray-400">{selectedBooking.reference}</p>
+                              </div>
+                              <div className="space-y-4">
+                                <div>
+                                  <div className="flex items-center justify-between text-sm text-black dark:text-gray-300">
+                                    <span>Services: <b>x{selectedBooking.services.length.toString().padStart(2, '0')}</b></span>
+                                  </div><br/>
+                                  {selectedBooking.services.map((service, index) => (
+                                    <div key={service} className="flex items-center justify-between">
+                                      <div className="flex items-center gap-3">
+                                        <span className="text-xs text-gray-500">{(index + 1).toString().padStart(2, '0')}</span>
+                                        <span className="text-sm font-medium">{service}</span>
+                                      </div>
+                                      <span className="text-sm text-gray-500">
+                                        {index === 0 ? '25' : index === 1 ? '7' : '13'} min
+                                      </span>
                                     </div>
-                                    <span className="text-sm text-gray-500">
-                                      {index === 0 ? '25' : index === 1 ? '7' : '13'} min
-                                    </span>
-                                  </div>
-                                ))}
+                                  ))}
+                                </div>
+                              </div>
+                              {selectedBooking.additionalNote && (
+                                <div>
+                                  <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
+                                  <h4 className="text-sm font-medium text-gray-500 dark:text-gray-300">Additional Note</h4>
+                                  <p className="text-sm font-medium text-black dark:text-gray-400">{selectedBooking.additionalNote}</p>
+                                  <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
+                                </div>
+                              )}
+                              <div className="space-y-2">
+                                <div className="flex justify-between">
+                                  <span className="flex items-center gap-2">
+                                    <Banknote className="h-4 w-4 text-muted-foreground" />
+                                    Payment Method
+                                  </span>
+                                  <span className="text-sm font-medium dark:text-gray-300">{selectedBooking.paymentMethod}</span>
+                                </div>
+                                <div className="flex justify-between">
+                                  <span className="text-sm  text-gray-500 dark:text-gray-300">Total Amount</span>
+                                  <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.totalAmount}</span>
+                                </div>
+                                <div className="flex justify-between">
+                                  <span className="text-sm  text-gray-500 dark:text-gray-300">Amount Paid</span>
+                                  <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.amountPaid}</span>
+                                </div>
+                                <div className="flex justify-between">
+                                  <span className="text-sm text-gray-500 dark:text-gray-300">Change Given</span>
+                                  <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.changeGiven}</span>
+                                </div>
+                                <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
+                                <div className="flex justify-between">
+                                  <span className="text-sm font-semi-bold text-gray-500 dark:text-gray-200">Mode of Transport</span>
+                                  <span className="text-sm font-semi-bold dark:text-gray-100">{selectedBooking.modeOfTransport}</span>
+                                </div>
+                                <div className="flex justify-between">
+                                  <span className="text-sm  text-gray-500 dark:text-gray-300">Time</span>
+                                  <span className="text-sm font-semi-bold dark:text-gray-100">{selectedBooking.pickupTime}</span>
+                                </div>
                               </div>
                             </div>
-                            {selectedBooking.additionalNote && (
-                              <div>
-                                <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
-                                <h4 className="text-sm font-medium text-gray-500 dark:text-gray-300">Additional Note</h4>
-                                <p className="text-sm font-medium text-black dark:text-gray-400">{selectedBooking.additionalNote}</p>
-                                <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
-                              </div>
-                            )}
-                            <div className="space-y-2">
-                              <div className="flex justify-between">
-                                <span className="flex items-center gap-2">
-                                  <Banknote className="h-4 w-4 text-muted-foreground" />
-                                  Payment Method
-                                </span>
-                                <span className="text-sm font-medium dark:text-gray-300">{selectedBooking.paymentMethod}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-sm  text-gray-500 dark:text-gray-300">Total Amount</span>
-                                <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.totalAmount}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-sm  text-gray-500 dark:text-gray-300">Amount Paid</span>
-                                <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.amountPaid}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-sm text-gray-500 dark:text-gray-300">Change Given</span>
-                                <span className="text-sm font-medium dark:text-gray-300">₵{selectedBooking.changeGiven}</span>
-                              </div>
-                              <div className="border-b-2 border-dotted border-teal-10 mb-4"></div>
-                              <div className="flex justify-between">
-                                <span className="text-sm font-semi-bold text-gray-500 dark:text-gray-200">Mode of Transport</span>
-                                <span className="text-sm font-semi-bold dark:text-gray-100">{selectedBooking.modeOfTransport}</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-sm  text-gray-500 dark:text-gray-300">Time</span>
-                                <span className="text-sm font-semi-bold dark:text-gray-100">{selectedBooking.pickupTime}</span>
-                              </div>
-                            </div>
+                          </>
+                        ) : (
+                          <div className="text-center text-muted-foreground dark:text-gray-400">
+                            Select a booking to view details
                           </div>
-                        </>
-                      ) : (
-                        <div className="text-center text-muted-foreground dark:text-gray-400">
-                          Select a booking to view details
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                </div>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </div>
+                )}
               </div>
             </Tabs>
           </div>
@@ -421,7 +435,7 @@ function BookingCard({ booking, onSelect, isSelected }: { booking: Booking; onSe
       <div className="flex justify-between items-center mb-2">
         <div className="flex items-center gap-2 text-xs font-medium text-blue-600 dark:text-blue-400">
           <Clock className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-          {booking.time.toUpperCase()}
+          {booking.time}
         </div>
         <div className="text-xs font-semibold text-black dark:text-gray-400">
           {booking.reference}
@@ -458,6 +472,10 @@ function BookingCard({ booking, onSelect, isSelected }: { booking: Booking; onSe
         <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
           x{booking.services.length.toString().padStart(2, "0")}
         </span>
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-green-500"></div>
+          <span className="text-xs font-medium text-gray-600 dark:text-gray-300">Completed</span>
+        </div>
         <button
           onClick={onSelect}
           className={`text-xs px-3 py-1 rounded-full font-semibold transition ${
@@ -469,7 +487,6 @@ function BookingCard({ booking, onSelect, isSelected }: { booking: Booking; onSe
           {isSelected ? "Selected ✅" : "Details >"}
         </button>
       </div>
-
     </div>
   );
 }
