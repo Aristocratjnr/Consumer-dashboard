@@ -12,7 +12,7 @@ import BookingForm from "./(dashboard)/ConsumerServicesBoard/HomeService";
 const page = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Dashboard/>
+      <LandingPage/>
     </div>
   );
 };
