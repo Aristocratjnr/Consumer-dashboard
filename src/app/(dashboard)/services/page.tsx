@@ -283,14 +283,14 @@ export default function Dashboard() {
                   const isCompleted = (dragProgress / 100) * loyaltyPoints.length > index;
                   const isInProgress = (dragProgress / 100) * loyaltyPoints.length > index - 1 && (dragProgress / 100) * loyaltyPoints.length < index;
                   const outerCircleClass = isCompleted
-                    ? "border-teal-600"
+                    ? "border-teal-1000"
                     : isInProgress
-                    ? "border-teal-400"
+                    ? "border-teal-1000"
                     : "border-gray-300";
                   const innerCircleClass = isCompleted
-                    ? "bg-teal-600 text-white"
+                    ? "bg-teal-1000 text-white"
                     : isInProgress
-                    ? "bg-teal-400 text-white"
+                    ? "bg-teal-1000 text-white"
                     : "bg-gray-200 text-gray-400";
                   return (
                     <div key={index} className="relative flex items-center justify-center">
@@ -304,7 +304,7 @@ export default function Dashboard() {
                         </div>
                       </div>
                       {index < 4 && (
-                        <div className={`hidden md:block h-1 w-8 ${isCompleted ? 'bg-teal-600' : 'bg-gray-300'} absolute left-full top-1/2 transform -translate-y-1/2`}></div>
+                        <div className={`hidden md:block h-1 w-8 ${isCompleted ? 'bg-teal-1000' : 'bg-gray-300'} absolute left-full top-1/2 transform -translate-y-1/2`}></div>
                       )}
                     </div>
                   );
@@ -313,17 +313,17 @@ export default function Dashboard() {
 
               {/* Range Button (Progress Bar) */}
               <div
-                className="relative w-full h-6 bg-gray-200 rounded-full overflow-hidden mb-6 cursor-pointer"
+                className="relative w-full h-4 bg-gray-200 rounded-full overflow-hidden mb-6 cursor-pointer"
                 ref={progressBarRef}
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleTouchStart}
               >
                 <div
-                  className="absolute h-full bg-teal-600 transition-all duration-300 ease-in-out"
+                  className="absolute h-full bg-teal-1000 transition-all duration-300 ease-in-out"
                   style={{ width: `${dragProgress}%` }}
                 ></div>
                 <div
-                  className="absolute top-0 right-0 w-6 h-6 bg-white border-2 border-teal-600 rounded-full transform -translate-y-1/4 translate-x-1/2"
+                  className="absolute top-0 right-0 w-6 h-6 bg-white border-2 border-teal-1000 rounded-full transform -translate-y-1/4 translate-x-1/2"
                   style={{ left: `${dragProgress}%` }}
                 ></div>
               </div>
@@ -344,8 +344,8 @@ export default function Dashboard() {
                   {dragProgress < 100 ? (
                     <>
                       You've earned {Math.floor((dragProgress / 100) * loyaltyPoints[loyaltyPoints.length - 1].points)} points so far—just{" "}
-                      <span className="font-semibold text-teal-600">{loyaltyPoints[loyaltyPoints.length - 1].points - Math.floor((dragProgress / 100) * loyaltyPoints[loyaltyPoints.length - 1].points)} more points</span> to unlock{" "}
-                      <span className="font-semibold text-teal-600">25% discount</span> on your next order.
+                      <span className="font-semibold text-teal-1000">{loyaltyPoints[loyaltyPoints.length - 1].points - Math.floor((dragProgress / 100) * loyaltyPoints[loyaltyPoints.length - 1].points)} more points</span> to unlock{" "}
+                      <span className="font-semibold text-teal-1000">25% discount</span> on your next order.
                     </>
                   ) : (
                     "You've unlocked the maximum 25% discount on your next order!"
