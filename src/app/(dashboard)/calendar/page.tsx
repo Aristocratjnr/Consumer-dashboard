@@ -81,7 +81,7 @@
                     </button><br/>
                     </Link>
                     <Link href="/calendar" passHref>
-                    <button className="flex w-full items-center rounded-md font-medium bg-accent px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground  dark:text-white dark:hover:bg-gray-700">
+                    <button className="flex w-full items-center rounded-md font-medium bg-teal-20 px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground  dark:text-white dark:hover:bg-gray-700">
                         <Calendar className="mr-3 h-5 w-5" />
                         Calendar
                     </button><br/>

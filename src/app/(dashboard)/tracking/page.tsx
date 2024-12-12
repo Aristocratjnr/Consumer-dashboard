@@ -95,7 +95,7 @@ export default function TrackingPage() {
                             </button>
                         </Link><br/>
                         <Link href="/tracking" passHref>
-                            <button className={`flex w-full items-center px-4 py-3 rounded-md ${isDarkTheme ? 'bg-gray-700 text-white' : 'bg-accent text-accent-foreground'}`}>
+                            <button className={`flex w-full items-center px-4 py-3 rounded-md ${isDarkTheme ? 'bg-gray-700 text-white' : 'bg-teal-20 text-accent-foreground'}`}>
                                 <MapPin className="mr-3 h-5 w-5" />
                                 Tracking
                             </button>
