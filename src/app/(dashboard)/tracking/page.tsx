@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge"; 
 import { useState } from "react";
+import Image from "next/image";
 
 interface TrackingItem {
     id: string;
@@ -61,10 +62,13 @@ export default function TrackingPage() {
             {/* Sidebar */}
             <div className={`w-64 ${isDarkTheme ? 'bg-gray-900' : 'bg-white'} border-r flex flex-col`}>
                 <div className="p-6 flex-grow">
-                    <div className="flex items-center mb-8">
-                        <img alt="TulaLaundry" className="h-8 -mr-0.5" src="/images/logo.png" />
-                        <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
+                    {/* Logo */}
+                    <div>
+                        <Link href="/" className="flex items-center space-x-2">
+                        <Image src="/images/logo.svg" alt="Logo" width={100} height={60} />
+                        </Link>
                     </div>
+
                     <nav className="space-y-0.5"><br/><br/>
                         <Link href="/" passHref>
                             <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent'}`}>
@@ -91,7 +95,7 @@ export default function TrackingPage() {
                             </button>
                         </Link><br/>
                         <Link href="/tracking" passHref>
-                            <button className={`flex w-full items-center px-4 py-3 rounded-md ${isDarkTheme ? 'bg-gray-700 text-white' : 'bg-accent text-accent-foreground'}`}>
+                            <button className={`flex w-full items-center px-4 py-3 rounded-md ${isDarkTheme ? 'bg-gray-700 text-white' : 'bg-teal-20 text-accent-foreground'}`}>
                                 <MapPin className="mr-3 h-5 w-5" />
                                 Tracking
                             </button>

@@ -1,108 +1,81 @@
-import { MapPin, Phone, Clock } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-const faqItems = [
-  {
-    question: "Borem ipsum dolor sit amet, consectetur adipiscing elit.",
-    answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptates rerum ea dolorum natus architecto voluptas temporibus.",
-  },
-  {
-    question: "Borem ipsum dolor sit amet, consectetur adipiscing elit.",
-    answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptates rerum ea dolorum natus architecto voluptas temporibus.",
-  },
-  {
-    question: "Borem ipsum dolor sit amet, consectetur adipiscing elit.",
-    answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptates rerum ea dolorum natus architecto voluptas temporibus.",
-  },
-  {
-    question: "Borem ipsum dolor sit amet, consectetur adipiscing elit.",
-    answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptates rerum ea dolorum natus architecto voluptas temporibus.",
-  },
-  {
-    question: "Borem ipsum dolor sit amet, consectetur adipiscing elit.",
-    answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptates rerum ea dolorum natus architecto voluptas temporibus.",
-  },
-  {
-    question: "Borem ipsum dolor sit amet, consectetur adipiscing elit.",
-    answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptates rerum ea dolorum natus architecto voluptas temporibus.",
-  },
-  {
-    question: "Borem ipsum dolor sit amet, consectetur adipiscing elit.",
-    answer:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo voluptates rerum ea dolorum natus architecto voluptas temporibus.",
-  },
-];
+import { Clock, MapPin, Phone } from "lucide-react";
 
 export default function FAQSection() {
   return (
-    <div className="w-full bg-[#f8fbff] py-16">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col gap-12 lg:flex-row">
-          {/* Left Column - Contact Info */}
-          <div className="lg:w-1/3">
-            <h1 className="mb-12 text-4xl font-bold lg:text-5xl">
-              <span className="text-gray-800">Frequently</span>
-              <span className="text-[#67c6e3]">Asked Questions</span>
-            </h1>
+    <div className="container mx-auto px-4 py-12">
+      <h2 className="mb-12 text-4xl font-bold">
+        <span className="text-gray-900">Frequently </span>
+        <span className="text-sky-400">Asked Questions</span>
+      </h2>
 
-            <div className="space-y-8">
-              {/* Contact */}
-              <div className="space-y-2">
-                <h2 className="text-xl font-semibold">Contact</h2>
-                <div className="flex items-center gap-2 text-gray-600">
-                  <Phone className="h-5 w-5 text-[#67c6e3]" />
-                  <span>+233 55 444 7777</span>
-                </div>
+      <div className="grid gap-8 md:grid-cols-2">
+        {/* Contact Information Column */}
+        <div className="space-y-8 rounded-2xl bg-white p-8 shadow-sm">
+          <div className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="rounded-lg bg-sky-100 p-2">
+                <Phone className="h-6 w-6 text-sky-400" />
               </div>
-
-              {/* Address */}
-              <div className="space-y-2">
-                <h2 className="text-xl font-semibold">Address</h2>
-                <div className="flex items-center gap-2 text-gray-600">
-                  <MapPin className="h-5 w-5 text-[#67c6e3]" />
-                  <span>Third CI</span>
-                </div>
+              <div>
+                <h3 className="text-lg font-semibold">Contact</h3>
+                <p className="text-gray-600">+233 55 444 7777</p>
               </div>
+            </div>
 
-              {/* Working Hours */}
-              <div className="space-y-2">
-                <h2 className="text-xl font-semibold">Working Hours</h2>
-                <div className="flex items-center gap-2 text-gray-600">
-                  <Clock className="h-5 w-5 text-[#67c6e3]" />
-                  <span>Monday-Sunday (9:00 AM to 10:00 PM)</span>
-                </div>
+            <div className="flex items-start gap-4">
+              <div className="rounded-lg bg-sky-100 p-2">
+                <MapPin className="h-6 w-6 text-sky-400" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Address</h3>
+                <p className="text-gray-600">Third Cl</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="rounded-lg bg-sky-100 p-2">
+                <Clock className="h-6 w-6 text-sky-400" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold">Working Hours</h3>
+                <p className="text-gray-600">
+                  Monday-Sunday (9:00 AM to 10:00 PM)
+                </p>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Right Column - FAQ Accordion */}
-          <div className="lg:w-2/3">
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqItems.map((item, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="border-b border-dotted border-[#67c6e3] pb-4"
-                >
-                  <AccordionTrigger className="hover:no-underline">
-                    <span className="text-left">{item.question}</span>
-                  </AccordionTrigger>
-                  <AccordionContent>{item.answer}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+        {/* FAQ Accordion Column */}
+        <div>
+          <Accordion
+            type="single"
+            collapsible
+            className="ml-16 w-full space-y-2"
+          >
+            {[...Array(7)].map((_, i) => (
+              <AccordionItem
+                key={i}
+                value={`item-${i}`}
+                className="border-b border-sky-100"
+              >
+                <AccordionTrigger className="m-0 text-left hover:no-underline">
+                  Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                </AccordionTrigger>
+                <AccordionContent>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Explicabo voluptates rerum ea dolorum natus architecto
+                  necessitatibus sapiente quo rem amet.
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ import ProcessText from "@/components/HomePage/ProcessText";
 import ServicesSection from "@/components/HomePage/ServicesSection";
 import Testimonial from "@/components/HomePage/Testimonial";
 
-export default function page() {
+export default function LandingPage() {
   return (
     <div>
       <NavBar />
