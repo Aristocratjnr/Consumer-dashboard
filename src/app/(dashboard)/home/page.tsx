@@ -89,18 +89,46 @@ export default function Dashboard() {
     };
   }, [showConfetti]);
 
+  useEffect(() => {
+    let animationFrameId: number;
+    let lastTimestamp: number;
+
+    const animate = (timestamp: number) => {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const elapsed = timestamp - lastTimestamp;
+
+      if (elapsed > 1200) { // Update every 50ms for a slower, more stable movement
+        lastTimestamp = timestamp;
+        setDragProgress(prevProgress => {
+          const newProgress = prevProgress + 0.1; // Increase by 0.1% each time
+          return newProgress > 100 ? 100 : newProgress;
+        });
+      }
+
+      if (dragProgress < 100) {
+        animationFrameId = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [dragProgress]);
+
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     isDraggingRef.current = true;
     const rect = progressBarRef.current!.getBoundingClientRect();
     const x = e.clientX - rect.left;
-    setDragProgress((x / rect.width) * 100);
+    setDragProgress(0); // Reset progress to 0
   };
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     isDraggingRef.current = true;
     const rect = progressBarRef.current!.getBoundingClientRect();
     const x = e.touches[0].clientX - rect.left;
-    setDragProgress((x / rect.width) * 100);
+    setDragProgress(0); // Reset progress to 0
   };
 
   return (
@@ -284,22 +312,22 @@ export default function Dashboard() {
               </div>
 
               {/* Range Button (Progress Bar) */}
+            <div
+              className="relative w-full h-4 bg-gray-200 rounded-full overflow-hidden mb-6 cursor-pointer"
+              ref={progressBarRef}
+              onMouseDown={handleMouseDown}
+              onTouchStart={handleTouchStart}
+            >
               <div
-                className="relative w-full h-4 bg-gray-200 rounded-full overflow-hidden mb-6 cursor-pointer"
-                ref={progressBarRef}
-                onMouseDown={handleMouseDown}
-                onTouchStart={handleTouchStart}
-              >
-                <div
-                  className="absolute h-full bg-teal-1000 transition-all duration-300 ease-in-out"
-                  style={{ width: `${dragProgress}%` }}
-                ></div>
-                <div
-                  className="absolute top-0 right-0 w-6 h-6 bg-white border-2 border-teal-1000 rounded-full transform -translate-y-1/4 translate-x-1/2"
-                  style={{ left: `${dragProgress}%` }}
-                ></div>
-              </div>
-
+                className="absolute h-full bg-teal-1000 transition-all duration-300 ease-in-out"
+                style={{ width: `${dragProgress}%` }}
+              ></div>
+              <div
+                className="absolute top-1/2 w-6 h-6 bg-white border-4 border-teal-1000 rounded-full transform -translate-y-1/2 transition-all duration-300 ease-in-out"
+                style={{ left: `calc(${dragProgress}% - 12px)` }}
+              ></div>
+            </div>
+            
               {/* Texts Below Progress Bar */}
               <div className="flex justify-between text-xs text-gray-600 mb-4">
                 {loyaltyPoints.map((point, index) => (
@@ -328,7 +356,6 @@ export default function Dashboard() {
                 </p>
               </div>
             </div>
-
 
             {/* Packages */}
             <div>
@@ -360,7 +387,6 @@ export default function Dashboard() {
                     >
                       {pkg.status === 'used' ? 'Used' : 'Use Again'}
                     </button>
-
                   </div>
                 ))}
               </div>
@@ -377,7 +403,6 @@ export default function Dashboard() {
         </main>
         {/* Right Sidebar - Customer Support */}
         <aside className="fixed right-0 top-20 bottom-0 w-96 bg-white border-l border-gray-300 p-6 overflow-y-auto shadow-lg rounded-2xl">
-
           {/* Contact Options */}
           <div className="mb-8">
             <div className="flex items-center mb-6">
@@ -431,7 +456,6 @@ export default function Dashboard() {
               ))}
             </ul>
           </div><br/>
-
 
           {/* Request Assistance Form */}
           <div>
