@@ -415,7 +415,7 @@ export default function Dashboard() {
               <div className="flex items-center justify-between p-4 rounded-lg shadow-sm hover:shadow-md transition">
                 <div className="flex items-center space-x-4">
                   <div className="bg-white p-3 rounded-full shadow-md">
-                    <Phone className="h-6 w-6 text-teal-1000" />
+                    <Phone className="h-4 w-4 text-teal-1000" />
                   </div>
                   <span className="text-sm font-semi-bold text-teal-1000">Phone Support</span>
                 </div>
@@ -425,9 +425,9 @@ export default function Dashboard() {
               <div className="flex items-center justify-between p-4 rounded-lg shadow-sm hover:shadow-md transition">
                 <div className="flex items-center space-x-4">
                   <div className="bg-white p-3 rounded-full shadow-md">
-                    <Mail className="h-6 w-6 text-teal-1000" />
+                    <Mail className="h-4 w-4 text-teal-1000" />
                   </div>
-                  <span className="text-sm font-semi-bold text-teal-1000 w-1">Email Support</span>
+                  <span className="text-sm font-semi-bold text-teal-1000 mr-2">Email Support</span>
                 </div>
                 <span className="text-sm text-gray-700 font-semi-bold">tulaundry@gmail.com</span>
               </div>
