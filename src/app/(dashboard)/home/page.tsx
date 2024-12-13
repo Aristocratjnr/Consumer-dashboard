@@ -132,9 +132,9 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-teal-20 text-gray-900">
+    <div className="min-h-screen bg-teal-20  text-gray-900">
       {/* Enhanced Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 py-3 backdrop-blur-sm bg-white/90">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-2 py-1 backdrop-blur-sm bg-white/90">
         <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8">
             {/* Logo */}
@@ -144,10 +144,9 @@ export default function Dashboard() {
               </Link>
             </div><br/>
 
-            <nav className="hidden md:flex items-center gap-6">
-              <button className="flex items-center gap-4 px-4 py-2 rounded-full bg-teal-50 text-teal-900 hover:bg-teal-100 transition-all">
-                <Home className="h-5 w-5" />
-                <span className="font-medium">Home</span>
+            <nav className="items-center">
+            <button className="flex items-center">
+                <span className="ml-28 text-lg font-semibold">Home</span>
               </button>
             </nav>
           </div>
@@ -218,9 +217,9 @@ export default function Dashboard() {
       </header>
 
 
-      <div className="pt-20 flex">
-        <aside className="fixed left-0 top-20 bottom-0 w-64 bg-white border-r border-gray-300 px-6 py-8 shadow-lg">
-          <nav className="space-y-0.5 flex-grow">
+      <div className="pt-24 flex">
+        <aside className="fixed left-0 top-16 bottom-0 w-64 bg-white border-r border-gray-300 px-6 py-8 shadow-lg">
+          <nav className="space-y-0.5 flex-grow"><br/><br/>
             <Link href="/" passHref>
               <button className="flex w-full rounded-md bg-teal-20 items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                 <Home className="mr-3 h-5 w-5" />
@@ -261,21 +260,21 @@ export default function Dashboard() {
           </button>
         </aside>
 
-        <main className="flex-1 ml-64 mr-96 px-8 py-6">
+        <main className="flex-1 ml-64 mr-96 px-10 py-10">
           <div className="max-w-4xl">
             <div className="mb-8">
               <h1 className="text-4xl font-semi-bold">Welcome <span className="text-teal">Back!</span></h1>
-              <p className="text-gray-600 mt-2">Let's make laundry day effortless.</p>
+              <p className="text-gray-600 mt-2 text-sm">Let's make laundry day effortless.</p>
             </div>
-
-            {/* Progress Section */}
-            <div className="rounded-3xl p-6 md:p-10 mb-10 shadow-lg bg-white">
-              {/* Text Section at the Top */}
-              <div className="text-center mb-6">
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  Every wash earns you more! Collect loyalty points with each order and enjoy exclusive discounts.
+            {/* Text Section at the Top */}
+            <div className="text-center mb-6">
+                <p className="text-gray-700 text-md text-left">
+                  Every wash earns you more! Collect loyalty points with each order <br/> and enjoy exclusive discounts.
                 </p>
               </div>
+            {/* Progress Section */}
+            <div className="rounded-3xl p-6 md:p-10 mb-10 shadow-lg bg-white">
+              
 
               {/* Progress Section with Numbered Circles */}
               <div className="flex flex-wrap justify-center items-center gap-4 mb-6">
@@ -334,6 +333,7 @@ export default function Dashboard() {
                   <span key={index}>{point.points} pts</span>
                 ))}
               </div>
+              </div>
 
               {/* Status Text */}
               <div className="flex flex-col items-center text-center">
@@ -355,7 +355,7 @@ export default function Dashboard() {
                   {dragProgress < 100 ? "Keep going, your reward is within reach!" : "Thank you for your loyalty!"}
                 </p>
               </div>
-            </div>
+          
 
             {/* Packages */}
             <div>
