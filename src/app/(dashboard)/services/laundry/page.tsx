@@ -74,23 +74,21 @@ const Page: React.FC = () => {
             <div className="w-full lg:w-1/2 mt-0">
               <CardHeader>
                 <CardTitle className="text-blue-500 pb-2 mt-auto">
-                  What's Included In Our Event Cleaning Service
+                  What's Included In Our Laundry Service
                 </CardTitle>
                 <div className="flex justify-center space-x-8 pb-4 font-bold">
                   <div className="flex flex-col items-center text-blue-500">
-                    <CardDescription className='leading-tight'>Linen Rental and </CardDescription>
-                    <CardDescription className='leading-tight'>Laundering</CardDescription> 
+                    <CardDescription className='leading-tight'>Washing</CardDescription>
+                
 
                     <TbBoxModel2 />
                   </div>
                   <div className="flex flex-col items-center text-blue-500">
-                    <CardDescription className='leading-tight'>Specialty Garment </CardDescription>
-                    <CardDescription className='leading-tight'>Cleaning</CardDescription>
+                    <CardDescription className='leading-tight'>Ironing</CardDescription>
                     <TbBoxModel2 />
                   </div>
                   <div className="flex flex-col items-center text-blue-500">
-                    <CardDescription className='leading-tight'>On-Site Laundry </CardDescription>
-                    <CardDescription className='leading-tight'>Services</CardDescription>
+                    <CardDescription className='leading-tight'>Folding</CardDescription>
                     <TbBoxModel2 />
                   </div>
                 </div>
@@ -105,7 +103,7 @@ const Page: React.FC = () => {
                       htmlFor="Stain Treatment"
                       className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      Enhanced Convenience
+                      Stain Treatment
                     </label>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -114,7 +112,7 @@ const Page: React.FC = () => {
                       htmlFor="Anti-Allergy Treatment"
                       className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      Special Occasions
+                      Anti-Allergy Treatment
                     </label>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -123,7 +121,7 @@ const Page: React.FC = () => {
                       htmlFor="Color Care Wash"
                       className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      Corporate Events
+                      Color Care Wash
                     </label>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -132,7 +130,7 @@ const Page: React.FC = () => {
                       htmlFor="Odor removal"
                       className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      Eco-Conscious Clients
+                      Odor Removal
                     </label>
                   </div>
                   <h2 className="text-large mb-2">

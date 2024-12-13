@@ -6,6 +6,11 @@ import { Button } from '@/components/ui/button';
 import { LuWashingMachine } from 'react-icons/lu';
 import { MdOutlineIron } from 'react-icons/md';
 import { GiRolledCloth } from 'react-icons/gi';
+import { GiCardPickup } from "react-icons/gi";
+import { TbTruckDelivery } from "react-icons/tb";
+import { MdOutlineMobileFriendly } from "react-icons/md";
+import { GiTakeMyMoney } from "react-icons/gi";
+import { TbBoxModel2 } from "react-icons/tb";
 import { FaCalendarAlt, FaClock, FaMoneyBill, FaMobileAlt, FaTruck, FaStore } from 'react-icons/fa';
 import {
   Card,
@@ -73,20 +78,20 @@ const Page: React.FC = () => {
                 </CardTitle>
                 <div className="flex justify-center space-x-8 pb-4 font-bold">
                   <div className="flex flex-col items-center text-blue-500">
-                    <CardDescription className='leading-tight'>Garment</CardDescription>
+                    <CardDescription className='leading-tight'>Garment </CardDescription>
                     <CardDescription className='leading-tight'>Steaming</CardDescription> 
 
-                    <LuWashingMachine className="w-6 h-6 mt-1" />
+                    <TbBoxModel2 />
                   </div>
                   <div className="flex flex-col items-center text-blue-500">
-                    <CardDescription className='leading-tight'>Leather & Suede</CardDescription>
+                    <CardDescription className='leading-tight'>Leather & Suede </CardDescription>
                     <CardDescription className='leading-tight'>Cleaning</CardDescription>
-                    <MdOutlineIron className="w-8 h-8 mt-1" />
+                   <TbBoxModel2 />
                   </div>
                   <div className="flex flex-col items-center text-blue-500">
-                    <CardDescription className='leading-tight'>Water-Based Dry</CardDescription>
+                    <CardDescription className='leading-tight'>Water-Based Dry </CardDescription>
                     <CardDescription className='leading-tight'>Cleaning</CardDescription>
-                    <GiRolledCloth className="w-6 h-6 mt-1" />
+                    <TbBoxModel2 />
                   </div>
                 </div>
 
@@ -191,7 +196,7 @@ const Page: React.FC = () => {
                   <div className="flex items-center gap-8">
                     <label className="flex flex-col items-center cursor-pointer">
                       <div className="flex items-center gap-2">
-                        <FaMoneyBill className="text-gray-500 w-5 h-5" />
+                        <GiTakeMyMoney />
                         <span className="text-sm font-medium text-gray-700">Cash</span>
                       </div>
                       <input
@@ -225,7 +230,7 @@ const Page: React.FC = () => {
                   <div className="flex items-center gap-8">
                     <label className="flex flex-col items-center cursor-pointer">
                       <div className="flex items-center gap-2">
-                        <FaTruck className="text-gray-500 w-5 h-5" />
+                        <TbTruckDelivery />
                         <span className="text-sm font-medium text-gray-700">Delivery</span>
                       </div>
                       <input
@@ -239,7 +244,7 @@ const Page: React.FC = () => {
                     </label>
                     <label className="flex flex-col items-center cursor-pointer">
                       <div className="flex items-center gap-2">
-                        <FaStore className="text-gray-500 w-5 h-5" />
+                        <GiCardPickup />
                         <span className="text-sm font-medium text-gray-700">Pick-Up</span>
                       </div>
                       <input

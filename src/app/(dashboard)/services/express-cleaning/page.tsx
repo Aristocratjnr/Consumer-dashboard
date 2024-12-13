@@ -6,6 +6,11 @@ import { Button } from '@/components/ui/button';
 import { LuWashingMachine } from 'react-icons/lu';
 import { MdOutlineIron } from 'react-icons/md';
 import { GiRolledCloth } from 'react-icons/gi';
+import { GiCardPickup } from "react-icons/gi";
+import { TbTruckDelivery } from "react-icons/tb";
+import { MdOutlineMobileFriendly } from "react-icons/md";
+import { GiTakeMyMoney } from "react-icons/gi";
+import { TbBoxModel2 } from "react-icons/tb";
 import { FaCalendarAlt, FaClock, FaMoneyBill, FaMobileAlt, FaTruck, FaStore } from 'react-icons/fa';
 import {
   Card,
@@ -73,20 +78,20 @@ const Page: React.FC = () => {
                 </CardTitle>
                 <div className="flex justify-center space-x-8 pb-4 font-bold">
                   <div className="flex flex-col items-center text-blue-500">
-                    <CardDescription className='leading-tight'>Curtain & Drapery</CardDescription>
+                    <CardDescription className='leading-tight'>Curtain & Drapery </CardDescription>
                     <CardDescription className='leading-tight'>Cleaning</CardDescription> 
 
-                    <LuWashingMachine className="w-6 h-6 mt-1" />
+                    <TbBoxModel2 />
                   </div>
                   <div className="flex flex-col items-center text-blue-500">
-                    <CardDescription className='leading-tight'>Rug & Carpet</CardDescription>
+                    <CardDescription className='leading-tight'>Rug & Carpet </CardDescription>
                     <CardDescription className='leading-tight'>Cleaning</CardDescription>
-                    <MdOutlineIron className="w-8 h-8 mt-1" />
+                    <TbBoxModel2 />
                   </div>
                   <div className="flex flex-col items-center text-blue-500">
-                    <CardDescription className='leading-tight'>Uphoistery</CardDescription>
+                    <CardDescription className='leading-tight'>Upholstery </CardDescription>
                     <CardDescription className='leading-tight'>Cleaning</CardDescription>
-                    <GiRolledCloth className="w-6 h-6 mt-1" />
+                    <TbBoxModel2 />
                   </div>
                 </div>
 
@@ -127,7 +132,7 @@ const Page: React.FC = () => {
                       htmlFor="Odor removal"
                       className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                    Comforter & Bedding Cleaning
+                      Comforter & Bedding Cleaning
                     </label>
                   </div>
                   <h2 className="text-large mb-2">
@@ -178,8 +183,8 @@ const Page: React.FC = () => {
                     value={selectedPackage}
                     onChange={(e) => setSelectedPackage(e.target.value)}
                     className="w-[60] border border-gray-300 rounded px-4 py-1 mt-2 mb-0 bg-gray-200"
-                  >
-                    <option value="Basic Clean">Basic Clean</option>
+                  > 
+                    <option value="Basic Clean" > Basic Clean</option>
                     <option value="Deep Clean">Deep Clean</option>
                     <option value="Premium Care">Premium Care</option>
                   </select>
@@ -191,7 +196,7 @@ const Page: React.FC = () => {
                   <div className="flex items-center gap-8">
                     <label className="flex flex-col items-center cursor-pointer">
                       <div className="flex items-center gap-2">
-                        <FaMoneyBill className="text-gray-500 w-5 h-5" />
+                        <GiTakeMyMoney />
                         <span className="text-sm font-medium text-gray-700">Cash</span>
                       </div>
                       <input
@@ -205,7 +210,7 @@ const Page: React.FC = () => {
                     </label>
                     <label className="flex flex-col items-center cursor-pointer">
                       <div className="flex items-center gap-2">
-                        <FaMobileAlt className="text-gray-500 w-5 h-5" />
+                        <MdOutlineMobileFriendly />
                         <span className="text-sm font-medium text-gray-700">Mobile Money</span>
                       </div>
                       <input
@@ -225,7 +230,7 @@ const Page: React.FC = () => {
                   <div className="flex items-center gap-8">
                     <label className="flex flex-col items-center cursor-pointer">
                       <div className="flex items-center gap-2">
-                        <FaTruck className="text-gray-500 w-5 h-5" />
+                        <TbTruckDelivery />
                         <span className="text-sm font-medium text-gray-700">Delivery</span>
                       </div>
                       <input
@@ -239,7 +244,7 @@ const Page: React.FC = () => {
                     </label>
                     <label className="flex flex-col items-center cursor-pointer">
                       <div className="flex items-center gap-2">
-                        <FaStore className="text-gray-500 w-5 h-5" />
+                        <GiCardPickup />
                         <span className="text-sm font-medium text-gray-700">Pick-Up</span>
                       </div>
                       <input
