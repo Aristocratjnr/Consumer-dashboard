@@ -260,7 +260,7 @@ export default function TrackingPage() {
                                             <div className="font-medium text-sm">12:30 06/07/2024</div>
                                         </div>
                                         <div>
-                                            <div className="text-sm text-gray-400">ORDER DESTINATION</div>
+                                            <div className="text-sm">DROFF OFF DESTINATION</div>
                                             <div className="font-medium text-sm">24 hours</div>
                                         </div>
                                     </div>
@@ -273,11 +273,11 @@ export default function TrackingPage() {
                                     <div className="space-y-2">
                                         <div>
                                             <div className="text-sm">PICK UP</div>
-                                            <div className="font-medium text-sm">Point Block C 2301</div>
+                                            <div className="font-medium text-sm">Pent Block C 2301</div>
                                         </div>
                                         <div>
                                             <div className="text-sm">DROP OFF</div>
-                                            <div className="font-medium text-sm">Point Block C 2301</div>
+                                            <div className="font-medium text-sm">Pent Block C 2301</div>
                                         </div>
                                     </div>
                                 </div>
@@ -292,7 +292,7 @@ export default function TrackingPage() {
                                             <div className="font-medium text-sm">Mawupemor Ruth</div>
                                         </div>
                                         <div>
-                                            <div className="text-sm text-gray-500">PHONE NUMBER</div>
+                                            <div className="text-sm">PHONE NUMBER</div>
                                             <div className="font-medium text-sm">+233 55 813 2345</div>
                                         </div>
                                     </div>
@@ -313,7 +313,7 @@ export default function TrackingPage() {
                                     </thead>
                                     <tbody className="divide-y divide-gray-200">
                                         {orderItems.map((item) => (
-                                            <tr key={item.no} className="border-b border-gray-300">
+                                            <tr key={item.no} className="border-b text-gray-500 border-gray-300">
                                                 <td className="py-3 px-4 border border-gray-300">{item.no}</td>
                                                 <td className="py-3 px-4 border border-gray-300">{item.description}</td>
                                                 <td className="py-3 px-4 border border-gray-300">{item.quantity}</td>
