@@ -143,11 +143,11 @@
                             <div className="border-3 border-r border-gray-300 bg-white shadow-md mb-6 rounded-b-lg shadow-gray-500/50">
         <div className="flex justify-center gap-16 p-8">
             {[
-                { icon: "/images/local.png", label: "LAUNDRY" },
+                { icon: "/images/local.png", label: "LAUNDRY" , link: "/services/laundry-service" },
                 { icon: "/images/bash.png", label: "CLOTH TREATMENTS" },
                 { icon: "/images/event.png", label: "EVENT CLEANING" },
-                { icon: "/images/cloth.png", label: "CUSTOM CLEANING" },
-                { icon: "/images/curtain.png", label: "EXPRESS CLEANING" },
+                { icon: "/images/custom-cleaning.png", label: "CUSTOM CLEANING" },
+                { icon: "/images/express-cleaning.png", label: "EXPRESS CLEANING" },
             ].map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
                     <div className="relative">
