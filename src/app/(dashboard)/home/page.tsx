@@ -260,7 +260,7 @@ export default function Dashboard() {
           </button>
         </aside>
 
-        <main className="flex-1 ml-64 mr-96 px-10 py-10">
+        <main className="flex-1 ml-64 mr-96 px-10 py-10 top-20 ">
           <div className="max-w-4xl">
             <div className="mb-8">
               <h1 className="text-4xl font-semi-bold">Welcome <span className="text-teal">Back!</span></h1>
@@ -359,7 +359,7 @@ export default function Dashboard() {
 
             {/* Packages */}
             <div>
-              <h2 className="text-teal text-2xl font-semi-bold mb-6">Packages</h2>
+              <h2 className="text-teal text-2xl font-semi-bold mb-6 ">Packages</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {packages.map((pkg) => (
                   <div key={pkg.id} className="bg-gradient-to-br p-8 rounded-3xl shadow-md hover:shadow-lg transition-shadow border-2 border-teal-1000">
