@@ -203,6 +203,8 @@ export default function TrackingPage() {
                                                         className={
                                                             item.status === 'Completed' 
                                                                 ? 'bg-white text-customGreen hover:bg-green-100 border border-customGreen rounded-2xl inline-block' 
+                                                                : item.status === 'On Delivery'
+                                                                ? 'bg-white text-red-600 hover:bg-red-100 border border-red-600 rounded-2xl inline-block'
                                                                 : 'bg-white text-teal-1000 hover:bg-blue-100 border-teal-1000 rounded-2xl inline-block'
                                                         }
                                                     >
@@ -260,14 +262,14 @@ export default function TrackingPage() {
                                             <div className="font-medium text-sm">12:30 06/07/2024</div>
                                         </div>
                                         <div>
-                                            <div className="text-sm">DROFF OFF DESTINATION</div>
+                                            <div className="text-sm">DROP OFF DESTINATION</div>
                                             <div className="font-medium text-sm">24 hours</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
                                     <h3 className="flex items-center text-sm font-medium mb-4">
-                                        <MapPin className="h-5 w-5 text-gray-400" />
+                                        <MapPin className="h-5 w-5 text-gray-400 mr-2" />
                                         <span className="text-gray-400">LOCATION</span>
                                     </h3>
                                     <div className="space-y-2">
@@ -283,7 +285,7 @@ export default function TrackingPage() {
                                 </div>
                                 <div>
                                     <h3 className="flex items-center text-sm font-medium mb-4">
-                                        <User className="h-5 w-5 text-gray-400" />
+                                        <User className="h-5 w-5 text-gray-400 mr-2" />
                                         <span className="text-gray-400">CUSTOMER INFORMATION</span>
                                     </h3>
                                     <div className="space-y-2">
@@ -352,16 +354,16 @@ export default function TrackingPage() {
                                         style={{ aspectRatio: "40/40", objectFit: "cover" }}
                                         width="40"
                                     />
-                            <div className="flex flex-col">
-                                        <span className={`${isDarkTheme ? ' text-black' : 'bg-white'}`}>Andrew</span>
+                                    <div className="flex flex-col">
+                                        <span className={`${isDarkTheme ? 'text-black' : ''}`}>Andrew</span>
                                         <span className="text-sm text-gray-500">Courier</span>
                                     </div>
                                 </div>
                                 <img 
-                            src="/images/call.png" 
-                            alt="Phone icon" 
-                            className=" text-white h-6 w-6 mr-2"
-                            />
+                                    src="/images/call.png" 
+                                    alt="Phone icon" 
+                                    className="text-white h-6 w-6 mr-2"
+                                />
                             </div>
                         </div>
                     </div>
@@ -370,3 +372,4 @@ export default function TrackingPage() {
         </div>
     );
 }
+

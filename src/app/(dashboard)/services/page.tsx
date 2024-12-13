@@ -179,7 +179,7 @@ export default function LaundryDashboard() {
 
                           {/* Packages Section */}
                         <div className={`flex-grow ${isDarkTheme ? 'bg-gray-900' : 'bg-teal-20'} p-6`}>
-                            <h2 className="text-teal text-2xl font-semi-medium mb-6 trac">Packages</h2>
+                            <h2 className="text-teal text-2xl items-start font-semi-medium mb-6 trac">Packages</h2><br/>
                             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                                 {[
                                     {
