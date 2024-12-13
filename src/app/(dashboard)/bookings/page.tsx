@@ -71,6 +71,7 @@ const bookings: Booking[] = [
     time: "13:30",
     services: ["Laundry", "Stain Treatments", "Ironing"],
     staffImage: "/images/frame.png",
+    additionalNote: "Please separate the white clothes from the coloured ones",
     paymentMethod: "Cash",
     totalAmount: 55,
     amountPaid: 60,
@@ -78,36 +79,7 @@ const bookings: Booking[] = [
     modeOfTransport: "Picked Up",
     pickupTime: "13:00PM"
   },
-  {
-    id: 4,
-    title: "Dry Cleaning",
-    reference: "REF: 815749289",
-    date: "Two Weeks Ago",
-    time: "15:00",
-    services: ["Dry Cleaning", "Pressing"],
-    staffImage: "/images/frame.png",
-    paymentMethod: "Credit Card",
-    totalAmount: 70,
-    amountPaid: 70,
-    changeGiven: 0,
-    modeOfTransport: "Delivery",
-    pickupTime: "17:30PM"
-  },
-  {
-    id: 5,
-    title: "Dry Cleaning",
-    reference: "REF: 815749289",
-    date: "Two Weeks Ago",
-    time: "15:00",
-    services: ["Dry Cleaning", "Pressing"],
-    staffImage: "/images/frame.png",
-    paymentMethod: "Credit Card",
-    totalAmount: 70,
-    amountPaid: 70,
-    changeGiven: 0,
-    modeOfTransport: "Delivery",
-    pickupTime: "17:30PM"
-  }
+  
 ]
 
 export default function BookingPage() {
