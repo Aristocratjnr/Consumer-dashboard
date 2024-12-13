@@ -260,7 +260,7 @@ export default function Dashboard() {
           </button>
         </aside>
 
-        <main className="flex-1 ml-64 mr-96 px-10 py-10 top-20 ">
+        <main className="flex-1 ml-64 mr-96 px-6 py-6">
           <div className="max-w-4xl">
             <div className="mb-8">
               <h1 className="text-4xl font-semi-bold">Welcome <span className="text-teal">Back!</span></h1>
