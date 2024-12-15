@@ -156,9 +156,9 @@ export default function Dashboard() {
               <Button
                 size="icon"
                 variant="ghost"
-                className="rounded-full hover:bg-gray-100"
+                className="rounded-full hover:bg-gray-100  bg-teal-20"
               >
-                <Search className="h-5 w-5 text-gray-600" />
+                <Search className="h-5 w-5 text-gray-600 " />
               </Button>
             </div>
 

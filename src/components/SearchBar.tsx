@@ -41,7 +41,7 @@ const SearchBar = () => {
             alt="Search"
             width={18}
             height={18}
-            className="absolute right-2 top-1/2 -translate-y-1/2 dark:bg-gray-200"
+            className="absolute right-2 top-1/2 -translate-y-1/2 dark:bg-gray-200 rounded-full"
           />
         </div>
       </div>

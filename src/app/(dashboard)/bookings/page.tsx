@@ -145,7 +145,7 @@ export default function BookingPage() {
           </Link>
         </nav>
         <div className="mt-auto space-y-2">
-          <Button variant="ghost" className="w-full justify-start text-muted-foreground hover:text-foreground dark:text-gray-400 dark:hover:text-white">
+          <Button variant="ghost" className="w-full justify-start text-red-800 hover:bg-red-100 dark:text-red-800 dark:hover:bg-red-100 transition-colors">
             <LogOut className="mr-2 h-4 w-4" />
             Log out
           </Button>
@@ -160,7 +160,7 @@ export default function BookingPage() {
           <h1 className="text-lg font-semibold dark:text-white">Bookings</h1>
           </div>
           <div className="flex items-center gap-4">
-            <Button size="icon" variant="ghost" className="dark:text-gray-300 dark:hover:text-white">
+            <Button size="icon" variant="ghost" className="dark:text-gray-300 bg-teal-20 dark:hover:text-white">
               <Search className="h-5 w-5" />
             </Button>
             <Button size="icon" variant="ghost" className="dark:text-gray-300 dark:hover:text-white">
@@ -261,7 +261,7 @@ export default function BookingPage() {
                       ))}
                     </div>
                   </TabsContent>
-                  <TabsContent value="history" className="mt-4 w-full bg-teal-20 dark:bg-gray-800 rounded-lg">
+                  <TabsContent value="history" className="mt-4 w-full bg-teal-20 dark:bg-gray-300 rounded-lg">
                   <ScrollArea className="h-[calc(100vh-12rem)]">
                     <div className="space-y-0">
                       {[...Array(9)].map((_, i) => (
@@ -386,7 +386,7 @@ export default function BookingPage() {
         {/* New Booking Button */}
         <Button
           size="icon"
-          className="fixed bottom-1 right-7 rounded-full w-12 h-12 bg-teal-1000 hover:bg-teal-900 text-white shadow-lg"
+          className="fixed bottom-1 right-9 rounded-full w-12 h-12 bg-teal-1000 hover:bg-teal-900 text-white shadow-lg"
         >
           <Plus className="h-6 w-6" />
         </Button>

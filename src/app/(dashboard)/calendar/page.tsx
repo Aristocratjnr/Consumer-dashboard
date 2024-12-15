@@ -114,7 +114,7 @@
                                     <h1 className="text-lg font-semibold">Calendar</h1>
                                 </div>
                                 <div className="flex items-center space-x-4">
-                                    <Button variant="ghost" size="icon">
+                                    <Button variant="ghost" size="icon"className=' bg-teal-20'>
                                         <Search className="h-5 w-5" />
                                     </Button>
                                     <Button variant="ghost" size="icon">

@@ -118,13 +118,13 @@ export default function TrackingPage() {
                 <header className={`border-b ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}>
                     <div className="flex items-center justify-between px-6 h-16">
                         <div className="flex items-center space-x-2">
-                            <MapPin className="h-5 w-5 text-teal-1000" />
+                            <MapPin className="h-5 w-5  text-teal-1000" />
                             <h1 className="text-lg font-semibold">Tracking</h1>
                         </div>
 
                         <div className="flex items-center space-x-4">
-                            <Button variant="ghost" size="icon">
-                                <Search className="h-5 w-5" />
+                            <Button variant="ghost" size="icon" className=" bg-teal-20">
+                                <Search className="h-5 w-5 " />
                             </Button>
                             <Button variant="ghost" size="icon">
                                 <Bell className="h-5 w-5" />
