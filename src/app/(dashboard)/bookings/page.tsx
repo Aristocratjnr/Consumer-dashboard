@@ -36,7 +36,7 @@ const bookings: Booking[] = [
     title: "Weekly Essentials",
     reference: "REF: 887746289",
     date: "Today",
-    time: "9:30",
+    time: "9:30 AM",
     services: ["Laundry", "Stain Treatments", "Ironing"],
     staffImage: "/images/frame.png",
     additionalNote: "Please separate the white clothes from the coloured ones",
@@ -52,7 +52,7 @@ const bookings: Booking[] = [
     title: "Weekly Essentials",
     reference: "REF: 8877463429",
     date: "Today",
-    time: "11:30",
+    time: "11:30 AM",
     services: ["Laundry", "Ironing"],
     staffImage: "/images/frame.png",
     additionalNote: "Please separate the white clothes from the coloured ones",
@@ -68,7 +68,7 @@ const bookings: Booking[] = [
     title: "Weekly Essentials",
     reference: "REF: 815749290",
     date: "Last Week",
-    time: "13:30",
+    time: "13:30 PM",
     services: ["Laundry", "Stain Treatments", "Ironing"],
     staffImage: "/images/frame.png",
     additionalNote: "Please separate the white clothes from the coloured ones",
@@ -243,11 +243,11 @@ export default function BookingPage() {
                         <React.Fragment key={booking.id}>
                           <div className={`${index === 0 ? '-mt-10' : ''}`}>
                             <div className="flex items-center gap-4 px-2 py-3">
-                              <div className={`text-lg font-medium ${index === 0 ? 'text-teal dark:text-white' : 'text-gray-500 dark:text-gray-300'}`}>
-                                {index === 0 ? 'This Week' : index === 1 ? 'Last Week' : 'Two Weeks Ago'}
+                              <div className={`text-lg font-bold ${index === 0 ? 'text-teal dark:text-white' : 'text-gray-500 dark:text-gray-300'}`}>
+                                {index === 0 ? 'This Week' : index === 1 ? 'Last Week' : 'Last Two Weeks'}
                               </div>
                               <div className="flex-1 border-b-2 border-dotted border-gray-400"></div>
-                              <div className={`text-lg font-medium ${index === 0 ? 'text-teal dark:text-white' : 'text-gray-500 dark:text-gray-300'}`}>
+                              <div className={`text-lg font-bold ${index === 0 ? 'text-teal dark:text-white' : 'text-gray-500 dark:text-gray-300'}`}>
                                 {index === 0 ? 'Sun 24' : index === 1 ? 'Wed 17' : 'Mon 8'}
                               </div>
                             </div>
@@ -286,10 +286,10 @@ export default function BookingPage() {
                             <div className="px-3 py-1 rounded-full bg-white dark:bg-sky-900 text-sm flex items-center space-x-1">
                               <Clock className="w-4 h-4 text-sky-500 dark:text-sky-400" />
                               <span className="font-medium text-gray-800 dark:text-gray-200">{selectedBooking.time}</span>
-                              <span className="text-gray-500 dark:text-gray-400">AM</span>
+                              <span className="text-gray-500 dark:text-gray-400"></span>
                             </div>
                             <div className="text-sky-600 dark:text-sky-400 font-medium">
-                              Ready in 45 Minutes
+                              Ready in <span className="text-black dark:text-white">45 Minutes</span> 
                             </div>
                           </div>
                         </div>
@@ -451,8 +451,8 @@ function BookingCard({ booking, onSelect, isSelected }: { booking: Booking; onSe
           onClick={onSelect}
           className={`text-xs px-3 py-1 rounded-full font-semibold transition ${
             isSelected
-              ? "bg-blue-600 text-white shadow-sm hover:bg-blue-700"
-              : "bg-gray-100 text-blue-600 dark:bg-gray-700 dark:text-gray-300 border border-blue-600 dark:border-gray-600 hover:bg-blue-100 dark:hover:bg-blue-100"
+              ? "bg-teal text-white shadow-sm hover:bg-teal-700"
+              : "bg-gray-100 text-black dark:bg-gray-700 dark:text-gray-300 border border-teal dark:border-gray-600 hover:bg-blue-100 dark:hover:bg-blue-100"
           }`}
         >
           {isSelected ? "Selected ✅" : "Details >"}
