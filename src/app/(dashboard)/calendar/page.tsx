@@ -12,7 +12,7 @@
         import { Input } from "@/components/ui/input";
         import Link from "next/link";
         import { useState } from "react";
-        import SearchBar from '@/components/page';
+        import SearchBar from '@/components/SearchBar';
         import Image from 'next/image';
 
         export default function CalendarDashboard() {

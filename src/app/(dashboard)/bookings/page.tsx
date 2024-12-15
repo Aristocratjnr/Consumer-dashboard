@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useState } from 'react'
-import SearchBar from "../../../components/page"
+import SearchBar from "../../../components/SearchBar"
 import Image from "next/image"
 
 interface Booking {
@@ -153,7 +153,7 @@ export default function BookingPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-1 flex-col dark:bg-teal-900 relative">
+      <div className="flex flex-1 flex-col dark:bg-gray-900 relative">
         <header className="flex h-16 items-center justify-between border-b px-6 dark:border-gray-700">
           <div className="flex items-center">
         <BookingsIcon className="mr-1 h-5 w-5  text-teal-1000 dark:text-teal-10" />
