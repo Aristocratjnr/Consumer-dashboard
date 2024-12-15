@@ -176,7 +176,7 @@ export default function BookingPage() {
               <div className="relative">
                     <button
                       onClick={toggleProfileDropdown}
-                      className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-teal-800 px-2 py-1 rounded-full"
+                      className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-black px-2 py-1 rounded-full"
                     >
                       <img
                         src="/images/woman.png"
