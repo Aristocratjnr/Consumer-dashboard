@@ -76,7 +76,7 @@ export default function TrackingPage() {
                                 Home
                             </button>
                         </Link><br/>
-                        <Link href="/" passHref>
+                        <Link href="/services" passHref>
                             <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent'}`}>
                                 <Briefcase className="mr-3 h-5 w-5" />
                                 Services
