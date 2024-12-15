@@ -402,7 +402,7 @@ export default function Dashboard() {
           )}
         </main>
         {/* Right Sidebar - Customer Support */}
-        <aside className="fixed right-0 top-20 bottom-0 w-96 bg-white border-l border-gray-300 p-6 overflow-y-auto shadow-lg rounded-2xl">
+        <aside className="fixed right-0 top-16 bottom-0 w-96 bg-white border-l border-gray-300 p-6 overflow-y-auto shadow-lg rounded-2xl">
           {/* Contact Options */}
           <div className="mb-8">
             <div className="flex items-center mb-6">
