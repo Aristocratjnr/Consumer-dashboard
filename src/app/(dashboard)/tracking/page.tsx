@@ -25,18 +25,18 @@ interface OrderItem {
 }
 
 const trackingItems: TrackingItem[] = [
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Transit' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Transit' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '01/06/2024', status: 'Completed' },
+    { id: 'ID #26683TL', date: '01/08/2024', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '05/03/2024', status: 'Completed' },
+    { id: 'ID #26683TL', date: '06/06/2025', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '30/12/2024', status: 'On Transit' },
+    { id: 'ID #26683TL', date: '05/11/2024', status: 'Completed' },
+    { id: 'ID #26683TL', date: '04/12/2025', status: 'On Transit' },
+    { id: 'ID #26683TL', date: '03/07/2024', status: 'Completed' },
+    { id: 'ID #26683TL', date: '04/03/2024', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '03/02/2025', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '01/07/2025', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '01/07/2025', status: 'On Delivery' },
 ];
 
 const orderItems: OrderItem[] = [
@@ -58,7 +58,7 @@ export default function TrackingPage() {
     };
 
     return (
-        <div className={`flex min-h-screen ${isDarkTheme ? 'bg-teal-900 text-white' : 'bg-teal-20 text-black'}`}>
+        <div className={`flex min-h-screen ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-teal-20 text-black'}`}>
             {/* Sidebar */}
             <div className={`w-64 ${isDarkTheme ? 'bg-gray-900' : 'bg-white'} border-r flex flex-col`}>
                 <div className="p-6 flex-grow">
@@ -253,10 +253,10 @@ export default function TrackingPage() {
                             <div className="grid grid-cols-3 gap-6 mb-8">
                                 <div>
                                     <h3 className="flex items-center text-sm font-medium mb-4">
-                                        <Calendar className="h-5 w-5 text-gray-400 mr-2" />
+                                        <Calendar className="h-5 w-5 text-gray-400 mr-1" />
                                         <span className="text-gray-400">ORDER INFORMATION</span>
                                     </h3>
-                                    <div className="space-y-2">
+                                    <div className="space-y-4">
                                         <div>
                                             <div className="text-sm">PICK UP DATE</div>
                                             <div className="font-medium text-sm">12:30 06/07/2024</div>
@@ -269,10 +269,10 @@ export default function TrackingPage() {
                                 </div>
                                 <div>
                                     <h3 className="flex items-center text-sm font-medium mb-4">
-                                        <MapPin className="h-5 w-5 text-gray-400 mr-2" />
+                                        <MapPin className="h-5 w-5 text-gray-400 mr-1" />
                                         <span className="text-gray-400">LOCATION</span>
                                     </h3>
-                                    <div className="space-y-2">
+                                    <div className="space-y-4">
                                         <div>
                                             <div className="text-sm">PICK UP</div>
                                             <div className="font-medium text-sm">Pent Block C 2301</div>
@@ -285,10 +285,10 @@ export default function TrackingPage() {
                                 </div>
                                 <div>
                                     <h3 className="flex items-center text-sm font-medium mb-4">
-                                        <User className="h-5 w-5 text-gray-400 mr-2" />
+                                        <User className="h-5 w-5 text-gray-400 mr-1" />
                                         <span className="text-gray-400">CUSTOMER INFORMATION</span>
                                     </h3>
-                                    <div className="space-y-2">
+                                    <div className="space-y-4">
                                         <div>
                                             <div className="text-sm">FULL NAME</div>
                                             <div className="font-medium text-sm">Mawupemor Ruth</div>
