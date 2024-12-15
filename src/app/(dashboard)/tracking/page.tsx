@@ -328,19 +328,19 @@ export default function TrackingPage() {
 
                             {/* Map */}
                             <div className="mb-8">
-                                <h3 className="text-lg font-medium mb-4">Map</h3>
-                                <div className="h-64 bg-gray-100 rounded-lg relative">
-                                    <div className="absolute inset-0">
-                                        <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.799816782024!2d-0.1870308!3d5.6503765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzknMDEuNCJOIDDCsDExJzEzLjMiVw!5e0!3m2!1sen!2sgh!4v1625581243076!5m2!1sen!2sgh"
-                                            width="100%"
-                                            height="100%"
-                                            style={{ border: 0 }}
-                                            allowFullScreen
-                                            loading="lazy"
-                                        ></iframe>
-                                    </div>
+                            <h3 className="text-lg font-medium mb-4">Map</h3>
+                            <div className="h-64 bg-gray-100 rounded-lg relative overflow-hidden">
+                                <div className="absolute inset-0">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.799816782024!2d-0.1870308!3d5.6503765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzknMDEuNCJOIDDCsDExJzEzLjMiVw!5e0!3m2!1sen!2sgh!4v1625581243076!5m2!1sen!2sgh"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                ></iframe>
                                 </div>
+                            </div>
                             </div>
 
                             {/* Courier Information */}
