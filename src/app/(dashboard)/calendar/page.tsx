@@ -12,7 +12,7 @@
         import { Input } from "@/components/ui/input";
         import Link from "next/link";
         import { useState } from "react";
-        import SearchBar from '@/components/page';
+        import SearchBar from '@/components/SearchBar';
         import Image from 'next/image';
 
         export default function CalendarDashboard() {
@@ -114,7 +114,7 @@
                                     <h1 className="text-lg font-semibold">Calendar</h1>
                                 </div>
                                 <div className="flex items-center space-x-4">
-                                    <Button variant="ghost" size="icon">
+                                    <Button variant="ghost" size="icon"className=' bg-teal-20'>
                                         <Search className="h-5 w-5" />
                                     </Button>
                                     <Button variant="ghost" size="icon">
@@ -129,7 +129,7 @@
                                     </Button>
                                     {/* Profile Section */}
                                     <div className="relative">
-                                        <button onClick={toggleProfileDropdown} className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-teal-800 px-2 py-1 rounded-full">
+                                        <button onClick={toggleProfileDropdown} className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-black px-2 py-1 rounded-full">
                                             <img src="/images/woman.png" alt="Profile" className="h-8 w-8 rounded-full ring-2 ring-teal-800" />
                                             <div className="flex flex-col">
                                                 <span className="text-sm font-semi-bold">Sandra</span>

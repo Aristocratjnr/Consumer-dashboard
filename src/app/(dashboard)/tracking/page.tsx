@@ -25,18 +25,18 @@ interface OrderItem {
 }
 
 const trackingItems: TrackingItem[] = [
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Transit' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Transit' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'Completed' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
-    { id: 'ID #26683TL', date: '01/07/2024', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '01/06/2024', status: 'Completed' },
+    { id: 'ID #26683TL', date: '01/08/2024', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '05/03/2024', status: 'Completed' },
+    { id: 'ID #26683TL', date: '06/06/2025', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '30/12/2024', status: 'On Transit' },
+    { id: 'ID #26683TL', date: '05/11/2024', status: 'Completed' },
+    { id: 'ID #26683TL', date: '04/12/2025', status: 'On Transit' },
+    { id: 'ID #26683TL', date: '03/07/2024', status: 'Completed' },
+    { id: 'ID #26683TL', date: '04/03/2024', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '03/02/2025', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '01/07/2025', status: 'On Delivery' },
+    { id: 'ID #26683TL', date: '01/07/2025', status: 'On Delivery' },
 ];
 
 const orderItems: OrderItem[] = [
@@ -58,7 +58,7 @@ export default function TrackingPage() {
     };
 
     return (
-        <div className={`flex min-h-screen ${isDarkTheme ? 'bg-teal-900 text-white' : 'bg-teal-20 text-black'}`}>
+        <div className={`flex min-h-screen ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-teal-20 text-black'}`}>
             {/* Sidebar */}
             <div className={`w-64 ${isDarkTheme ? 'bg-gray-900' : 'bg-white'} border-r flex flex-col`}>
                 <div className="p-6 flex-grow">
@@ -118,13 +118,13 @@ export default function TrackingPage() {
                 <header className={`border-b ${isDarkTheme ? 'bg-gray-900' : 'bg-white'}`}>
                     <div className="flex items-center justify-between px-6 h-16">
                         <div className="flex items-center space-x-2">
-                            <MapPin className="h-5 w-5 text-teal-1000" />
+                            <MapPin className="h-5 w-5  text-teal-1000" />
                             <h1 className="text-lg font-semibold">Tracking</h1>
                         </div>
 
                         <div className="flex items-center space-x-4">
-                            <Button variant="ghost" size="icon">
-                                <Search className="h-5 w-5" />
+                            <Button variant="ghost" size="icon" className=" bg-teal-20">
+                                <Search className="h-5 w-5 " />
                             </Button>
                             <Button variant="ghost" size="icon">
                                 <Bell className="h-5 w-5" />
@@ -140,7 +140,7 @@ export default function TrackingPage() {
                             <div className="relative">
                                 <button
                                     onClick={toggleProfileDropdown}
-                                    className={`flex items-center space-x-3 pl-4 border-l border-gray-200 ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-teal-50 text-teal-800'} px-2 py-1 rounded-full`}
+                                    className={`flex items-center space-x-3 pl-4 border-l border-gray-200 ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-teal-50 text-black'} px-2 py-1 rounded-full`}
                                 >
                                     <img
                                         src="/images/woman.png"
@@ -203,6 +203,8 @@ export default function TrackingPage() {
                                                         className={
                                                             item.status === 'Completed' 
                                                                 ? 'bg-white text-customGreen hover:bg-green-100 border border-customGreen rounded-2xl inline-block' 
+                                                                : item.status === 'On Delivery'
+                                                                ? 'bg-white text-red-600 hover:bg-red-100 border border-red-600 rounded-2xl inline-block'
                                                                 : 'bg-white text-teal-1000 hover:bg-blue-100 border-teal-1000 rounded-2xl inline-block'
                                                         }
                                                     >
@@ -251,48 +253,48 @@ export default function TrackingPage() {
                             <div className="grid grid-cols-3 gap-6 mb-8">
                                 <div>
                                     <h3 className="flex items-center text-sm font-medium mb-4">
-                                        <Calendar className="h-5 w-5 text-gray-400 mr-2" />
+                                        <Calendar className="h-5 w-5 text-gray-400 mr-1" />
                                         <span className="text-gray-400">ORDER INFORMATION</span>
                                     </h3>
-                                    <div className="space-y-2">
+                                    <div className="space-y-4">
                                         <div>
                                             <div className="text-sm">PICK UP DATE</div>
                                             <div className="font-medium text-sm">12:30 06/07/2024</div>
                                         </div>
                                         <div>
-                                            <div className="text-sm text-gray-400">ORDER DESTINATION</div>
+                                            <div className="text-sm">DROP OFF DESTINATION</div>
                                             <div className="font-medium text-sm">24 hours</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
                                     <h3 className="flex items-center text-sm font-medium mb-4">
-                                        <MapPin className="h-5 w-5 text-gray-400" />
+                                        <MapPin className="h-5 w-5 text-gray-400 mr-1" />
                                         <span className="text-gray-400">LOCATION</span>
                                     </h3>
-                                    <div className="space-y-2">
+                                    <div className="space-y-4">
                                         <div>
                                             <div className="text-sm">PICK UP</div>
-                                            <div className="font-medium text-sm">Point Block C 2301</div>
+                                            <div className="font-medium text-sm">Pent Block C 2301</div>
                                         </div>
                                         <div>
                                             <div className="text-sm">DROP OFF</div>
-                                            <div className="font-medium text-sm">Point Block C 2301</div>
+                                            <div className="font-medium text-sm">Pent Block C 2301</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
                                     <h3 className="flex items-center text-sm font-medium mb-4">
-                                        <User className="h-5 w-5 text-gray-400" />
+                                        <User className="h-5 w-5 text-gray-400 mr-1" />
                                         <span className="text-gray-400">CUSTOMER INFORMATION</span>
                                     </h3>
-                                    <div className="space-y-2">
+                                    <div className="space-y-4">
                                         <div>
                                             <div className="text-sm">FULL NAME</div>
                                             <div className="font-medium text-sm">Mawupemor Ruth</div>
                                         </div>
                                         <div>
-                                            <div className="text-sm text-gray-500">PHONE NUMBER</div>
+                                            <div className="text-sm">PHONE NUMBER</div>
                                             <div className="font-medium text-sm">+233 55 813 2345</div>
                                         </div>
                                     </div>
@@ -313,7 +315,7 @@ export default function TrackingPage() {
                                     </thead>
                                     <tbody className="divide-y divide-gray-200">
                                         {orderItems.map((item) => (
-                                            <tr key={item.no} className="border-b border-gray-300">
+                                            <tr key={item.no} className="border-b text-gray-500 border-gray-300">
                                                 <td className="py-3 px-4 border border-gray-300">{item.no}</td>
                                                 <td className="py-3 px-4 border border-gray-300">{item.description}</td>
                                                 <td className="py-3 px-4 border border-gray-300">{item.quantity}</td>
@@ -352,16 +354,16 @@ export default function TrackingPage() {
                                         style={{ aspectRatio: "40/40", objectFit: "cover" }}
                                         width="40"
                                     />
-                            <div className="flex flex-col">
-                                        <span className={`${isDarkTheme ? ' text-black' : 'bg-white'}`}>Andrew</span>
+                                    <div className="flex flex-col">
+                                        <span className={`${isDarkTheme ? 'text-black' : ''}`}>Andrew</span>
                                         <span className="text-sm text-gray-500">Courier</span>
                                     </div>
                                 </div>
                                 <img 
-                            src="/images/call.png" 
-                            alt="Phone icon" 
-                            className=" text-white h-6 w-6 mr-2"
-                            />
+                                    src="/images/call.png" 
+                                    alt="Phone icon" 
+                                    className="text-white h-6 w-6 mr-2"
+                                />
                             </div>
                         </div>
                     </div>
@@ -370,3 +372,4 @@ export default function TrackingPage() {
         </div>
     );
 }
+
