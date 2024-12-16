@@ -220,36 +220,36 @@ export default function Dashboard() {
       <div className="pt-24 flex">
         <aside className="fixed left-0 top-16 bottom-0 w-64 bg-white border-r border-gray-300 px-6 py-8 shadow-lg">
           <nav className="space-y-0.5 flex-grow"><br/><br/>
-            <Link href="/" passHref>
-              <button className="flex w-full rounded-md bg-teal-20 items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Home className="mr-3 h-5 w-5" />
+          <Link href="/" passHref>
+            <button className="flex w-full rounded-md bg-teal-20 items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5 bg-teal-20" />
                 Home
-              </button>
-            </Link><br/>
-            <Link href="/services" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Briefcase className="mr-3 h-5 w-5" />
+            </button>
+        </Link><br />
+        <Link href="/services" passHref>
+            <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                <img src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
                 Services
-              </button>
-            </Link><br/>
-            <Link href="/calendar" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Calendar className="mr-3 h-5 w-5" />
+            </button>
+        </Link><br />
+        <Link href="/calendar" passHref>
+            <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                <img src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
                 Calendar
-              </button>
-            </Link><br/>
-            <Link href="/bookings" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Mail className="mr-3 h-5 w-5" />
+            </button>
+        </Link><br />
+        <Link href="/bookings" passHref>
+            <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                <img src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
                 Bookings
-              </button>
-            </Link><br/>
-            <Link href="/tracking" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground ">
-                <MapPin className="mr-3 h-5 w-5" />
+            </button>
+        </Link><br />
+        <Link href="/tracking" passHref>
+            <button className="flex w-full items-center px-4 py-3 text-muted-foreground">
+                <img src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
                 Tracking
-              </button>
-            </Link>
+            </button>
+        </Link>
           </nav>
           <button className="absolute bottom-8 left-4 right-4 flex items-center justify-between px-4 py-3 text-red-800 hover:bg-red-50 rounded-lg transition-colors">
             <div className="flex items-center space-x-3">

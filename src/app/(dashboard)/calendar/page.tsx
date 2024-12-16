@@ -68,35 +68,35 @@
                             </Link>
                         </div>
                         <nav className="space-y-0.2 flex-grow"><br/><br/>
-                    <Link href="/home" passHref>
-                    <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                        <HomeIcon className="mr-3 h-5 w-5" />
-                        Home
-                    </button><br/>
+                        <Link href="/home" passHref>
+                        <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                            <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
+                            Home
+                        </button><br />
                     </Link>
                     <Link href="/services" passHref>
-                    <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                        <Package className="mr-3 h-5 w-5" />
-                        Services
-                    </button><br/>
+                        <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                            <img src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
+                            Services
+                        </button><br />
                     </Link>
                     <Link href="/calendar" passHref>
-                    <button className="flex w-full items-center rounded-md font-medium bg-teal-20 px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground  dark:text-white dark:hover:bg-gray-700">
-                        <Calendar className="mr-3 h-5 w-5" />
-                        Calendar
-                    </button><br/>
+                        <button className="flex w-full items-center rounded-md font-medium bg-teal-20 px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-white dark:hover:bg-gray-700">
+                            <img src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
+                            Calendar
+                        </button><br />
                     </Link>
                     <Link href="/bookings" passHref>
-                    <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                        <BookMinusIcon className="mr-3 h-5 w-5" />
-                        Bookings
-                    </button><br/>
+                        <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                            <img src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
+                            Bookings
+                        </button><br />
                     </Link>
                     <Link href="/tracking" passHref>
-                    <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                        <Package className="mr-3 h-5 w-5" />
-                        Tracking
-                    </button>
+                        <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                            <img src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
+                            Tracking
+                        </button>
                     </Link>
         </nav>
         </div>

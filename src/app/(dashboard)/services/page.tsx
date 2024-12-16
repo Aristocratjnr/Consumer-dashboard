@@ -31,36 +31,36 @@ export default function LaundryDashboard() {
                     </div>
                     </div>
                     <nav className="space-y-0.5 flex-grow"><br/><br/>
-                        <Link href="/" passHref>
-                            <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
-                                <HomeIcon className="mr-3 h-5 w-5" />
-                                Home
-                            </button><br />
-                        </Link>
-                        <Link href="/services" passHref>
-                            <button className={`flex w-full items-center rounded-md font-medium ${isDarkTheme ? 'bg-gray-700 text-accent-foreground' : 'bg-teal-20 text-accent-foreground'} px-4 py-3 hover:bg-accent`}>
-                                <Package className="mr-3 h-5 w-5" />
-                                Services
-                            </button><br />
-                        </Link>
-                        <Link href="/calendar" passHref>
-                            <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
-                                <Calendar className="mr-3 h-5 w-5" />
-                                Calendar
-                            </button><br />
-                        </Link>
-                        <Link href="/bookings" passHref>
-                            <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300' : 'text-muted-foreground'}`}>
-                                <Mail className="mr-3 h-5 w-5" />
-                                Bookings
-                            </button><br />
-                        </Link>
-                        <Link href="/tracking" passHref>
-                            <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
-                                <Package className="mr-3 h-5 w-5" />
-                                Tracking
-                            </button>
-                        </Link>
+                    <Link href="/" passHref>
+                <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
+                    <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
+                    Home
+                </button><br />
+            </Link>
+            <Link href="/services" passHref>
+                <button className={`flex w-full items-center rounded-md font-medium ${isDarkTheme ? 'bg-gray-700 text-accent-foreground' : 'bg-teal-20 text-accent-foreground'} px-4 py-3 hover:bg-accent`}>
+                    <img src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
+                    Services
+                </button><br />
+            </Link>
+            <Link href="/calendar" passHref>
+                <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
+                    <img src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
+                    Calendar
+                </button><br />
+            </Link>
+            <Link href="/bookings" passHref>
+                <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300' : 'text-muted-foreground'}`}>
+                    <img src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
+                    Bookings
+                </button><br />
+            </Link>
+            <Link href="/tracking" passHref>
+                <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
+                    <img src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
+                    Tracking
+                </button>
+            </Link>
                      </nav>
                     <button className="absolute bottom-12 left-4 right-4 flex items-center justify-between px-4 py-3 text-red-800 hover:bg-red-50 rounded-lg transition-colors">
                 <div className="flex items-center space-x-3">
