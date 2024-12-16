@@ -15,14 +15,14 @@ export default function Testimonials() {
               <Image
                 src="/images/testimonial.png"
                 alt="Testimonial"
-                className="aspect-square w-full max-w-full rounded-2xl object-cover" // Added max-w-full here
+                className="aspect-square w-full max-w-full rounded-2xl object-cover" 
                 width={300}
                 height={300}
               />
             </div>
             <div className="w-full space-y-4 md:w-2/3">
-              <div className="font-serif text-6xl leading-none text-[#67c6e3]">
-                ”
+              <div className="font-serif text-5xl leading-none text-[#67c6e3]">
+                “
               </div>
 
               <p className="leading-relaxed text-gray-700">
@@ -39,7 +39,7 @@ export default function Testimonials() {
                   <p>Lawyer</p>
                 </div>
                 <div className="mr-5 box-border flex items-center gap-1 rounded-2xl border border-[#67c6e3] px-5 py-2">
-                  <Star className="h-5 w-5 fill-[#67c6e3] text-[#67c6e3]" />
+                <Star className="h-5 w-5 fill-none stroke-[#FFD700] stroke-2" />
                   <span className="text-lg font-medium">5.0</span>
                 </div>
               </div>
