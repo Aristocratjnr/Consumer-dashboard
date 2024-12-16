@@ -1,14 +1,16 @@
+import { Clock, DollarSign, Leaf } from "lucide-react";
 import Image from "next/image";
 
 export default function HeroSection() {
   return (
     <div id="home" className="mt-10 flex">
       {/* Text */}
-      <div className="rounded-br-[60px] rounded-tr-[60px] bg-[#A1DEF7] p-10">
-        <div className="pr-[18rem]">
-          <h1 className="text-7xl font-extrabold">
-            From Pile to <span className="text-[#36C3E2]">Perfect</span>
-          </h1>
+      <div className="items-start rounded-br-[60px] rounded-tr-[60px] bg-[#A1DEF7]">
+        <div className="pr-[34rem]">
+          <p className="mt-5 px-10 text-7xl font-extrabold">From Pile to</p>
+          <p className="mt-5 px-10 text-7xl font-extrabold text-[#36C3E2]">
+            Perfect
+          </p>
         </div>
 
         {/* Description and Icons */}
@@ -18,16 +20,10 @@ export default function HeroSection() {
             <p>time to relax, lets us handle the dirty work!</p>
           </div>
           {/* ICONS */}
-          <div className="ml-20">
-            <Image
-              src="/images/hero-icons.svg"
-              alt="Service icons"
-              width={300}
-              height={150}
-            />
-          </div>
+          <div className="h-10 w-10 bg-blue-600"></div>
         </div>
-      </div>
+
+      
 
       {/* Image */}
       <div className="ml-[70px] items-end">
@@ -39,6 +35,7 @@ export default function HeroSection() {
           className="h-[400px] w-[400px]"
         />
       </div>
+    </div>
     </div>
   );
 }
