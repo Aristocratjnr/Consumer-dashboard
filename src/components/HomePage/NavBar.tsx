@@ -36,9 +36,9 @@ export default function NavBar() {
         </Link>
         <Link
           href="/auth/SignUp"
-          className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+          className="rounded-full bg-gradient-to-b from-teal-20 to-teal-1000 px-4 py-2 text-md font-medium text-white hover:bg-blue-700"
         >
-          Sign Up
+          Sign Up Here
         </Link>
       </div>
     </nav>
