@@ -156,10 +156,10 @@
                         </header>
                         <SearchBar/>
 
-                        <main className="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-4 p-4">
+                        <main className="grid grid-cols-1 md:grid-cols-[1fr_550px] gap-4 p-4">
             <div className="space-y-4">
                 {/* Calendar Header */}
-                <div className="flex items-center justify-between">
+                <div className="absolute flex items-center justify-between top-20 ">
                     <div className="flex items-center gap-2">
                         <Button
                             variant="ghost"
@@ -201,7 +201,7 @@
                     <Button
                         variant="ghost"
                         size="lg"
-                        className="text-teal-1000 font-semi-bold text-lg focus-visible:ring-2 focus-visible:ring-teal-500"
+                        className="text-teal-1000 font-semi-bold text-md"
                         onClick={handleTodayClick}
                     >
                         Today
