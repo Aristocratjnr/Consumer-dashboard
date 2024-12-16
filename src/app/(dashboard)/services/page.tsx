@@ -31,7 +31,7 @@ export default function LaundryDashboard() {
                     </div>
                     </div>
                     <nav className="space-y-0.5 flex-grow"><br/>
-                    <Link href="/" passHref>
+                    <Link href="/home" passHref>
                 <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
                     <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
                     Home

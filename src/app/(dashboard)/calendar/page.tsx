@@ -63,7 +63,7 @@
                     {/* Sidebar */}
                     <div className={`fixed left-0 top-0 bottom-0 w-64 border-r ${isDarkTheme ? 'bg-gray-900' : 'bg-background'} p-4`}>
                         <div className='mb-6 flex items-center'>
-                            <Link href="/" className="flex items-center space-x-2">
+                            <Link href="/home" className="flex items-center space-x-2">
                             <Image src="/images/logo.svg" alt="Logo" width={100} height={60} />
                             </Link>
                         </div>
