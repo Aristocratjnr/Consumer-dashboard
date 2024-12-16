@@ -39,12 +39,12 @@ export default function ProcessSection() {
       
       <div className="mt-16 flex flex-col lg:flex-row gap-2 items-start">
         <div className="relative w-full lg:w-1/2">
-          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
+          <div className="relative aspect-[4/4] rounded-4xl overflow-hidden">
             <Image
               src="/images/process-section.png"
               alt="Person typing on laptop"
-              width={800}
-              height={600}
+              width={500}
+              height={500}
               className="object-cover"
             />
           </div>
@@ -55,18 +55,18 @@ export default function ProcessSection() {
     {steps.map((step, index) => (
       <div
         key={step.number}
-        className={`flex flex-col items-center rounded-full min-w-[80px] h-[470px] bg-gradient-to-b from-teal-500 to-teal-20 shadow-md px-2 ${
+        className={`flex flex-col items-center rounded-full min-w-[80px] h-[420px] bg-gradient-to-b from-teal-500 to-teal-20 shadow-md px-2 ${
           index === 0 ? 'rounded-full' : ''
         } ${
           index === steps.length - 1 ? 'rounded-full' : ''
         } ${
-          step.isMain ? 'w-20' : 'w-20'
+          step.isMain ? 'w-20' : 'w-24'
         }`}
       >
         <div className="mt-12 flex h-12 w-12 items-center justify-center rounded-full border-2 text-lg bg-white border-teal font-semi-bold text-teal">
           {step.number}
         </div>
-        <div className="mt-6 -rotate-90 origin-center items-start translate-y-[120px] whitespace-nowrap text-lg font-extrabold tracking-wider text-teal-1000">
+        <div className="mt-8 -rotate-90 origin-center items-start translate-y-[100px] whitespace-nowrap text-lg font-bold tracking-wider text-teal-1000 ">
           {step.title}
         </div>
       </div>
