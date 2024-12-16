@@ -62,12 +62,12 @@
                 <div className={`min-h-screen ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-teal-20 text-black'} relative`}>
                     {/* Sidebar */}
                     <div className={`fixed left-0 top-0 bottom-0 w-64 border-r ${isDarkTheme ? 'bg-gray-900' : 'bg-background'} p-4`}>
-                        <div>
+                        <div className='mb-6 flex items-center'>
                             <Link href="/" className="flex items-center space-x-2">
                             <Image src="/images/logo.svg" alt="Logo" width={100} height={60} />
                             </Link>
                         </div>
-                        <nav className="space-y-0.2 flex-grow"><br/><br/>
+                        <nav className="space-y-0.5 flex-grow"><br/>
                         <Link href="/home" passHref>
                         <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                             <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
@@ -98,8 +98,8 @@
                             Tracking
                         </button>
                     </Link>
-        </nav>
-        </div>
+                </nav>
+                </div>
 
 
         {/* Main Content */}

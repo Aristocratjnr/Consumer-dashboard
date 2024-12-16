@@ -23,14 +23,14 @@ export default function LaundryDashboard() {
             {/* Sidebar */}
             <aside className={`fixed left-0 top-0 z-40 h-screen w-64 border-r ${isDarkTheme ? 'bg-gray-800 border-gray-700' : 'bg-white'}`}>
                 <div className={`w-64 border-r ${isDarkTheme ? 'bg-gray-800' : 'bg-background'} px-4 py-6 flex flex-col`}>
-                    <div className="mb-8 flex items-center">
+                    <div className="mb-6 flex items-center">
                     <div>
                             <Link href="/" className="flex items-center space-x-2">
                             <Image src="/images/logo.svg" alt="Logo" width={100} height={60} />
                             </Link>
                     </div>
                     </div>
-                    <nav className="space-y-0.5 flex-grow"><br/><br/>
+                    <nav className="space-y-0.5 flex-grow"><br/>
                     <Link href="/" passHref>
                 <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
                     <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
