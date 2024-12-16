@@ -109,7 +109,7 @@ export default function SignIn() {
                 />
               </div>
               {/* Submit Button */}
-              <Link href="/dashboard">
+              <Link href="/home">
               <Button className="w-45 h-10  bg-teal-1000 hover:bg-teal-1000 text-white font-itim text-[15px] rounded-xl flex items-center justify-center space-x-2">
                 <span>Start Laundering!</span>
               </Button>
