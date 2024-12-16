@@ -22,7 +22,7 @@ export default function SignIn() {
               Don't have an account yet?{" "}
             </span>
             <Link
-              href="/sign-up"
+              href="/auth/SignUp"
               className="text-sm md:text-lg font-semibold text-gray-900 hover:underline"
             >
               Sign up
