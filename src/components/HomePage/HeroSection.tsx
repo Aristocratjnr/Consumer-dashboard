@@ -18,7 +18,7 @@ export default function HeroSection() {
             <p>time to relax, lets us handle the dirty work!</p>
           </div>
           {/* ICONS */}
-          <div className="ml-20">
+          <div className="ml-[50px] items-end">
             <Image
               src="/images/hero-icons.svg"
               alt="Service icons"
