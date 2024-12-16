@@ -43,7 +43,7 @@ export default function ProcessSection() {
             <Image
               src="/images/process-section.png"
               alt="Person typing on laptop"
-              width={500}
+              width={600}
               height={500}
               className="object-cover"
             />
@@ -55,7 +55,7 @@ export default function ProcessSection() {
     {steps.map((step, index) => (
       <div
         key={step.number}
-        className={`flex flex-col items-center rounded-full min-w-[80px] h-[420px] bg-gradient-to-b from-teal-500 to-teal-20 shadow-md px-2 ${
+        className={`flex flex-col items-center rounded-full min-w-[80px] h-[500px] bg-gradient-to-b from-teal-500 to-teal-20 shadow-md px-2 ${
           index === 0 ? 'rounded-full' : ''
         } ${
           index === steps.length - 1 ? 'rounded-full' : ''
@@ -66,7 +66,7 @@ export default function ProcessSection() {
         <div className="mt-12 flex h-12 w-12 items-center justify-center rounded-full border-2 text-lg bg-white border-teal font-semi-bold text-teal">
           {step.number}
         </div>
-        <div className="mt-8 -rotate-90 origin-center items-start translate-y-[100px] whitespace-nowrap text-lg font-bold tracking-wider text-teal-1000 ">
+        <div className="mt-8 -rotate-90 origin-center items-start translate-y-[180px] whitespace-nowrap text-lg font-bold tracking-wider text-teal-1000 ">
           {step.title}
         </div>
       </div>
