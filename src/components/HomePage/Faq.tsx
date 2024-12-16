@@ -5,18 +5,19 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Clock, MapPin, Phone } from "lucide-react";
+import { Card } from "../ui/card";
 
 export default function FAQSection() {
   return (
     <div className="container mx-auto px-4 py-12">
       <h2 className="mb-12 text-4xl font-bold">
-        <span className="text-gray-900">Frequently </span>
+        <span className="text-gray-900">Frequently </span> <br />
         <span className="text-sky-400">Asked Questions</span>
       </h2>
 
       <div className="grid gap-8 md:grid-cols-2">
         {/* Contact Information Column */}
-        <div className="space-y-8 rounded-2xl bg-white p-8 shadow-sm">
+        <Card className="rounded-2xl bg-white p-8 shadow-sm">
           <div className="space-y-6">
             <div className="flex items-start gap-4">
               <div className="rounded-lg bg-sky-100 p-2">
@@ -50,7 +51,7 @@ export default function FAQSection() {
               </div>
             </div>
           </div>
-        </div>
+        </Card>
 
         {/* FAQ Accordion Column */}
         <div>

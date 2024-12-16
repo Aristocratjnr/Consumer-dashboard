@@ -11,13 +11,12 @@ export default function Footer() {
           {/* Logo and Brand */}
           <div className="flex items-center space-x-2">
             <Image
-              src="/placeholder.svg"
+              src="/images/footer-logo.svg"
               alt="ULaundry Logo"
-              width={40}
-              height={40}
-              className="h-10 w-10"
+              width={200}
+              height={60}
+              className=""
             />
-            <span className="text-2xl font-light">TULAUNDRY</span>
           </div>
 
           {/* Tagline */}
