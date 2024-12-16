@@ -68,7 +68,7 @@ const Page: React.FC = () => {
           flex: 1, // Allow this container to take up remaining vertical space
         }}
       >
-        <Card className="w-[90%] max-w-7xl mx-auto h-auto rounded-lg shadow-lg">
+        <Card className="w-[70%] h-[70%] max-w-7xl mx-auto rounded-lg shadow-lg">
           <div className="flex flex-wrap lg:flex-nowrap p-0">
             {/* Left Side Content */}
             <div className="w-full lg:w-1/2 mt-0">

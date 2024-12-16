@@ -107,10 +107,10 @@ export default function SignIn() {
                   placeholder="************"
                   className="w-45 h-10 pl-10 pr-3 bg-gray-200 border-0 rounded-md text-sm font-semi-bold  text-gray-900 placeholder-gray-600"
                 />
-              </div>
+              </div><br/>
               {/* Submit Button */}
               <Link href="/home">
-              <Button className="w-45 h-10  bg-teal-1000 hover:bg-teal-1000 text-white font-itim text-[15px] rounded-xl flex items-center justify-center space-x-2">
+              <Button className="w-45 h-10 pl-10 pr-3 items-start bg-teal-1000 hover:bg-teal-1000 text-white font-itim text-[15px] rounded-xl flex  justify-center space-x-2">
                 <span>Start Laundering!</span>
               </Button>
               </Link>

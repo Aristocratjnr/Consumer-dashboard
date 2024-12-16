@@ -7,7 +7,7 @@ export default function HeroSection() {
       <div className="rounded-[40px] bg-[#E3F6FC] py-24 flex-grow">
         <div>
           <div className="pr-24">
-            <h1 className="px-10 text-7xl  text-gray-700 font-extrabold leading-tight">
+            <h1 className="px-10 text-8xl  text-gray-700 font-extrabold leading-tight">
               From Pile to{" "}
               <span className="text-[#36C3E2] block">Perfect</span>
             </h1>
@@ -38,9 +38,9 @@ export default function HeroSection() {
           <Image
             src="/images/landing-image.png"
             width={400}
-            height={500}
+            height={800}
             alt="Person holding laundry basket"
-            className="h-[500px] w-[400px] object-cover"
+            className="h-[600px] w-[400px] object-cover"
           />
         </div>
       </div>
