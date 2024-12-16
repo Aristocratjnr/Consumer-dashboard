@@ -89,24 +89,52 @@ export default function Dashboard() {
     };
   }, [showConfetti]);
 
+  useEffect(() => {
+    let animationFrameId: number;
+    let lastTimestamp: number;
+
+    const animate = (timestamp: number) => {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const elapsed = timestamp - lastTimestamp;
+
+      if (elapsed > 1200) { // Update every 50ms for a slower, more stable movement
+        lastTimestamp = timestamp;
+        setDragProgress(prevProgress => {
+          const newProgress = prevProgress + 0.1; // Increase by 0.1% each time
+          return newProgress > 100 ? 100 : newProgress;
+        });
+      }
+
+      if (dragProgress < 100) {
+        animationFrameId = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [dragProgress]);
+
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     isDraggingRef.current = true;
     const rect = progressBarRef.current!.getBoundingClientRect();
     const x = e.clientX - rect.left;
-    setDragProgress((x / rect.width) * 100);
+    setDragProgress(0); // Reset progress to 0
   };
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     isDraggingRef.current = true;
     const rect = progressBarRef.current!.getBoundingClientRect();
     const x = e.touches[0].clientX - rect.left;
-    setDragProgress((x / rect.width) * 100);
+    setDragProgress(0); // Reset progress to 0
   };
 
   return (
-    <div className="min-h-screen bg-teal-20 text-gray-900">
+    <div className="min-h-screen bg-teal-20  text-gray-900">
       {/* Enhanced Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 py-3 backdrop-blur-sm bg-white/90">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-2 py-1 backdrop-blur-sm bg-white/90">
         <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8">
             {/* Logo */}
@@ -116,10 +144,9 @@ export default function Dashboard() {
               </Link>
             </div><br/>
 
-            <nav className="hidden md:flex items-center gap-6">
-              <button className="flex items-center gap-4 px-4 py-2 rounded-full bg-teal-50 text-teal-900 hover:bg-teal-100 transition-all">
-                <Home className="h-5 w-5" />
-                <span className="font-medium">Home</span>
+            <nav className="items-center">
+            <button className="flex items-center">
+                <span className="ml-28 text-lg font-semibold">Home</span>
               </button>
             </nav>
           </div>
@@ -129,9 +156,9 @@ export default function Dashboard() {
               <Button
                 size="icon"
                 variant="ghost"
-                className="rounded-full hover:bg-gray-100"
+                className="rounded-full hover:bg-gray-100  bg-teal-20"
               >
-                <Search className="h-5 w-5 text-gray-600" />
+                <Search className="h-5 w-5 text-gray-600 " />
               </Button>
             </div>
 
@@ -151,7 +178,7 @@ export default function Dashboard() {
               <div className="relative">
                 <button
                   onClick={toggleProfileDropdown}
-                  className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-teal-800 px-2 py-1 rounded-full"
+                  className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-black px-2 py-1 rounded-full"
                 >
                   <img
                     src="/images/woman.png"
@@ -190,39 +217,39 @@ export default function Dashboard() {
       </header>
 
 
-      <div className="pt-20 flex">
-        <aside className="fixed left-0 top-20 bottom-0 w-64 bg-white border-r border-gray-300 px-6 py-8 shadow-lg">
-          <nav className="space-y-0.5 flex-grow">
-            <Link href="/" passHref>
-              <button className="flex w-full rounded-md bg-teal-20 items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Home className="mr-3 h-5 w-5" />
+      <div className="pt-24 flex">
+        <aside className="fixed left-0 top-16 bottom-0 w-64 bg-white border-r border-gray-300 px-6 py-10 shadow-lg">
+          <nav className="space-y-0.5 flex-grow"><br/>
+          <Link href="/" passHref>
+            <button className="flex w-full rounded-md bg-teal-20 items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5 bg-teal-20" />
                 Home
-              </button>
-            </Link><br/>
-            <Link href="/services" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Briefcase className="mr-3 h-5 w-5" />
+            </button>
+        </Link><br />
+        <Link href="/services" passHref>
+            <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                <img src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
                 Services
-              </button>
-            </Link><br/>
-            <Link href="/calendar" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Calendar className="mr-3 h-5 w-5" />
+            </button>
+        </Link><br />
+        <Link href="/calendar" passHref>
+            <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                <img src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
                 Calendar
-              </button>
-            </Link><br/>
-            <Link href="/bookings" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Mail className="mr-3 h-5 w-5" />
+            </button>
+        </Link><br />
+        <Link href="/bookings" passHref>
+            <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                <img src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
                 Bookings
-              </button>
-            </Link><br/>
-            <Link href="/tracking" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground ">
-                <MapPin className="mr-3 h-5 w-5" />
+            </button>
+        </Link><br />
+        <Link href="/tracking" passHref>
+            <button className="flex w-full items-center px-4 py-3 text-muted-foreground">
+                <img src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
                 Tracking
-              </button>
-            </Link>
+            </button>
+        </Link>
           </nav>
           <button className="absolute bottom-8 left-4 right-4 flex items-center justify-between px-4 py-3 text-red-800 hover:bg-red-50 rounded-lg transition-colors">
             <div className="flex items-center space-x-3">
@@ -233,21 +260,21 @@ export default function Dashboard() {
           </button>
         </aside>
 
-        <main className="flex-1 ml-64 mr-96 px-8 py-6">
+        <main className="flex-1 ml-64 mr-96 px-4 py-2">
           <div className="max-w-4xl">
             <div className="mb-8">
               <h1 className="text-4xl font-semi-bold">Welcome <span className="text-teal">Back!</span></h1>
-              <p className="text-gray-600 mt-2">Let's make laundry day effortless.</p>
+              <p className="text-gray-600 mt-2 text-sm">Let's make laundry day effortless.</p>
             </div>
-
-            {/* Progress Section */}
-            <div className="rounded-3xl p-6 md:p-10 mb-10 shadow-lg bg-white">
-              {/* Text Section at the Top */}
-              <div className="text-center mb-6">
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  Every wash earns you more! Collect loyalty points with each order and enjoy exclusive discounts.
+            {/* Text Section at the Top */}
+            <div className="text-center mb-6">
+                <p className="text-gray-700 text-md text-left">
+                  Every wash earns you more! Collect loyalty points with each order <br/> and enjoy exclusive discounts.
                 </p>
               </div>
+            {/* Progress Section */}
+            <div className="rounded-3xl p-6 md:p-10 mb-10 shadow-lg bg-white">
+              
 
               {/* Progress Section with Numbered Circles */}
               <div className="flex flex-wrap justify-center items-center gap-4 mb-6">
@@ -284,27 +311,28 @@ export default function Dashboard() {
               </div>
 
               {/* Range Button (Progress Bar) */}
+            <div
+              className="relative w-full h-4 bg-gray-200 rounded-full overflow-hidden mb-6 cursor-pointer"
+              ref={progressBarRef}
+              onMouseDown={handleMouseDown}
+              onTouchStart={handleTouchStart}
+            >
               <div
-                className="relative w-full h-4 bg-gray-200 rounded-full overflow-hidden mb-6 cursor-pointer"
-                ref={progressBarRef}
-                onMouseDown={handleMouseDown}
-                onTouchStart={handleTouchStart}
-              >
-                <div
-                  className="absolute h-full bg-teal-1000 transition-all duration-300 ease-in-out"
-                  style={{ width: `${dragProgress}%` }}
-                ></div>
-                <div
-                  className="absolute top-0 right-0 w-6 h-6 bg-white border-2 border-teal-1000 rounded-full transform -translate-y-1/4 translate-x-1/2"
-                  style={{ left: `${dragProgress}%` }}
-                ></div>
-              </div>
-
+                className="absolute h-full bg-teal-1000 transition-all duration-300 ease-in-out"
+                style={{ width: `${dragProgress}%` }}
+              ></div>
+              <div
+                className="absolute top-1/2 w-6 h-6 bg-white border-4 border-teal-1000 rounded-full transform -translate-y-1/2 transition-all duration-300 ease-in-out"
+                style={{ left: `calc(${dragProgress}% - 12px)` }}
+              ></div>
+            </div>
+            
               {/* Texts Below Progress Bar */}
               <div className="flex justify-between text-xs text-gray-600 mb-4">
                 {loyaltyPoints.map((point, index) => (
                   <span key={index}>{point.points} pts</span>
                 ))}
+              </div>
               </div>
 
               {/* Status Text */}
@@ -327,12 +355,11 @@ export default function Dashboard() {
                   {dragProgress < 100 ? "Keep going, your reward is within reach!" : "Thank you for your loyalty!"}
                 </p>
               </div>
-            </div>
-
+          
 
             {/* Packages */}
             <div>
-              <h2 className="text-teal text-2xl font-semi-bold mb-6">Packages</h2>
+              <h2 className="text-teal text-2xl font-semi-bold mb-6 ">Packages</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {packages.map((pkg) => (
                   <div key={pkg.id} className="bg-gradient-to-br p-8 rounded-3xl shadow-md hover:shadow-lg transition-shadow border-2 border-teal-1000">
@@ -360,7 +387,6 @@ export default function Dashboard() {
                     >
                       {pkg.status === 'used' ? 'Used' : 'Use Again'}
                     </button>
-
                   </div>
                 ))}
               </div>
@@ -376,8 +402,7 @@ export default function Dashboard() {
           )}
         </main>
         {/* Right Sidebar - Customer Support */}
-        <aside className="fixed right-0 top-20 bottom-0 w-96 bg-white border-l border-gray-300 p-6 overflow-y-auto shadow-lg rounded-2xl">
-
+        <aside className="fixed right-0 top-16 bottom-0 w-96 bg-white border-l border-gray-300 p-6 overflow-y-auto shadow-lg rounded-2xl">
           {/* Contact Options */}
           <div className="mb-8">
             <div className="flex items-center mb-6">
@@ -390,7 +415,7 @@ export default function Dashboard() {
               <div className="flex items-center justify-between p-4 rounded-lg shadow-sm hover:shadow-md transition">
                 <div className="flex items-center space-x-4">
                   <div className="bg-white p-3 rounded-full shadow-md">
-                    <Phone className="h-6 w-6 text-teal-1000" />
+                    <Phone className="h-4 w-4 text-teal-1000" />
                   </div>
                   <span className="text-sm font-semi-bold text-teal-1000">Phone Support</span>
                 </div>
@@ -400,9 +425,9 @@ export default function Dashboard() {
               <div className="flex items-center justify-between p-4 rounded-lg shadow-sm hover:shadow-md transition">
                 <div className="flex items-center space-x-4">
                   <div className="bg-white p-3 rounded-full shadow-md">
-                    <Mail className="h-6 w-6 text-teal-1000" />
+                    <Mail className="h-4 w-4 text-teal-1000" />
                   </div>
-                  <span className="text-sm font-semi-bold text-teal-1000 w-1">Email Support</span>
+                  <span className="text-sm font-semi-bold text-teal-1000 mr-2">Email Support</span>
                 </div>
                 <span className="text-sm text-gray-700 font-semi-bold">tulaundry@gmail.com</span>
               </div>
@@ -431,7 +456,6 @@ export default function Dashboard() {
               ))}
             </ul>
           </div><br/>
-
 
           {/* Request Assistance Form */}
           <div>

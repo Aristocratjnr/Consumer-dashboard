@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useState } from 'react'
-import SearchBar from "../../../components/page"
+import SearchBar from "../../../components/SearchBar"
 import Image from "next/image"
 
 interface Booking {
@@ -36,7 +36,7 @@ const bookings: Booking[] = [
     title: "Weekly Essentials",
     reference: "REF: 887746289",
     date: "Today",
-    time: "9:30",
+    time: "9:30 AM",
     services: ["Laundry", "Stain Treatments", "Ironing"],
     staffImage: "/images/frame.png",
     additionalNote: "Please separate the white clothes from the coloured ones",
@@ -52,7 +52,7 @@ const bookings: Booking[] = [
     title: "Weekly Essentials",
     reference: "REF: 8877463429",
     date: "Today",
-    time: "11:30",
+    time: "11:30 AM",
     services: ["Laundry", "Ironing"],
     staffImage: "/images/frame.png",
     additionalNote: "Please separate the white clothes from the coloured ones",
@@ -68,9 +68,10 @@ const bookings: Booking[] = [
     title: "Weekly Essentials",
     reference: "REF: 815749290",
     date: "Last Week",
-    time: "13:30",
+    time: "13:30 PM",
     services: ["Laundry", "Stain Treatments", "Ironing"],
     staffImage: "/images/frame.png",
+    additionalNote: "Please separate the white clothes from the coloured ones",
     paymentMethod: "Cash",
     totalAmount: 55,
     amountPaid: 60,
@@ -78,36 +79,7 @@ const bookings: Booking[] = [
     modeOfTransport: "Picked Up",
     pickupTime: "13:00PM"
   },
-  {
-    id: 4,
-    title: "Dry Cleaning",
-    reference: "REF: 815749289",
-    date: "Two Weeks Ago",
-    time: "15:00",
-    services: ["Dry Cleaning", "Pressing"],
-    staffImage: "/images/frame.png",
-    paymentMethod: "Credit Card",
-    totalAmount: 70,
-    amountPaid: 70,
-    changeGiven: 0,
-    modeOfTransport: "Delivery",
-    pickupTime: "17:30PM"
-  },
-  {
-    id: 5,
-    title: "Dry Cleaning",
-    reference: "REF: 815749289",
-    date: "Two Weeks Ago",
-    time: "15:00",
-    services: ["Dry Cleaning", "Pressing"],
-    staffImage: "/images/frame.png",
-    paymentMethod: "Credit Card",
-    totalAmount: 70,
-    amountPaid: 70,
-    changeGiven: 0,
-    modeOfTransport: "Delivery",
-    pickupTime: "17:30PM"
-  }
+  
 ]
 
 export default function BookingPage() {
@@ -141,39 +113,39 @@ export default function BookingPage() {
       </div>
 
         <nav className="space-y-0.5 flex-grow"><br/><br/>
-        <Link href="/" passHref>
+              <Link href="/" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-            <HomeIcon className="mr-3 h-5 w-5" />
-            Home
-          </button><br/>
-          </Link>
-          <Link href="/" passHref>
-          <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-            <ServicesIcon className="mr-3 h-5 w-5" />
-            Services
-          </button><br/>
+              <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
+              Home
+          </button><br />
+      </Link>
+          <Link href="/services" passHref>
+              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                  <img src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
+                  Services
+              </button><br />
           </Link>
           <Link href="/calendar" passHref>
-          <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-            <Calendar className="mr-3 h-5 w-5" />
-            Calendar
-          </button><br/>
+              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                  <img src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
+                  Calendar
+              </button><br />
           </Link>
           <Link href="/bookings" passHref>
-          <button className="flex w-full items-center rounded-md bg-teal-20 px-4 py-3 font-medium text-accent-foreground dark:bg-gray-700 dark:text-white">
-            <BookingsIcon className="mr-3 h-5 w-5" />
-            Bookings
-          </button><br/>
+              <button className="flex w-full items-center rounded-md bg-teal-20 px-4 py-3 font-medium text-accent-foreground dark:bg-gray-700 dark:text-white">
+                  <img src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
+                  Bookings
+              </button><br />
           </Link>
           <Link href="/tracking" passHref>
-          <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-            <Package className="mr-3 h-5 w-5" />
-            Tracking
-          </button>
+              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+                  <img src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
+                  Tracking
+              </button>
           </Link>
         </nav>
         <div className="mt-auto space-y-2">
-          <Button variant="ghost" className="w-full justify-start text-muted-foreground hover:text-foreground dark:text-gray-400 dark:hover:text-white">
+          <Button variant="ghost" className="w-full justify-start text-red-800 hover:bg-red-100 dark:text-red-800 dark:hover:bg-red-100 transition-colors">
             <LogOut className="mr-2 h-4 w-4" />
             Log out
           </Button>
@@ -181,14 +153,14 @@ export default function BookingPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-1 flex-col dark:bg-teal-900 relative">
+      <div className="flex flex-1 flex-col dark:bg-gray-900 relative">
         <header className="flex h-16 items-center justify-between border-b px-6 dark:border-gray-700">
           <div className="flex items-center">
         <BookingsIcon className="mr-1 h-5 w-5  text-teal-1000 dark:text-teal-10" />
           <h1 className="text-lg font-semibold dark:text-white">Bookings</h1>
           </div>
           <div className="flex items-center gap-4">
-            <Button size="icon" variant="ghost" className="dark:text-gray-300 dark:hover:text-white">
+            <Button size="icon" variant="ghost" className="dark:text-gray-300 bg-teal-20 dark:hover:text-white">
               <Search className="h-5 w-5" />
             </Button>
             <Button size="icon" variant="ghost" className="dark:text-gray-300 dark:hover:text-white">
@@ -204,7 +176,7 @@ export default function BookingPage() {
               <div className="relative">
                     <button
                       onClick={toggleProfileDropdown}
-                      className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-teal-800 px-2 py-1 rounded-full"
+                      className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-black px-2 py-1 rounded-full"
                     >
                       <img
                         src="/images/woman.png"
@@ -271,11 +243,11 @@ export default function BookingPage() {
                         <React.Fragment key={booking.id}>
                           <div className={`${index === 0 ? '-mt-10' : ''}`}>
                             <div className="flex items-center gap-4 px-2 py-3">
-                              <div className={`text-lg font-medium ${index === 0 ? 'text-teal dark:text-white' : 'text-gray-500 dark:text-gray-300'}`}>
-                                {index === 0 ? 'This Week' : index === 1 ? 'Last Week' : 'Two Weeks Ago'}
+                              <div className={`text-lg font-bold ${index === 0 ? 'text-teal dark:text-white' : 'text-gray-500 dark:text-gray-300'}`}>
+                                {index === 0 ? 'This Week' : index === 1 ? 'Last Week' : 'Last Two Weeks'}
                               </div>
                               <div className="flex-1 border-b-2 border-dotted border-gray-400"></div>
-                              <div className={`text-lg font-medium ${index === 0 ? 'text-teal dark:text-white' : 'text-gray-500 dark:text-gray-300'}`}>
+                              <div className={`text-lg font-bold ${index === 0 ? 'text-teal dark:text-white' : 'text-gray-500 dark:text-gray-300'}`}>
                                 {index === 0 ? 'Sun 24' : index === 1 ? 'Wed 17' : 'Mon 8'}
                               </div>
                             </div>
@@ -289,7 +261,7 @@ export default function BookingPage() {
                       ))}
                     </div>
                   </TabsContent>
-                  <TabsContent value="history" className="mt-4 w-full bg-teal-20 dark:bg-gray-800 rounded-lg">
+                  <TabsContent value="history" className="mt-4 w-full bg-teal-20 dark:bg-gray-300 rounded-lg">
                   <ScrollArea className="h-[calc(100vh-12rem)]">
                     <div className="space-y-0">
                       {[...Array(9)].map((_, i) => (
@@ -314,10 +286,10 @@ export default function BookingPage() {
                             <div className="px-3 py-1 rounded-full bg-white dark:bg-sky-900 text-sm flex items-center space-x-1">
                               <Clock className="w-4 h-4 text-sky-500 dark:text-sky-400" />
                               <span className="font-medium text-gray-800 dark:text-gray-200">{selectedBooking.time}</span>
-                              <span className="text-gray-500 dark:text-gray-400">AM</span>
+                              <span className="text-gray-500 dark:text-gray-400"></span>
                             </div>
                             <div className="text-sky-600 dark:text-sky-400 font-medium">
-                              Ready in 45 Minutes
+                              Ready in <span className="text-black dark:text-white">45 Minutes</span> 
                             </div>
                           </div>
                         </div>
@@ -414,7 +386,7 @@ export default function BookingPage() {
         {/* New Booking Button */}
         <Button
           size="icon"
-          className="fixed bottom-1 right-7 rounded-full w-12 h-12 bg-teal-1000 hover:bg-teal-900 text-white shadow-lg"
+          className="fixed bottom-1 right-9 rounded-full w-12 h-12 bg-teal-1000 hover:bg-teal-900 text-white shadow-lg"
         >
           <Plus className="h-6 w-6" />
         </Button>
@@ -479,8 +451,8 @@ function BookingCard({ booking, onSelect, isSelected }: { booking: Booking; onSe
           onClick={onSelect}
           className={`text-xs px-3 py-1 rounded-full font-semibold transition ${
             isSelected
-              ? "bg-blue-600 text-white shadow-sm hover:bg-blue-700"
-              : "bg-gray-100 text-blue-600 dark:bg-gray-700 dark:text-gray-300 border border-blue-600 dark:border-gray-600 hover:bg-blue-100 dark:hover:bg-blue-100"
+              ? "bg-teal text-white shadow-sm hover:bg-teal-700"
+              : "bg-gray-100 text-black dark:bg-gray-700 dark:text-gray-300 border border-teal dark:border-gray-600 hover:bg-blue-100 dark:hover:bg-blue-100"
           }`}
         >
           {isSelected ? "Selected ✅" : "Details >"}
