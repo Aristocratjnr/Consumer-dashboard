@@ -27,7 +27,7 @@ export default function Home() {
           <h3 className="inline-block text-2xl">2 Years of Experience</h3>
           <p className="ml-10 mt-2">
             We've become a trusted platform connecting consumers with
-            reliable laundry providers. We&aptos;ve streamlined laundry
+            reliable laundry providers. We've streamlined laundry
             services, offering convenience for customers and growth
             opportunities for providers.
           </p>
