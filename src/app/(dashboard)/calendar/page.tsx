@@ -210,19 +210,16 @@
 
                 {/* Calendar Grid */}
 <div className="grid grid-cols-7 gap-2 p-4">
-  {/* Days of the Week */}
   {days.map((day) => (
     <div key={day} className="text-center text-sm font-semibold text-gray-500">
       {day}
     </div>
   ))}
 
-  {/* Empty Cells Before First Day */}
   {Array.from({ length: firstDayOfMonth }).map((_, index) => (
     <div key={`empty-${index}`} className="h-16"></div>
   ))}
 
-  {/* Days in Current Month */}
   {Array.from({ length: daysInMonth }).map((_, dayIndex) => {
     const dayNumber = dayIndex + 1;
 
@@ -242,7 +239,7 @@
   })}
 </div>
 
-                                {/* Activity Section */}
+                              {/* Activity Section */}
 <div className={`rounded-3xl border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-8`}>
     <div className="mb-14">
         <h3 className="text-lg font-semibold text-teal-1000">Activity</h3><br />
@@ -250,27 +247,33 @@
             <span className="rounded-full bg-teal-10 px-3 py-1 text-sm text-white">
                 Services Booked
             </span>
-            <span className="rounded-full border-b border-teal border px-3 py-1 text-sm  text-gray-500">
+            <span className="rounded-full border-b border-teal border px-3 py-1 text-sm text-gray-500">
                 Packages Used
             </span>
         </div>
     </div>
+
+    {/* Activity Bars */}
     <div className="flex h-[270px] items-end gap-4">
         {activityData.map((_, index) => (
             <div
                 key={index}
                 className={`relative flex-1 rounded-full ${
-                    index === 3
-                        ? ' bg-teal-1000 ' 
-                        : 'bg-gray-300' 
+                    index === 3 ? 'bg-teal-1000' : 'bg-gray-100'
                 }`}
-                style={{ height: index === 1 ? '60%' : index === 2 ? '80%' : '120%' }} 
+                style={{ height: index === 1 ? '60%' : index === 2 ? '80%' : '120%' }}
+            />
+        ))}
+    </div>
+
+    {/* Month Labels */}
+    <div className="flex gap-4 mt-2">
+        {activityData.map((_, index) => (
+            <div
+                key={index}
+                className="flex-1 text-center text-sm font-semibold text-gray-700"
             >
-                {index === 4 && ( 
-                    <div className="absolute bottom-1 w-full text-center text-md text-white font-semi-bold">
-                        {months[index]}
-                    </div>
-                )}
+                {months[index]}
             </div>
         ))}
     </div>
