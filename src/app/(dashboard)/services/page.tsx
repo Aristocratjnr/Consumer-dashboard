@@ -31,7 +31,7 @@ export default function LaundryDashboard() {
                     </div>
                     </div>
                     <nav className="space-y-0.5 flex-grow"><br/>
-                    <Link href="/" passHref>
+                    <Link href="/home" passHref>
                 <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
                     <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
                     Home
@@ -61,14 +61,14 @@ export default function LaundryDashboard() {
                     Tracking
                 </button>
             </Link>
-                     </nav>
+                    </nav>
                     <button className="absolute bottom-12 left-4 right-4 flex items-center justify-between px-4 py-3 text-red-800 hover:bg-red-50 rounded-lg transition-colors">
                 <div className="flex items-center space-x-3">
-                  <LogOut className="h-5 w-5" />
-                  <span className="font-medium">Log out</span>
+                <LogOut className="h-5 w-5" />
+                <span className="font-medium">Log out</span>
                 </div>
                 <ChevronRight className="h-5 w-5" />
-              </button>
+            </button>
             
                 </div>
                 
@@ -150,34 +150,36 @@ export default function LaundryDashboard() {
                         <div className="border-3 border-r border-gray-300 bg-white shadow-md mb-6 rounded-b-lg shadow-gray-700/70">
     <div className="flex justify-center gap-16 p-8">
         {[
-            { icon: "/images/local.png", label: "LAUNDRY" },
-            { icon: "/images/bash.png", label: "CLOTH TREATMENTS" },
-            { icon: "/images/event.png", label: "EVENT CLEANING" },
-            { icon: "/images/cloth.png", label: "DRY CLEANING" },
-            { icon: "/images/curtain.png", label: "HOME TEXTILE CLEANING" },
+            { icon: "/images/local.png", label: "LAUNDRY" , Link: "services/laundry" },
+            { icon: "/images/bash.png", label: "CLOTH TREATMENTS" , Link: "/services/cloth-treatments" },
+            { icon: "/images/event.png", label: "EVENT CLEANING",  Link: "/services/event-services" },
+            { icon: "/images/cloth.png", label: "DRY CLEANING" ,  Link: "/services/dry-cleaning" },
+            { icon: "/images/curtain.png", label: "HOME TEXTILE CLEANING", Link: "/services/express-cleaning" },
         ].map((item, index) => (
             <div key={index} className="flex flex-col items-center">
-                <div className="relative">
-                    <div className="flex items-center justify-center w-32 h-32 border rounded-full border-teal-10 bg-white">
-                        <img src={item.icon} alt={item.label} className="h-12 w-12" />
-                    </div>
-                    <Button
-                        size="icon"
-                        className="absolute -bottom-2 -right-2 rounded-full bg-teal hover:bg-teal-10 w-10 h-10 text-white text-xl font-semibold shadow-md"
-                        style={{
-                            clipPath: "circle(50% at 50% 50%)",
-                        }}
-                    >
-                        <Plus />
-                    </Button>
+                <Link href={item.Link} passHref>
+                    <div className="relative cursor-pointer"> 
+                        <div className="flex items-center justify-center w-32 h-32 border rounded-full border-teal-10 bg-white">
+                            <img src={item.icon} alt={item.label} className="h-12 w-12" />
+                        </div>
+                        <Button
+                            size="icon"
+                            className="absolute -bottom-2 -right-2 rounded-full bg-teal hover:bg-teal-10 w-10 h-10 text-white text-xl font-semibold shadow-md"
+                            style={{
+                                clipPath: "circle(50% at 50% 50%)",
+                            }}
+                        >
+                            <Plus />
+                        </Button>
                 </div>
+                </Link>
                 <span className="mt-2 text-md font-medium text-black">{item.label}</span>
             </div>
         ))}
     </div>
 </div>
 
-                          {/* Packages Section */}
+                        {/* Packages Section */}
                         <div className={`flex-grow ${isDarkTheme ? 'bg-gray-900' : 'bg-teal-20'} p-6`}>
                             <h2 className="text-teal text-2xl items-start font-semi-medium mb-6 trac">Packages</h2><br/>
                             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -201,7 +203,7 @@ export default function LaundryDashboard() {
                                             { text: "1kg Wash & Iron Service", icon: <Home className="h-4 w-4 text-teal" /> },
                                             { text: "15% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
                                             { text: "Free delivery for a week", icon: <Home className="h-4 w-4 text-teal" /> },
-                                          
+                                        
                                         ],
                                     },
                                     {
@@ -212,7 +214,7 @@ export default function LaundryDashboard() {
                                             { text: "1kg Wash & Iron Service", icon: <Home className="h-4 w-4 text-teal" /> },
                                             { text: "20% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
                                             { text: "Free delivery twice a month", icon: <Home className="h-4 w-4 text-teal" /> },
-                                      
+                                    
                                         ],
                                     },
                                     {
@@ -224,7 +226,7 @@ export default function LaundryDashboard() {
                                             { text: "25% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
                                             { text: "Free delivery every week", icon: <Home className="h-4 w-4 text-teal" /> },
                                         ],
-                                          
+                                        
                                     },
                                     {
                                         title: "Event Ready",
@@ -234,7 +236,7 @@ export default function LaundryDashboard() {
                                             { text: "1kg Wash & Iron Service", icon: <Home className="h-4 w-4 text-teal" /> },
                                             { text: "30% discount coupon", icon: <Sparkles className="h-4 w-4 text-teal" /> },
                                             { text: "Priority delivery", icon: <Home className="h-4 w-4 text-teal" /> },
-                                          
+                                        
                                         ],
                                     },
                                 ].map((pkg, index) => (

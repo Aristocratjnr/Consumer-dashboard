@@ -220,7 +220,7 @@ export default function Dashboard() {
       <div className="pt-24 flex">
         <aside className="fixed left-0 top-16 bottom-0 w-64 bg-white border-r border-gray-300 px-6 py-10 shadow-lg">
           <nav className="space-y-0.5 flex-grow"><br/>
-          <Link href="/" passHref>
+          <Link href="/home" passHref>
             <button className="flex w-full rounded-md bg-teal-20 items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
                 <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5 bg-teal-20" />
                 Home
