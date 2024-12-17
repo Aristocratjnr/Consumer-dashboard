@@ -27,7 +27,7 @@
             const [isDarkTheme, setIsDarkTheme] = useState(false); 
 
             const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            const hours = Array.from({ length: 17 }, (_, i) => `${i + 1}:00AM`);
+            const hours = Array.from({ length: 16 }, (_, i) => `${i + 1}:00AM`);
             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             const activityData = [100, 60, 60, 100, 100];
 
@@ -209,50 +209,53 @@
                 </div>
 
                 {/* Calendar Grid */}
-<div className="grid grid-cols-7 gap-2 p-4">
-  {days.map((day) => (
-    <div key={day} className="text-center text-sm font-semibold text-gray-500">
-      {day}
-    </div>
-  ))}
-
-  {Array.from({ length: firstDayOfMonth }).map((_, index) => (
-    <div key={`empty-${index}`} className="h-16"></div>
-  ))}
-
-  {Array.from({ length: daysInMonth }).map((_, dayIndex) => {
-    const dayNumber = dayIndex + 1;
-
-    return (
-      <button
-        key={dayNumber}
-        onClick={() => setSelectedDate(dayNumber)}
-        className={`flex items-center justify-center w-14 h-14 rounded-3xl transition-all duration-300 ${
-          selectedDate === dayNumber
-            ? 'bg-teal-1000 text-white shadow-lg'
-            : 'bg-gray-100 text-gray-700 hover:bg-blue-50'
-        }`}
-      >
-        {dayNumber}
-      </button>
-    );
-  })}
-</div>
-
-                              {/* Activity Section */}
+                <div className={`rounded-3xl gap-8 border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-4`}>
+                    <div className="text-center mb-2">
+                        <h2 className="text-lg text-teal-1000 font-semi-bold">
+                            {months[currentMonth]} {currentYear}
+                        </h2>
+                    </div>
+                    <div className="grid grid-cols-7 gap-2 text-center">
+                        {days.map((day) => (
+                            <div key={day} className="text-xs font-medium text-muted-foreground">
+                                {day}
+                            </div>
+                        ))}
+                    </div>
+                    <div className="grid grid-cols-7 gap-2 text-center mt-2">
+                        {Array.from({ length: firstDayOfMonth }, () => (
+                            <div key={`empty-${Math.random()}`} />
+                        ))}
+                        {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((date) => (
+                            <Button
+                                key={date}
+                                variant={selectedDate === date ? "default" : "ghost"}
+                                className={`h-10 w-10 rounded-full p-0 ${
+                                    selectedDate === date
+                                        ? 'bg-teal-1000 text-white ring-2 ring-teal-500'
+                                        : 'text-muted-foreground hover:bg-gray-200 hover:text-black'
+                                }`}
+                                onClick={() => setSelectedDate(date)}
+                                aria-label={`Select ${date}`}
+                            >
+                                {date}
+                            </Button>
+                        ))}
+                    </div>
+                </div>
+                                {/* Activity Section */}
 <div className={`rounded-3xl border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-8`}>
     <div className="mb-14">
         <h3 className="text-lg font-semibold text-teal-1000">Activity</h3><br />
         <div className="flex gap-3">
-            <span className="rounded-full bg-teal-10 px-3 py-1 text-sm text-white">
+            <span className="rounded-full bg-teal px-3 py-1 text-sm text-white">
                 Services Booked
             </span>
-            <span className="rounded-full border-b border-teal border px-3 py-1 text-sm text-gray-500">
+            <span className="rounded-full border border-teal border-b bg-gray-100 px-3 py-1 text-sm text-gray-600">
                 Packages Used
             </span>
         </div>
     </div>
-
     {/* Activity Bars */}
     <div className="flex h-[270px] items-end gap-4">
         {activityData.map((_, index) => (
@@ -264,9 +267,8 @@
                 style={{ height: index === 1 ? '60%' : index === 2 ? '80%' : '120%' }}
             />
         ))}
-    </div>
-
-    {/* Month Labels */}
+        </div>
+                {/* Month Labels */}
     <div className="flex gap-4 mt-2">
         {activityData.map((_, index) => (
             <div
