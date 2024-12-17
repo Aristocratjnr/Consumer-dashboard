@@ -27,7 +27,7 @@
             const [isDarkTheme, setIsDarkTheme] = useState(false); 
 
             const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-            const hours = Array.from({ length: 12 }, (_, i) => `${i + 1}:00AM`);
+            const hours = Array.from({ length: 16 }, (_, i) => `${i + 1}:00AM`);
             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             const activityData = [100, 60, 60, 100, 100];
 
@@ -209,7 +209,7 @@
                 </div>
 
                 {/* Calendar Grid */}
-                <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700 border-gray-600' : 'bg-card border-gray-300'} shadow p-4 max-w-md mx-auto`}>
+                <div className={`rounded-3xl border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-4`}>
                     <div className="text-center mb-2">
                         <h2 className="text-lg text-teal-1000 font-semi-bold">
                             {months[currentMonth]} {currentYear}
@@ -244,32 +244,44 @@
                     </div>
                 </div>
                                 {/* Activity Section */}
-                                <div className={`rounded-3xl border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-2`}>
-                                    <div className="mb-2">
-                                        <h3 className="text-lg font-semibold text-teal">Activity</h3><br/>
-                                        <div className="flex gap-3">
-                                            <span className="rounded-full bg-teal-10 px-3 py-1 text-sm text-white">
-                                                Services Booked
-                                            </span>
-                                            <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600">
-                                                Packages Used
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="flex h-[200px] items-end gap-4">
-                                        {activityData.map((height, index) => (
-                                            <div key={index} className="relative flex-1 rounded-full bg-teal w-45 h-10" style={{ height: `${height}%` }}>
-                                                <div className="absolute bottom-1 w-full text-center text-lg text-white font-semi-bold rounded-full">
-                                                    {months[index]}
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
+<div className={`rounded-3xl border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-8`}>
+    <div className="mb-14">
+        <h3 className="text-lg font-semibold text-teal-1000">Activity</h3><br />
+        <div className="flex gap-3">
+            <span className="rounded-full bg-teal px-3 py-1 text-sm text-white">
+                Services Booked
+            </span>
+            <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600">
+                Packages Used
+            </span>
+        </div>
+    </div>
+    <div className="flex h-[270px] items-end gap-4">
+        {activityData.map((_, index) => (
+            <div
+                key={index}
+                className={`relative flex-1 rounded-full ${
+                    index === 3
+                        ? ' bg-teal-1000 ' 
+                        : 'bg-gray-300' 
+                }`}
+                style={{ height: index === 1 ? '60%' : index === 2 ? '80%' : '120%' }} 
+            >
+                {index === 4 && ( 
+                    <div className="absolute bottom-1 w-full text-center text-md text-white font-semi-bold">
+                        {months[index]}
+                    </div>
+                )}
+            </div>
+        ))}
+    </div>
+
+
                                 </div>
                             </div>
 
                             {/* Timeline */}
-                            <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-10 space-y-4`}>
+                            <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-4 space-y-4`}>
                                 <h3 className="text-lg font-semibold text-teal-1000 mb-4">Daily Schedule</h3>
                                 <div className="space-y-4">
                                     {hours.map((hour) => (

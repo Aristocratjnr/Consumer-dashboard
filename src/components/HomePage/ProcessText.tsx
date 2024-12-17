@@ -1,10 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function ProcessText() {
   const features = [
     {
       number: "01",
       title: "Sign Up",
+      Link: "/auth/SignUp",
       description:
         "Seamless registration process for laundry service providers to connect with consumers in their local area, expanding their reach and growing their customer base effortlessly.",
     },
