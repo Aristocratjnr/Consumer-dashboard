@@ -29,7 +29,7 @@
             const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
             const hours = Array.from({ length: 12 }, (_, i) => `${i + 1}:00AM`);
             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-            const activityData = [20, 35, 25, 85, 45];
+            const activityData = [100, 60, 60, 100, 100];
 
             const getDaysInMonth = (year: number, month: number) => {
                 return new Date(year, month + 1, 0).getDate();
@@ -244,7 +244,7 @@
                     </div>
                 </div>
                                 {/* Activity Section */}
-                                <div className={`rounded-lg border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-2`}>
+                                <div className={`rounded-3xl border ${isDarkTheme ? 'bg-gray-700' : 'bg-card'} p-2`}>
                                     <div className="mb-2">
                                         <h3 className="text-lg font-semibold text-teal">Activity</h3><br/>
                                         <div className="flex gap-3">
@@ -256,10 +256,10 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="flex h-[160px] items-end gap-4">
+                                    <div className="flex h-[200px] items-end gap-4">
                                         {activityData.map((height, index) => (
-                                            <div key={index} className="relative flex-1 rounded-t-lg rounded-[20px] bg-teal-1000" style={{ height: `${height}%` }}>
-                                                <div className="absolute bottom-0 w-full text-center text-lg text-white font-semi-bold">
+                                            <div key={index} className="relative flex-1 rounded-full bg-teal w-45 h-10" style={{ height: `${height}%` }}>
+                                                <div className="absolute bottom-1 w-full text-center text-lg text-white font-semi-bold rounded-full">
                                                     {months[index]}
                                                 </div>
                                             </div>

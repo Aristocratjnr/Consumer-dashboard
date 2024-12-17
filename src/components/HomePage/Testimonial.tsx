@@ -4,9 +4,15 @@ import Image from "next/image";
 
 export default function Testimonials() {
   return (
-    <div className="w-full bg-[#f8fbff] py-16">
+    <div 
+    className="w-full py-16"
+    style={{
+      background:
+        "linear-gradient(180deg, rgba(255, 255, 255, 0.70) 0%, rgba(231, 247, 253, 0.70) 18%, rgba(231, 247, 253, 0.70) 78.75%, rgba(255, 255, 255, 0.70) 97.5%)",
+    }}
+    >
       <div className="container mx-auto px-4">
-        <h1 className="mb-12 text-5xl font-bold text-[#67c6e3]">
+        <h1 className="mb-12 text-5xl font-bold text-teal-30 px-2 py-2 text-left">
           Testimonials
         </h1>
         <Card className="mx-auto max-w-4xl rounded-3xl border-[#36C3E2] p-8">

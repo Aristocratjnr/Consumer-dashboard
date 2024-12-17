@@ -55,12 +55,12 @@ export default function ProcessSection() {
     {steps.map((step, index) => (
       <div
         key={step.number}
-        className={`flex flex-col items-center rounded-full min-w-[80px] h-[500px] bg-gradient-to-b from-teal-500 to-teal-20 shadow-md px-2 ${
+        className={`flex flex-col items-center rounded-full min-w-[90px] h-[500px] bg-gradient-to-b from-teal-500 to-teal-20 shadow-md px-2 ${
           index === 0 ? 'rounded-full' : ''
         } ${
           index === steps.length - 1 ? 'rounded-full' : ''
         } ${
-          step.isMain ? 'w-20' : 'w-24'
+          step.isMain ? 'w-20' : 'w-32'
         }`}
       >
         <div className="mt-12 flex h-12 w-12 items-center justify-center rounded-full border-2 text-lg bg-white border-teal font-semi-bold text-teal">

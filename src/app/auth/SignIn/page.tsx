@@ -46,7 +46,7 @@ export default function SignIn() {
               <Link href="/dashboard">
               <Button
                 variant="outline"
-                className="flex-1 h-10 bg-transparent border text-gray-600  font-medium"
+                className="flex-1 h-10 bg-transparent  text-gray-600  font-medium"
               >
                 <Image
                   src="/images/google.png"
@@ -110,7 +110,7 @@ export default function SignIn() {
               </div><br/>
               {/* Submit Button */}
               <Link href="/home">
-              <Button className="w-45 h-10 pl-10 pr-3 items-start bg-teal-1000 hover:bg-teal-1000 text-white font-itim text-[15px] rounded-xl flex  justify-center space-x-2">
+              <Button className="w-45 h-10 pl-10 pr-16 bg-teal-1000 hover:bg-teal-1000 text-white font-itim text-[15px] rounded-xl flex  justify-center space-x-2 text-center">
                 <span>Start Laundering!</span>
               </Button>
               </Link>
