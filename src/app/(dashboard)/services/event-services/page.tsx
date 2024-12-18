@@ -37,7 +37,7 @@ const Page: React.FC = () => {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         height: '100vh',
-        width: '100%',
+        width: '100vw',
         position: 'relative',
         overflow: 'hidden', // Prevent scrolling
         display: 'flex', // Enable Flexbox

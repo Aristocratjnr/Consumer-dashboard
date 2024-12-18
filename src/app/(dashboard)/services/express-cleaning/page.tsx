@@ -36,13 +36,12 @@ const Page: React.FC = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        width: '100vw',
         height: '100vh',
-        width: '100%',
-        position: 'relative',
-        overflow: 'hidden', // Prevent scrolling
-        display: 'flex', // Enable Flexbox
-        flexDirection: 'column',
-        padding: '20px', // Add some padding for better visual alignment
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '1rem',
       }}
     >
       {/* Logo Positioned at Top-Left */}
@@ -61,215 +60,203 @@ const Page: React.FC = () => {
       </div>
 
       {/* Centered Card Container */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flex: 1, 
-        }}
-      >
-        <Card className="w-[70%] h-[70%] max-w-7xl mx-auto rounded-lg shadow-lg">
-          <div className="flex flex-wrap lg:flex-nowrap p-0">
-            {/* Left Side Content */}
-            <div className="w-full lg:w-1/2 mt-2">
-              <CardHeader>
-                <CardTitle className="text-teal pb-1 mt-0 text-xl text-center">
-                  What's Included In Our Home Textile Cleaning
-                </CardTitle>
-                <div className="flex justify-center space-x-8 pb-4 font-bold">
-                  <div className="flex flex-col items-center text-teal">
-                    <CardDescription className='leading-tight text-xs'>Curtain & Drapery </CardDescription>
-                    <CardDescription className='leading-tight text-xs'>Cleaning</CardDescription>
-                    <TbBoxModel2 size={24} />
-                  </div>
-                  <div className="flex flex-col items-center text-teal">
-                    <CardDescription className='leading-tight text-xs'> Rug & Carpet</CardDescription>
-                    <CardDescription className='leading-tight text-xs'>Cleaning</CardDescription>
-                    <TbBoxModel2 size={24} />
-                  </div>
-                  <div className="flex flex-col items-center text-teal">
-                    <CardDescription className='leading-tight text-xs'> Upholstery </CardDescription>
-                    <CardDescription className='leading-tight text-xs'>Cleaning</CardDescription>
-                    <TbBoxModel2 size={24} />
-                  </div>
+      <Card className="w-[100%] max-w-4xl mx-auto rounded-xl shadow-lg overflow-hidden">
+        <div className="flex flex-col lg:flex-row gap-6 p-6">
+          {/* Left Side Content */}
+          <div className="w-full lg:w-1/2 space-y-4">
+            <CardHeader className="space-y-4 p-0">
+              <CardTitle className="text-teal pb-1 mt-0 text-xl text-center">
+                What's Included In Our Home Textile Cleaning
+              </CardTitle>
+              <div className="flex justify-center space-x-8 pb-4 font-bold">
+                <div className="flex flex-col items-center text-teal">
+                  <CardDescription className='leading-tight text-xs'>Curtain & Drapery </CardDescription>
+                  <CardDescription className='leading-tight text-xs'>Cleaning</CardDescription>
+                  <TbBoxModel2 size={24} />
                 </div>
-
-                <h2 className="text-sm mb-2 pb-2">
-                  Need more? Explore additional add-ons that suit your needs
-                </h2>
-                <div className="flex flex-col space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <Checkbox id="Stain Treatment" />
-                    <label
-                      htmlFor="Stain Treatment"
-                      className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Odor Removal
-                    </label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="Anti-Allergy Treatment" />
-                    <label
-                      htmlFor="Anti-Allergy Treatment"
-                      className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Deodorization Services
-                    </label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="Color Care Wash" />
-                    <label
-                      htmlFor="Color Care Wash"
-                      className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Stain Guard Treatment
-                    </label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="Odor removal" />
-                    <label
-                      htmlFor="Odor removal"
-                      className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Comforter & Bedding Cleaning
-                    </label>
-                  </div>
-                  <h2 className="text-sm mb-2">
-                    Have specific instructions or preferences? Leave a note to
-                    ensure we handle your items just the way you like.
-                  </h2>
+                <div className="flex flex-col items-center text-teal">
+                  <CardDescription className='leading-tight text-xs'> Rug & Carpet</CardDescription>
+                  <CardDescription className='leading-tight text-xs'>Cleaning</CardDescription>
+                  <TbBoxModel2 size={24} />
                 </div>
-              </CardHeader>
-              <CardFooter className="flex justify-between items-start">
-                <Textarea className="w-full border-teal-600 mb-0" />
-              </CardFooter>
-            </div>
-
-            {/* Right Side Content */}
-            <div className="w-full lg:w-1/2 mt-6 lg:mt-14">
-              <CardContent>
-                {/* Date and Time Section */}
-                <div className="section text-gray-700 mb-4">
-                  <h3 className="text-sm font-semibold">
-                    Choose a convenient date and time for your laundry service
-                  </h3>
-                  <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="date"
-                        className="border border-gray-300 rounded px-3 py-1 w-full mt-2 mb-0 bg-gray-200 text-sm"
-                        value={selectedDate}
-                        onChange={(e) => setSelectedDate(e.target.value)}
-                      />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="time"
-                        className="border border-gray-300 rounded px-8 py-1 w-full mt-2 mb-0 bg-gray-200 text-sm"
-                        value={selectedTime}
-                        onChange={(e) => setSelectedTime(e.target.value)}
-                      />
-                    </div>
-                  </div>
+                <div className="flex flex-col items-center text-teal">
+                  <CardDescription className='leading-tight text-xs'> Upholstery </CardDescription>
+                  <CardDescription className='leading-tight text-xs'>Cleaning</CardDescription>
+                  <TbBoxModel2 size={24} />
                 </div>
+              </div>
 
-                {/* Package Selection */}
-                <div className="section mb-4">
-                  <h3 className="text-sm font-semibold mb-1 pb-0">
-                    Try a new package today and enjoy exclusive discount
-                  </h3>
-                  <select
-                    value={selectedPackage}
-                    onChange={(e) => setSelectedPackage(e.target.value)}
-                    className="w-[60] border border-gray-300 rounded px-4 py-1 mt-2 mb-0 bg-gray-200 text-sm"
+              <h2 className="text-sm mb-2 pb-2">
+                Need more? Explore additional add-ons that suit your needs
+              </h2>
+              <div className="flex flex-col space-y-3 gap-2">
+                <div className="flex items-center space-x-3">
+                  <Checkbox id="Stain Treatment" />
+                  <label
+                    htmlFor="Stain Treatment"
+                    className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                   >
-                    <option value="Basic Clean">Basic Clean</option>
-                    <option value="Deep Clean">Deep Clean</option>
-                    <option value="Premium Care">Premium Care</option>
-                  </select>
+                    Odor Removal
+                  </label>
                 </div>
+                <div className="flex items-center space-x-4">
+                  <Checkbox id="Anti-Allergy Treatment" />
+                  <label
+                    htmlFor="Anti-Allergy Treatment"
+                    className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Deodorization Services
+                  </label>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Checkbox id="Color Care Wash" />
+                  <label
+                    htmlFor="Color Care Wash"
+                    className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Stain Guard Treatment
+                  </label>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Checkbox id="Odor removal" />
+                  <label
+                    htmlFor="Odor removal"
+                    className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    Comforter & Bedding Cleaning
+                  </label>
+                </div>
+                <h2 className="text-sm mb-2">
+                  Have specific instructions or preferences? Leave a note to
+                  ensure we handle your items just the way you like.
+                </h2>
+              </div>
+            </CardHeader>
+            <CardFooter className="flex justify-between items-start">
+              <Textarea className="w-full border-teal-600 mb-0" />
+            </CardFooter>
+          </div><br/>
 
-                {/* Payment Method */}
-                <div className="section mb-2">
-                  <h3 className="text-sm font-semibold mb-1 pb-1">Choose Your Payment Method</h3>
-                  <div className="flex items-center gap-8">
-                    <label className="flex flex-col items-center cursor-pointer">
-                      <div className="flex items-center gap-2">
-                        <GiTakeMyMoney />
-                        <span className="text-sm font-medium text-gray-700">Cash</span>
-                      </div>
-                      <input
-                        type="radio"
-                        name="payment"
-                        value="cash"
-                        checked={paymentMethod === 'cash'}
-                        onChange={() => setPaymentMethod('cash')}
-                        className="mt-2"
-                      />
-                    </label>
-                    <label className="flex flex-col items-center cursor-pointer">
-                      <div className="flex items-center gap-2">
-                        <MdOutlineMobileFriendly />
-                        <span className="text-sm font-medium text-gray-700">Mobile Money</span>
-                      </div>
-                      <input
-                        type="radio"
-                        name="payment"
-                        value="mobile"
-                        checked={paymentMethod === 'mobile'}
-                        onChange={() => setPaymentMethod('mobile')}
-                        className="mt-2"
-                      />
-                    </label>
-                  </div>
+          {/* Right Side Content */}
+          <div className="w-full lg:w-1/2 mt-6 lg:mt-14">
+            <CardContent className="space-y-6 p-0">
+              {/* Date and Time Section */}
+              <div className="section text-gray-700 mb-4">
+                <h3 className="text-sm font-semibold">
+                  Choose a convenient date and time for your laundry service
+                </h3>
+                <div className="flex items-center gap-4">
+                  <input
+                    type="date"
+                    className="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm"
+                    value={selectedDate}
+                    onChange={(e) => setSelectedDate(e.target.value)}
+                  />
+                  <input
+                    type="time"
+                    className="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm"
+                    value={selectedTime}
+                    onChange={(e) => setSelectedTime(e.target.value)}
+                  />
                 </div>
+              </div>
 
-                <div className="section mb-3">
-                  <h3 className="text-sm font-semibold mb-1 pb-1">Let us know which you prefer</h3>
-                  <div className="flex items-center gap-8">
-                    <label className="flex flex-col items-center cursor-pointer">
-                      <div className="flex items-center gap-2">
-                        <TbTruckDelivery />
-                        <span className="text-sm font-medium text-gray-700">Delivery</span>
-                      </div>
-                      <input
-                        type="radio"
-                        name="delivery"
-                        value="delivery"
-                        checked={deliveryMethod === 'delivery'}
-                        onChange={() => setDeliveryMethod('delivery')}
-                        className="mt-2"
-                      />
-                    </label>
-                    <label className="flex flex-col items-center cursor-pointer">
-                      <div className="flex items-center gap-2">
-                        <GiCardPickup />
-                        <span className="text-sm font-medium text-gray-700">Pick-Up</span>
-                      </div>
-                      <input
-                        type="radio"
-                        name="delivery"
-                        value="pickup"
-                        checked={deliveryMethod === 'pickup'}
-                        onChange={() => setDeliveryMethod('pickup')}
-                        className="mt-2"
-                      />
-                    </label>
-                  </div>
+              {/* Package Selection */}
+              <div className="section mb-4">
+                <h3 className="text-sm font-semibold mb-1 pb-0">
+                  Try a new package today and enjoy exclusive discount
+                </h3>
+                <select
+                  value={selectedPackage}
+                  onChange={(e) => setSelectedPackage(e.target.value)}
+                  className="w-[60] border border-gray-300 rounded px-4 py-1 mt-2 mb-0 bg-gray-200 text-sm"
+                >
+                  <option value="Basic Clean">Basic Clean</option>
+                  <option value="Deep Clean">Deep Clean</option>
+                  <option value="Premium Care">Premium Care</option>
+                </select>
+              </div>
+
+              {/* Payment Method */}
+              <div className="section mb-2">
+                <h3 className="text-sm font-semibold mb-1 pb-1">Choose Your Payment Method</h3>
+                <div className="grid grid-cols-2 gap-1">
+                  <label className="flex flex-col items-center cursor-pointer">
+                    <div className="flex items-center gap-2">
+                      <GiTakeMyMoney />
+                      <span className="text-sm font-medium text-gray-700">Cash</span>
+                    </div>
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="cash"
+                      checked={paymentMethod === 'cash'}
+                      onChange={() => setPaymentMethod('cash')}
+                      className="mt-2"
+                    />
+                  </label>
+                  <label className="flex flex-col items-center cursor-pointer">
+                    <div className="flex items-center gap-2">
+                      <MdOutlineMobileFriendly />
+                      <span className="text-sm font-medium text-gray-700">Mobile Money</span>
+                    </div>
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="mobile"
+                      checked={paymentMethod === 'mobile'}
+                      onChange={() => setPaymentMethod('mobile')}
+                      className="mt-2"
+                    />
+                  </label>
                 </div>
-              </CardContent>
-              <CardFooter className="flex justify-end m-2 ">
-                <Button className="bg-teal px-10 py-2 mb-4 text-white text-lg rounded-lg shadow-md">
-                  Book
-                </Button>
-              </CardFooter>
-            </div>
+              </div>
+
+              <div className="section mb-3">
+                <h3 className="text-sm font-semibold mb-1 pb-1">Let us know which you prefer</h3>
+                <div className="grid grid-cols-2 gap-0">
+                  <label className="flex flex-col items-center cursor-pointer">
+                    <div className="flex items-center gap-0">
+                      <TbTruckDelivery />
+                      <span className="text-sm font-medium text-gray-700">Delivery</span>
+                    </div>
+                    <input
+                      type="radio"
+                      name="delivery"
+                      value="delivery"
+                      checked={deliveryMethod === 'delivery'}
+                      onChange={() => setDeliveryMethod('delivery')}
+                      className="mt-0"
+                    />
+                  </label>
+                  <label className="flex flex-col items-center cursor-pointer">
+                    <div className="flex items-center gap-0">
+                      <GiCardPickup />
+                      <span className="text-sm font-medium text-gray-700">Pick-Up</span>
+                    </div>
+                    <input
+                      type="radio"
+                      name="delivery"
+                      value="pickup"
+                      checked={deliveryMethod === 'pickup'}
+                      onChange={() => setDeliveryMethod('pickup')}
+                      className="mt-0"
+                    />
+                  </label>
+                </div>
+              </div>
+            </CardContent><br/>
+            <CardFooter className="flex justify-end m-2 ">
+              <Button className="bg-teal bottom-1 hover:bg-teal-10 text-white px-8 py-2 rounded-md">
+                Book
+              </Button>
+            </CardFooter>
           </div>
-        </Card>
-      </div>
+        </div>
+      </Card>
     </div>
   );
 };
 
 export default Page;
+
