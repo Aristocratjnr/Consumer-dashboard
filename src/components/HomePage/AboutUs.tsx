@@ -26,8 +26,8 @@ export default function Home() {
           />
           <h3 className="inline-block text-2xl">2 Years of Experience</h3>
           <p className="ml-10 mt-2">
-            We&aptos;ve become a trusted platform connecting consumers with
-            reliable laundry providers. We&aptos;ve streamlined laundry
+            We've become a trusted platform connecting consumers with
+            reliable laundry providers. We've streamlined laundry
             services, offering convenience for customers and growth
             opportunities for providers.
           </p>
@@ -42,7 +42,7 @@ export default function Home() {
           />
           <h3 className="inline-block text-2xl">10+ Service Providers</h3>
           <p className="ml-10 mt-2">
-            We&aptos;ve partnered with over 10 trusted laundry service
+            We've partnered with over 10 trusted laundry service
             providers, delivering convenience and quality to our customers. Our
             platform has helped consumers access reliable, on-demand laundry
             services while supporting providers in growing their businesses.

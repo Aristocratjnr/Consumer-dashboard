@@ -22,7 +22,7 @@ export default function SignIn() {
               Don't have an account yet?{" "}
             </span>
             <Link
-              href="/sign-up"
+              href="/auth/SignUp"
               className="text-sm md:text-lg font-semibold text-gray-900 hover:underline"
             >
               Sign up
@@ -46,7 +46,7 @@ export default function SignIn() {
               <Link href="/dashboard">
               <Button
                 variant="outline"
-                className="flex-1 h-10 bg-transparent border text-gray-600  font-medium"
+                className="flex-1 h-10 bg-transparent  text-gray-600  font-medium"
               >
                 <Image
                   src="/images/google.png"
@@ -107,11 +107,13 @@ export default function SignIn() {
                   placeholder="************"
                   className="w-45 h-10 pl-10 pr-3 bg-gray-200 border-0 rounded-md text-sm font-semi-bold  text-gray-900 placeholder-gray-600"
                 />
-              </div>
+              </div><br/>
               {/* Submit Button */}
-              <Button className="w-45 h-10  bg-teal-1000 hover:bg-teal-1000 text-white font-itim text-[15px] rounded-xl flex items-center justify-center space-x-2">
+              <Link href="/home">
+              <Button className="w-45 h-10 pl-10 pr-16 bg-teal-1000 hover:bg-teal-1000 text-white font-itim text-[15px] rounded-xl flex  justify-center space-x-2 text-center">
                 <span>Start Laundering!</span>
               </Button>
+              </Link>
             </form>
           </div>
         </div>
