@@ -42,7 +42,7 @@ const Page: React.FC = () => {
         overflow: 'hidden', // Prevent scrolling
         display: 'flex', // Enable Flexbox
         flexDirection: 'column',
-        padding: '20px', // Add some padding for better visual alignment
+        
       }}
     >
       {/* Logo Positioned at Top-Left */}
@@ -50,7 +50,7 @@ const Page: React.FC = () => {
         style={{
           position: 'absolute',
           top: '5px',
-          left: '40px',
+          left: '10px',
           display: 'flex',
           alignItems: 'center',
           zIndex: 10,
@@ -66,14 +66,14 @@ const Page: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          flex: 1, // Allow this container to take up remaining vertical space
+          flex: 1, 
         }}
       >
         <Card
-          className="w-[75%] max-w-7xl mx-auto h-auto rounded-lg shadow-lg"
+          className="w-[100%] max-w-4xl mx-auto rounded-xl shadow-lg overflow-hidden"
           style={{
             marginTop: '20px',
-            marginBottom: 'auto',
+            marginBottom: '40px',
           }}
         >
           <div className="flex flex-wrap lg:flex-nowrap pt-4">
@@ -101,7 +101,7 @@ const Page: React.FC = () => {
                 <h2 className="text-sm mb-2 pb-2">
                   Need more? Explore additional add-ons that suit your needs
                 </h2>
-                <div className="flex flex-col space-y-3">
+                <div className="flex flex-col space-y-4">
                   <div className="flex items-center space-x-3">
                     <Checkbox id="Stain Treatment" />
                     <label
