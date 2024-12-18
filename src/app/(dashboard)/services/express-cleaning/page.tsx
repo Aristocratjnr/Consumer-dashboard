@@ -66,7 +66,7 @@ const Page: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          flex: 1, // Allow this container to take up remaining vertical space
+          flex: 1, 
         }}
       >
         <Card className="w-[70%] h-[70%] max-w-7xl mx-auto rounded-lg shadow-lg">
