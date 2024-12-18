@@ -66,14 +66,14 @@ const Page: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          flex: 1, // Allow this container to take up remaining vertical space
+          flex: 1,
         }}
       >
         <Card
           className="w-[100%] max-w-4xl mx-auto rounded-xl shadow-lg overflow-hidden"
           style={{
             marginTop: '20px',
-            marginBottom: 'auto',
+            marginBottom: '40px',
           }}
         >
           <div className="flex flex-wrap lg:flex-nowrap pt-4">
