@@ -42,7 +42,7 @@ const Page: React.FC = () => {
         overflow: 'hidden', // Prevent scrolling
         display: 'flex', // Enable Flexbox
         flexDirection: 'column',
-        padding: '20px', // Add some padding for better visual alignment
+        padding: '20px',
       }}
     >
       {/* Logo Positioned at Top-Left */}
