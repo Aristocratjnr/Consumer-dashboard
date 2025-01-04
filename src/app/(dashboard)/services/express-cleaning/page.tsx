@@ -18,6 +18,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
+import Image from 'next/image';
 
 const Page: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState('');
@@ -52,8 +53,8 @@ const Page: React.FC = () => {
           zIndex: 10,
         }}
       >
-        <img alt="TulaLaundry" className="h-8 -mr-0.5" src="/images/logo.png" />
-        <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
+        <Image alt="TulaLaundry" className="h-8 -mr-0.5" src="/images/logo.png" />
+        <Image src="/images/lund.png" alt="Tulaundry" className="h-5" />
       </div>
 
       {/* Centered Card Container */}

@@ -9,7 +9,6 @@
                 DropdownMenuItem,
                 DropdownMenuTrigger,
             } from "@/components/ui/dropdown-menu";
-            import { Input } from "@/components/ui/input";
             import Link from "next/link";
             import { useState } from "react";
             import SearchBar from '@/components/SearchBar';
@@ -76,25 +75,25 @@
                         </Link>
                         <Link href="/services" passHref>
                             <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                                <img src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
+                                <Image src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
                                 Services
                             </button><br />
                         </Link>
                         <Link href="/calendar" passHref>
                             <button className="flex w-full items-center rounded-md font-medium bg-teal-20 px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-white dark:hover:bg-gray-700">
-                                <img src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
+                                <Image src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
                                 Calendar
                             </button><br />
                         </Link>
                         <Link href="/bookings" passHref>
                             <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                                <img src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
+                                <Image src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
                                 Bookings
                             </button><br />
                         </Link>
                         <Link href="/tracking" passHref>
                             <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                                <img src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
+                                <Image src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
                                 Tracking
                             </button>
                         </Link>
@@ -130,7 +129,7 @@
                                         {/* Profile Section */}
                                         <div className="relative">
                                             <button onClick={toggleProfileDropdown} className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-black px-2 py-1 rounded-full">
-                                                <img src="/images/woman.png" alt="Profile" className="h-8 w-8 rounded-full ring-2 ring-teal-800" />
+                                                <Image src="/images/woman.png" alt="Profile" className="h-8 w-8 rounded-full ring-2 ring-teal-800" />
                                                 <div className="flex flex-col">
                                                     <span className="text-sm font-semi-bold">Sandra</span>
                             <span className="text-xs text-gray-700">77884466</span>

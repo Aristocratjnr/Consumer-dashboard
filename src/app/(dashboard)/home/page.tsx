@@ -40,11 +40,6 @@ export default function Dashboard() {
     { question: 'Payment and refund policies.', answer: 'We accept various payment methods and offer refunds under certain conditions.' }
   ];
 
-  const toggleFaq = (index: number) => {
-    const newFaqOpen = [...faqOpen];
-    newFaqOpen[index] = !newFaqOpen[index];
-    setFaqOpen(newFaqOpen);
-  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -117,17 +112,13 @@ export default function Dashboard() {
     };
   }, [dragProgress]);
 
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseDown = () => {
     isDraggingRef.current = true;
-    const rect = progressBarRef.current!.getBoundingClientRect();
-    const x = e.clientX - rect.left;
     setDragProgress(0); // Reset progress to 0
   };
 
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouchStart = () => {
     isDraggingRef.current = true;
-    const rect = progressBarRef.current!.getBoundingClientRect();
-    const x = e.touches[0].clientX - rect.left;
     setDragProgress(0); // Reset progress to 0
   };
 
@@ -180,7 +171,7 @@ export default function Dashboard() {
                   onClick={toggleProfileDropdown}
                   className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-black px-2 py-1 rounded-full"
                 >
-                  <img
+                  <Image
                     src="/images/woman.png"
                     alt="Profile"
                     className="h-8 w-8 rounded-full ring-2 ring-teal-800"
@@ -222,31 +213,31 @@ export default function Dashboard() {
           <nav className="space-y-0.5 flex-grow"><br/>
           <Link href="/home" passHref>
             <button className="flex w-full rounded-md bg-teal-20 items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5 bg-teal-20" />
+                <Image src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5 bg-teal-20" />
                 Home
             </button>
         </Link><br />
         <Link href="/services" passHref>
             <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <img src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
+                <Image src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
                 Services
             </button>
         </Link><br />
         <Link href="/calendar" passHref>
             <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <img src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
+                <Image src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
                 Calendar
             </button>
         </Link><br />
         <Link href="/bookings" passHref>
             <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <img src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
+                <Image src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
                 Bookings
             </button>
         </Link><br />
         <Link href="/tracking" passHref>
             <button className="flex w-full items-center px-4 py-3 text-muted-foreground">
-                <img src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
+                <Image src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
                 Tracking
             </button>
         </Link>
