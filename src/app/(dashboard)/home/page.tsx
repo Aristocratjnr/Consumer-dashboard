@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { Bell, Home, Settings, Search, Calendar, Package, Briefcase, LogOut, Mail, Phone, HelpCircle, ChevronRight, User, MapPin } from 'lucide-react';
+import { Bell, Settings, Search,  LogOut, Mail, Phone, ChevronRight, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import ReactConfetti from 'react-confetti';

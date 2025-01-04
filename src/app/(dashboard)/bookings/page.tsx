@@ -114,31 +114,31 @@ export default function BookingPage() {
         <nav className="space-y-0.5 flex-grow"><br/><br/>
               <Link href="/home" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-              <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
+              <Image src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
               Home
           </button><br />
       </Link>
           <Link href="/services" passHref>
               <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                  <img src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
+                  <Image src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
                   Services
               </button><br />
           </Link>
           <Link href="/calendar" passHref>
               <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                  <img src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
+                  <Image src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
                   Calendar
               </button><br />
           </Link>
           <Link href="/bookings" passHref>
               <button className="flex w-full items-center rounded-md bg-teal-20 px-4 py-3 font-medium text-accent-foreground dark:bg-gray-700 dark:text-white">
-                  <img src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
+                  <Image src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
                   Bookings
               </button><br />
           </Link>
           <Link href="/tracking" passHref>
               <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                  <img src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
+                  <Image src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
                   Tracking
               </button>
           </Link>

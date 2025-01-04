@@ -3,15 +3,11 @@
 import React, { useState } from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { LuWashingMachine } from 'react-icons/lu';
-import { MdOutlineIron } from 'react-icons/md';
-import { GiRolledCloth } from 'react-icons/gi';
 import { GiCardPickup } from "react-icons/gi";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineMobileFriendly } from "react-icons/md";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { TbBoxModel2 } from "react-icons/tb";
-import { FaCalendarAlt, FaClock, FaMoneyBill, FaMobileAlt, FaTruck, FaStore } from 'react-icons/fa';
 import {
   Card,
   CardContent,
