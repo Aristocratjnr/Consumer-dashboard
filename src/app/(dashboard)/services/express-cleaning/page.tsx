@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { LuWashingMachine } from 'react-icons/lu';
 import { MdOutlineIron } from 'react-icons/md';
 import { GiRolledCloth } from 'react-icons/gi';
 import { GiCardPickup } from "react-icons/gi";
