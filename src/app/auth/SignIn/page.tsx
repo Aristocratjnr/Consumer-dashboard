@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { LaundryIllustrations } from "@/components/laundry-illustrations";
-import { Apple, Chrome, Lock, Mail } from "lucide-react";
+import { Lock, Mail } from "lucide-react";
 import Image from "next/image";
 
 export default function SignIn() {

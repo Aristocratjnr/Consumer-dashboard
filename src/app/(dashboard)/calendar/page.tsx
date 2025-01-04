@@ -1,7 +1,7 @@
             'use client'
 
-            import { Bell, Home, LogOut, Menu, Search, Settings, ChevronDown, Plus, Calendar, User, BookMinusIcon, HomeIcon, Package, ChevronRight } from 'lucide-react';
-            import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+            import { Bell,  LogOut,  Search, Settings, ChevronDown, Plus, Calendar, User } from 'lucide-react';
+            
             import { Button } from "@/components/ui/button";
             import {
                 DropdownMenu,
@@ -70,7 +70,7 @@
                             <nav className="space-y-0.5 flex-grow"><br/>
                             <Link href="/home" passHref>
                             <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                                <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
+                                <Image src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
                                 Home
                             </button><br />
                         </Link>

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Bell, Home, Calendar, Search, Settings, LogOut, Package, MapPin, Phone, Briefcase, User, ChevronRight, Check, Mail } from 'lucide-react';
+import { Bell,  Calendar, Search, Settings, LogOut, Package, MapPin,  User, ChevronRight, Check } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -72,31 +72,31 @@ export default function TrackingPage() {
                     <nav className="space-y-0.5"><br/><br/>
                     <Link href="/home" passHref>
                     <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent'}`}>
-                        <img src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
+                        <Image src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
                         Home
                     </button>
                 </Link><br />
                 <Link href="/services" passHref>
                     <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent'}`}>
-                        <img src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
+                        <Image src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
                         Services
                     </button>
                 </Link><br />
                 <Link href="/calendar" passHref>
                     <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent'}`}>
-                        <img src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
+                        <Image src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
                         Calendar
                     </button>
                 </Link><br />
                 <Link href="/bookings" passHref>
                     <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent'}`}>
-                        <img src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
+                        <Image src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
                         Bookings
                     </button>
                 </Link><br />
                 <Link href="/tracking" passHref>
                     <button className={`flex w-full items-center px-4 py-3 rounded-md ${isDarkTheme ? 'bg-gray-700 text-white' : 'bg-teal-20 text-accent-foreground'}`}>
-                        <img src="/images/iconTracking.png" alt="Tracking" className=" h-5 w-5 bg-teal-20 rounded-full" />
+                        <Image src="/images/iconTracking.png" alt="Tracking" className=" h-5 w-5 bg-teal-20 rounded-full" />
                         Tracking
                     </button>
                 </Link>
@@ -142,7 +142,7 @@ export default function TrackingPage() {
                                     onClick={toggleProfileDropdown}
                                     className={`flex items-center space-x-3 pl-4 border-l border-gray-200 ${isDarkTheme ? 'bg-gray-800 text-white' : 'bg-teal-50 text-black'} px-2 py-1 rounded-full`}
                                 >
-                                    <img
+                                    <Image
                                         src="/images/woman.png"
                                         alt="Profile"
                                         className="h-8 w-8 rounded-full ring-2 ring-teal-800"
@@ -346,7 +346,7 @@ export default function TrackingPage() {
                             {/* Courier Information */}
                             <div className="flex items-center justify-between bg-white p-4 rounded-lg">
                                 <div className="flex items-center space-x-4">
-                                    <img
+                                    <Image
                                         alt="Courier"
                                         className="rounded-full"
                                         height="40"
@@ -359,7 +359,7 @@ export default function TrackingPage() {
                                         <span className="text-sm text-gray-500">Courier</span>
                                     </div>
                                 </div>
-                                <img 
+                                <Image 
                                     src="/images/call.png" 
                                     alt="Phone icon" 
                                     className="text-white h-6 w-6 mr-2"

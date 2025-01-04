@@ -177,7 +177,7 @@ export default function BookingPage() {
                       onClick={toggleProfileDropdown}
                       className="flex items-center space-x-3 pl-4 border-l border-gray-200 bg-teal-50 text-black px-2 py-1 rounded-full"
                     >
-                      <img
+                      <Image
                         src="/images/woman.png"
                         alt="Profile"
                         className="h-8 w-8 rounded-full ring-2 ring-teal-800"
@@ -421,7 +421,7 @@ function BookingCard({ booking, onSelect, isSelected }: { booking: Booking; onSe
           </span>
           <div className="flex items-center gap-2">
             <span className="text-xs text-gray-500 dark:text-gray-400">Assigned to</span>
-            <img
+            <Image
               alt="Staff"
               className="h-6 w-6 rounded-full border border-gray-300 dark:border-gray-600 object-cover"
               src={booking.staffImage}
@@ -463,44 +463,7 @@ function BookingCard({ booking, onSelect, isSelected }: { booking: Booking; onSe
 
 
     
-function HomeIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-      <polyline points="9 22 9 12 15 12 15 22" />
-    </svg>
-  )
-}
 
-function ServicesIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-    </svg>
-  )
-}
 
 function BookingsIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
