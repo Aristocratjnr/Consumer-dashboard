@@ -17,6 +17,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
+import Image from 'next/image';
 
 const Page: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState('');
@@ -51,8 +52,8 @@ const Page: React.FC = () => {
           zIndex: 10,
         }}
       >
-        <img alt="TulaLaundry" className="h-10 -mr-0.5" src="/images/logo.png" />
-        <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
+        <Image alt="TulaLaundry" className="h-10 -mr-0.5" src="/images/logo.png" />
+        <Image src="/images/lund.png" alt="Tulaundry" className="h-5" />
       </div>
 
       {/* Centered Card Container */}
@@ -62,7 +63,7 @@ const Page: React.FC = () => {
           <div className="w-full lg:w-1/2 space-y-6">
             <CardHeader>
               <CardTitle className="text-teal pb-1 mt-0 text-xl text-center">
-                What's Included In Our Event Cleaning Service
+                What &apos; s Included In Our Event Cleaning Service
               </CardTitle>
               <div className="flex justify-center space-x-8 pb-4 font-bold">
                 <div className="flex flex-col items-center text-teal">

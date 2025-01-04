@@ -8,7 +8,6 @@ import ReactConfetti from 'react-confetti';
 
 export default function Dashboard() {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [faqOpen, setFaqOpen] = useState(Array(4).fill(false));
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [dragProgress, setDragProgress] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -255,7 +254,7 @@ export default function Dashboard() {
           <div className="max-w-4xl">
             <div className="mb-8">
               <h1 className="text-4xl font-semi-bold">Welcome <span className="text-teal">Back!</span></h1>
-              <p className="text-gray-600 mt-2 text-sm">Let's make laundry day effortless.</p>
+              <p className="text-gray-600 mt-2 text-sm">Let&apos;s make laundry day effortless.</p>
             </div>
             {/* Text Section at the Top */}
             <div className="text-center mb-6">
@@ -334,7 +333,7 @@ export default function Dashboard() {
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {dragProgress < 100 ? (
                     <>
-                      You've earned {Math.floor((dragProgress / 100) * loyaltyPoints[loyaltyPoints.length - 1].points)} points so far—just{" "}
+                      You &apos; ve earned {Math.floor((dragProgress / 100) * loyaltyPoints[loyaltyPoints.length - 1].points)} points so far—just{" "}
                       <span className="font-semibold text-teal-1000">{loyaltyPoints[loyaltyPoints.length - 1].points - Math.floor((dragProgress / 100) * loyaltyPoints[loyaltyPoints.length - 1].points)} more points</span> to unlock{" "}
                       <span className="font-semibold text-teal-1000">25% discount</span> on your next order.
                     </>

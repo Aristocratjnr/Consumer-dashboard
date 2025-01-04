@@ -19,7 +19,7 @@ export default function SignIn() {
           {/* Header */}
           <div className="text-center md:text-right mb-6 md:mb-12">
             <span className="text-sm text-gray-500">
-              Don't have an account yet?{" "}
+              Don &apos; t have an account yet?{" "}
             </span>
             <Link
               href="/auth/SignUp"
