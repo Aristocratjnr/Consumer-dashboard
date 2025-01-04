@@ -79,7 +79,7 @@ const Page: React.FC = () => {
             <div className="w-full lg:w-1/2 mt-2">
               <CardHeader>
                 <CardTitle className="text-teal pb-1 mt-0 text-lg text-center">
-                  What's Included In Our Laundry Service
+                  What &apos; s Included In Our Laundry Service
                 </CardTitle>
                 <div className="flex justify-center space-x-8 pb-4 font-bold">
                   <div className="flex flex-col items-center text-teal">
