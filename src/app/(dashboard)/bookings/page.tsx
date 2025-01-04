@@ -1,12 +1,11 @@
 'use client'
 
 import * as React from "react"
-import { Calendar, Clock, Filter, History, Plus, Search, Settings, LogOut, Package, X, Bell, User, Banknote } from 'lucide-react'
+import {  Clock, Plus, Search, Settings, LogOut, X, Bell, User, Banknote } from 'lucide-react'
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useState } from 'react'

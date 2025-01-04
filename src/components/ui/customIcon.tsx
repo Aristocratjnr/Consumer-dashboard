@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { createLucideIcon } from 'lucide-react';
 
 const CustomIcon = createLucideIcon('CustomIcon', [
