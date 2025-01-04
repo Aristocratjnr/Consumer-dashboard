@@ -1,3 +1,4 @@
+import Link from "next/link";
 interface ServerPageProps {
   params: { server: string };
 }
@@ -12,12 +13,12 @@ export default async function ServerPage({ params }: ServerPageProps) {
         <p className="text-2xl font-semibold text-gray-600 mt-4">
           The server you’re looking for doesn’t exist.
         </p>
-        <a
+        <Link
           href="/"
           className="mt-6 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500"
         >
           Go to Homepage
-        </a>
+        </Link>
       </div>
     );
   }
