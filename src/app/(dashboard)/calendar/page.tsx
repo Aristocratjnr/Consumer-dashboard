@@ -300,7 +300,7 @@ export default function CalendarDashboard() {
                   {months[currentMonth]} {currentYear}
                 </h2>
               </div>
-              <div className="grid grid-cols-7 gap-2 text-center">
+              <div className="grid grid-cols-7 gap-3 text-justify">
                 {days.map((day) => (
                   <div
                     key={day}
