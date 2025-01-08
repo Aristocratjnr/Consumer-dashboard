@@ -305,7 +305,7 @@ export default function LaundryDashboard() {
 
           {/* Packages Section */}
           <div
-            className={`flex-grow ${isDarkTheme ? "bg-gray-900" : "bg-teal-20"} p-6`}
+            className={`flex-grow ${isDarkTheme ? "bg-gray-900" : "bg-teal-20"} p-6 rounded-lg`}
           >
             <h2 className="font-semi-medium trac mb-6 items-start text-2xl text-teal">
               Packages
