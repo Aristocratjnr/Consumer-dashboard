@@ -35,7 +35,7 @@ export default function LaundryDashboard() {
     >
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-0 z-40 h-screen w-64 border-r ${isDarkTheme ? "border-gray-700 bg-gray-800" : "bg-white"}`}
+        className={`fixed left-0 top-0 h-screen w-64 border-r ${isDarkTheme ? "border-gray-700 bg-gray-800" : "bg-white"}`}
       >
         <div
           className={`w-64 border-r ${isDarkTheme ? "bg-gray-800" : "bg-background"} flex flex-col px-4 py-6`}
