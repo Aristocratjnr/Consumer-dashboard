@@ -1,6 +1,6 @@
             'use client'
 
-            import { Bell,  LogOut,  Search, Settings, ChevronDown, Plus, Calendar, User } from 'lucide-react';
+            import { Bell,  LogOut,  Search, Settings, ChevronDown, Plus, Calendar, User, ChevronRight } from 'lucide-react';
             
             import { Button } from "@/components/ui/button";
             import {
@@ -98,6 +98,13 @@
                             </button>
                         </Link>
                     </nav>
+                    <button className="absolute bottom-12 left-4 right-4 flex items-center justify-between px-4 py-3 text-red-800 hover:bg-red-50 rounded-lg transition-colors">
+                <div className="flex items-center space-x-3">
+                <LogOut className="h-5 w-5" />
+                <span className="font-medium">Log out</span>
+                </div>
+                <ChevronRight className="h-5 w-5" />
+            </button>
                     </div>
 
 
