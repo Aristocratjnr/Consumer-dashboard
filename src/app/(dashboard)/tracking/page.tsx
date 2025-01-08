@@ -72,31 +72,31 @@ export default function TrackingPage() {
                     <nav className="space-y-0.5"><br/><br/>
                     <Link href="/home" passHref>
                     <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent'}`}>
-                        <Image src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
+                        <Image src="/images/iconHome.png" alt="Home"  width={32} height={32}  className="mr-3 h-5 w-5" />
                         Home
                     </button>
                 </Link><br />
                 <Link href="/services" passHref>
                     <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent'}`}>
-                        <Image src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
+                        <Image src="/images/iconService.png"  width={32} height={32} alt="Services" className="mr-3 h-5 w-5" />
                         Services
                     </button>
                 </Link><br />
                 <Link href="/calendar" passHref>
                     <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent'}`}>
-                        <Image src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
+                        <Image src="/images/iconCalendar.png"  width={32} height={32}  alt="Calendar" className="mr-3 h-5 w-5" />
                         Calendar
                     </button>
                 </Link><br />
                 <Link href="/bookings" passHref>
                     <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent'}`}>
-                        <Image src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
+                        <Image src="/images/iconBooking.png" width={32} height={32}  alt="Bookings" className="mr-3 h-5 w-5" />
                         Bookings
                     </button>
                 </Link><br />
                 <Link href="/tracking" passHref>
                     <button className={`flex w-full items-center px-4 py-3 rounded-md ${isDarkTheme ? 'bg-gray-700 text-white' : 'bg-teal-20 text-accent-foreground'}`}>
-                        <Image src="/images/iconTracking.png" alt="Tracking" className=" h-5 w-5 bg-teal-20 rounded-full" />
+                        <Image src="/images/iconTracking.png" alt="Tracking"  width={32} height={32} className=" h-5 w-5 bg-teal-20 rounded-full" />
                         Tracking
                     </button>
                 </Link>
@@ -144,6 +144,8 @@ export default function TrackingPage() {
                                 >
                                     <Image
                                         src="/images/woman.png"
+                                        width={32}
+                                        height={32} 
                                         alt="Profile"
                                         className="h-8 w-8 rounded-full ring-2 ring-teal-800"
                                     />
@@ -362,6 +364,8 @@ export default function TrackingPage() {
                                 <Image 
                                     src="/images/call.png" 
                                     alt="Phone icon" 
+                                    width={32} 
+                                    height={32} 
                                     className="text-white h-6 w-6 mr-2"
                                 />
                             </div>

@@ -172,6 +172,8 @@ export default function Dashboard() {
                 >
                   <Image
                     src="/images/woman.png"
+                    width={32}
+                    height={32}
                     alt="Profile"
                     className="h-8 w-8 rounded-full ring-2 ring-teal-800"
                   />
@@ -212,31 +214,31 @@ export default function Dashboard() {
           <nav className="space-y-0.5 flex-grow"><br/>
           <Link href="/home" passHref>
             <button className="flex w-full rounded-md bg-teal-20 items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Image src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5 bg-teal-20" />
+                <Image src="/images/iconHome.png" alt="Home"width={32} height={32}  className="mr-3 h-5 w-5 bg-teal-20" />
                 Home
             </button>
         </Link><br />
         <Link href="/services" passHref>
             <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Image src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
+                <Image src="/images/iconService.png" width={32} height={32}  alt="Services" className="mr-3 h-5 w-5" />
                 Services
             </button>
         </Link><br />
         <Link href="/calendar" passHref>
             <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Image src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
+                <Image src="/images/iconCalendar.png" width={32} height={32} alt="Calendar" className="mr-3 h-5 w-5" />
                 Calendar
             </button>
         </Link><br />
         <Link href="/bookings" passHref>
             <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                <Image src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
+                <Image src="/images/iconBooking.png"width={32} height={32}  alt="Bookings" className="mr-3 h-5 w-5" />
                 Bookings
             </button>
         </Link><br />
         <Link href="/tracking" passHref>
             <button className="flex w-full items-center px-4 py-3 text-muted-foreground">
-                <Image src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
+                <Image src="/images/iconTracking.png"width={32} height={32}  alt="Tracking" className="mr-3 h-5 w-5" />
                 Tracking
             </button>
         </Link>

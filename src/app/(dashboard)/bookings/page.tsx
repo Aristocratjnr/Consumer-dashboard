@@ -17,6 +17,8 @@ interface Booking {
   title: string
   reference: string
   date: string
+  height: number
+  width: number
   time: string
   services: string[]
   staffImage: string
@@ -38,6 +40,8 @@ const bookings: Booking[] = [
     time: "9:30 AM",
     services: ["Laundry", "Stain Treatments", "Ironing"],
     staffImage: "/images/frame.png",
+    width: 32,
+    height: 32,
     additionalNote: "Please separate the white clothes from the coloured ones",
     paymentMethod: "Cash",
     totalAmount: 60,
@@ -52,6 +56,8 @@ const bookings: Booking[] = [
     reference: "REF: 8877463429",
     date: "Today",
     time: "11:30 AM",
+    width: 32,
+    height: 32,
     services: ["Laundry", "Ironing"],
     staffImage: "/images/frame.png",
     additionalNote: "Please separate the white clothes from the coloured ones",
@@ -68,6 +74,8 @@ const bookings: Booking[] = [
     reference: "REF: 815749290",
     date: "Last Week",
     time: "13:30 PM",
+    width: 32,
+    height: 32,
     services: ["Laundry", "Stain Treatments", "Ironing"],
     staffImage: "/images/frame.png",
     additionalNote: "Please separate the white clothes from the coloured ones",
@@ -114,31 +122,31 @@ export default function BookingPage() {
         <nav className="space-y-0.5 flex-grow"><br/><br/>
               <Link href="/home" passHref>
           <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-              <Image src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
+              <Image src="/images/iconHome.png" width={32} height={32}  alt="Home" className="mr-3 h-5 w-5" />
               Home
           </button><br />
       </Link>
           <Link href="/services" passHref>
               <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                  <Image src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
+                  <Image src="/images/iconService.png" width={32} height={32}  alt="Services" className="mr-3 h-5 w-5" />
                   Services
               </button><br />
           </Link>
           <Link href="/calendar" passHref>
               <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                  <Image src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
+                  <Image src="/images/iconCalendar.png"width={32} height={32}  alt="Calendar" className="mr-3 h-5 w-5" />
                   Calendar
               </button><br />
           </Link>
           <Link href="/bookings" passHref>
               <button className="flex w-full items-center rounded-md bg-teal-20 px-4 py-3 font-medium text-accent-foreground dark:bg-gray-700 dark:text-white">
-                  <Image src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
+                  <Image src="/images/iconBooking.png"width={32} height={32}  alt="Bookings" className="mr-3 h-5 w-5" />
                   Bookings
               </button><br />
           </Link>
           <Link href="/tracking" passHref>
               <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-                  <Image src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
+                  <Image src="/images/iconTracking.png"width={32} height={32}  alt="Tracking" className="mr-3 h-5 w-5" />
                   Tracking
               </button>
           </Link>
@@ -179,6 +187,8 @@ export default function BookingPage() {
                     >
                       <Image
                         src="/images/woman.png"
+                        width={32}
+                         height={32} 
                         alt="Profile"
                         className="h-8 w-8 rounded-full ring-2 ring-teal-800"
                       />
@@ -425,6 +435,8 @@ function BookingCard({ booking, onSelect, isSelected }: { booking: Booking; onSe
               alt="Staff"
               className="h-6 w-6 rounded-full border border-gray-300 dark:border-gray-600 object-cover"
               src={booking.staffImage}
+              width={32}
+              height={32}
             />
           </div>
         </div>

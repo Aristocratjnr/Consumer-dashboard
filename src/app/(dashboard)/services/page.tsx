@@ -33,31 +33,31 @@ export default function LaundryDashboard() {
                     <nav className="space-y-0.5 flex-grow"><br/>
                     <Link href="/home" passHref>
                 <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
-                    <Image src="/images/iconHome.png" alt="Home" className="mr-3 h-5 w-5" />
+                    <Image src="/images/iconHome.png" width={32} height={32} alt="Home" className="mr-3 h-5 w-5" />
                     Home
                 </button><br />
             </Link>
             <Link href="/services" passHref>
                 <button className={`flex w-full items-center rounded-md font-medium ${isDarkTheme ? 'bg-gray-700 text-accent-foreground' : 'bg-teal-20 text-accent-foreground'} px-4 py-3 hover:bg-accent`}>
-                    <Image src="/images/iconService.png" alt="Services" className="mr-3 h-5 w-5" />
+                    <Image src="/images/iconService.png" width={32} height={32}  alt="Services" className="mr-3 h-5 w-5" />
                     Services
                 </button><br />
             </Link>
             <Link href="/calendar" passHref>
                 <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
-                    <Image src="/images/iconCalendar.png" alt="Calendar" className="mr-3 h-5 w-5" />
+                    <Image src="/images/iconCalendar.png"width={32} height={32}  alt="Calendar" className="mr-3 h-5 w-5" />
                     Calendar
                 </button><br />
             </Link>
             <Link href="/bookings" passHref>
                 <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300' : 'text-muted-foreground'}`}>
-                    <Image src="/images/iconBooking.png" alt="Bookings" className="mr-3 h-5 w-5" />
+                    <Image src="/images/iconBooking.png"width={32} height={32}  alt="Bookings" className="mr-3 h-5 w-5" />
                     Bookings
                 </button><br />
             </Link>
             <Link href="/tracking" passHref>
                 <button className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? 'text-gray-300 hover:bg-gray-700' : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'}`}>
-                    <Image src="/images/iconTracking.png" alt="Tracking" className="mr-3 h-5 w-5" />
+                    <Image src="/images/iconTracking.png"width={32} height={32}  alt="Tracking" className="mr-3 h-5 w-5" />
                     Tracking
                 </button>
             </Link>
@@ -78,7 +78,7 @@ export default function LaundryDashboard() {
                 <header className={`border-b ${isDarkTheme ? 'bg-gray-900 border-gray-700' : 'bg-white'}`}>
                     <div className="flex items-center justify-between px-6 h-16">
                         <div className="flex items-center space-x-2">
-                            <Image src="/images/service.png" alt="Services" className="h-7 w-7 " />
+                            <Image src="/images/service.png" width={32} height={32}  alt="Services" className="h-7 w-7 " />
                             <h1 className="text-lg font-semibold">Services</h1>
                         </div>
                         <div className="flex items-center space-x-4">
@@ -104,6 +104,8 @@ export default function LaundryDashboard() {
                                 >
                                     <Image
                                         src="/images/woman.png"
+                                        width={32}
+                                        height={32}
                                         alt="Profile"
                                         className="h-8 w-8 rounded-full ring-2 ring-teal-800"
                                     />
@@ -150,17 +152,23 @@ export default function LaundryDashboard() {
                         <div className="border-3 border-r border-gray-300 bg-white shadow-md mb-6 rounded-b-lg shadow-gray-700/70">
     <div className="flex justify-center gap-16 p-8">
         {[
-            { icon: "/images/local.png", label: "LAUNDRY" , Link: "services/laundry" },
-            { icon: "/images/bash.png", label: "CLOTH TREATMENTS" , Link: "/services/cloth-treatments" },
-            { icon: "/images/event.png", label: "EVENT CLEANING",  Link: "/services/event-services" },
-            { icon: "/images/cloth.png", label: "DRY CLEANING" ,  Link: "/services/dry-cleaning" },
-            { icon: "/images/curtain.png", label: "HOME TEXTILE CLEANING", Link: "/services/express-cleaning" },
+            { icon: "/images/local.png", label: "LAUNDRY", Link: "services/laundry", width: 48, height: 48 },
+            { icon: "/images/bash.png", label: "CLOTH TREATMENTS", Link: "/services/cloth-treatments", width: 48, height: 48 },
+            { icon: "/images/event.png", label: "EVENT CLEANING", Link: "/services/event-services", width: 48, height: 48 },
+            { icon: "/images/cloth.png", label: "DRY CLEANING", Link: "/services/dry-cleaning", width: 48, height: 48 },
+            { icon: "/images/curtain.png", label: "HOME TEXTILE CLEANING", Link: "/services/express-cleaning", width: 48, height: 48 },
         ].map((item, index) => (
             <div key={index} className="flex flex-col items-center">
                 <Link href={item.Link} passHref>
                     <div className="relative cursor-pointer"> 
                         <div className="flex items-center justify-center w-32 h-32 border rounded-full border-teal-10 bg-white">
-                            <Image src={item.icon} alt={item.label} className="h-12 w-12" />
+                            <Image 
+                                src={item.icon} 
+                                alt={item.label} 
+                                width={item.width} 
+                                height={item.height} 
+                                className="h-12 w-12" 
+                            />
                         </div>
                         <Button
                             size="icon"
@@ -171,7 +179,7 @@ export default function LaundryDashboard() {
                         >
                             <Plus />
                         </Button>
-                </div>
+                    </div>
                 </Link>
                 <span className="mt-2 text-md font-medium text-black">{item.label}</span>
             </div>
