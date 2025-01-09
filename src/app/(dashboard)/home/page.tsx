@@ -281,7 +281,7 @@ export default function Dashboard() {
                   alt="Home"
                   width={32}
                   height={32}
-                  className="mr-3 h-5 w-5 bg-teal-20"
+                  className="mr-3 h-5 w-5"
                 />
                 Home
               </button>
