@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 export default function NavBar() {
   return (
-    <nav className="flex items-center justify-between bg-white px-14 py-2 shadow-sm">
+    <nav className="flex items-center justify-between bg-white rounded-full border border-b-1 border-[#006A8A] px-14 py-2 shadow-sm">
       {/* Logo */}
       <div>
         <Link href="/" className="flex items-center space-x-2">
