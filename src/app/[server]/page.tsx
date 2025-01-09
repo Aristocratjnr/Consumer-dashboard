@@ -23,7 +23,7 @@ export default async function ServerPage({ params }: ServerPageProps) {
           <div className="space-y-4">
             <h2 className="text-3xl font-bold text-gray-800">Server Not Found🥺</h2>
             <p className="text-lg text-gray-600">
-              The server you're looking for doesn't exist or may have been moved.
+              The server you &apos re looking for doesn &apos t exist or may have been moved.
             </p>
           </div>
 
