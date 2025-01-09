@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 export default function NavBar() {
   return (
-    <nav className="flex items-center justify-between bg-white rounded-full border border-b-1 border-[#006A8A] px-14 py-2 shadow-sm">
+    <nav className="flex items-center justify-between bg-white rounded-full border border-b-1 border-[#006A8A] px-16 py-2 shadow-sm">
       {/* Logo */}
       <div>
         <Link href="/" className="flex items-center space-x-2">
@@ -36,9 +36,9 @@ export default function NavBar() {
         </Link>
         <Link
           href="/auth/SignUp"
-          className="rounded-full bg-gradient-to-b from-teal-20 to-teal-1000 px-4 py-2 text-md font-medium text-white hover:bg-blue-700"
+          className="rounded-full bg-gradient-to-b from-teal-20 to-[#006A8A] px-6 py-6 text-md font-medium text-white hover:bg-teal-30"
         >
-          Sign Up Here
+          SIGN UP HERE
         </Link>
       </div>
     </nav>
