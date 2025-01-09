@@ -32,18 +32,18 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Hero Image */}
-      <div className="ml-6">
-        <div className="bg-[#36C3E2] rounded-[40px] overflow-hidden">
-          <Image
-            src="/images/landing-image.png"
-            width={400}
-            height={800}
-            alt="Person holding laundry basket"
-            className="h-[600px] w-[400px] object-cover"
-          />
-        </div>
+        {/* Hero Image */}
+    <div className="ml-2">
+      <div className="bg-[#36C3E2] rounded-[40px] overflow-hidden h-[600px]">
+        <Image
+          src="/images/landing-image.png"
+          width={400}
+          height={800}
+          alt="Person holding laundry basket"
+          className="h-full w-[400px] object-cover"
+        />
       </div>
+    </div>
     </div>
   )
 }
