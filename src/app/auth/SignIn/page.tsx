@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function SignIn() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-white">
+    <div className="min-h-screen w-full flex items-center justify-center bg-gray-200">
       <div className="w-full max-w-4xl h-auto grid grid-cols-1 md:grid-cols-[1fr,1.5fr] shadow-lg rounded-3xl overflow-hidden">
         {/* Illustrations */}
         <LaundryIllustrations />
@@ -19,7 +19,7 @@ export default function SignIn() {
           {/* Header */}
           <div className="text-center md:text-right mb-6 md:mb-12">
             <span className="text-sm text-gray-500">
-              Don &apos; t have an account yet?{" "}
+              Don&apos;t have an account yet?{" "}
             </span>
             <Link
               href="/auth/SignUp"
