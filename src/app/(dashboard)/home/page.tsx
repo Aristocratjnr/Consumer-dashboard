@@ -208,7 +208,7 @@ export default function Dashboard() {
               <Button
                 size="icon"
                 variant="ghost"
-                className="rounded-full bg-teal-20 hover:bg-gray-100"
+                className=" bg-teal-20 hover:bg-gray-100"
               >
                 <Search className="h-5 w-5 text-gray-600" />
               </Button>
