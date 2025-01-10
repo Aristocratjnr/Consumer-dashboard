@@ -1,30 +1,28 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import {
-  Bell,
-  Settings,
-  Search,
-  LogOut,
-  Mail,
-  Phone,
-  ChevronRight,
-  User,
-} from "lucide-react";
+import { Bell, Settings, Search, LogOut, Mail, Phone, User, Menu } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import ReactConfetti from "react-confetti";
+import { Card, CardContent, CardHeader} from "@/components/ui/card";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function Dashboard() {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [dragProgress, setDragProgress] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const isDraggingRef = useRef(false);
 
   const toggleProfileDropdown = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   const loyaltyPoints = [
@@ -103,10 +101,8 @@ export default function Dashboard() {
         const newProgress = Math.max(0, Math.min(100, (x / rect.width) * 100));
         setDragProgress(newProgress);
 
-        // Check if progress is 100% and trigger confetti
         if (newProgress === 100 && !showConfetti) {
           setShowConfetti(true);
-          // Hide confetti after 5 seconds
           setTimeout(() => setShowConfetti(false), 5000);
         }
       }
@@ -147,10 +143,9 @@ export default function Dashboard() {
       const elapsed = timestamp - lastTimestamp;
 
       if (elapsed > 1200) {
-        // Update every 50ms for a slower, more stable movement
         lastTimestamp = timestamp;
         setDragProgress((prevProgress) => {
-          const newProgress = prevProgress + 0.1; // Increase by 0.1% each time
+          const newProgress = prevProgress + 0.1;
           return newProgress > 100 ? 100 : newProgress;
         });
       }
@@ -169,20 +164,20 @@ export default function Dashboard() {
 
   const handleMouseDown = () => {
     isDraggingRef.current = true;
-    setDragProgress(0); // Reset progress to 0
+    setDragProgress(0);
   };
 
   const handleTouchStart = () => {
     isDraggingRef.current = true;
-    setDragProgress(0); // Reset progress to 0
+    setDragProgress(0);
   };
 
   return (
     <div className="min-h-screen bg-teal-20 text-gray-900">
       {/* Enhanced Header */}
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-200 bg-white bg-white/90 px-2 py-1 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-screen-2xl items-center justify-between">
-          <div className="flex items-center space-x-8">
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-200 bg-white bg-white/90 px-4 py-2 backdrop-blur-sm">
+        <div className="mx-auto flex max-w-7xl items-center justify-between">
+          <div className="flex items-center space-x-4">
             {/* Logo */}
             <div>
               <Link href="/" className="flex items-center space-x-2">
@@ -194,9 +189,7 @@ export default function Dashboard() {
                 />
               </Link>
             </div>
-            <br />
-
-            <nav className="items-center">
+            <nav className="hidden md:block">
               <button className="flex items-center">
                 <span className="ml-28 text-lg font-semibold">Home</span>
               </button>
@@ -208,7 +201,7 @@ export default function Dashboard() {
               <Button
                 size="icon"
                 variant="ghost"
-                className=" bg-teal-20 hover:bg-gray-100"
+                className="bg-teal-20 hover:bg-gray-100"
               >
                 <Search className="h-5 w-5 text-gray-600" />
               </Button>
@@ -271,84 +264,160 @@ export default function Dashboard() {
       </header>
 
       <div className="flex pt-24">
-        <aside className="fixed bottom-0 left-0 top-16 w-64 border-r border-gray-300 bg-white px-6 py-10 shadow-lg">
-          <nav className="flex-grow space-y-0.5">
-            <br />
+        {/* Mobile Sidebar */}
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="md:hidden fixed top-20 right-10 z-50 bg-white shadow-lg rounded-full">
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+            <nav className="flex flex-col space-y-4">
+              <Link href="/home" passHref>
+                <Button variant="ghost" className="w-full justify-start">
+                  <Image
+                    src="/images/iconHome.png"
+                    alt="Home"
+                    width={24}
+                    height={24}
+                    className="mr-2 h-5 w-5"
+                  />
+                  Home
+                </Button>
+              </Link>
+              <Link href="/services" passHref>
+                <Button variant="ghost" className="w-full justify-start">
+                  <Image
+                    src="/images/iconService.png"
+                    alt="Services"
+                    width={24}
+                    height={24}
+                    className="mr-2 h-5 w-5"
+                  />
+                  Services
+                </Button>
+              </Link>
+              <Link href="/calendar" passHref>
+                <Button variant="ghost" className="w-full justify-start">
+                  <Image
+                    src="/images/iconCalendar.png"
+                    alt="Calendar"
+                    width={24}
+                    height={24}
+                    className="mr-2 h-5 w-5"
+                  />
+                  Calendar
+                </Button>
+              </Link>
+              <Link href="/bookings" passHref>
+                <Button variant="ghost" className="w-full justify-start">
+                  <Image
+                    src="/images/iconBooking.png"
+                    alt="Bookings"
+                    width={24}
+                    height={24}
+                    className="mr-2 h-5 w-5"
+                  />
+                  Bookings
+                </Button>
+              </Link>
+              <Link href="/tracking" passHref>
+                <Button variant="ghost" className="w-full justify-start">
+                  <Image
+                    src="/images/iconTracking.png"
+                    alt="Tracking"
+                    width={24}
+                    height={24}
+                    className="mr-2 h-5 w-5"
+                  />
+                  Tracking
+                </Button>
+              </Link>
+            </nav>
+            <div className="absolute bottom-4 left-4 right-4">
+              <Button variant="ghost" className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-100">
+                <LogOut className="mr-2 h-5 w-5" />
+                Log out
+              </Button>
+            </div>
+          </SheetContent>
+        </Sheet>
+
+        {/* Desktop Sidebar */}
+        <aside className="fixed bottom-0 left-0 top-16 hidden w-64 border-r border-gray-300 bg-white px-6 py-10 shadow-lg md:block">
+          <nav className="flex flex-col space-y-10">
             <Link href="/home" passHref>
-              <button className="flex w-full items-center rounded-md bg-teal-20 px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+              <Button variant="ghost" className="w-full justify-start ounded-md bg-teal-20">
                 <Image
                   src="/images/iconHome.png"
                   alt="Home"
-                  width={32}
-                  height={32}
-                  className="mr-3 h-5 w-5"
+                  width={24}
+                  height={24}
+                  className="mr-2 h-5 w-5"
                 />
                 Home
-              </button>
+              </Button>
             </Link>
-            <br />
             <Link href="/services" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+              <Button variant="ghost" className="w-full justify-start">
                 <Image
                   src="/images/iconService.png"
-                  width={32}
-                  height={32}
                   alt="Services"
-                  className="mr-3 h-5 w-5"
+                  width={24}
+                  height={24}
+                  className="mr-2 h-5 w-5"
                 />
                 Services
-              </button>
+              </Button>
             </Link>
-            <br />
             <Link href="/calendar" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+              <Button variant="ghost" className="w-full justify-start">
                 <Image
                   src="/images/iconCalendar.png"
-                  width={32}
-                  height={32}
                   alt="Calendar"
-                  className="mr-3 h-5 w-5"
+                  width={24}
+                  height={24}
+                  className="mr-2 h-5 w-5"
                 />
                 Calendar
-              </button>
+              </Button>
             </Link>
-            <br />
             <Link href="/bookings" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
+              <Button variant="ghost" className="w-full justify-start">
                 <Image
                   src="/images/iconBooking.png"
-                  width={32}
-                  height={32}
                   alt="Bookings"
-                  className="mr-3 h-5 w-5"
+                  width={24}
+                  height={24}
+                  className="mr-2 h-5 w-5"
                 />
                 Bookings
-              </button>
+              </Button>
             </Link>
-            <br />
             <Link href="/tracking" passHref>
-              <button className="flex w-full items-center px-4 py-3 text-muted-foreground">
+              <Button variant="ghost" className="w-full justify-start">
                 <Image
                   src="/images/iconTracking.png"
-                  width={32}
-                  height={32}
                   alt="Tracking"
-                  className="mr-3 h-5 w-5"
+                  width={24}
+                  height={24}
+                  className="mr-2 h-5 w-5"
                 />
                 Tracking
-              </button>
+              </Button>
             </Link>
           </nav>
-          <button className="absolute bottom-8 left-4 right-4 flex items-center justify-between rounded-lg px-4 py-3 text-red-800 transition-colors hover:bg-red-50">
-            <div className="flex items-center space-x-3">
-              <LogOut className="h-5 w-5" />
-              <span className="font-medium">Log out</span>
-            </div>
-            <ChevronRight className="h-5 w-5" />
-          </button>
+          <div className="absolute bottom-4 left-4 right-4">
+            <Button variant="ghost" className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-100">
+              <LogOut className="mr-2 h-5 w-5" />
+              Log out
+            </Button>
+          </div>
         </aside>
 
-        <main className="ml-64 mr-96 flex-1 px-4 py-2">
+        {/* Main Content */}
+        <main className="flex-1 px-4 py-2 md:ml-64 lg:mr-96">
           <div className="max-w-4xl">
             <div className="mb-8">
               <h1 className="font-semi-bold text-4xl">
@@ -365,76 +434,56 @@ export default function Dashboard() {
                 order <br /> and enjoy exclusive discounts.
               </p>
             </div>
-            {/* Progress Section */}
-            <div className="mb-10 rounded-3xl bg-white p-6 shadow-lg md:p-10">
-              {/* Progress Section with Numbered Circles */}
-              <div className="mb-6 flex flex-wrap items-center justify-center gap-4">
-                {[1, 2, 3, 4, 5].map((step, index) => {
-                  const isCompleted =
-                    (dragProgress / 100) * loyaltyPoints.length > index;
-                  const isInProgress =
-                    (dragProgress / 100) * loyaltyPoints.length > index - 1 &&
-                    (dragProgress / 100) * loyaltyPoints.length < index;
-                  const outerCircleClass = isCompleted
-                    ? "border-teal-1000"
-                    : isInProgress
-                      ? "border-teal-1000"
-                      : "border-gray-300";
-                  const innerCircleClass = isCompleted
-                    ? "bg-teal-1000 text-white"
-                    : isInProgress
-                      ? "bg-teal-1000 text-white"
-                      : "bg-gray-200 text-gray-400";
-                  return (
-                    <div
-                      key={index}
-                      className="relative flex items-center justify-center"
-                    >
-                      <div
-                        className={`h-12 w-12 rounded-full border-4 md:h-16 md:w-16 ${outerCircleClass} flex items-center justify-center`}
-                      >
-                        <div
-                          className={`flex h-8 w-8 items-center justify-center rounded-full md:h-12 md:w-12 ${innerCircleClass}`}
-                        >
-                          <span className="text-sm font-bold md:text-lg">
-                            {step}
-                          </span>
+            {/* Loyalty Progress */}
+            <Card className="mb-8">
+              <CardHeader>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-6 flex flex-wrap items-center justify-center gap-2 md:gap-4">
+                  {[1, 2, 3, 4, 5].map((step, index) => {
+                    const isCompleted = (dragProgress / 100) * loyaltyPoints.length > index;
+                    const isInProgress = (dragProgress / 100) * loyaltyPoints.length > index - 1 && (dragProgress / 100) * loyaltyPoints.length < index;
+                    const outerCircleClass = isCompleted ? "border-teal-1000" : isInProgress ? "border-teal-1000" : "border-gray-300";
+                    const innerCircleClass = isCompleted ? "bg-teal-1000 text-white" : isInProgress ? "bg-teal-1000 text-white" : "bg-gray-200 text-gray-400";
+                    return (
+                      <div key={index} className="relative flex items-center justify-center">
+                        <div className={`h-8 w-8 rounded-full border-2 md:h-12 md:w-12 lg:h-16 lg:w-16 ${outerCircleClass} flex items-center justify-center`}>
+                          <div className={`flex h-6 w-6 items-center justify-center rounded-full md:h-8 md:w-8 lg:h-12 lg:w-12 ${innerCircleClass}`}>
+                            <span className="text-xs font-bold md:text-sm lg:text-lg">{step}</span>
+                          </div>
                         </div>
+                        {index < 4 && (
+                          <div className={`hidden h-1 w-4 md:w-6 lg:w-8 md:block ${isCompleted ? "bg-teal-1000" : "bg-gray-300"} absolute left-full top-1/2 -translate-y-1/2 transform`}></div>
+                        )}
                       </div>
-                      {index < 4 && (
-                        <div
-                          className={`hidden h-1 w-8 md:block ${isCompleted ? "bg-teal-1000" : "bg-gray-300"} absolute left-full top-1/2 -translate-y-1/2 transform`}
-                        ></div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Range Button (Progress Bar) */}
-              <div
-                className="relative mb-6 h-4 w-full cursor-pointer overflow-hidden rounded-full bg-gray-200"
-                ref={progressBarRef}
-                onMouseDown={handleMouseDown}
-                onTouchStart={handleTouchStart}
-              >
+                    );
+                  })}
+                </div>
+                {/* Range Button (Progress Bar) */}
                 <div
-                  className="absolute h-full bg-teal-1000 transition-all duration-300 ease-in-out"
-                  style={{ width: `${dragProgress}%` }}
-                ></div>
-                <div
-                  className="absolute top-1/2 h-6 w-6 -translate-y-1/2 transform rounded-full border-4 border-teal-1000 bg-white transition-all duration-300 ease-in-out"
-                  style={{ left: `calc(${dragProgress}% - 12px)` }}
-                ></div>
-              </div>
+                  className="relative mb-6 h-4 w-full cursor-pointer overflow-hidden rounded-full bg-gray-200"
+                  ref={progressBarRef}
+                  onMouseDown={handleMouseDown}
+                  onTouchStart={handleTouchStart}
+                >
+                  <div
+                    className="absolute h-full bg-teal-1000 transition-all duration-300 ease-in-out"
+                    style={{ width: `${dragProgress}%` }}
+                  ></div>
+                  <div
+                    className="absolute top-1/2 h-6 w-6 -translate-y-1/2 transform rounded-full border-4 border-teal-1000 bg-white transition-all duration-300 ease-in-out"
+                    style={{ left: `calc(${dragProgress}% - 12px)` }}
+                  ></div>
+                </div>
 
-              {/* Texts Below Progress Bar */}
-              <div className="mb-4 flex justify-between text-xs text-gray-600">
-                {loyaltyPoints.map((point, index) => (
-                  <span key={index}>{point.points} pts</span>
-                ))}
-              </div>
-            </div>
+                {/* Texts Below Progress Bar */}
+                <div className="mb-4 flex justify-between text-xs text-gray-600">
+                  {loyaltyPoints.map((point, index) => (
+                    <span key={index}>{point.points} pts</span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
 
             {/* Status Text */}
             <div className="flex flex-col items-center text-center">
@@ -482,7 +531,7 @@ export default function Dashboard() {
               <h2 className="font-semi-bold mb-6 text-2xl text-teal">
                 Packages
               </h2>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {packages.map((pkg) => (
                   <div
                     key={pkg.id}
@@ -531,8 +580,9 @@ export default function Dashboard() {
             />
           )}
         </main>
+
         {/* Right Sidebar - Customer Support */}
-        <aside className="fixed bottom-0 right-0 top-16 w-96 overflow-y-auto rounded-2xl border-l border-gray-300 bg-white p-6 shadow-lg">
+        <aside className="fixed bottom-0 right-0 top-16 w-96 overflow-y-auto rounded-2xl border-l border-gray-300 bg-white p-6 shadow-lg lg:block hidden">
           {/* Contact Options */}
           <div className="mb-8">
             <div className="mb-6 flex items-center">
@@ -716,3 +766,4 @@ export default function Dashboard() {
     </div>
   );
 }
+
