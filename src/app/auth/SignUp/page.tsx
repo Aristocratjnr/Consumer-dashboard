@@ -74,9 +74,9 @@ export default function SignUpPage() {
             </div>
 
             <div className="relative my-5 sm:my-6 flex items-center">
-              <div className="flex-grow border-t border-gray-300"></div>
+              <div className="flex-grow border-t border-gray-500"></div>
               <span className="mx-4 flex-shrink text-xs text-gray-500">OR</span>
-              <div className="flex-grow border-t border-gray-300"></div>
+              <div className="flex-grow border-t border-gray-500"></div>
             </div>
 
             <h2 className="mb-5 sm:mb-6 text-base sm:text-lg font-medium text-gray-600">
