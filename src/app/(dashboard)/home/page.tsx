@@ -13,7 +13,6 @@ export default function Dashboard() {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [dragProgress, setDragProgress] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const isDraggingRef = useRef(false);
 
@@ -21,9 +20,7 @@ export default function Dashboard() {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
   };
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+ 
 
   const loyaltyPoints = [
     { points: 100, status: "completed" },
