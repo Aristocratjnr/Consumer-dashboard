@@ -1,26 +1,17 @@
 "use client";
 
 import * as React from "react";
-import {
-  Clock,
-  Plus,
-  Search,
-  Settings,
-  LogOut,
-  X,
-  Bell,
-  User,
-  Banknote,
-} from "lucide-react";
+import { Clock, Plus, Search, Settings, LogOut, X, Bell, User, Banknote, Menu } from 'lucide-react';
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useState } from "react";
+import { useState} from "react";
 import SearchBar from "../../../components/SearchBar";
 import Image from "next/image";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 
 interface Booking {
   id: number;
@@ -107,9 +98,14 @@ export default function BookingPage() {
   const [selectedTab, setSelectedTab] = React.useState<"upcoming" | "history">(
     "upcoming",
   );
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleProfileDropdown = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   React.useEffect(() => {
@@ -123,104 +119,82 @@ export default function BookingPage() {
     setDarkMode(!darkMode);
   };
 
+  const SidebarContent = ({ }) => (
+    <div className={`flex h-full flex-col ${darkMode ? "bg-gray-800 text-white" : "bg-background text-black"}`}>
+      <div className="mb-6 flex items-center justify-between p-4">
+        <Link href="/" className="flex items-center space-x-2">
+          <Image src="/images/logo.svg" alt="Logo" width={100} height={60} />
+        </Link>
+        
+      </div>
+      <nav className="flex-grow space-y-0.5">
+        {[
+          { href: "/home", icon: "iconHome.png", label: "Home" },
+          { href: "/services", icon: "iconService.png", label: "Services" },
+          { href: "/calendar", icon: "iconCalendar.png", label: "Calendar" },
+          { href: "/bookings", icon: "iconBooking.png", label: "Bookings", active: true },
+          { href: "/tracking", icon: "iconTracking.png", label: "Tracking" },
+        ].map((item) => (
+          <Link key={item.label} href={item.href} passHref>
+            <button className={`flex w-full items-center  px-6 py-4 mb-10 mr-7 rounded-md ${
+              item.active
+                ? "bg-teal-20 font-medium text-accent-foreground"
+                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+            } ${darkMode ? "dark:text-gray-300 dark:hover:bg-gray-700" : ""}`}>
+              <Image
+                src={`/images/${item.icon}`}
+                width={32}
+                height={32}
+                alt={item.label}
+                className="mr-3 h-5 w-5"
+              />
+              {item.label}
+            </button>
+          </Link>
+        ))}
+      </nav>
+      <div className="mt-auto space-y-2 p-4">
+        <Button
+          variant="ghost"
+          className="w-full justify-start text-red-800 transition-colors hover:bg-red-100 dark:text-red-800 dark:hover:bg-red-100"
+        >
+          <LogOut className="mr-2 h-4 w-4" />
+          Log out
+        </Button>
+      </div>
+    </div>
+  );
+
   return (
     <div className={`flex min-h-screen bg-white ${darkMode ? "dark" : ""}`}>
-      {/* Sidebar */}
-      <div className="flex w-64 flex-col border-r bg-background px-4 py-6 dark:border-gray-700 dark:bg-gray-800">
-        {/* Logo */}
-        <div>
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src="/images/logo.svg" alt="Logo" width={100} height={60} />
-          </Link>
-        </div>
+      {/* Mobile Sidebar */}
+      <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+        <SheetContent side="left" className="w-[240px] p-0 sm:w-[300px]">
+          <SidebarContent />
+        </SheetContent>
+      </Sheet>
 
-        <nav className="flex-grow space-y-0.5">
-          <br />
-          <br />
-          <Link href="/home" passHref>
-            <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-              <Image
-                src="/images/iconHome.png"
-                width={32}
-                height={32}
-                alt="Home"
-                className="mr-3 h-5 w-5"
-              />
-              Home
-            </button>
-            <br />
-          </Link>
-          <Link href="/services" passHref>
-            <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-              <Image
-                src="/images/iconService.png"
-                width={32}
-                height={32}
-                alt="Services"
-                className="mr-3 h-5 w-5"
-              />
-              Services
-            </button>
-            <br />
-          </Link>
-          <Link href="/calendar" passHref>
-            <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-              <Image
-                src="/images/iconCalendar.png"
-                width={32}
-                height={32}
-                alt="Calendar"
-                className="mr-3 h-5 w-5"
-              />
-              Calendar
-            </button>
-            <br />
-          </Link>
-          <Link href="/bookings" passHref>
-            <button className="flex w-full items-center rounded-md bg-teal-20 px-4 py-3 font-medium text-accent-foreground dark:bg-gray-700 dark:text-white">
-              <Image
-                src="/images/iconBooking.png"
-                width={32}
-                height={32}
-                alt="Bookings"
-                className="mr-3 h-5 w-5"
-              />
-              Bookings
-            </button>
-            <br />
-          </Link>
-          <Link href="/tracking" passHref>
-            <button className="flex w-full items-center px-4 py-3 text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-700">
-              <Image
-                src="/images/iconTracking.png"
-                width={32}
-                height={32}
-                alt="Tracking"
-                className="mr-3 h-5 w-5"
-              />
-              Tracking
-            </button>
-          </Link>
-        </nav>
-        <div className="mt-auto space-y-2">
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-red-800 transition-colors hover:bg-red-100 dark:text-red-800 dark:hover:bg-red-100"
-          >
-            <LogOut className="mr-2 h-4 w-4" />
-            Log out
-          </Button>
-        </div>
+      {/* Desktop Sidebar */}
+      <div className="hidden md:flex md:w-64 md:flex-col md:border-r md:bg-background dark:border-gray-700 dark:bg-gray-800">
+        <SidebarContent />
       </div>
 
       {/* Main Content */}
-      <div className="relative flex flex-1 flex-col dark:bg-gray-900">
-        <header className="flex h-16 items-center justify-between border-b px-6 dark:border-gray-700">
+      <div className="flex flex-1 flex-col dark:bg-gray-900">
+        <header className="flex h-16 items-center justify-between border-b px-4 sm:px-6 dark:border-gray-700">
           <div className="flex items-center">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="mr-2 md:hidden"
+              onClick={toggleMobileMenu}
+            >
+              <Menu className="h-6 w-6" />
+            </Button>
             <BookingsIcon className="mr-1 h-5 w-5 text-teal-1000 dark:text-teal-10" />
             <h1 className="text-lg font-semibold dark:text-white">Bookings</h1>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <Button
               size="icon"
               variant="ghost"
@@ -238,7 +212,7 @@ export default function BookingPage() {
             <Button
               size="icon"
               variant="ghost"
-              className="dark:text-gray-300 dark:hover:text-white"
+              className="hidden sm:inline-flex dark:text-gray-300 dark:hover:text-white"
             >
               <Settings className="h-5 w-5" />
             </Button>
@@ -254,7 +228,7 @@ export default function BookingPage() {
             <div className="relative">
               <button
                 onClick={toggleProfileDropdown}
-                className="flex items-center space-x-3 rounded-full border-l border-gray-200 bg-teal-50 px-2 py-1 pl-4 text-black"
+                className="flex items-center space-x-2 rounded-full border-l border-gray-200 bg-teal-50 px-2 py-1 text-black"
               >
                 <Image
                   src="/images/woman.png"
@@ -263,7 +237,7 @@ export default function BookingPage() {
                   alt="Profile"
                   className="h-8 w-8 rounded-full ring-2 ring-teal-800"
                 />
-                <div className="flex flex-col">
+                <div className="hidden flex-col sm:flex">
                   <span className="font-semi-bold text-sm">Sandra</span>
                   <span className="text-xs text-gray-700">77884466</span>
                 </div>
@@ -292,7 +266,7 @@ export default function BookingPage() {
           </div>
         </header>
         <div className="border-b dark:border-gray-700">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-4 sm:px-6">
             <Tabs
               defaultValue="upcoming"
               className="w-full"
@@ -301,8 +275,8 @@ export default function BookingPage() {
                 setSelectedTab(value as "upcoming" | "history")
               }
             >
-              <div className="flex items-center justify-between py-4">
-                <TabsList>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-4">
+                <TabsList className="mb-4 sm:mb-0">
                   <TabsTrigger
                     value="upcoming"
                     onClick={() => setSelectedTab("upcoming")}
@@ -321,15 +295,13 @@ export default function BookingPage() {
                 <SearchBar />
               </div>
 
-              <div className="flex flex-1 space-x-6 py-6">
-                <div
-                  className={`flex-1 items-start ${selectedTab === "history" ? "w-full" : ""}`}
-                >
+              <div className="flex flex-col md:flex-row md:space-x-6 py-6">
+                <div className={`flex-1 ${selectedTab === "history" ? "w-full" : ""}`}>
                   <TabsContent value="upcoming" className="mt-2">
-                    <div className="space-y-10">
+                    <div className="space-y-6 sm:space-y-10">
                       {bookings.slice(0, 3).map((booking, index) => (
                         <React.Fragment key={booking.id}>
-                          <div className={`${index === 0 ? "-mt-10" : ""}`}>
+                          <div className={`${index === 0 ? "-mt-6 sm:-mt-10" : ""}`}>
                             <div className="flex items-center gap-4 px-2 py-3">
                               <div
                                 className={`text-lg font-bold ${index === 0 ? "text-teal dark:text-white" : "text-gray-500 dark:text-gray-300"}`}
@@ -387,7 +359,7 @@ export default function BookingPage() {
                 </div>
 
                 {selectedTab !== "history" && (
-                  <div className="w-96 flex-shrink-0">
+                  <div className="w-full md:w-96 mt-6 md:mt-0">
                     <Card className="sticky top-6 bg-teal-20 dark:border-gray-700 dark:bg-gray-800">
                       {selectedBooking && (
                         <div className="rounded-t-lg bg-sky-50 p-4 dark:bg-sky-950">
@@ -561,7 +533,7 @@ export default function BookingPage() {
         {/* New Booking Button */}
         <Button
           size="icon"
-          className="fixed bottom-1 right-9 h-12 w-12 rounded-full bg-teal-1000 text-white shadow-lg hover:bg-teal-900"
+          className="fixed bottom-4 right-4 h-12 w-12 rounded-full bg-teal-1000 text-white shadow-lg hover:bg-teal-900"
         >
           <Plus className="h-6 w-6" />
         </Button>
@@ -585,7 +557,7 @@ function BookingCard({
         isSelected
           ? "ring-2 ring-gray-100"
           : "ring-1 ring-gray-100 dark:ring-gray-700"
-      } w-62 bg-teal-20 dark:bg-gray-800`}
+      } w-full sm:w-62 bg-teal-20 dark:bg-gray-800`}
     >
       {/* Top Section */}
       <div className="mb-2 flex items-center justify-between">
@@ -672,3 +644,4 @@ function BookingsIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+

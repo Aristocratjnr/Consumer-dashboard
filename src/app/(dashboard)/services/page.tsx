@@ -39,11 +39,11 @@ export default function LaundryDashboard() {
         className={`fixed left-0 top-0 h-screen w-64 border-r ${isDarkTheme ? "border-gray-700 bg-gray-800" : "bg-white"}`}
       >
         <div
-          className={`w-64 border-r ${isDarkTheme ? "bg-gray-800" : "bg-background"} flex flex-col px-4 py-6`}
+          className={`w-64 border-r  ${isDarkTheme ? "bg-gray-800" : "bg-background"} flex flex-col px-6 py-6`}
         >
-          <div className="mb-6 flex items-center">
+          <div className="mb-4 flex items-center">
             <div>
-              <Link href="/" className="flex items-center space-x-2">
+              <Link href="/" className="flex items-center space-x-1">
                 <Image
                   src="/images/logo.svg"
                   alt="Logo"
@@ -57,7 +57,7 @@ export default function LaundryDashboard() {
             <br />
             <Link href="/home" passHref>
               <button
-                className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? "text-gray-300 hover:bg-gray-700" : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"}`}
+                className={`flex w-full items-center  px-6 py-4 mb-4 mr-10 rounded-md ${isDarkTheme ? "text-gray-300 hover:bg-gray-700" : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"}`}
               >
                 <Image
                   src="/images/iconHome.png"
@@ -72,7 +72,7 @@ export default function LaundryDashboard() {
             </Link>
             <Link href="/services" passHref>
               <button
-                className={`flex w-full items-center rounded-md font-medium ${isDarkTheme ? "bg-gray-700 text-accent-foreground" : "bg-teal-20 text-accent-foreground"} px-4 py-3 hover:bg-accent`}
+                className={`flex w-full items-center  px-6 py-4 mb-4 mr-7 rounded-md ${isDarkTheme ? "bg-gray-700 text-accent-foreground" : "bg-teal-20 text-accent-foreground"} px-4 py-3 hover:bg-accent`}
               >
                 <Image
                   src="/images/iconService.png"
@@ -87,7 +87,7 @@ export default function LaundryDashboard() {
             </Link>
             <Link href="/calendar" passHref>
               <button
-                className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? "text-gray-300 hover:bg-gray-700" : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"}`}
+                className={`flex w-full items-center  px-6 py-4 mb-4 mr-7 rounded-md ${isDarkTheme ? "text-gray-300 hover:bg-gray-700" : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"}`}
               >
                 <Image
                   src="/images/iconCalendar.png"
@@ -102,7 +102,7 @@ export default function LaundryDashboard() {
             </Link>
             <Link href="/bookings" passHref>
               <button
-                className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? "text-gray-300" : "text-muted-foreground"}`}
+                className={`flex w-full items-center  px-6 py-4 mb-4 mr-7 rounded-md ${isDarkTheme ? "text-gray-300" : "text-muted-foreground"}`}
               >
                 <Image
                   src="/images/iconBooking.png"
@@ -117,7 +117,7 @@ export default function LaundryDashboard() {
             </Link>
             <Link href="/tracking" passHref>
               <button
-                className={`flex w-full items-center px-4 py-3 ${isDarkTheme ? "text-gray-300 hover:bg-gray-700" : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"}`}
+                className={`flex w-full items-center px-6 py-4 mb-4 mr-7 rounded-md ${isDarkTheme ? "text-gray-300 hover:bg-gray-700" : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"}`}
               >
                 <Image
                   src="/images/iconTracking.png"
@@ -130,7 +130,7 @@ export default function LaundryDashboard() {
               </button>
             </Link>
           </nav>
-          <button className="absolute bottom-12 left-4 right-4 flex items-center justify-between rounded-lg px-4 py-3 text-red-800 transition-colors hover:bg-red-50">
+          <button className="absolute bottom-1 left-4 right-4 flex items-center justify-between rounded-lg px-4 py-3 text-red-800 transition-colors hover:bg-red-50">
             <div className="flex items-center space-x-3">
               <LogOut className="h-5 w-5" />
               <span className="font-medium">Log out</span>

@@ -95,7 +95,7 @@ export default function CalendarDashboard() {
     { href: "/tracking", icon: "iconTracking.png", label: "Tracking" },
   ].map((item) => (
     <Link key={item.label} href={item.href} passHref>
-      <button className={`flex w-[80%] ml-7 items-center rounded-md px-1 py-2 mb-10 transition-colors ${
+      <button className={`flex w-full items-center  px-6 py-4 mb-10 mr-7 rounded-md ${
         item.active
           ? isDarkTheme
             ? "bg-gray-700 text-white"
