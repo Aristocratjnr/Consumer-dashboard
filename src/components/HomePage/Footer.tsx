@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="rounded-t-[3rem] bg-[#2B6CA3] py-8 text-white">
+    <footer className="rounded-t-[3rem] bg-[#0E6EAC] py-8 text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center space-y-6">
           {/* Logo and Brand */}
@@ -24,7 +24,8 @@ export default function Footer() {
             Fresh clothes, hassle-free. Join us today for reliable laundry
             services and seamless connections with local providers!
           </p>
-
+           {/* Divider */}
+           <div className="my-4 w-full border border-b-2 border-dotted border-white/20" />
           {/* Navigation */}
           <nav className="flex flex-wrap justify-center gap-8 text-sm sm:text-base">
             <Link href="/" className="transition-opacity hover:opacity-80">
@@ -48,11 +49,11 @@ export default function Footer() {
           </nav>
 
           {/* Divider */}
-          <div className="my-4 w-full border-t border-white/20" />
+          <div className="my-4 w-full border border-b-2 border-dotted border-white/20" />
 
           {/* Bottom Section */}
           <div className="flex w-full flex-col items-center justify-between gap-4 text-sm sm:flex-row">
-            <div>Copyright © {currentYear}</div>
+            <div>© Copyright {currentYear}</div>
             <div className="flex gap-4">
               <Link
                 href="/privacy"

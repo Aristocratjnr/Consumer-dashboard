@@ -13,9 +13,9 @@ export default function ServicesSection() {
           cleanliness with every wash
         </p>
         {/* Card Grid */}
-        <div className="mt-8 grid grid-cols-3 gap-8">
+        <div className="mt-8 grid grid-cols-3 gap-8 ">
           {/* First Card */}
-          <Card className="rounded-3xl">
+          <Card className="rounded-3xl border-[#36C3E2]">
             <CardContent className="p-6">
               <div className="mb-4 flex items-center gap-3">
                 <Image
@@ -40,13 +40,13 @@ export default function ServicesSection() {
           </Card>
 
           {/* Second Card */}
-          <Card className="rounded-3xl">
+          <Card className="rounded-3xl border-[#36C3E2]">
             <CardContent className="p-6">
               <div className="mb-4 flex items-center gap-3">
                 <Image
                   src="/images/services2.png"
                   width={100}
-                  height={100}
+                  height={90}
                   alt="icon"
                   className="h-16 w-16 text-sky-300"
                 />
@@ -63,7 +63,7 @@ export default function ServicesSection() {
           </Card>
 
           {/* Third Card */}
-          <Card className="rounded-3xl">
+          <Card className="rounded-3xl border-[#36C3E2]">
             <CardContent className="p-6">
               <div className="mb-4 flex items-center gap-3">
                 <Image
@@ -86,7 +86,7 @@ export default function ServicesSection() {
           </Card>
 
           {/* Fourth Card */}
-          <Card className="col-span-1 rounded-3xl">
+          <Card className="col-span-1 rounded-3xl border-[#36C3E2]">
             <CardContent className="p-6">
               <div className="mb-4 flex items-center gap-3">
                 <Image
@@ -109,7 +109,7 @@ export default function ServicesSection() {
           </Card>
 
           {/* Fifth Card */}
-          <Card className="col-span-1 rounded-3xl">
+          <Card className="col-span-1 rounded-3xl border-[#36C3E2]">
             <CardContent className="p-6">
               <div className="mb-4 flex items-center gap-3">
                 <Image

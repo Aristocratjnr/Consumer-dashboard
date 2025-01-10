@@ -3,15 +3,11 @@
 import React, { useState } from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { LuWashingMachine } from 'react-icons/lu';
-import { MdOutlineIron } from 'react-icons/md';
-import { GiRolledCloth } from 'react-icons/gi';
 import { GiCardPickup } from "react-icons/gi";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineMobileFriendly } from "react-icons/md";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { TbBoxModel2 } from "react-icons/tb";
-import { FaCalendarAlt, FaClock, FaMoneyBill, FaMobileAlt, FaTruck, FaStore } from 'react-icons/fa';
 import {
   Card,
   CardContent,
@@ -21,6 +17,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
+import Image from 'next/image';
 
 const Page: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState('');
@@ -56,8 +53,8 @@ const Page: React.FC = () => {
           zIndex: 10,
         }}
       >
-        <img alt="TulaLaundry" className="h-10 -mr-0.5" src="/images/logo.png" />
-        <img src="/images/lund.png" alt="Tulaundry" className="h-5" />
+        <Image alt="TulaLaundry" className="h-10 -mr-0.5" src="/images/logo.png" />
+        <Image src="/images/lund.png" alt="Tulaundry" className="h-5" />
       </div>
 
       {/* Centered Card Container */}
@@ -66,14 +63,14 @@ const Page: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          flex: 1, // Allow this container to take up remaining vertical space
+          flex: 1,
         }}
       >
         <Card
-          className="w-[75%] max-w-7xl mx-auto h-auto rounded-lg shadow-lg"
+          className="w-[100%] max-w-4xl mx-auto rounded-xl shadow-lg overflow-hidden"
           style={{
             marginTop: '20px',
-            marginBottom: 'auto',
+            marginBottom: '40px',
           }}
         >
           <div className="flex flex-wrap lg:flex-nowrap pt-4">
@@ -81,7 +78,7 @@ const Page: React.FC = () => {
             <div className="w-full lg:w-1/2 mt-2">
               <CardHeader>
                 <CardTitle className="text-teal pb-1 mt-0 text-xl text-center">
-                  What's Included In Our Dry Cleaning Service
+                  What&apos;s Included In Our Dry Cleaning Service
                 </CardTitle>
                 <div className="flex justify-center space-x-8 pb-4 font-bold">
                   <div className="flex flex-col items-center text-teal">
