@@ -24,11 +24,11 @@ export default function SignUpPage() {
       {/* Right Section - Form with Background Image */}
       <div className="relative flex w-full flex-col px-4 sm:px-6 lg:w-1/2 lg:px-12">
         <Image
-          src="/images/bg-signup.png"
+          src="/images/sign.png"
           alt="background image"
           layout="fill"
           objectFit="cover"
-          className="opacity-50 md:opacity-100"
+          className="opacity-200 md:opacity-200"
           priority
         />
         <div className="relative z-10 flex flex-col justify-between min-h-screen py-6 md:py-8">
@@ -84,7 +84,7 @@ export default function SignUpPage() {
             </h2>
 
             {/* Sign Up Form */}
-            <form className="space-y-4">
+            <form className="space-y-4 font-light">
               <FloatingInput
                 label="First Name"
                 id="firstName"
