@@ -6,7 +6,6 @@ import { LaundryIllustrations } from "@/components/laundry-illustrations";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import { text } from "stream/consumers";
 
 
 export default function SignIn() {
