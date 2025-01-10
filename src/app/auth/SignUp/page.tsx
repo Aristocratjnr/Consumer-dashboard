@@ -84,7 +84,7 @@ export default function SignUpPage() {
             </h2>
 
             {/* Sign Up Form */}
-            <form className="space-y-4 font-light">
+            <form className="space-y-4 font-light text-md">
               <FloatingInput
                 label="First Name"
                 id="firstName"
