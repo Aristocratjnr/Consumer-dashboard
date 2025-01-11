@@ -315,7 +315,7 @@ export default function CalendarDashboard() {
                 </div>
               </div>
               {/* Activity Bars */}
-              <div className="flex h-[200px] sm:h-[270px] items-end gap-2 sm:gap-4">
+              <div className="flex h-[200px] sm:h-[260px] items-end gap-2 sm:gap-4">
                 {activityData.map((_, index) => (
                   <div
                     key={index}
@@ -324,7 +324,7 @@ export default function CalendarDashboard() {
                     }`}
                     style={{
                       height:
-                        index === 1 ? "60%" : index === 2 ? "80%" : "120%",
+                        index === 1 ? "60%" : index === 2 ? "80%" : "116%",
                     }}
                   />
                 ))}
