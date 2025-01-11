@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Bell, Calendar, Search, Settings, LogOut, Package, MapPin, User, ChevronRight, Check, Menu, X } from 'lucide-react';
+import { Bell, Calendar, Search, Settings, LogOut, Package, MapPin, User, ChevronRight, Check, Menu } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
