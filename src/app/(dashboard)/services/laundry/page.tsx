@@ -57,8 +57,10 @@ const Page: React.FC = () => {
           alt="TulaLaundry"
           className="-mr-0.5 h-10"
           src="/images/logo.png"
+          width={40}
+          height={40}
         />
-        <Image src="/images/lund.png" alt="Tulaundry" className="h-5" />
+        <Image src="/images/lund.png" alt="Tulaundry" className="h-5" width={100} height={20}/>
       </div>
 
       {/* Centered Card Container */}
