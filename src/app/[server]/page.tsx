@@ -40,8 +40,8 @@ export default async function ServerPage({ params }: ServerPageProps) {
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-lg mx-auto leading-relaxed flex items-center justify-center gap-2">
               <Wifi className="w-5 h-5 text-indigo-500" />
-              Oops! It seems the server you're looking for has wandered off into the digital void. 
-              Don't worry though, we can help you find your way back.
+              Oops! It seems the server you&aposre looking for has wandered off into the digital void. 
+              Don&apos;t worry though, we can help you find your way back.
               <Timer className="w-5 h-5 text-indigo-500" />
             </p>
           </div>
