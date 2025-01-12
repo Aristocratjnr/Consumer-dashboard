@@ -29,30 +29,13 @@ const Page: React.FC = () => {
 
   return (
     <div
+      className="relative flex h-screen w-full flex-col bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url('/images/laundry-service.png')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        height: "100vh",
-        width: "100%",
-        position: "relative",
-        overflow: "hidden", // Prevent scrolling
-        display: "flex", // Enable Flexbox
-        flexDirection: "column",
       }}
     >
       {/* Logo Positioned at Top-Left */}
-      <div
-        style={{
-          position: "absolute",
-          top: "5px",
-          left: "10px",
-          display: "flex",
-          alignItems: "center",
-          zIndex: 10,
-        }}
-      >
+      <div className="absolute top-0 left-0 z-10 flex items-center">
         <Image
           alt="TulaLaundry"
           className="-mr-0.5 h-10"
@@ -60,141 +43,104 @@ const Page: React.FC = () => {
           width={40}
           height={40}
         />
-        <Image src="/images/lund.png" alt="Tulaundry" className="h-5" width={100} height={20}/>
+        <Image
+          src="/images/lund.png"
+          alt="Tulaundry"
+          className="h-5 items-start"
+          width={100}
+          height={20}
+        />
       </div>
 
       {/* Centered Card Container */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flex: 1,
-        }}
-      >
-        <Card
-          className="mx-auto w-[100%] max-w-4xl overflow-hidden rounded-xl shadow-lg"
-          style={{
-            marginTop: "20px",
-            marginBottom: "40px",
-          }}
-        >
-          <div className="flex flex-wrap pt-4 lg:flex-nowrap">
+      <div className="flex flex-1 items-center justify-center px-4 sm:px-6">
+        <Card className="mx-auto w-full max-w-4xl overflow-hidden rounded-xl shadow-lg">
+          <div className="flex flex-wrap lg:flex-nowrap">
             {/* Left Side Content */}
-            <div className="mt-2 w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2 space-y-6">
               <CardHeader>
-                <CardTitle className="mt-0 pb-1 text-center text-lg text-teal">
-                  What &apos; s Included In Our Laundry Service
+                <CardTitle className="pb-1 text-center text-lg text-teal">
+                  What&apos;s Included In Our Laundry Service
                 </CardTitle>
-                <div className="flex justify-center space-x-8 pb-4 font-bold">
+                <div className="flex justify-center space-x-4 pb-4 font-bold sm:space-x-8">
                   <div className="flex flex-col items-center text-teal">
-                    <CardDescription className="text-sm leading-tight">
-                      Washing
-                    </CardDescription>
+                    <CardDescription className="text-sm">Washing</CardDescription>
                     <TbBoxModel2 size={24} />
                   </div>
                   <div className="flex flex-col items-center text-teal">
-                    <CardDescription className="text-sm leading-tight">
-                      Ironing
-                    </CardDescription>
+                    <CardDescription className="text-sm">Ironing</CardDescription>
                     <TbBoxModel2 size={24} />
                   </div>
                   <div className="flex flex-col items-center text-teal">
-                    <CardDescription className="text-sm leading-tight">
-                      Folding
-                    </CardDescription>
+                    <CardDescription className="text-sm">Folding</CardDescription>
                     <TbBoxModel2 size={24} />
                   </div>
                 </div>
 
-                <h2 className="mb-2 pb-2 text-sm">
+                <h2 className="mb-4 text-sm">
                   Need more? Explore additional add-ons that suit your needs
                 </h2>
-                <div className="flex flex-col space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <Checkbox id="Stain Treatment" />
-                    <label
-                      htmlFor="Stain Treatment"
-                      className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Stain Treatment
-                    </label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="Anti-Allergy Treatment" />
-                    <label
-                      htmlFor="Anti-Allergy Treatment"
-                      className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Anti-Allergy Treatment
-                    </label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="Color Care Wash" />
-                    <label
-                      htmlFor="Color Care Wash"
-                      className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Color Care Wash
-                    </label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox id="Odor removal" />
-                    <label
-                      htmlFor="Odor removal"
-                      className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Odor Removal
-                    </label>
-                  </div>
-                  <h2 className="mb-2 text-sm">
-                    Have specific instructions or preferences? Leave a note to
-                    ensure we handle your items just the way you like.
-                  </h2>
+                <div className="space-y-4">
+                  {["Stain Treatment", "Anti-Allergy Treatment", "Color Care Wash", "Odor Removal"].map(
+                    (addon) => (
+                      <div key={addon} className="flex items-center space-x-3">
+                        <Checkbox id={addon} />
+                        <label
+                          htmlFor={addon}
+                          className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                          {addon}
+                        </label>
+                      </div>
+                    )
+                  )}
                 </div>
+                <h2 className="mt-6 mb-2 text-sm">
+                  Have specific instructions or preferences? Leave a note to ensure we handle your
+                  items just the way you like.
+                </h2>
               </CardHeader>
-              <CardFooter className="flex items-start justify-between">
-                <Textarea className="mb-0 w-full border-teal-600" />
+              <CardFooter>
+                <Textarea
+                  placeholder="Leave your instructions here..."
+                  className="w-full border-teal-600"
+                />
               </CardFooter>
             </div>
 
             {/* Right Side Content */}
-            <div className="mt-6 w-full lg:mt-14 lg:w-1/2">
+            <div className="w-full lg:w-1/2 mt-6 lg:mt-14">
               <CardContent>
                 {/* Date and Time Section */}
-                <div className="section mb-4 text-gray-700">
+                <div className="mb-6">
                   <h3 className="text-sm font-semibold">
                     Choose a convenient date and time for your laundry service
                   </h3>
-                  <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="date"
-                        className="mb-0 mt-2 w-full rounded border border-gray-300 bg-gray-200 px-3 py-1 text-sm"
-                        value={selectedDate}
-                        onChange={(e) => setSelectedDate(e.target.value)}
-                      />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="time"
-                        className="mb-0 mt-2 w-full rounded border border-gray-300 bg-gray-200 px-8 py-1 text-sm"
-                        value={selectedTime}
-                        onChange={(e) => setSelectedTime(e.target.value)}
-                      />
-                    </div>
+                  <div className="mt-2 flex flex-col gap-4 sm:flex-row">
+                    <input
+                      type="date"
+                      className="w-full rounded border border-gray-300 bg-gray-200 px-3 py-1 text-sm"
+                      value={selectedDate}
+                      onChange={(e) => setSelectedDate(e.target.value)}
+                    />
+                    <input
+                      type="time"
+                      className="w-full rounded border border-gray-300 bg-gray-200 px-3 py-1 text-sm"
+                      value={selectedTime}
+                      onChange={(e) => setSelectedTime(e.target.value)}
+                    />
                   </div>
                 </div>
 
                 {/* Package Selection */}
-                <div className="section mb-4">
-                  <h3 className="mb-1 pb-0 text-sm font-semibold">
-                    Try a new package today and enjoy exclusive discount
+                <div className="mb-6">
+                  <h3 className="mb-1 text-sm font-semibold">
+                    Try a new package today and enjoy exclusive discounts
                   </h3>
                   <select
                     value={selectedPackage}
                     onChange={(e) => setSelectedPackage(e.target.value)}
-                    className="mb-0 mt-2 w-[60] rounded border border-gray-300 bg-gray-200 px-4 py-1 text-sm"
+                    className="mt-2 w-[60] rounded border border-gray-300 bg-gray-200 px-4 py-1 text-sm"
                   >
                     <option value="Basic Clean">Basic Clean</option>
                     <option value="Deep Clean">Deep Clean</option>
@@ -203,88 +149,65 @@ const Page: React.FC = () => {
                 </div>
 
                 {/* Payment Method */}
-                <div className="section mb-2">
-                  <h3 className="mb-1 pb-1 text-sm font-semibold">
-                    Choose Your Payment Method
-                  </h3>
-                  <div className="flex items-center gap-8">
-                    <label className="flex cursor-pointer flex-col items-center">
-                      <div className="flex items-center gap-2">
-                        <GiTakeMyMoney />
-                        <span className="text-sm font-medium text-gray-700">
-                          Cash
-                        </span>
-                      </div>
-                      <input
-                        type="radio"
-                        name="payment"
-                        value="cash"
-                        checked={paymentMethod === "cash"}
-                        onChange={() => setPaymentMethod("cash")}
-                        className="mt-2"
-                      />
-                    </label>
-                    <label className="flex cursor-pointer flex-col items-center">
-                      <div className="flex items-center gap-2">
-                        <MdOutlineMobileFriendly />
-                        <span className="text-sm font-medium text-gray-700">
-                          Mobile Money
-                        </span>
-                      </div>
-                      <input
-                        type="radio"
-                        name="payment"
-                        value="mobile"
-                        checked={paymentMethod === "mobile"}
-                        onChange={() => setPaymentMethod("mobile")}
-                        className="mt-2"
-                      />
-                    </label>
+                <div className="mb-6">
+                  <h3 className="mb-1 text-sm font-semibold">Choose Your Payment Method</h3>
+                  <div className="flex flex-wrap gap-6">
+                    {[
+                      { label: "Cash", value: "cash", Icon: GiTakeMyMoney },
+                      { label: "Mobile Money", value: "mobile", Icon: MdOutlineMobileFriendly },
+                    ].map(({ label, value, Icon }) => (
+                      <label
+                        key={value}
+                        className="flex cursor-pointer flex-col items-center text-center"
+                      >
+                        <div className="flex items-center gap-2">
+                          <Icon />
+                          <span className="text-sm font-medium text-gray-700">{label}</span>
+                        </div>
+                        <input
+                          type="radio"
+                          name="payment"
+                          value={value}
+                          checked={paymentMethod === value}
+                          onChange={() => setPaymentMethod(value)}
+                          className="mt-2"
+                        />
+                      </label>
+                    ))}
                   </div>
                 </div>
 
-                <div className="section mb-3">
-                  <h3 className="mb-1 pb-1 text-sm font-semibold">
-                    Let us know which you prefer
-                  </h3>
-                  <div className="flex items-center gap-8">
-                    <label className="flex cursor-pointer flex-col items-center">
-                      <div className="flex items-center gap-2">
-                        <TbTruckDelivery />
-                        <span className="text-sm font-medium text-gray-700">
-                          Delivery
-                        </span>
-                      </div>
-                      <input
-                        type="radio"
-                        name="delivery"
-                        value="delivery"
-                        checked={deliveryMethod === "delivery"}
-                        onChange={() => setDeliveryMethod("delivery")}
-                        className="mt-2"
-                      />
-                    </label>
-                    <label className="flex cursor-pointer flex-col items-center">
-                      <div className="flex items-center gap-2">
-                        <GiCardPickup />
-                        <span className="text-sm font-medium text-gray-700">
-                          Pick-Up
-                        </span>
-                      </div>
-                      <input
-                        type="radio"
-                        name="delivery"
-                        value="pickup"
-                        checked={deliveryMethod === "pickup"}
-                        onChange={() => setDeliveryMethod("pickup")}
-                        className="mt-2"
-                      />
-                    </label>
+                {/* Delivery Method */}
+                <div>
+                  <h3 className="mb-1 text-sm font-semibold">Choose Delivery Option</h3>
+                  <div className="flex flex-wrap gap-6">
+                    {[
+                      { label: "Delivery", value: "delivery", Icon: TbTruckDelivery },
+                      { label: "Pick-Up", value: "pickup", Icon: GiCardPickup },
+                    ].map(({ label, value, Icon }) => (
+                      <label
+                        key={value}
+                        className="flex cursor-pointer flex-col items-center text-center"
+                      >
+                        <div className="flex items-center gap-2">
+                          <Icon />
+                          <span className="text-sm font-medium text-gray-700">{label}</span>
+                        </div>
+                        <input
+                          type="radio"
+                          name="delivery"
+                          value={value}
+                          checked={deliveryMethod === value}
+                          onChange={() => setDeliveryMethod(value)}
+                          className="mt-2"
+                        />
+                      </label>
+                    ))}
                   </div>
                 </div>
               </CardContent>
-              <CardFooter className="m-2 flex justify-end">
-                <Button className="mb-4 rounded-lg bg-teal px-10 py-2 text-lg text-white shadow-md">
+              <CardFooter className="mt-6 flex justify-end">
+                <Button className="rounded-lg bg-teal px-10 py-2 text-lg text-white shadow-md">
                   Book
                 </Button>
               </CardFooter>
