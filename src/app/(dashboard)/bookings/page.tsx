@@ -1,25 +1,21 @@
-"use client";
+'use client'
 
-import * as React from "react";
-import { Clock, Plus, Search, Settings, LogOut, X, Bell, User, Banknote, Menu } from 'lucide-react';
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-
+import Image from "next/image";
+import { Clock, Plus, Search, Settings, LogOut, X, Bell, User, Banknote, Menu } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useState} from "react";
-import SearchBar from "../../../components/SearchBar";
-import Image from "next/image";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { Input } from "@/components/ui/input";
 
 interface Booking {
   id: number;
   title: string;
   reference: string;
   date: string;
-  height: number;
-  width: number;
   time: string;
   services: string[];
   staffImage: string;
@@ -41,8 +37,6 @@ const bookings: Booking[] = [
     time: "9:30 AM",
     services: ["Laundry", "Stain Treatments", "Ironing"],
     staffImage: "/images/frame.png",
-    width: 32,
-    height: 32,
     additionalNote: "Please separate the white clothes from the coloured ones",
     paymentMethod: "Cash",
     totalAmount: 60,
@@ -57,8 +51,6 @@ const bookings: Booking[] = [
     reference: "REF: 8877463429",
     date: "Today",
     time: "11:30 AM",
-    width: 32,
-    height: 32,
     services: ["Laundry", "Ironing"],
     staffImage: "/images/frame.png",
     additionalNote: "Please separate the white clothes from the coloured ones",
@@ -75,8 +67,6 @@ const bookings: Booking[] = [
     reference: "REF: 815749290",
     date: "Last Week",
     time: "13:30 PM",
-    width: 32,
-    height: 32,
     services: ["Laundry", "Stain Treatments", "Ironing"],
     staffImage: "/images/frame.png",
     additionalNote: "Please separate the white clothes from the coloured ones",
@@ -89,16 +79,209 @@ const bookings: Booking[] = [
   },
 ];
 
+// SidebarContent Component
+const SidebarContent: React.FC<{ darkMode: boolean }> = ({ darkMode }) => (
+  <div className={`flex h-full flex-col ${darkMode ? "bg-gray-800 text-white" : "bg-background text-black"}`}>
+    <div className="mb-6 flex items-center justify-between p-4">
+      <Link href="/" className="flex items-center space-x-2">
+        <Image src="/images/logo.svg" alt="Logo" width={100} height={60} />
+      </Link>
+    </div>
+    <nav className="flex-grow space-y-0.5">
+      {[
+        { href: "/home", icon: "iconHome.png", label: "Home" },
+        { href: "/services", icon: "iconService.png", label: "Services" },
+        { href: "/calendar", icon: "iconCalendar.png", label: "Calendar" },
+        { href: "/bookings", icon: "iconBooking.png", label: "Bookings", active: true },
+        { href: "/tracking", icon: "iconTracking.png", label: "Tracking" },
+      ].map((item) => (
+        <Link key={item.label} href={item.href} passHref>
+          <button className={`flex w-full items-center px-6 py-4 mb-8 rounded-md ${
+            item.active
+              ? "bg-teal-20 font-medium text-accent-foreground"
+              : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+          } ${darkMode ? "dark:text-gray-300 dark:hover:bg-gray-700" : ""}`}>
+            <Image
+              src={`/images/${item.icon}`}
+              width={24}
+              height={24}
+              alt={item.label}
+              className="mr-3 h-5 w-5"
+            />
+            {item.label}
+          </button>
+        </Link>
+      ))}
+    </nav>
+    <div className="mt-auto space-y-2 p-4">
+      <Button
+        variant="ghost"
+        className="w-full justify-start text-red-800 transition-colors hover:bg-red-100 dark:text-red-800 dark:hover:bg-red-100"
+      >
+        <LogOut className="mr-2 h-4 w-4" />
+        Log out
+      </Button>
+    </div>
+  </div>
+);
+
+// BookingCard Component
+const BookingCard: React.FC<{ booking: Booking; onSelect: () => void; isSelected: boolean }> = ({ booking, onSelect, isSelected }) => {
+  return (
+    <div
+      className={`relative rounded-3xl p-4 shadow-sm transition hover:shadow-md ${
+        isSelected
+          ? "ring-2 ring-teal-500 dark:ring-teal-400"
+          : "ring-1 ring-gray-100 dark:ring-gray-600"
+      } w-full bg-teal-20 dark:bg-gray-800 dark:text-gray-100`}
+    >
+      {/* Top Section */}
+      <div className="mb-2 flex items-center justify-between">
+        <div className="flex items-center gap-2 text-xs font-medium text-blue-600 dark:text-blue-400">
+          <Clock className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+          {booking.time}
+        </div>
+        <div className="text-xs font-semibold text-black dark:text-gray-400">
+          {booking.reference}
+        </div>
+      </div>
+
+      {/* Middle Content */}
+      <div className="mb-3 space-y-2">
+        {/* Package Name */}
+        <div className="flex items-center justify-between">
+          <span className="text-sm font-medium text-gray-800 dark:text-gray-100">
+            {booking.title}
+          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-gray-500 dark:text-gray-400">
+              Assigned to
+            </span>
+            <Image
+              alt="Staff"
+              className="h-6 w-6 rounded-full border border-gray-300 object-cover dark:border-gray-600"
+              src={booking.staffImage}
+              width={24}
+              height={24}
+            />
+          </div>
+        </div>
+
+        {/* Services */}
+        <div>
+          <span className="text-xs text-gray-500 dark:text-gray-400">
+            {booking.services.join(" • ")}
+          </span>
+        </div>
+      </div>
+
+      {/* Footer Section */}
+      <div className="flex items-center justify-between">
+        <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
+          x{booking.services.length.toString().padStart(2, "0")}
+        </span>
+        <div className="flex items-center gap-2">
+          <div className="h-2 w-2 rounded-full bg-green-500"></div>
+          <span className="text-xs font-medium text-gray-600 dark:text-gray-300">
+            Completed
+          </span>
+        </div>
+        <button
+          onClick={onSelect}
+          className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
+            isSelected
+              ? "bg-teal text-white shadow-sm hover:bg-teal-700"
+              : "border border-teal bg-gray-100 text-black hover:bg-blue-100 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-blue-100"
+          }`}
+        >
+          {isSelected ? "Selected ✅" : "Details >"}
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// SearchBar Component
+const SearchBar: React.FC = () => {
+  return (
+    <div className="relative">
+      <Search className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 transform text-gray-400" />
+      <Input
+        type="search"
+        placeholder="Search bookings..."
+        className="pl-8 pr-4 w-full"
+      />
+    </div>
+  );
+};
+
+// NotificationPanel Component
+const NotificationPanel: React.FC = () => {
+  return (
+    <div className="fixed right-4 top-20 z-50 w-80 rounded-xl border border-gray-200 bg-white shadow-lg dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100">
+      <div className="border-b border-gray-200 p-4">
+        <div className="flex items-center justify-between">
+          <h3 className="font-semibold">Notifications</h3>
+          <button className="text-sm text-teal-1000 hover:text-teal-1000">
+            Mark all as read
+          </button>
+        </div>
+      </div>
+      <div className="max-h-96 overflow-y-auto">
+        {[
+          {
+            title: "Order Status Update",
+            message: "Your order #2458 is ready for pickup",
+            time: "2 hours ago",
+            unread: true,
+          },
+          {
+            title: "Special Offer",
+            message: "Get 20% off on your next order!",
+            time: "1 day ago",
+            unread: false,
+          },
+        ].map((notification, index) => (
+          <div
+            key={index}
+            className={`cursor-pointer p-4 hover:bg-gray-50 ${notification.unread ? "bg-blue-50" : ""}`}
+          >
+            <div className="flex items-start space-x-3">
+              <div
+                className={`mt-2 h-2 w-2 rounded-full ${notification.unread ? "bg-teal-600" : "bg-gray-300"}`}
+              />
+              <div>
+                <h4 className="text-sm font-medium text-gray-900">
+                  {notification.title}
+                </h4>
+                <p className="mt-1 text-sm text-gray-600">
+                  {notification.message}
+                </p>
+                <span className="mt-2 block text-xs text-gray-500">
+                  {notification.time}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="border-t border-gray-200 p-4">
+        <button className="w-full text-center text-sm text-teal-900 hover:text-teal-1000">
+          View all notifications
+        </button>
+      </div>
+    </div>
+  );
+};
+
+// Main BookingPage Component
 export default function BookingPage() {
-  const [darkMode, setDarkMode] = React.useState(false);
-  const [selectedBooking, setSelectedBooking] = React.useState<Booking | null>(
-    null,
-  );
+  const [darkMode, setDarkMode] = useState(false);
+  const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-  const [selectedTab, setSelectedTab] = React.useState<"upcoming" | "history">(
-    "upcoming",
-  );
+  const [selectedTab, setSelectedTab] = useState<"upcoming" | "history">("upcoming");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
 
   const toggleProfileDropdown = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
@@ -108,10 +291,8 @@ export default function BookingPage() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  React.useEffect(() => {
-    const isDarkMode = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
+  useEffect(() => {
+    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
     setDarkMode(isDarkMode);
   }, []);
 
@@ -119,69 +300,23 @@ export default function BookingPage() {
     setDarkMode(!darkMode);
   };
 
-  const SidebarContent = ({ }) => (
-    <div className={`flex h-full flex-col ${darkMode ? "bg-gray-800 text-white" : "bg-background text-black"}`}>
-      <div className="mb-6 flex items-center justify-between p-4">
-        <Link href="/" className="flex items-center space-x-2">
-          <Image src="/images/logo.svg" alt="Logo" width={100} height={60} />
-        </Link>
-        
-      </div>
-      <nav className="flex-grow space-y-0.5">
-        {[
-          { href: "/home", icon: "iconHome.png", label: "Home" },
-          { href: "/services", icon: "iconService.png", label: "Services" },
-          { href: "/calendar", icon: "iconCalendar.png", label: "Calendar" },
-          { href: "/bookings", icon: "iconBooking.png", label: "Bookings", active: true },
-          { href: "/tracking", icon: "iconTracking.png", label: "Tracking" },
-        ].map((item) => (
-          <Link key={item.label} href={item.href} passHref>
-            <button className={`flex w-full items-center  px-6 py-4 mb-10 mr-7 rounded-md ${
-              item.active
-                ? "bg-teal-20 font-medium text-accent-foreground"
-                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-            } ${darkMode ? "dark:text-gray-300 dark:hover:bg-gray-700" : ""}`}>
-              <Image
-                src={`/images/${item.icon}`}
-                width={32}
-                height={32}
-                alt={item.label}
-                className="mr-3 h-5 w-5"
-              />
-              {item.label}
-            </button>
-          </Link>
-        ))}
-      </nav>
-      <div className="mt-auto space-y-2 p-4">
-        <Button
-          variant="ghost"
-          className="w-full justify-start text-red-800 transition-colors hover:bg-red-100 dark:text-red-800 dark:hover:bg-red-100"
-        >
-          <LogOut className="mr-2 h-4 w-4" />
-          Log out
-        </Button>
-      </div>
-    </div>
-  );
-
   return (
-    <div className={`flex min-h-screen bg-white ${darkMode ? "dark" : ""}`}>
+    <div className={`flex min-h-screen bg-white ${darkMode ? "dark bg-gray-900 text-gray-100" : ""}`}>
       {/* Mobile Sidebar */}
       <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
         <SheetContent side="left" className="w-[240px] p-0 sm:w-[300px]">
-          <SidebarContent />
+          <SidebarContent darkMode={darkMode} />
         </SheetContent>
       </Sheet>
 
       {/* Desktop Sidebar */}
-      <div className="hidden md:flex md:w-64 md:flex-col md:border-r md:bg-background dark:border-gray-700 dark:bg-gray-800">
-        <SidebarContent />
+      <div className="hidden md:flex md:w-64 md:flex-col md:border-r md:bg-background dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100">
+        <SidebarContent darkMode={darkMode} />
       </div>
 
       {/* Main Content */}
       <div className="flex flex-1 flex-col dark:bg-gray-900">
-        <header className="flex h-16 items-center justify-between border-b px-4 sm:px-6 dark:border-gray-700">
+        <header className="flex h-16 items-center justify-between border-b px-4 sm:px-6 dark:border-gray-700 dark:bg-gray-800">
           <div className="flex items-center">
             <Button
               variant="ghost"
@@ -198,21 +333,22 @@ export default function BookingPage() {
             <Button
               size="icon"
               variant="ghost"
-              className="bg-teal-20 dark:text-gray-300 dark:hover:text-white"
+              className="bg-teal-20 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700"
             >
               <Search className="h-5 w-5" />
             </Button>
             <Button
               size="icon"
               variant="ghost"
-              className="dark:text-gray-300 dark:hover:text-white"
+              className="dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700"
+              onClick={() => setIsNotificationOpen(!isNotificationOpen)}
             >
               <Bell className="h-5 w-5" />
             </Button>
             <Button
               size="icon"
               variant="ghost"
-              className="hidden sm:inline-flex dark:text-gray-300 dark:hover:text-white"
+              className="hidden sm:inline-flex dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700"
             >
               <Settings className="h-5 w-5" />
             </Button>
@@ -220,7 +356,7 @@ export default function BookingPage() {
               size="icon"
               variant="ghost"
               onClick={toggleDarkMode}
-              className="dark:text-gray-300 dark:hover:text-white"
+              className="dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700"
             >
               {darkMode ? "☀️" : "🌙"}
             </Button>
@@ -243,7 +379,7 @@ export default function BookingPage() {
                 </div>
               </button>
               {isProfileDropdownOpen && (
-                <div className="absolute right-0 z-50 mt-2 w-48 rounded-xl border border-gray-200 bg-white shadow-lg">
+                <div className="absolute right-0 z-50 mt-2 w-48 rounded-xl border border-gray-200 bg-white shadow-lg dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100">
                   <Link
                     href="/profile"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -251,7 +387,7 @@ export default function BookingPage() {
                     <User className="mr-2 inline-block h-4 w-4 text-gray-500" />
                     Profile
                   </Link>
-                  <Link href="/(auth)/sign-in" passHref>
+                  <Link href="/" passHref>
                     <button
                       className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50"
                       onClick={() => console.log("Logging out...")}
@@ -280,14 +416,14 @@ export default function BookingPage() {
                   <TabsTrigger
                     value="upcoming"
                     onClick={() => setSelectedTab("upcoming")}
-                    className="dark:text-gray-300 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-white"
+                    className="dark:text-gray-300 dark:data-[state=active]:bg-teal-800 dark:data-[state=active]:text-white"
                   >
                     Upcoming
                   </TabsTrigger>
                   <TabsTrigger
                     value="history"
                     onClick={() => setSelectedTab("history")}
-                    className="dark:text-gray-300 dark:data-[state=active]:bg-gray-700 dark:data-[state=active]:text-white"
+                    className="dark:text-gray-300 dark:data-[state=active]:bg-teal-800 dark:data-[state=active]:text-white"
                   >
                     History
                   </TabsTrigger>
@@ -360,9 +496,9 @@ export default function BookingPage() {
 
                 {selectedTab !== "history" && (
                   <div className="w-full md:w-96 mt-6 md:mt-0">
-                    <Card className="sticky top-6 bg-teal-20 dark:border-gray-700 dark:bg-gray-800">
+                    <Card className="sticky top-6 bg-teal-20 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100">
                       {selectedBooking && (
-                        <div className="rounded-t-lg bg-sky-50 p-4 dark:bg-sky-950">
+                        <div className="rounded-t-lg bg-sky-50 p-4 dark:bg-sky-900 dark:text-gray-100">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-1 rounded-full bg-white px-3 py-1 text-sm dark:bg-sky-900">
                               <Clock className="h-4 w-4 text-sky-500 dark:text-sky-400" />
@@ -538,89 +674,10 @@ export default function BookingPage() {
           <Plus className="h-6 w-6" />
         </Button>
       </div>
-    </div>
-  );
-}
-
-function BookingCard({
-  booking,
-  onSelect,
-  isSelected,
-}: {
-  booking: Booking;
-  onSelect: () => void;
-  isSelected: boolean;
-}) {
-  return (
-    <div
-      className={`relative rounded-3xl p-4 shadow-sm transition hover:shadow-md ${
-        isSelected
-          ? "ring-2 ring-gray-100"
-          : "ring-1 ring-gray-100 dark:ring-gray-700"
-      } w-full sm:w-62 bg-teal-20 dark:bg-gray-800`}
-    >
-      {/* Top Section */}
-      <div className="mb-2 flex items-center justify-between">
-        <div className="flex items-center gap-2 text-xs font-medium text-blue-600 dark:text-blue-400">
-          <Clock className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-          {booking.time}
-        </div>
-        <div className="text-xs font-semibold text-black dark:text-gray-400">
-          {booking.reference}
-        </div>
-      </div>
-
-      {/* Middle Content */}
-      <div className="mb-3 space-y-2">
-        {/* Package Name */}
-        <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-gray-800 dark:text-gray-100">
-            {booking.title}
-          </span>
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-500 dark:text-gray-400">
-              Assigned to
-            </span>
-            <Image
-              alt="Staff"
-              className="h-6 w-6 rounded-full border border-gray-300 object-cover dark:border-gray-600"
-              src={booking.staffImage}
-              width={32}
-              height={32}
-            />
-          </div>
-        </div>
-
-        {/* Services */}
-        <div>
-          <span className="text-xs text-gray-500 dark:text-gray-400">
-            {booking.services.join(" • ")}
-          </span>
-        </div>
-      </div>
-
-      {/* Footer Section */}
-      <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
-          x{booking.services.length.toString().padStart(2, "0")}
-        </span>
-        <div className="flex items-center gap-2">
-          <div className="h-2 w-2 rounded-full bg-green-500"></div>
-          <span className="text-xs font-medium text-gray-600 dark:text-gray-300">
-            Completed
-          </span>
-        </div>
-        <button
-          onClick={onSelect}
-          className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
-            isSelected
-              ? "bg-teal text-white shadow-sm hover:bg-teal-700"
-              : "border border-teal bg-gray-100 text-black hover:bg-blue-100 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-blue-100"
-          }`}
-        >
-          {isSelected ? "Selected ✅" : "Details >"}
-        </button>
-      </div>
+      {/* Notification Panel */}
+      {isNotificationOpen && (
+        <NotificationPanel />
+      )}
     </div>
   );
 }
