@@ -347,11 +347,11 @@ export default function Dashboard() {
     ];
 
     return (
-      <>
+      <div className="space-y-6">
         {/* Contact Options */}
-        <div className="mb-8">
+        <div>
           <div className="mb-6 flex items-center">
-            <h3 className="mb-4 text-base font-semibold text-teal-1000">
+            <h3 className="text-base font-semibold text-teal-1000">
               Contact Options
             </h3>
             <span className="font-semi-bold ml-auto text-sm text-teal-1000">
@@ -392,7 +392,7 @@ export default function Dashboard() {
         </div>
 
         {/* FAQs */}
-        <div className="mb-8">
+        <div>
           <h3 className="font-semi-bold mb-4 text-base text-teal-1000">
             FAQs
           </h3>
@@ -415,7 +415,6 @@ export default function Dashboard() {
             ))}
           </ul>
         </div>
-        <br />
 
         {/* Request Assistance Form */}
         <div>
@@ -470,7 +469,7 @@ export default function Dashboard() {
             </div>
           </form>
         </div>
-      </>
+      </div>
     );
   };
 
@@ -720,7 +719,21 @@ export default function Dashboard() {
         <aside className="fixed bottom-0 right-0 top-16 w-96 overflow-y-auto rounded-2xl border-l border-gray-300 bg-white p-6 shadow-lg lg:block hidden">
           <CustomerSupport />
         </aside>
-        
+
+        {/* Mobile Customer Support Toggle */}
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="fixed bottom-20 right-4 z-50 md:hidden bg-white shadow-lg rounded-full">
+              <Phone className="h-6 w-6" />
+              <span className="sr-only">Toggle customer support</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
+            <div className="pb-20">
+              <CustomerSupport />
+            </div>
+          </SheetContent>
+        </Sheet>
         {/* Notification Panel */}
         {isNotificationOpen && (
           <NotificationPanel />

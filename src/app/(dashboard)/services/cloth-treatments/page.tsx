@@ -256,7 +256,7 @@ const Page: React.FC = () => {
                         value="pickup"
                         checked={deliveryMethod === 'pickup'}
                         onChange={() => setDeliveryMethod('pickup')}
-                        className="mt-2"
+                        className="mt-2 bg-teal"
                       />
                     </label>
                   </div>
