@@ -271,57 +271,80 @@ export default function Dashboard() {
   };
 
   // LoyaltyProgress component
-  const LoyaltyProgress = () => (
-    <Card className="mb-8">
-      <CardHeader>
-      </CardHeader>
-      <CardContent>
-        <div className="mb-6 flex flex-wrap items-center justify-center gap-2 md:gap-4">
-          {[1, 2, 3, 4, 5].map((step, index) => {
-            const isCompleted = (dragProgress / 100) * loyaltyPoints.length > index;
-            const isInProgress = (dragProgress / 100) * loyaltyPoints.length > index - 1 && (dragProgress / 100) * loyaltyPoints.length < index;
-            const outerCircleClass = isCompleted ? "border-teal-1000" : isInProgress ? "border-teal-1000" : "border-gray-300";
-            const innerCircleClass = isCompleted ? "bg-teal-1000 text-white" : isInProgress ? "bg-teal-1000 text-white" : "bg-gray-200 text-gray-400";
-            return (
-              <div key={index} className="relative flex items-center justify-center">
-                <div className={`h-8 w-8 rounded-full border-2 md:h-12 md:w-12 lg:h-16 lg:w-16 ${outerCircleClass} flex items-center justify-center`}>
-                  <div className={`flex h-6 w-6 items-center justify-center rounded-full md:h-8 md:w-8 lg:h-12 lg:w-12 ${innerCircleClass}`}>
-                    <span className="text-xs font-bold md:text-sm lg:text-lg">{step}</span>
-                  </div>
-                </div>
-                {index < 4 && (
-                  <div className={`hidden h-1 w-4 md:w-6 lg:w-8 md:block ${isCompleted ? "bg-teal-1000" : "bg-gray-300"} absolute left-full top-1/2 -translate-y-1/2 transform`}></div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-        {/* Range Button (Progress Bar) */}
-        <div
-          className="relative mb-6 h-4 w-full cursor-pointer overflow-hidden rounded-full bg-gray-200"
-          ref={progressBarRef}
-          onMouseDown={handleMouseDown}
-          onTouchStart={handleTouchStart}
-        >
-          <div
-            className="absolute h-full bg-teal-1000 transition-all duration-300 ease-in-out"
-            style={{ width: `${dragProgress}%` }}
-          ></div>
-          <div
-            className="absolute top-1/2 h-6 w-6 -translate-y-1/2 transform rounded-full border-4 border-teal-1000 bg-white transition-all duration-300 ease-in-out"
-            style={{ left: `calc(${dragProgress}% - 12px)` }}
-          ></div>
-        </div>
+  const LoyaltyProgress = () => {
+    const [localDragProgress, setLocalDragProgress] = useState(dragProgress);
 
-        {/* Texts Below Progress Bar */}
-        <div className="mb-4 flex justify-between text-xs text-gray-600">
-          {loyaltyPoints.map((point, index) => (
-            <span key={index}>{point.points} pts</span>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
-  );
+    useEffect(() => {
+      setLocalDragProgress(dragProgress);
+    }, [dragProgress]);
+
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+      if (progressBarRef.current) {
+        const rect = progressBarRef.current.getBoundingClientRect();
+        const x = e.touches[0].clientX - rect.left;
+        const newProgress = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        setLocalDragProgress(newProgress);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      setDragProgress(localDragProgress);
+    };
+
+    return (
+      <Card className="mb-8">
+        <CardHeader>
+        </CardHeader>
+        <CardContent>
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-2 md:gap-4">
+            {[1, 2, 3, 4, 5].map((step, index) => {
+              const isCompleted = (localDragProgress / 100) * loyaltyPoints.length > index;
+              const isInProgress = (localDragProgress / 100) * loyaltyPoints.length > index - 1 && (localDragProgress / 100) * loyaltyPoints.length < index;
+              const outerCircleClass = isCompleted ? "border-teal-1000" : isInProgress ? "border-teal-1000" : "border-gray-300";
+              const innerCircleClass = isCompleted ? "bg-teal-1000 text-white" : isInProgress ? "bg-teal-1000 text-white" : "bg-gray-200 text-gray-400";
+              return (
+                <div key={index} className="relative flex items-center justify-center">
+                  <div className={`h-8 w-8 rounded-full border-2 md:h-12 md:w-12 lg:h-16 lg:w-16 ${outerCircleClass} flex items-center justify-center`}>
+                    <div className={`flex h-6 w-6 items-center justify-center rounded-full md:h-8 md:w-8 lg:h-12 lg:w-12 ${innerCircleClass}`}>
+                      <span className="text-xs font-bold md:text-sm lg:text-lg">{step}</span>
+                    </div>
+                  </div>
+                  {index < 4 && (
+                    <div className={`h-1 w-4 md:w-6 lg:w-8 ${isCompleted ? "bg-teal-1000" : "bg-gray-300"} absolute left-full top-1/2 -translate-y-1/2 transform`}></div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          {/* Range Button (Progress Bar) */}
+          <div
+            className="relative mb-6 h-4 w-full cursor-pointer overflow-hidden rounded-full bg-gray-200"
+            ref={progressBarRef}
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div
+              className="absolute h-full bg-teal-1000 transition-all duration-300 ease-in-out"
+              style={{ width: `${localDragProgress}%` }}
+            ></div>
+            <div
+              className="absolute top-1/2 h-6 w-6 -translate-y-1/2 transform rounded-full border-4 border-teal-1000 bg-white transition-all duration-300 ease-in-out"
+              style={{ left: `calc(${localDragProgress}% - 12px)` }}
+            ></div>
+          </div>
+
+          {/* Texts Below Progress Bar */}
+          <div className="mb-4 flex justify-between text-xs text-gray-600">
+            {loyaltyPoints.map((point, index) => (
+              <span key={index}>{point.points} pts</span>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    );
+  };
 
   // CustomerSupport component
   const CustomerSupport = () => {
