@@ -351,8 +351,7 @@ export default function Dashboard() {
     const faqs = [
       {
         question: "How to place an order?",
-        answer:
-          "You can place an order by selecting the services you need and clicking on the order button.",
+        answer: "You can place an order by selecting the services you need and clicking on the order button.",
       },
       {
         question: "What services are available?",
@@ -364,8 +363,7 @@ export default function Dashboard() {
       },
       {
         question: "Payment and refund policies.",
-        answer:
-          "We accept various payment methods and offer refunds under certain conditions.",
+        answer: "We accept various payment methods and offer refunds under certain conditions.",
       },
     ];
 
@@ -448,7 +446,6 @@ export default function Dashboard() {
           <form className="space-y-6">
             {/* Name Field */}
             <div className="relative">
-              <label className="mb-1 block text-sm font-medium text-gray-600"></label>
               <input
                 type="text"
                 className="w-full border-b border-teal-1000 bg-transparent text-sm focus:border-teal-1000 focus:outline-none"
@@ -457,7 +454,6 @@ export default function Dashboard() {
             </div>
             {/* Contact Info Field */}
             <div className="relative">
-              <label className="mb-1 block text-sm font-medium text-gray-600"></label>
               <input
                 type="text"
                 className="w-full border-b border-teal-1000 bg-transparent text-sm focus:border-teal-1000 focus:outline-none"
@@ -466,7 +462,6 @@ export default function Dashboard() {
             </div>
             {/* Order ID Field */}
             <div className="relative">
-              <label className="mb-1 block text-sm font-medium text-gray-600"></label>
               <input
                 type="text"
                 className="w-full border-b border-teal-1000 bg-transparent text-sm focus:border-teal-1000 focus:outline-none"
@@ -475,7 +470,6 @@ export default function Dashboard() {
             </div>
             {/* Description Field */}
             <div className="relative">
-              <label className="font-semi-bold mb-1 block text-xs text-gray-600"></label>
               <textarea
                 className="h-24 w-full rounded-lg border border-gray-400 bg-transparent p-2 text-sm focus:border-teal-1000 focus:outline-none"
                 placeholder="Description of the problem"
@@ -746,12 +740,12 @@ export default function Dashboard() {
         {/* Mobile Customer Support Toggle */}
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="fixed bottom-20 right-4 z-50 md:hidden bg-white shadow-lg rounded-full">
+            <Button variant="ghost" size="icon" className="fixed bottom-20 right-4 z-50 lg:hidden bg-white shadow-lg rounded-full">
               <Phone className="h-6 w-6" />
               <span className="sr-only">Toggle customer support</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
+          <SheetContent side="right" className="w-full sm:w-[400px] overflow-y-auto">
             <div className="pb-20">
               <CustomerSupport />
             </div>
