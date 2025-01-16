@@ -111,7 +111,7 @@ export default function Dashboard() {
   // Sidebar component
   const Sidebar = () => (
     <>
-      <nav className="flex flex-col space-y-10">
+      <nav className="flex flex-col space-y-16">
         <Link href="/home" passHref>
           <Button variant="ghost" className="w-full justify-start rounded-md bg-teal-20">
             <Image
