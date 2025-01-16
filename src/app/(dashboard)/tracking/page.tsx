@@ -284,7 +284,7 @@ export default function TrackingPage() {
                         <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-customGreen z-10">
                           <Check className="h-6 w-6 text-white" />
                         </div>
-                        <div className="text-xs md:text-sm font-medium text-gray-900">
+                        <div className="text-xs md:text-sm font-medium px-1 text-gray-900">
                           {step}
                         </div>
                         <div className="mt-1 text-xs text-gray-600">
