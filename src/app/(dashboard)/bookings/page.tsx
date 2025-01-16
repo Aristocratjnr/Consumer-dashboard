@@ -316,7 +316,7 @@ export default function BookingPage() {
 
       {/* Main Content */}
       <div className="flex flex-1 flex-col dark:bg-gray-900">
-        <header className="flex h-16 items-center justify-between border-b px-4 sm:px-6 dark:border-gray-700 dark:bg-gray-800">
+        <header className="flex h-16 items-center justify-between border-b px-2 sm:px-6 dark:border-gray-700 dark:bg-gray-800">
           <div className="flex items-center">
             <Button
               variant="ghost"
