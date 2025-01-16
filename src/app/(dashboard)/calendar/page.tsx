@@ -140,7 +140,7 @@ export default function CalendarDashboard() {
       <div className="md:pl-64">
         {/* Header */}
         <header className={`sticky top-0 z-50 border-b ${isDarkTheme ? "bg-gray-900" : "bg-background"}`}>
-          <div className="flex h-16 items-center justify-between px-4">
+          <div className="flex h-16 items-center justify-between px-2">
             <div className="flex items-center gap-4">
               <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMobileMenu}>
                 <Menu className="h-6 w-6" />
