@@ -642,7 +642,7 @@ export default function Dashboard() {
         {/* Mobile Sidebar */}
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden fixed top-20 right-10 z-50 bg-white shadow-lg rounded-full">
+            <Button variant="ghost" size="icon" className="md:hidden fixed top-20 right-1 z-50 bg-white shadow-lg rounded-full">
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle menu</span>
             </Button>
