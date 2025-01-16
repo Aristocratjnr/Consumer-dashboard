@@ -741,7 +741,7 @@ export default function Dashboard() {
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="fixed bottom-20 right-4 z-50 lg:hidden bg-white shadow-lg rounded-full">
-              <Phone className="h-6 w-6" />
+              <Phone className="h-6 w-6 text-teal" />
               <span className="sr-only">Toggle customer support</span>
             </Button>
           </SheetTrigger>
