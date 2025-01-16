@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function LaundryIllustrations() {
   return (
-    <div className="relative h-full w-full rounded-l-3xl overflow-hidden">
+    <div className="relative w-full h-64 md:h-full rounded-l-3xl overflow-hidden">
       <div className="absolute inset-0 flex justify-center items-center">
         <Image
           src="/images/man.png"
