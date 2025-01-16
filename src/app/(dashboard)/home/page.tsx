@@ -111,7 +111,7 @@ export default function Dashboard() {
   // Sidebar component
   const Sidebar = () => (
     <>
-      <nav className="flex flex-col space-y-10">
+      <nav className="flex flex-col space-y-16">
         <Link href="/home" passHref>
           <Button variant="ghost" className="w-full justify-start rounded-md bg-teal-20">
             <Image
@@ -271,65 +271,87 @@ export default function Dashboard() {
   };
 
   // LoyaltyProgress component
-  const LoyaltyProgress = () => (
-    <Card className="mb-8">
-      <CardHeader>
-      </CardHeader>
-      <CardContent>
-        <div className="mb-6 flex flex-wrap items-center justify-center gap-2 md:gap-4">
-          {[1, 2, 3, 4, 5].map((step, index) => {
-            const isCompleted = (dragProgress / 100) * loyaltyPoints.length > index;
-            const isInProgress = (dragProgress / 100) * loyaltyPoints.length > index - 1 && (dragProgress / 100) * loyaltyPoints.length < index;
-            const outerCircleClass = isCompleted ? "border-teal-1000" : isInProgress ? "border-teal-1000" : "border-gray-300";
-            const innerCircleClass = isCompleted ? "bg-teal-1000 text-white" : isInProgress ? "bg-teal-1000 text-white" : "bg-gray-200 text-gray-400";
-            return (
-              <div key={index} className="relative flex items-center justify-center">
-                <div className={`h-8 w-8 rounded-full border-2 md:h-12 md:w-12 lg:h-16 lg:w-16 ${outerCircleClass} flex items-center justify-center`}>
-                  <div className={`flex h-6 w-6 items-center justify-center rounded-full md:h-8 md:w-8 lg:h-12 lg:w-12 ${innerCircleClass}`}>
-                    <span className="text-xs font-bold md:text-sm lg:text-lg">{step}</span>
-                  </div>
-                </div>
-                {index < 4 && (
-                  <div className={`hidden h-1 w-4 md:w-6 lg:w-8 md:block ${isCompleted ? "bg-teal-1000" : "bg-gray-300"} absolute left-full top-1/2 -translate-y-1/2 transform`}></div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-        {/* Range Button (Progress Bar) */}
-        <div
-          className="relative mb-6 h-4 w-full cursor-pointer overflow-hidden rounded-full bg-gray-200"
-          ref={progressBarRef}
-          onMouseDown={handleMouseDown}
-          onTouchStart={handleTouchStart}
-        >
-          <div
-            className="absolute h-full bg-teal-1000 transition-all duration-300 ease-in-out"
-            style={{ width: `${dragProgress}%` }}
-          ></div>
-          <div
-            className="absolute top-1/2 h-6 w-6 -translate-y-1/2 transform rounded-full border-4 border-teal-1000 bg-white transition-all duration-300 ease-in-out"
-            style={{ left: `calc(${dragProgress}% - 12px)` }}
-          ></div>
-        </div>
+  const LoyaltyProgress = () => {
+    const [localDragProgress, setLocalDragProgress] = useState(dragProgress);
 
-        {/* Texts Below Progress Bar */}
-        <div className="mb-4 flex justify-between text-xs text-gray-600">
-          {loyaltyPoints.map((point, index) => (
-            <span key={index}>{point.points} pts</span>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
-  );
+    useEffect(() => {
+      setLocalDragProgress(dragProgress);
+    }, [dragProgress]);
+
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+      if (progressBarRef.current) {
+        const rect = progressBarRef.current.getBoundingClientRect();
+        const x = e.touches[0].clientX - rect.left;
+        const newProgress = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        setLocalDragProgress(newProgress);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      setDragProgress(localDragProgress);
+    };
+
+    return (
+      <Card className="mb-8">
+        <CardHeader>
+        </CardHeader>
+        <CardContent>
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-2 md:gap-4">
+            {[1, 2, 3, 4, 5].map((step, index) => {
+              const isCompleted = (localDragProgress / 100) * loyaltyPoints.length > index;
+              const isInProgress = (localDragProgress / 100) * loyaltyPoints.length > index - 1 && (localDragProgress / 100) * loyaltyPoints.length < index;
+              const outerCircleClass = isCompleted ? "border-teal-1000" : isInProgress ? "border-teal-1000" : "border-gray-300";
+              const innerCircleClass = isCompleted ? "bg-teal-1000 text-white" : isInProgress ? "bg-teal-1000 text-white" : "bg-gray-200 text-gray-400";
+              return (
+                <div key={index} className="relative flex items-center justify-center">
+                  <div className={`h-8 w-8 rounded-full border-2 md:h-12 md:w-12 lg:h-16 lg:w-16 ${outerCircleClass} flex items-center justify-center`}>
+                    <div className={`flex h-6 w-6 items-center justify-center rounded-full md:h-8 md:w-8 lg:h-12 lg:w-12 ${innerCircleClass}`}>
+                      <span className="text-xs font-bold md:text-sm lg:text-lg">{step}</span>
+                    </div>
+                  </div>
+                  {index < 4 && (
+                    <div className={`h-1 w-4 md:w-6 lg:w-8 ${isCompleted ? "bg-teal-1000" : "bg-gray-300"} absolute left-full top-1/2 -translate-y-1/2 transform`}></div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          {/* Range Button (Progress Bar) */}
+          <div
+            className="relative mb-6 h-4 w-full cursor-pointer overflow-hidden rounded-full bg-gray-200"
+            ref={progressBarRef}
+            onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div
+              className="absolute h-full bg-teal-1000 transition-all duration-300 ease-in-out"
+              style={{ width: `${localDragProgress}%` }}
+            ></div>
+            <div
+              className="absolute top-1/2 h-6 w-6 -translate-y-1/2 transform rounded-full border-4 border-teal-1000 bg-white transition-all duration-300 ease-in-out"
+              style={{ left: `calc(${localDragProgress}% - 12px)` }}
+            ></div>
+          </div>
+
+          {/* Texts Below Progress Bar */}
+          <div className="mb-4 flex justify-between text-xs text-gray-600">
+            {loyaltyPoints.map((point, index) => (
+              <span key={index}>{point.points} pts</span>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    );
+  };
 
   // CustomerSupport component
   const CustomerSupport = () => {
     const faqs = [
       {
         question: "How to place an order?",
-        answer:
-          "You can place an order by selecting the services you need and clicking on the order button.",
+        answer: "You can place an order by selecting the services you need and clicking on the order button.",
       },
       {
         question: "What services are available?",
@@ -341,17 +363,16 @@ export default function Dashboard() {
       },
       {
         question: "Payment and refund policies.",
-        answer:
-          "We accept various payment methods and offer refunds under certain conditions.",
+        answer: "We accept various payment methods and offer refunds under certain conditions.",
       },
     ];
 
     return (
-      <>
+      <div className="space-y-6">
         {/* Contact Options */}
-        <div className="mb-8">
+        <div>
           <div className="mb-6 flex items-center">
-            <h3 className="mb-4 text-base font-semibold text-teal-1000">
+            <h3 className="text-base font-semibold text-teal-1000">
               Contact Options
             </h3>
             <span className="font-semi-bold ml-auto text-sm text-teal-1000">
@@ -392,7 +413,7 @@ export default function Dashboard() {
         </div>
 
         {/* FAQs */}
-        <div className="mb-8">
+        <div>
           <h3 className="font-semi-bold mb-4 text-base text-teal-1000">
             FAQs
           </h3>
@@ -415,7 +436,6 @@ export default function Dashboard() {
             ))}
           </ul>
         </div>
-        <br />
 
         {/* Request Assistance Form */}
         <div>
@@ -426,7 +446,6 @@ export default function Dashboard() {
           <form className="space-y-6">
             {/* Name Field */}
             <div className="relative">
-              <label className="mb-1 block text-sm font-medium text-gray-600"></label>
               <input
                 type="text"
                 className="w-full border-b border-teal-1000 bg-transparent text-sm focus:border-teal-1000 focus:outline-none"
@@ -435,7 +454,6 @@ export default function Dashboard() {
             </div>
             {/* Contact Info Field */}
             <div className="relative">
-              <label className="mb-1 block text-sm font-medium text-gray-600"></label>
               <input
                 type="text"
                 className="w-full border-b border-teal-1000 bg-transparent text-sm focus:border-teal-1000 focus:outline-none"
@@ -444,7 +462,6 @@ export default function Dashboard() {
             </div>
             {/* Order ID Field */}
             <div className="relative">
-              <label className="mb-1 block text-sm font-medium text-gray-600"></label>
               <input
                 type="text"
                 className="w-full border-b border-teal-1000 bg-transparent text-sm focus:border-teal-1000 focus:outline-none"
@@ -453,7 +470,6 @@ export default function Dashboard() {
             </div>
             {/* Description Field */}
             <div className="relative">
-              <label className="font-semi-bold mb-1 block text-xs text-gray-600"></label>
               <textarea
                 className="h-24 w-full rounded-lg border border-gray-400 bg-transparent p-2 text-sm focus:border-teal-1000 focus:outline-none"
                 placeholder="Description of the problem"
@@ -470,7 +486,7 @@ export default function Dashboard() {
             </div>
           </form>
         </div>
-      </>
+      </div>
     );
   };
 
@@ -534,7 +550,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-teal-20 text-gray-900">
       {/* Enhanced Header */}
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-200 bg-white bg-white/90 px-4 py-2 backdrop-blur-sm">
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-200 bg-white bg-white/90 px-1 py-2 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <div className="flex items-center space-x-4">
             {/* Logo */}
@@ -626,8 +642,8 @@ export default function Dashboard() {
         {/* Mobile Sidebar */}
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden fixed top-20 right-10 z-50 bg-white shadow-lg rounded-full">
-              <Menu className="h-6 w-6" />
+            <Button variant="ghost" size="icon" className="md:hidden fixed top-20 right-1 z-50 bg-white shadow-lg rounded-full">
+              <Menu className="h-6 w-6 text-teal-1000" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
@@ -672,7 +688,7 @@ export default function Dashboard() {
               <p className="text-sm leading-relaxed text-gray-600">
                 {dragProgress < 100 ? (
                   <>
-                    You &apos; ve earned{" "}
+                    You&apos;ve earned{" "}
                     {Math.floor(
                       (dragProgress / 100) *
                         loyaltyPoints[loyaltyPoints.length - 1].points,
@@ -720,7 +736,21 @@ export default function Dashboard() {
         <aside className="fixed bottom-0 right-0 top-16 w-96 overflow-y-auto rounded-2xl border-l border-gray-300 bg-white p-6 shadow-lg lg:block hidden">
           <CustomerSupport />
         </aside>
-        
+
+        {/* Mobile Customer Support Toggle */}
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="fixed bottom-20 right-4 z-50 lg:hidden bg-white shadow-lg rounded-full">
+              <Phone className="h-6 w-6 text-teal" />
+              <span className="sr-only">Toggle customer support</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-full sm:w-[400px] overflow-y-auto">
+            <div className="pb-20">
+              <CustomerSupport />
+            </div>
+          </SheetContent>
+        </Sheet>
         {/* Notification Panel */}
         {isNotificationOpen && (
           <NotificationPanel />

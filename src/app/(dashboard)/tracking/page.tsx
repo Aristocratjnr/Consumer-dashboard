@@ -125,7 +125,7 @@ export default function TrackingPage() {
     <div className={`flex flex-col min-h-screen ${isDarkTheme ? "bg-gray-800 text-white" : "bg-teal-20 text-black"}`}>
       {/* Header */}
       <header className={`border-b ${isDarkTheme ? "bg-gray-900" : "bg-white"} sticky top-0 z-10`}>
-        <div className="flex h-16 items-center justify-between px-4 md:px-6">
+        <div className="flex h-16 items-center justify-between px-2 md:px-6">
           <div className="flex items-center space-x-2">
             <Sheet>
               <SheetTrigger asChild>
@@ -284,7 +284,7 @@ export default function TrackingPage() {
                         <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-customGreen z-10">
                           <Check className="h-6 w-6 text-white" />
                         </div>
-                        <div className="text-xs md:text-sm font-medium text-gray-900">
+                        <div className="text-xs md:text-sm font-medium px-1 text-gray-900">
                           {step}
                         </div>
                         <div className="mt-1 text-xs text-gray-600">

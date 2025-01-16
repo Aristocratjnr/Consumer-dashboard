@@ -53,8 +53,8 @@ const Page: React.FC = () => {
           zIndex: 10,
         }}
       >
-        <Image alt="TulaLaundry" className="h-10 -mr-0.5" src="/images/logo.png" />
-        <Image src="/images/lund.png"   alt="Tulaundry" className="h-5" />
+        <Image alt="TulaLaundry" className="h-10 -mr-0.5" src="/images/logo.png" width={40} height={40} />
+        <Image src="/images/lund.png"   alt="Tulaundry" className="h-5" width={100} height={20} />
       </div>
 
       {/* Centered Card Container */}
@@ -256,7 +256,7 @@ const Page: React.FC = () => {
                         value="pickup"
                         checked={deliveryMethod === 'pickup'}
                         onChange={() => setDeliveryMethod('pickup')}
-                        className="mt-2"
+                        className="mt-2 bg-teal"
                       />
                     </label>
                   </div>
