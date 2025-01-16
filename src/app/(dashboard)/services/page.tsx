@@ -79,7 +79,7 @@ export default function LaundryDashboard() {
     <div className={`flex min-h-screen flex-col ${isDarkTheme ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
       {/* Header */}
       <header className={`border-b ${isDarkTheme ? "border-gray-700 bg-gray-900" : "bg-white"} sticky top-0 z-10`}>
-        <div className="flex h-16 items-center justify-between px-4 md:px-6">
+        <div className="flex h-16 items-center justify-between px-2 md:px-6">
           <div className="flex items-center space-x-2">
             <Sheet>
               <SheetTrigger asChild>
