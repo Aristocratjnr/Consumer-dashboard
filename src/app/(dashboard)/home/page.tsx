@@ -550,7 +550,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-teal-20 text-gray-900">
       {/* Enhanced Header */}
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-200 bg-white bg-white/90 px-4 py-2 backdrop-blur-sm">
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-200 bg-white bg-white/90 px-1 py-2 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <div className="flex items-center space-x-4">
             {/* Logo */}
@@ -688,7 +688,7 @@ export default function Dashboard() {
               <p className="text-sm leading-relaxed text-gray-600">
                 {dragProgress < 100 ? (
                   <>
-                    You &apos; ve earned{" "}
+                    You&apos;ve earned{" "}
                     {Math.floor(
                       (dragProgress / 100) *
                         loyaltyPoints[loyaltyPoints.length - 1].points,
