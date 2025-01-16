@@ -44,7 +44,7 @@ export default function SignIn() {
         >
           {/* Header */}
           <div className="text-center md:text-right mb-4 md:mb-12">
-            <span className="text-sm text-gray-500">Don't have an account yet? </span>
+            <span className="text-sm text-gray-500">Don&apos;t have an account yet? </span>
             <Link href="/auth/SignUp" className="text-sm md:text-lg font-semibold text-gray-900 hover:underline">
               Sign up
             </Link>
