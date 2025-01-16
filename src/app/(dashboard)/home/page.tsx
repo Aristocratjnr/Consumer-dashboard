@@ -643,7 +643,7 @@ export default function Dashboard() {
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="md:hidden fixed top-20 right-1 z-50 bg-white shadow-lg rounded-full">
-              <Menu className="h-6 w-6" />
+              <Menu className="h-6 w-6 text-teal-1000" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
