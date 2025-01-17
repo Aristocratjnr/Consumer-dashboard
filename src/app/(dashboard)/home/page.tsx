@@ -605,15 +605,15 @@ export default function Dashboard() {
                   className="flex items-center space-x-3 rounded-full border-l border-gray-200 bg-teal-50 px-2 py-1 pl-4 text-black"
                 >
                   <Image
-                    src="/images/woman.png"
+                    src={session?.user.image || "/images/woman.png"}
                     width={32}
                     height={32}
                     alt="Profile"
                     className="h-8 w-8 rounded-full ring-2 ring-teal-800"
                   />
                   <div className="flex flex-col items-start md:flex">
-                    <span className="font-semi-bold text-sm">Sandra</span>
-                    <span className="text-xs text-gray-700">77884466</span>
+                    <span className="font-semi-bold text-sm">{session?.user?.name}</span>
+                    <span className="text-xs text-gray-700">{session?.user?.id}</span>
                   </div>
                 </button>
                 {isProfileDropdownOpen && (
