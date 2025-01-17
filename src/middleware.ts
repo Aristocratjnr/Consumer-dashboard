@@ -16,5 +16,12 @@ export async function middleware(req: NextRequest) {
 
 // Define the routes where the middleware should be applied
 export const config = {
-  matcher: ["/home/:path*"], // Protect /dashboard and its subroutes
+  matcher: [
+    "/home",
+    "/calendar",
+    "/services",
+    "/bookings",
+    "/tracking",
+    "/services/:path*", 
+  ],
 };
