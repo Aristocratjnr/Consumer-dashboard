@@ -32,7 +32,7 @@ export default function LaundryDashboard() {
           />
         </Link>
       </div>
-      <nav className="flex-grow space-y-0.5">
+      <nav className="flex-grow space-y-16">
         <br />
         {[
           { href: "/home", icon: "iconHome.png", label: "Home" },
@@ -43,7 +43,7 @@ export default function LaundryDashboard() {
         ].map((item, index) => (
           <Link key={index} href={item.href} passHref>
             <button
-              className={`flex w-full items-center px-6 py-4 mb-4 mr-7 rounded-md ${
+              className={`flex w-full items-center px-6 py-4 mb-10 mr-7 rounded-md ${
                 isDarkTheme
                   ? item.label === "Services"
                     ? "bg-gray-700 text-accent-foreground"

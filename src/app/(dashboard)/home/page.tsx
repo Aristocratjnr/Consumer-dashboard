@@ -120,8 +120,8 @@ export default function Dashboard() {
             <Image
               src="/images/iconHome.png"
               alt="Home"
-              width={24}
-              height={24}
+              width={32}
+              height={32}
               className="mr-2 h-5 w-5"
             />
             Home
@@ -132,8 +132,8 @@ export default function Dashboard() {
             <Image
               src="/images/iconService.png"
               alt="Services"
-              width={24}
-              height={24}
+              width={32}
+              height={32}
               className="mr-2 h-5 w-5"
             />
             Services
@@ -144,8 +144,8 @@ export default function Dashboard() {
             <Image
               src="/images/iconCalendar.png"
               alt="Calendar"
-              width={24}
-              height={24}
+              width={32}
+              height={32}
               className="mr-2 h-5 w-5"
             />
             Calendar
@@ -156,8 +156,8 @@ export default function Dashboard() {
             <Image
               src="/images/iconBooking.png"
               alt="Bookings"
-              width={24}
-              height={24}
+              width={32}
+              height={32}
               className="mr-2 h-5 w-5"
             />
             Bookings
@@ -168,8 +168,8 @@ export default function Dashboard() {
             <Image
               src="/images/iconTracking.png"
               alt="Tracking"
-              width={24}
-              height={24}
+              width={32}
+              height={32}
               className="mr-2 h-5 w-5"
             />
             Tracking
