@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {useSession } from "next-auth/react";
+import {signOut, useSession } from "next-auth/react";
 import ReactConfetti from "react-confetti";
 import { Bell, Settings, Search, LogOut, Mail, Phone, User, Menu } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -176,7 +176,9 @@ export default function Dashboard() {
         </Link>
       </nav>
       <div className="absolute bottom-4 left-4 right-4">
-        <Button variant="ghost" className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-100">
+        <Button variant="ghost"
+        onClick={() => signOut({ callbackUrl: "/" })}
+         className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-100">
           <LogOut className="mr-2 h-5 w-5" />
           Log out
         </Button>
@@ -626,7 +628,7 @@ export default function Dashboard() {
                     <Link href="/" passHref>
                       <button
                         className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50"
-                        onClick={() => console.log("Logging out...")}
+                        onClick={() => signOut({ callbackUrl: "/" })}
                       >
                         <LogOut className="mr-2 inline-block h-4 w-4 text-red-500" />
                         Log Out
