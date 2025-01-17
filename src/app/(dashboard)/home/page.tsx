@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import {useSession } from "next-auth/react";
 import ReactConfetti from "react-confetti";
 import { Bell, Settings, Search, LogOut, Mail, Phone, User, Menu } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,7 @@ export default function Dashboard() {
   const [dragProgress, setDragProgress] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
+  const { data: session } = useSession();
   const isDraggingRef = useRef(false);
 
   const toggleProfileDropdown = () => {
@@ -658,12 +660,16 @@ export default function Dashboard() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 px-4 py-2 md:ml-64 lg:mr-96">
+        { session ? (
+           <div>
+          <main className="flex-1 px-4 py-2 md:ml-64 lg:mr-96">
           <div className="max-w-4xl">
             <div className="mb-8">
               <h1 className="font-semi-bold text-4xl">
-                Welcome <span className="text-teal">Back!</span>
+                Welcome, <span className="text-teal">{session.user?.name}</span>
               </h1>
+                <>
+                </>
               <p className="mt-2 text-sm text-gray-600">
                 Let&apos;s make laundry day effortless.
               </p>
@@ -721,6 +727,7 @@ export default function Dashboard() {
 
             {/* Packages */}
             <Packages />
+            
           </div>
           {showConfetti && (
             <ReactConfetti
@@ -730,7 +737,13 @@ export default function Dashboard() {
               numberOfPieces={200}
             />
           )}
-        </main>
+           </main>
+          </div>
+        )
+      : (
+        <div className="flex h-screen items-center justify-center"></div>
+      )}
+       
 
         {/* Right Sidebar - Customer Support */}
         <aside className="fixed bottom-0 right-0 top-16 w-96 overflow-y-auto rounded-2xl border-l border-gray-300 bg-white p-6 shadow-lg lg:block hidden">
