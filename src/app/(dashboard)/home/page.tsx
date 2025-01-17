@@ -17,6 +17,7 @@ export default function Dashboard() {
   const [showConfetti, setShowConfetti] = useState(false);
   const progressBarRef = useRef<HTMLDivElement>(null);
   const { data: session } = useSession();
+  const firstName = session?.user?.name?.split(" ")[0];
   const isDraggingRef = useRef(false);
 
   const toggleProfileDropdown = () => {
@@ -668,7 +669,7 @@ export default function Dashboard() {
           <div className="max-w-4xl">
             <div className="mb-8">
               <h1 className="font-semi-bold text-4xl">
-                Welcome, <span className="text-teal">{session.user?.name}</span>
+                Welcome, <span className="text-teal">{firstName}.</span>
               </h1>
                 <>
                 </>
