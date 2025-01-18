@@ -6,7 +6,9 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Globe } from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -14,6 +16,59 @@ export default function SignUpPage() {
   const [firstName, setfirstName] = useState("");
   const [lastName, setlastName] = useState("");
   const [error, setError] = useState("");
+
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!firstName || !lastName || !email || !password) {
+      setError("All fields are necessary.");
+      return;
+    }
+
+    try {
+      const resUserExists = await fetch("/api/userExists", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const { user } = await resUserExists.json();
+
+      if (user) {
+        setError("User already exists.");
+        return;
+      }
+
+      const res = await fetch("/api/SignUp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+        }),
+      });
+
+      if (res.ok) {
+        const form = e.target as HTMLFormElement;
+        form.reset();
+        router.push("/");
+      } else {
+        console.log("User registration failed.");
+      }
+    } catch (error) {
+      console.log("Error during registration: ", error);
+    }
+  };
+
+
 
   return (
     <div className="flex min-h-screen w-full">
@@ -91,7 +146,7 @@ export default function SignUpPage() {
             </h2>
 
             {/* Sign Up Form */}
-            <form className="space-y-4 font-light text-md">
+            <form className="space-y-4 font-light text-md " onSubmit={handleSubmit}>
               <FloatingInput
                 label="First Name"
                 id="firstName"
@@ -119,7 +174,7 @@ export default function SignUpPage() {
               <FloatingInput
                 label="Password"
                 id="password"
-                onChange={(e) =>setEmail(e.target.value)}
+                onChange={(e) =>setPassword(e.target.value)}
                 type="password"
                 required
               />
