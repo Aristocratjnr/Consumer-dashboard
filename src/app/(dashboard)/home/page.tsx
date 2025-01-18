@@ -112,7 +112,7 @@ export default function Dashboard() {
     setDragProgress(0);
   };
 
-  // Sidebar component
+  // Sidebar component on Mobile View
   const Sidebar = () => (
     <>
       <nav className="flex flex-col space-y-16">
