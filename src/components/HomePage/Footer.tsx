@@ -5,29 +5,31 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="rounded-t-[3rem] bg-[#0E6EAC] py-8 text-white">
+    <footer className="rounded-t-[1.5rem] bg-[#0E6EAC] py-6 text-white sm:rounded-t-[3rem] sm:py-8">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center space-y-6">
           {/* Logo and Brand */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center">
             <Image
               src="/images/footer-logo.svg"
               alt="ULaundry Logo"
-              width={200}
-              height={60}
-              className=""
+              width={150}
+              height={45}
+              className="h-auto w-auto"
             />
           </div>
 
           {/* Tagline */}
-          <p className="max-w-2xl text-center">
+          <p className="max-w-2xl text-center text-sm sm:text-base">
             Fresh clothes, hassle-free. Join us today for reliable laundry
             services and seamless connections with local providers!
           </p>
-           {/* Divider */}
-           <div className="my-4 w-full border border-b-2 border-dotted border-white/20" />
+
+          {/* Divider */}
+          <div className="my-2 w-full border-b border-dotted border-white/20 sm:my-4" />
+
           {/* Navigation */}
-          <nav className="flex flex-wrap justify-center gap-8 text-sm sm:text-base">
+          <nav className="flex flex-wrap justify-center gap-4 text-sm sm:gap-8">
             <Link href="/" className="transition-opacity hover:opacity-80">
               HOME
             </Link>
@@ -49,12 +51,12 @@ export default function Footer() {
           </nav>
 
           {/* Divider */}
-          <div className="my-4 w-full border border-b-2 border-dotted border-white/20" />
+          <div className="my-2 w-full border-b border-dotted border-white/20 sm:my-4" />
 
           {/* Bottom Section */}
-          <div className="flex w-full flex-col items-center justify-between gap-4 text-sm sm:flex-row">
+          <div className="flex w-full flex-col items-center justify-between gap-4 text-xs sm:flex-row sm:text-sm">
             <div>© Copyright {currentYear}</div>
-            <div className="flex gap-4">
+            <div className="flex gap-2 sm:gap-4">
               <Link
                 href="/privacy"
                 className="transition-opacity hover:opacity-80"

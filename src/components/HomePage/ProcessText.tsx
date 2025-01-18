@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 
-
 export default function ProcessText() {
   const features = [
     {
@@ -25,7 +24,7 @@ export default function ProcessText() {
   ];
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
+    <section className="hidden w-full py-12 md:block md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-start gap-4 md:gap-8">
           <div className="flex max-w-[980px] flex-col items-start gap-2">
