@@ -6,8 +6,15 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Globe } from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function SignUpPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] =useState("");
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
+  const [error, setError] = useState("");
+
   return (
     <div className="flex min-h-screen w-full">
       {/* Left Section - Image */}
@@ -89,12 +96,14 @@ export default function SignUpPage() {
                 label="First Name"
                 id="firstName"
                 type="text"
+                onChange={(e) => setfirstName(e.target.value)}
                 required
               />
 
               <FloatingInput
                 label="Last Name"
                 id="lastName"
+                onChange={(e) => setlastName(e.target.value)}
                 type="text"
                 required
               />
@@ -102,6 +111,7 @@ export default function SignUpPage() {
               <FloatingInput
                 label="Email Address"
                 id="email"
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 required
               />
@@ -109,9 +119,11 @@ export default function SignUpPage() {
               <FloatingInput
                 label="Password"
                 id="password"
+                onChange={(e) =>setEmail(e.target.value)}
                 type="password"
                 required
               />
+
 
               <RadioGroup defaultValue="customer" className="mt-5 sm:mt-6">
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -138,6 +150,11 @@ export default function SignUpPage() {
               </Button>
             </form>
 
+            {error && (
+            <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 rounded-md mt-2">
+              {error}
+            </div>
+          )}
             {/* Login Link */}
             <p className="mt-4 text-center text-xs text-gray-600">
               Already have an account?{" "}
