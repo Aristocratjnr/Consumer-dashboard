@@ -14,7 +14,6 @@ export async function middleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-// Define the routes where the middleware should be applied
 export const config = {
   matcher: [
     "/home",
