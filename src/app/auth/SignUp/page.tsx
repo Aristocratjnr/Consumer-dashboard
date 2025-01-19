@@ -72,10 +72,14 @@ export default function SignUpPage() {
         setError("Registration failed: " + errorData.message);
         setLoading(false);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
+     if (error instanceof Error) {
+      setError("An unexpected error occurred: " + error.message);
+    } else {
       setError("An unexpected error occurred. Please try again.");
-      setLoading(false);
     }
+    setLoading(false);
+  }
   };
 
   return (
