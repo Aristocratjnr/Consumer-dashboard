@@ -18,7 +18,7 @@ export default function Dashboard() {
   const progressBarRef = useRef<HTMLDivElement>(null);
   const { data: session } = useSession();
   const firstName = session?.user?.name?.split(" ")[0];
-  const sessionId = session?.user?.id ? session.user.id.slice(0, 8) : "unknown";
+  const sessionId = session?.user?.id ? session.user.id.slice(0, 12) : "unknown";
   const isDraggingRef = useRef(false);
 
   const toggleProfileDropdown = () => {

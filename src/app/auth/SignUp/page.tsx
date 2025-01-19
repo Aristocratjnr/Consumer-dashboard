@@ -26,7 +26,7 @@ export default function SignUpPage() {
       setError("All fields are necessary.");
       return;
     }
-
+      
     try {
       const resUserExists = await fetch("/api/userExists", {
         method: "POST",
@@ -61,10 +61,12 @@ export default function SignUpPage() {
         form.reset();
         router.push("/");
       } else {
-        console.log("User registration failed.");
+        const errorData = await res.json();
+        console.log("User registration failed:", errorData);
+        setError("Registration failed: " + errorData.message);
       }
     } catch (error) {
-      console.log("Error during registration: ", error);
+      console.log("Error during registration:", error);
     }
   };
 
@@ -150,6 +152,7 @@ export default function SignUpPage() {
               <FloatingInput
                 label="First Name"
                 id="firstName"
+                value={firstName}
                 type="text"
                 onChange={(e) => setfirstName(e.target.value)}
                 required
@@ -158,6 +161,7 @@ export default function SignUpPage() {
               <FloatingInput
                 label="Last Name"
                 id="lastName"
+                value={lastName}
                 onChange={(e) => setlastName(e.target.value)}
                 type="text"
                 required
@@ -166,6 +170,7 @@ export default function SignUpPage() {
               <FloatingInput
                 label="Email Address"
                 id="email"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 required
@@ -174,6 +179,7 @@ export default function SignUpPage() {
               <FloatingInput
                 label="Password"
                 id="password"
+                value={password}
                 onChange={(e) =>setPassword(e.target.value)}
                 type="password"
                 required
