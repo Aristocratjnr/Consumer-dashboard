@@ -155,7 +155,6 @@ export default function SignUpPage() {
                 value={firstName}
                 type="text"
                 onChange={(e) => setfirstName(e.target.value)}
-                required
               />
 
               <FloatingInput
@@ -164,7 +163,6 @@ export default function SignUpPage() {
                 value={lastName}
                 onChange={(e) => setlastName(e.target.value)}
                 type="text"
-                required
               />
 
               <FloatingInput
@@ -173,7 +171,6 @@ export default function SignUpPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                required
               />
 
               <FloatingInput
@@ -182,7 +179,6 @@ export default function SignUpPage() {
                 value={password}
                 onChange={(e) =>setPassword(e.target.value)}
                 type="password"
-                required
               />
 
 
