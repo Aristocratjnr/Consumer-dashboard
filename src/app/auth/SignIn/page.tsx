@@ -14,13 +14,17 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false); 
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   const router = useRouter();
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+
+    setLoading(true); // Start loading
+    setError(""); 
 
     try {
       const res = await signIn("credentials", {
@@ -30,13 +34,17 @@ export default function SignIn() {
       });
 
       if (res && res.error) {
-        setError("Invalid Credentials");
+        setError("Invalid Credentials! Please try again.");
+        setLoading(false); 
         return;
       }
 
+      
       router.replace("/home");
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.error(err);
+      setError("An unexpected error occurred. Please try again.");
+      setLoading(false); 
     }
   };
 
@@ -80,13 +88,13 @@ export default function SignIn() {
                 variant="outline"
                 className="w-full h-10 bg-transparent text-gray-600 font-medium"
                 aria-label="Continue with Google"
-                onClick={() => signIn("google", { callbackUrl: "/home" })}
+                onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
               >
                 <Image src="/images/google.png" alt="Google Logo" width={20} height={20} className="mr-2 h-5 w-5 object-contain" />
                 Continue with Google
               </Button>
 
-            <Link href="/dashboard" className="flex-1">
+              <Link href="/dashboard" className="flex-1">
                 <Button
                   variant="ghost"
                   className="w-full h-10 bg-transparent border text-gray-600 font-medium"
@@ -102,7 +110,7 @@ export default function SignIn() {
                   Continue with Apple
                 </Button>
               </Link>
-              </div>
+            </div>
 
             {/* Divider */}
             <div className="relative py-2 md:py-4">
@@ -115,7 +123,7 @@ export default function SignIn() {
             </div>
 
             {/* Error Message */}
-            {error && <p className="text-red-600" aria-live="polite">{error}</p>}
+            {error && <p className="text-red-700" aria-live="polite">{error}</p>}
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -155,9 +163,12 @@ export default function SignIn() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full h-10 bg-teal-1000 hover:bg-teal font-itim text-white rounded-xl"
+                className={`w-full h-10 rounded-xl font-itim text-white ${
+                  loading ? "bg-gray-500" : "bg-teal-1000 hover:bg-teal"
+                }`}
+                disabled={loading}
               >
-                Start Laundering!
+                {loading ? "Signing In..." : "Start Laundering!"}
               </button>
             </form>
           </div>
