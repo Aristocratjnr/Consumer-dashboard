@@ -148,7 +148,7 @@ export default function SignUpPage() {
             </h2>
 
             {/* Sign Up Form */}
-            <form className="space-y-4 font-light text-md " onSubmit={handleSubmit}>
+            <form className="space-y-4 font-light text-md" onSubmit={handleSubmit}>
               <FloatingInput
                 label="First Name"
                 id="firstName"
