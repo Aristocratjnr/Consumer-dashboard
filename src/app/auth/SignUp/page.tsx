@@ -59,7 +59,7 @@ export default function SignUpPage() {
       if (res.ok) {
         const form = e.target as HTMLFormElement;
         form.reset();
-        router.push("/");
+        router.push("/auth/SignIn");
       } else {
         const errorData = await res.json();
         console.log("User registration failed:", errorData);

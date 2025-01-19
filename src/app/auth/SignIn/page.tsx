@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { LaundryIllustrations } from "@/components/laundry-illustrations";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,11 +17,26 @@ export default function SignIn() {
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const router = useRouter();
+
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    const result = await signIn("credentials", { email, password, redirect: true, callbackUrl: "/home" });
-    if (result?.error) {
-      setError("Invalid email or password.");
+
+    try {
+      const res = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (res && res.error) {
+        setError("Invalid Credentials");
+        return;
+      }
+
+      router.replace("/home");
+    } catch (error) {
+      console.log(error);
     }
   };
 
