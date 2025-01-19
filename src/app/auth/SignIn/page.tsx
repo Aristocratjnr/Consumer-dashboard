@@ -115,7 +115,7 @@ export default function SignIn() {
             </div>
 
             {/* Error Message */}
-            {error && <p className="text-red-500" aria-live="polite">{error}</p>}
+            {error && <p className="text-red-600" aria-live="polite">{error}</p>}
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
