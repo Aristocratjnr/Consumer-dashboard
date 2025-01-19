@@ -173,7 +173,7 @@ export default function CalendarDashboard() {
                   className="flex items-center space-x-3 rounded-full border-l border-gray-200 bg-teal-50 px-2 py-1 pl-4 text-black"
                 >
                   <Image
-                    src="/images/woman.png"
+                    src= {session?.user?.image || "/images/woman.png"}
                     width={32}
                     height={32}
                     alt="Profile"

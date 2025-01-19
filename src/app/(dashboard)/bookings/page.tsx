@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
+import { useSession, signOut } from "next-auth/react";
 
 interface Booking {
   id: number;
@@ -115,6 +116,7 @@ const SidebarContent: React.FC<{ darkMode: boolean }> = ({ darkMode }) => (
     </nav>
     <div className="mt-auto space-y-2 p-4">
       <Button
+       onClick={() => signOut({ callbackUrl: "/" })}
         variant="ghost"
         className="w-full justify-start text-red-800 transition-colors hover:bg-red-100 dark:text-red-800 dark:hover:bg-red-100"
       >
@@ -282,6 +284,7 @@ export default function BookingPage() {
   const [selectedTab, setSelectedTab] = useState<"upcoming" | "history">("upcoming");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const {data : session} = useSession();
 
   const toggleProfileDropdown = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
@@ -367,15 +370,15 @@ export default function BookingPage() {
                 className="flex items-center space-x-2 rounded-full border-l border-gray-200 bg-teal-50 px-2 py-1 text-black"
               >
                 <Image
-                  src="/images/woman.png"
+                  src={session?.user?.image || "/images/woman.png"}
                   width={32}
                   height={32}
                   alt="Profile"
                   className="h-8 w-8 rounded-full ring-2 ring-teal-800"
                 />
                 <div className="hidden flex-col sm:flex">
-                  <span className="font-semi-bold text-sm">Sandra</span>
-                  <span className="text-xs text-gray-700">77884466</span>
+                  <span className="font-semi-bold text-sm">{session?.user?.name}</span>
+                  <span className="text-xs text-gray-700">{session?.user?.id}</span>
                 </div>
               </button>
               {isProfileDropdownOpen && (
@@ -390,7 +393,7 @@ export default function BookingPage() {
                   <Link href="/" passHref>
                     <button
                       className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50"
-                      onClick={() => console.log("Logging out...")}
+                      onClick={() => signOut({ callbackUrl: "/" })}
                     >
                       <LogOut className="mr-2 inline-block h-4 w-4 text-red-500" />
                       Log Out
