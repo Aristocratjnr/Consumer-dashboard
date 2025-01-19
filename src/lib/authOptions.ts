@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { connectMongoDB } from "@/lib/mongodb";
-import User from "../models/user";
+import User from "@/models/User";
 
 declare module "next-auth" {
   interface Session {
@@ -40,7 +40,7 @@ export const authOptions: NextAuthOptions = {
 
         try {
           await connectMongoDB();
-          const user = await User.findOne({ email });
+          const user = await User.findOne({ email }).lean() as unknown as { _id: string, email: string, name: string, password: string };
 
           if (!user) {
             throw new Error("No user found with the given email.");
