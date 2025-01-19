@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
 import { Sheet, SheetContent} from "@/components/ui/sheet";
+import { useSession, signOut } from "next-auth/react";
 
 export default function CalendarDashboard() {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
@@ -21,6 +22,7 @@ export default function CalendarDashboard() {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [selectedDate, setSelectedDate] = useState(new Date().getDate());
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const { data: session } = useSession();
 
   const toggleProfileDropdown = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
@@ -111,7 +113,9 @@ export default function CalendarDashboard() {
   ))}
 </nav>
       <div className="mt-auto p-4">
-        <button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-red-600 transition-colors hover:bg-red-50 hover:text-red-700">
+        <button
+        onClick={() => signOut({ callbackUrl: "/" })}
+         className="flex w-full items-center justify-between rounded-md px-3 py-2 text-red-600 transition-colors hover:bg-red-50 hover:text-red-700">
           <div className="flex items-center">
             <LogOut className="mr-3 h-5 w-5" />
             <span>Log out</span>
@@ -176,8 +180,8 @@ export default function CalendarDashboard() {
                     className="h-8 w-8 rounded-full ring-2 ring-teal-800"
                   />
                   <div className="hidden flex-col sm:flex">
-                    <span className="font-semi-bold text-sm">Sandra</span>
-                    <span className="text-xs text-gray-700">77884466</span>
+                    <span className="font-semi-bold text-sm">{session?.user?.name}</span>
+                    <span className="text-xs text-gray-700">{session?.user.id}</span>
                   </div>
                 </button>
                 {isProfileDropdownOpen && (
@@ -192,7 +196,7 @@ export default function CalendarDashboard() {
                     <Link href="/(auth)/sign-in" passHref>
                       <button
                         className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50"
-                        onClick={() => console.log("Logging out...")}
+                        onClick={() => signOut({ callbackUrl: "/" })}
                       >
                         <LogOut className="mr-2 inline-block h-4 w-4 text-red-500" />
                         Log Out

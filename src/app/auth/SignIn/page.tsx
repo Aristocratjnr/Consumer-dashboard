@@ -23,7 +23,7 @@ export default function SignIn() {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    setLoading(true); // Start loading
+    setLoading(true); 
     setError(""); 
 
     try {
@@ -88,7 +88,7 @@ export default function SignIn() {
                 variant="outline"
                 className="w-full h-10 bg-transparent text-gray-600 font-medium"
                 aria-label="Continue with Google"
-                onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+                onClick={() => signIn("google", { callbackUrl: "/home" })}
               >
                 <Image src="/images/google.png" alt="Google Logo" width={20} height={20} className="mr-2 h-5 w-5 object-contain" />
                 Continue with Google
