@@ -5,12 +5,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Home, LogOut, Plus, Search, Settings, Shirt, Sparkles, ChevronRight, Bell, User, Menu } from 'lucide-react';
 import Link from "next/link";
 import { useState } from "react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function LaundryDashboard() {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const { data: session} = useSession();
 
   const toggleProfileDropdown = () => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
@@ -32,7 +34,7 @@ export default function LaundryDashboard() {
           />
         </Link>
       </div>
-      <nav className="flex-grow space-y-0.5">
+      <nav className="flex-grow space-y-0.05">
         <br />
         {[
           { href: "/home", icon: "iconHome.png", label: "Home" },
@@ -43,7 +45,7 @@ export default function LaundryDashboard() {
         ].map((item, index) => (
           <Link key={index} href={item.href} passHref>
             <button
-              className={`flex w-full items-center px-6 py-4 mb-4 mr-7 rounded-md ${
+              className={`flex w-full items-center px-6 py-4 mb-8 mr-7 rounded-md ${
                 isDarkTheme
                   ? item.label === "Services"
                     ? "bg-gray-700 text-accent-foreground"
@@ -65,7 +67,9 @@ export default function LaundryDashboard() {
           </Link>
         ))}
       </nav><br/><br/><br/><br/><br/><br/><br/>
-      <button className="mt-auto flex items-center justify-between rounded-lg px-4 py-3 text-red-800 transition-colors hover:bg-red-50">
+      <button 
+      className="mt-auto flex items-center justify-between rounded-lg px-4 py-3 text-red-800 transition-colors hover:bg-red-50"
+      onClick={() => signOut({ callbackUrl: "/" })}>
         <div className="flex items-center space-x-3">
           <LogOut className="h-5 w-5" />
           <span className="font-medium">Log out</span>
@@ -123,15 +127,16 @@ export default function LaundryDashboard() {
                 className={`flex items-center space-x-3 border-l border-gray-200 pl-4 ${isDarkTheme ? "bg-gray-700 text-white" : "bg-teal-50 text-black"} rounded-full px-2 py-1`}
               >
                 <Image
-                  src="/images/woman.png"
+                  src={session?.user?.image || "/images/woman.png"
+                  }
                   width={32}
                   height={32}
                   alt="Profile"
                   className="h-8 w-8 rounded-full ring-2 ring-teal-800"
                 />
                 <div className="hidden md:flex md:flex-col">
-                  <span className="font-semi-bold text-sm">Sandra</span>
-                  <span className="text-xs text-gray-700">77884466</span>
+                  <span className="font-semi-bold text-sm">{session?.user?.name}</span>
+                  <span className="text-xs text-gray-700">{session?.user?.id}</span>
                 </div>
               </button>
               {isProfileDropdownOpen && (
@@ -145,10 +150,10 @@ export default function LaundryDashboard() {
                     <User className="mr-2 inline-block h-4 w-4 text-gray-500" />
                     Profile
                   </Link>
-                  <Link href="/(auth)/sign-in" passHref>
+                  <Link href="/" passHref>
                     <button
                       className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50"
-                      onClick={() => console.log("Logging out...")}
+                      onClick={() => signOut({ callbackUrl: "/" })}
                     >
                       <LogOut className="mr-2 inline-block h-4 w-4 text-red-500" />
                       Log Out

@@ -32,11 +32,7 @@ export default function Testimonials() {
               </div>
 
               <p className="leading-relaxed text-gray-700">
-                Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                vulputate libero et velit interdum, ac aliquet odio mattis.
-                Class aptent taciti sociosqu ad litora torquent per conubia
-                nostra, per inceptos himenaeos. Curabitur tempus urna at turpis
-                condimentum lobortis.
+                Their service is incredibly convenient and reliable. From the moment I scheduled my first pick-up, I was impressed by their professionalism. My clothes always come back perfectly clean, fresh, and neatly folded. I appreciate their attention to detail, especially with delicate fabrics and special care instructions.
               </p>
               {/* text */}
               <div className="flex w-full items-center justify-between">

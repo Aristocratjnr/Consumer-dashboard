@@ -1,18 +1,56 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
-
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+test('test', async ({ page }) => {
+  await page.goto('https://tulundry.onrender.com/');
+  await page.getByRole('link', { name: 'Sign In' }).click();
+  await page.getByRole('link', { name: 'Sign up' }).click();
+  await page.getByRole('button', { name: 'Create Account' }).click();
+  await page.getByText('First Name').click();
+  await page.getByPlaceholder('First Name').click();
+  await page.getByPlaceholder('First Name').press('CapsLock');
+  await page.getByPlaceholder('First Name').fill('D');
+  await page.getByPlaceholder('First Name').press('CapsLock');
+  await page.getByPlaceholder('First Name').fill('David');
+  await page.getByText('Last Name').click();
+  await page.getByPlaceholder('Last Name').click();
+  await page.getByPlaceholder('Last Name').press('CapsLock');
+  await page.getByPlaceholder('Last Name').fill('A');
+  await page.getByPlaceholder('Last Name').press('CapsLock');
+  await page.getByPlaceholder('Last Name').fill('Ayim');
+  await page.getByText('Email Address').click();
+  await page.getByPlaceholder('Email Address').click();
+  await page.getByPlaceholder('Email Address').fill('ayimobuobi@gmail.com');
+  await page.getByPlaceholder('Password').click();
+  await page.getByPlaceholder('Password').fill('12345');
+  await page.getByRole('button', { name: 'Create Account' }).click();
+  await page.getByPlaceholder('Email Address').click();
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('ArrowLeft');
+  await page.getByPlaceholder('Email Address').press('Insert');
+  await page.getByPlaceholder('Email Address').press('Insert');
+  await page.getByPlaceholder('Email Address').press('Insert');
+  await page.getByPlaceholder('Email Address').press('Insert');
+  await page.getByPlaceholder('Email Address').press('ArrowRight');
+  await page.getByPlaceholder('Email Address').press('ArrowRight');
+  await page.getByPlaceholder('Email Address').fill('junior@gmail.com');
+  await page.getByRole('button', { name: 'Create Account' }).click();
+  await page.getByPlaceholder('johndoe@yahoo.com').click();
+  await page.getByPlaceholder('johndoe@yahoo.com').fill('junior@gmail.com');
+  await page.getByPlaceholder('************').click();
+  await page.getByPlaceholder('************').fill('1234');
+  await page.getByRole('button', { name: 'Start Laundering!' }).click();
+  await page.getByPlaceholder('************').click();
+  await page.getByPlaceholder('************').fill('12345');
+  await page.getByRole('button', { name: 'Start Laundering!' }).click();
+  await page.locator('.p-6 > div:nth-child(2) > div:nth-child(2)').click();
 });

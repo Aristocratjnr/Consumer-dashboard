@@ -3,11 +3,85 @@
 import { Button } from "@/components/ui/button";
 import { FloatingInput } from "@/components/ui/floating-input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Globe } from 'lucide-react';
+import { Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function SignUpPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [userType, setUserType] = useState("customer");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!firstName || !lastName || !email || !password) {
+      setError("All fields are necessary.");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const resUserExists = await fetch("/api/userExists", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const { user } = await resUserExists.json();
+
+      if (user) {
+        setError("User already exists.");
+        setLoading(false);
+        return;
+      }
+
+      const res = await fetch("/api/SignUp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+          userType,
+        }),
+      });
+
+      if (res.ok) {
+        setLoading(false);
+        const form = e.target as HTMLFormElement;
+        form.reset();
+        router.push("/auth/SignIn");
+      } else {
+        const errorData = await res.json();
+        setError("Registration failed: " + errorData.message);
+        setLoading(false);
+      }
+    } catch (error: unknown) {
+     if (error instanceof Error) {
+      setError("An unexpected error occurred: " + error.message);
+    } else {
+      setError("An unexpected error occurred. Please try again.");
+    }
+    setLoading(false);
+  }
+  };
+
   return (
     <div className="flex min-h-screen w-full">
       {/* Left Section - Image */}
@@ -32,7 +106,7 @@ export default function SignUpPage() {
           priority
         />
         <div className="relative z-10 flex flex-col justify-between min-h-screen py-6 md:py-8">
-          {/* Header: Language Selector and Breadcrumb */}
+          {/* Header */}
           <div className="flex items-center justify-between text-xs sm:text-sm text-gray-600">
             <div>
               <Link href="/" className="hover:text-gray-900">
@@ -84,36 +158,48 @@ export default function SignUpPage() {
             </h2>
 
             {/* Sign Up Form */}
-            <form className="space-y-4 font-light text-md">
+            <form className="space-y-4 font-light text-md" onSubmit={handleSubmit}>
               <FloatingInput
                 label="First Name"
                 id="firstName"
+                value={firstName}
                 type="text"
-                required
+                onChange={(e) => setFirstName(e.target.value)}
+                disabled={loading}
               />
 
               <FloatingInput
                 label="Last Name"
                 id="lastName"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 type="text"
-                required
+                disabled={loading}
               />
 
               <FloatingInput
                 label="Email Address"
                 id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                required
+                disabled={loading}
               />
 
               <FloatingInput
                 label="Password"
                 id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
-                required
+                disabled={loading}
               />
 
-              <RadioGroup defaultValue="customer" className="mt-5 sm:mt-6">
+              <RadioGroup
+                defaultValue="customer"
+                onValueChange={(value) => setUserType(value)}
+                className="mt-5 sm:mt-6"
+              >
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="provider" id="provider" />
@@ -132,13 +218,21 @@ export default function SignUpPage() {
 
               <Button
                 type="submit"
-                className="mt-6 w-full rounded-full bg-teal-1000 text-white text-sm hover:bg-teal-700 h-10 sm:h-11"
+                className={`mt-6 w-full rounded-full ${
+                  loading ? "bg-gray-400" : "bg-teal-1000 hover:bg-teal-700"
+                } text-white text-sm h-10 sm:h-11`}
+                disabled={loading}
               >
-                Create Account
+                {loading ? "Creating Account..." : "Create Account"}
               </Button>
             </form>
 
-            {/* Login Link */}
+            {error && (
+              <div className="bg-red-500 text-white w-fit text-sm py-1 px-3 text-center rounded-md mt-2 mx-auto">
+                {error}
+              </div>
+            )}
+
             <p className="mt-4 text-center text-xs text-gray-600">
               Already have an account?{" "}
               <Link href="/auth/SignIn" className="text-black hover:underline">
@@ -146,9 +240,8 @@ export default function SignUpPage() {
               </Link>
             </p>
           </div>
-
-          {/* Footer Links */}
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs text-gray-600 mt-6">
+             {/* Footer Links */}
+             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs text-gray-600 mt-6">
             <Link href="/support" className="hover:text-gray-900">
               Contact Support
             </Link>
